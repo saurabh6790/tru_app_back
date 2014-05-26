@@ -1,0 +1,59 @@
+[
+ {
+  "creation": "2014-04-19 15:44:01", 
+  "docstatus": 0, 
+  "modified": "2014-04-21 20:44:27", 
+  "modified_by": "Administrator", 
+  "owner": "Administrator"
+ }, 
+ {
+  "autoname": "SCD.####", 
+  "doctype": "DocType", 
+  "istable": 1, 
+  "module": "Test", 
+  "name": "__common__"
+ }, 
+ {
+  "doctype": "DocField", 
+  "in_list_view": 1, 
+  "name": "__common__", 
+  "parent": "Sample Creation Item Details", 
+  "parentfield": "fields", 
+  "parenttype": "DocType", 
+  "permlevel": 0, 
+  "read_only": 1
+ }, 
+ {
+  "cancel": 1, 
+  "create": 1, 
+  "doctype": "DocPerm", 
+  "name": "__common__", 
+  "parent": "Sample Creation Item Details", 
+  "parentfield": "permissions", 
+  "parenttype": "DocType", 
+  "permlevel": 0, 
+  "read": 1, 
+  "role": "Administrator", 
+  "write": 1
+ }, 
+ {
+  "doctype": "DocType", 
+  "name": "Sample Creation Item Details"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "sample_id", 
+  "fieldtype": "Link", 
+  "label": "Sample Id", 
+  "options": "Sample"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "barcode", 
+  "fieldtype": "Data", 
+  "label": "Barcode"
+ }, 
+ {
+  "doctype": "DocPerm"
+ }
+]

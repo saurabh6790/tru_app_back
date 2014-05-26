@@ -1,0 +1,42 @@
+[
+ {
+  "creation": "2014-04-15 17:28:44", 
+  "docstatus": 0, 
+  "modified": "2014-05-02 11:41:36", 
+  "modified_by": "Administrator", 
+  "owner": "Administrator"
+ }, 
+ {
+  "doctype": "DocType", 
+  "istable": 1, 
+  "module": "HR", 
+  "name": "__common__"
+ }, 
+ {
+  "doctype": "DocField", 
+  "in_list_view": 1, 
+  "name": "__common__", 
+  "parent": "Trainners Details", 
+  "parentfield": "fields", 
+  "parenttype": "DocType", 
+  "permlevel": 0
+ }, 
+ {
+  "doctype": "DocType", 
+  "name": "Trainners Details"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "trainners", 
+  "fieldtype": "Link", 
+  "label": "Trainer", 
+  "options": "Employee"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "user_id", 
+  "fieldtype": "Data", 
+  "label": "User ID", 
+  "read_only": 1
+ }
+]

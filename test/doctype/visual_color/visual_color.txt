@@ -1,0 +1,49 @@
+[
+ {
+  "creation": "2014-05-15 12:26:46", 
+  "docstatus": 0, 
+  "modified": "2014-05-15 12:27:03", 
+  "modified_by": "Administrator", 
+  "owner": "Administrator"
+ }, 
+ {
+  "autoname": "field:visual_color", 
+  "doctype": "DocType", 
+  "document_type": "Master", 
+  "module": "Test", 
+  "name": "__common__"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "visual_color", 
+  "fieldtype": "Data", 
+  "label": "Visual Color", 
+  "name": "__common__", 
+  "parent": "Visual Color", 
+  "parentfield": "fields", 
+  "parenttype": "DocType", 
+  "permlevel": 0
+ }, 
+ {
+  "create": 1, 
+  "doctype": "DocPerm", 
+  "name": "__common__", 
+  "parent": "Visual Color", 
+  "parentfield": "permissions", 
+  "parenttype": "DocType", 
+  "permlevel": 0, 
+  "read": 1, 
+  "role": "All", 
+  "write": 1
+ }, 
+ {
+  "doctype": "DocType", 
+  "name": "Visual Color"
+ }, 
+ {
+  "doctype": "DocField"
+ }, 
+ {
+  "doctype": "DocPerm"
+ }
+]

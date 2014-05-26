@@ -1,0 +1,82 @@
+[
+ {
+  "creation": "2014-04-19 11:13:34", 
+  "docstatus": 0, 
+  "modified": "2014-05-14 10:42:22", 
+  "modified_by": "Administrator", 
+  "owner": "Administrator"
+ }, 
+ {
+  "autoname": "field:test_group", 
+  "doctype": "DocType", 
+  "document_type": "Master", 
+  "icon": "icon-file-text", 
+  "is_submittable": 0, 
+  "module": "Test", 
+  "name": "__common__"
+ }, 
+ {
+  "doctype": "DocField", 
+  "name": "__common__", 
+  "parent": "Test Group", 
+  "parentfield": "fields", 
+  "parenttype": "DocType", 
+  "permlevel": 0
+ }, 
+ {
+  "cancel": 1, 
+  "create": 1, 
+  "doctype": "DocPerm", 
+  "name": "__common__", 
+  "parent": "Test Group", 
+  "parentfield": "permissions", 
+  "parenttype": "DocType", 
+  "permlevel": 0, 
+  "read": 1, 
+  "report": 1, 
+  "role": "Administrator", 
+  "write": 1
+ }, 
+ {
+  "doctype": "DocType", 
+  "name": "Test Group"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "test_group_details", 
+  "fieldtype": "Section Break", 
+  "label": "Test Group Details"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "test_group", 
+  "fieldtype": "Data", 
+  "label": "Test Group Name"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "tests", 
+  "fieldtype": "Section Break", 
+  "label": "Tests"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "test_name", 
+  "fieldtype": "Table", 
+  "label": "Test Name", 
+  "options": "Group Test"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "amended_from", 
+  "fieldtype": "Link", 
+  "label": "Amended From", 
+  "no_copy": 1, 
+  "options": "Test Group", 
+  "print_hide": 1, 
+  "read_only": 1
+ }, 
+ {
+  "doctype": "DocPerm"
+ }
+]

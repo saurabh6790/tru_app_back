@@ -1,0 +1,12 @@
+
+// cur_frm.fields_dict.sample_allocation_detail.grid.get_field("tester").get_query = function(doc,cdt,cdn)
+// {	
+//   console.log("hhhh");	
+//   return "select parent from `tabEmployee Training Details` where level='Level 1'" 
+// }
+
+
+cur_frm.cscript.refresh = function(doc,cdt,cdn){
+	console.log("refresh");
+}
+

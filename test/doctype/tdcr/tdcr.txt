@@ -1,0 +1,222 @@
+[
+ {
+  "creation": "2014-04-29 19:12:23", 
+  "docstatus": 0, 
+  "modified": "2014-04-29 20:02:02", 
+  "modified_by": "Administrator", 
+  "owner": "Administrator"
+ }, 
+ {
+  "autoname": "TDCR.#####", 
+  "doctype": "DocType", 
+  "document_type": "Transaction", 
+  "is_submittable": 1, 
+  "module": "Test", 
+  "name": "__common__"
+ }, 
+ {
+  "doctype": "DocField", 
+  "name": "__common__", 
+  "parent": "TDCR", 
+  "parentfield": "fields", 
+  "parenttype": "DocType", 
+  "permlevel": 0
+ }, 
+ {
+  "create": 1, 
+  "doctype": "DocPerm", 
+  "name": "__common__", 
+  "parent": "TDCR", 
+  "parentfield": "permissions", 
+  "parenttype": "DocType", 
+  "permlevel": 0, 
+  "read": 1, 
+  "write": 1
+ }, 
+ {
+  "doctype": "DocType", 
+  "name": "TDCR"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "date", 
+  "fieldtype": "Date", 
+  "label": "Date"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "equipment_used", 
+  "fieldtype": "Data", 
+  "label": "Equipment Used"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "sample_no", 
+  "fieldtype": "Data", 
+  "label": "Sample No", 
+  "read_only": 1
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "column_break_4", 
+  "fieldtype": "Column Break"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "calibration_due_on", 
+  "fieldtype": "Data", 
+  "label": "Calibration Due on"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "bottle_no", 
+  "fieldtype": "Data", 
+  "label": "Bottle No"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "cell_details", 
+  "fieldtype": "Section Break", 
+  "label": "Cell Details"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "cell_constant", 
+  "fieldtype": "Data", 
+  "label": "Cell Constant"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "zero", 
+  "fieldtype": "Data", 
+  "label": "Zero"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "cm", 
+  "fieldtype": "Data", 
+  "label": "CM"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "cell_no", 
+  "fieldtype": "Data", 
+  "label": "Cell No"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "test_details", 
+  "fieldtype": "Section Break", 
+  "label": "Test Details"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "test_temp", 
+  "fieldtype": "Data", 
+  "label": "Test Temp"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "tan_ir", 
+  "fieldtype": "Data", 
+  "label": "TAN IR"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "constant_ir", 
+  "fieldtype": "Data", 
+  "label": "Constant IR"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "resistivity__ir", 
+  "fieldtype": "Data", 
+  "label": "Resistivity  IR"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "column_break_18", 
+  "fieldtype": "Column Break"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "tan_power", 
+  "fieldtype": "Data", 
+  "label": "TAN Power"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "constant_switch", 
+  "fieldtype": "Data", 
+  "label": "Constant switch"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "resistivity_power", 
+  "fieldtype": "Data", 
+  "label": "Resistivity Power"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "resistivity_frequency", 
+  "fieldtype": "Data", 
+  "label": "Resistivity Frequency"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "other_info", 
+  "fieldtype": "Section Break", 
+  "label": "Other info"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "shift_incharge_approval", 
+  "fieldtype": "Data", 
+  "label": "Shift Incharge Approval"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "lab_incharge_approval", 
+  "fieldtype": "Data", 
+  "label": "Lab Incharge Approval"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "tested_by", 
+  "fieldtype": "Data", 
+  "label": "Tested By"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "amended_from", 
+  "fieldtype": "Link", 
+  "label": "Amended From", 
+  "no_copy": 1, 
+  "options": "TDCR", 
+  "print_hide": 1, 
+  "read_only": 1
+ }, 
+ {
+  "cancel": 1, 
+  "doctype": "DocPerm", 
+  "role": "Administrator", 
+  "submit": 1
+ }, 
+ {
+  "cancel": 1, 
+  "doctype": "DocPerm", 
+  "role": "Lab Incharge", 
+  "submit": 1
+ }, 
+ {
+  "cancel": 1, 
+  "doctype": "DocPerm", 
+  "role": "Shift Incharge", 
+  "submit": 1
+ }, 
+ {
+  "cancel": 0, 
+  "doctype": "DocPerm", 
+  "role": "Employee"
+ }
+]

@@ -1,0 +1,92 @@
+[
+ {
+  "creation": "2014-04-19 11:07:00", 
+  "docstatus": 0, 
+  "modified": "2014-05-26 17:07:42", 
+  "modified_by": "Administrator", 
+  "owner": "Administrator"
+ }, 
+ {
+  "autoname": "TT.####", 
+  "doctype": "DocType", 
+  "document_type": "Transaction", 
+  "icon": "icon-check", 
+  "is_submittable": 0, 
+  "module": "Test", 
+  "name": "__common__"
+ }, 
+ {
+  "doctype": "DocField", 
+  "name": "__common__", 
+  "parent": "Test Timetable", 
+  "parentfield": "fields", 
+  "parenttype": "DocType", 
+  "permlevel": 0
+ }, 
+ {
+  "cancel": 1, 
+  "create": 1, 
+  "doctype": "DocPerm", 
+  "name": "__common__", 
+  "parent": "Test Timetable", 
+  "parentfield": "permissions", 
+  "parenttype": "DocType", 
+  "permlevel": 0, 
+  "read": 1, 
+  "report": 1, 
+  "role": "Administrator", 
+  "submit": 0, 
+  "write": 1
+ }, 
+ {
+  "doctype": "DocType", 
+  "name": "Test Timetable"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "test_details", 
+  "fieldtype": "Section Break", 
+  "label": "Test Details"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "test", 
+  "fieldtype": "Link", 
+  "label": "Test", 
+  "options": "Test Name", 
+  "reqd": 1
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "test_type", 
+  "fieldtype": "Select", 
+  "label": "Test Type", 
+  "options": "\nBatch\nIndividual"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "column_break_4", 
+  "fieldtype": "Column Break"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "related_sop", 
+  "fieldtype": "Small Text", 
+  "label": "Related SOP"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "time_budget", 
+  "fieldtype": "Section Break", 
+  "label": "Time Details"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "time_required", 
+  "fieldtype": "Data", 
+  "label": "Time Required(Hours)"
+ }, 
+ {
+  "doctype": "DocPerm"
+ }
+]

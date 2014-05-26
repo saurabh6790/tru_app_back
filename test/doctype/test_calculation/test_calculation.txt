@@ -1,0 +1,57 @@
+[
+ {
+  "creation": "2014-05-15 18:56:03", 
+  "docstatus": 0, 
+  "modified": "2014-05-16 10:23:15", 
+  "modified_by": "Administrator", 
+  "owner": "Administrator"
+ }, 
+ {
+  "autoname": "TC.#####", 
+  "doctype": "DocType", 
+  "document_type": "Transaction", 
+  "istable": 1, 
+  "module": "Test", 
+  "name": "__common__"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldtype": "Data", 
+  "in_list_view": 1, 
+  "name": "__common__", 
+  "parent": "Test Calculation", 
+  "parentfield": "fields", 
+  "parenttype": "DocType", 
+  "permlevel": 0
+ }, 
+ {
+  "cancel": 1, 
+  "create": 1, 
+  "doctype": "DocPerm", 
+  "name": "__common__", 
+  "parent": "Test Calculation", 
+  "parentfield": "permissions", 
+  "parenttype": "DocType", 
+  "permlevel": 0, 
+  "read": 1, 
+  "role": "All", 
+  "write": 1
+ }, 
+ {
+  "doctype": "DocType", 
+  "name": "Test Calculation"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "test_name", 
+  "label": "Test Name"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "value", 
+  "label": "Value"
+ }, 
+ {
+  "doctype": "DocPerm"
+ }
+]

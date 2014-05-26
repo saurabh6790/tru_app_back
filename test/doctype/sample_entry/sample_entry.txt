@@ -1,0 +1,251 @@
+[
+ {
+  "creation": "2014-04-03 16:49:02", 
+  "docstatus": 0, 
+  "modified": "2014-05-26 17:28:49", 
+  "modified_by": "Administrator", 
+  "owner": "Administrator"
+ }, 
+ {
+  "autoname": "SE.#####", 
+  "doctype": "DocType", 
+  "document_type": "Master", 
+  "icon": "icon-file-text", 
+  "is_submittable": 1, 
+  "module": "Test", 
+  "name": "__common__"
+ }, 
+ {
+  "doctype": "DocField", 
+  "name": "__common__", 
+  "parent": "Sample Entry", 
+  "parentfield": "fields", 
+  "parenttype": "DocType", 
+  "permlevel": 0
+ }, 
+ {
+  "cancel": 1, 
+  "create": 1, 
+  "doctype": "DocPerm", 
+  "name": "__common__", 
+  "parent": "Sample Entry", 
+  "parentfield": "permissions", 
+  "parenttype": "DocType", 
+  "permlevel": 0, 
+  "read": 1, 
+  "report": 1, 
+  "role": "All", 
+  "submit": 1, 
+  "write": 1
+ }, 
+ {
+  "doctype": "DocType", 
+  "name": "Sample Entry"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "stock_entry", 
+  "fieldtype": "Link", 
+  "label": "Stock Entry(Challan No)", 
+  "options": "Stock Entry"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "bottle_no", 
+  "fieldtype": "Data", 
+  "label": "Number Of Bottles"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "column_break_2", 
+  "fieldtype": "Column Break"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "client_name", 
+  "fieldtype": "Link", 
+  "hidden": 1, 
+  "label": "Client Name", 
+  "options": "Customer"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "bottles_barcodes", 
+  "fieldtype": "Small Text", 
+  "label": "Bottles Barcodes"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "material_inward", 
+  "fieldtype": "Link", 
+  "hidden": 1, 
+  "label": "Link From Material Inward", 
+  "options": "Material Inward"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "job_card_no", 
+  "fieldtype": "Data", 
+  "hidden": 1, 
+  "label": "Job Card No"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "transformer_details", 
+  "fieldtype": "Section Break", 
+  "label": "Transformer Details"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "transformer", 
+  "fieldtype": "Link", 
+  "label": "Transformer Id", 
+  "options": "Transformer"
+ }, 
+ {
+  "default": "Today", 
+  "doctype": "DocField", 
+  "fieldname": "date", 
+  "fieldtype": "Date", 
+  "label": "Date of Sample Collected"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "plant", 
+  "fieldtype": "Data", 
+  "label": "Plant"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "serial_no", 
+  "fieldtype": "Data", 
+  "label": "Serial No"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "sub_station", 
+  "fieldtype": "Data", 
+  "label": "Sub Station"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "point_of_sample", 
+  "fieldtype": "Data", 
+  "label": "Point Of Sample"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "column_break_9", 
+  "fieldtype": "Column Break"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "make", 
+  "fieldtype": "Data", 
+  "label": "Make"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "rating", 
+  "fieldtype": "Data", 
+  "label": "Rating"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "voltage_ratio", 
+  "fieldtype": "Data", 
+  "label": "Voltage Ratio"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "phase", 
+  "fieldtype": "Data", 
+  "label": "Phase"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "functional_location", 
+  "fieldtype": "Data", 
+  "label": "Functional Location"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "amended_from", 
+  "fieldtype": "Link", 
+  "label": "Amended From", 
+  "no_copy": 1, 
+  "options": "Sample Entry", 
+  "print_hide": 1, 
+  "read_only": 1
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "info", 
+  "fieldtype": "Section Break", 
+  "label": "Info"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "date_of_filteration", 
+  "fieldtype": "Date", 
+  "label": "Date Of Filteration"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "test_required", 
+  "fieldtype": "Select", 
+  "hidden": 1, 
+  "label": "Test Required", 
+  "options": "\nOST\nDGA\nFuran\nOthers"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "priority", 
+  "fieldtype": "Select", 
+  "hidden": 1, 
+  "label": "Priority", 
+  "options": "\nCritical\nEmergency\nUrgent"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "sealed", 
+  "fieldtype": "Select", 
+  "label": "Sealed", 
+  "options": "\nYes\nNo"
+ }, 
+ {
+  "depends_on": "eval:doc.sealed=='Yes'", 
+  "doctype": "DocField", 
+  "fieldname": "sealed_in_presence_of", 
+  "fieldtype": "Data", 
+  "label": "Sealed In Presence Of"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "column_break_23", 
+  "fieldtype": "Column Break"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "any_other_information", 
+  "fieldtype": "Small Text", 
+  "label": "Any Other Information"
+ }, 
+ {
+  "depends_on": "eval:doc.test_required=='Others'", 
+  "doctype": "DocField", 
+  "fieldname": "other_test_details", 
+  "fieldtype": "Section Break", 
+  "label": "Other Test Details"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "test_details", 
+  "fieldtype": "Table", 
+  "label": "Test Details", 
+  "options": "Register Test Details"
+ }, 
+ {
+  "doctype": "DocPerm"
+ }
+]

@@ -1,0 +1,52 @@
+[
+ {
+  "creation": "2014-04-03 14:19:29", 
+  "docstatus": 0, 
+  "modified": "2014-04-03 14:22:39", 
+  "modified_by": "Administrator", 
+  "owner": "Administrator"
+ }, 
+ {
+  "doctype": "DocType", 
+  "istable": 1, 
+  "module": "Test", 
+  "name": "__common__"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldtype": "Data", 
+  "in_list_view": 1, 
+  "name": "__common__", 
+  "parent": "Interfacial Tension Details", 
+  "parentfield": "fields", 
+  "parenttype": "DocType", 
+  "permlevel": 0
+ }, 
+ {
+  "doctype": "DocType", 
+  "name": "Interfacial Tension Details"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "sample_no", 
+  "label": "Sample No"
+ }, 
+ {
+  "description": "(dynes/cm)", 
+  "doctype": "DocField", 
+  "fieldname": "air_water", 
+  "label": "Air w.r.t. Water "
+ }, 
+ {
+  "description": "(dynes/cm)", 
+  "doctype": "DocField", 
+  "fieldname": "oil_water", 
+  "label": "Oil w.r.t. Water "
+ }, 
+ {
+  "description": "(dynes/cm)", 
+  "doctype": "DocField", 
+  "fieldname": "reported_value", 
+  "label": "Reported Value"
+ }
+]

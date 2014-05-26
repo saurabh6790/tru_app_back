@@ -4,7 +4,7 @@
 from __future__ import unicode_literals
 import webnotes
 import webnotes.defaults
-
+from webnotes.model.doc import addchild, Document
 from webnotes.utils import cstr, cint, flt, comma_or, nowdate
 from webnotes.model.doc import addchild
 from webnotes.model.bean import getlist
@@ -13,6 +13,7 @@ from webnotes import msgprint, _
 from stock.utils import get_incoming_rate
 from stock.stock_ledger import get_previous_sle
 from controllers.queries import get_match_cond
+from webnotes.utils.email_lib import sendmail
 import json
 
 
@@ -29,6 +30,25 @@ class DocType(StockController):
 		self.doc = doc
 		self.doclist = doclist
 		self.fname = 'mtn_details' 
+
+	def on_update(self):
+		#webnotes.errprint(self.doc.flag)	
+		if self.doc.flag=='0' and self.doc.electronically_approved_by_1 and self.doc.electronically_approved_by_2:
+		   
+			msg="Hello,Stock Entry Form '"+self.doc.name+"'is assigned to you please check ToDo List"
+			#webnotes.errprint(msg)
+			self.send_email(self.doc.electronically_approved_by_1,msg)
+			self.send_email(self.doc.electronically_approved_by_2,msg)
+			self.doc.flag='1'
+		# else:
+		# 	webnotes.msgprint("Mention Approver 1 & Approver 2",raise_exception=1)
+		self.doc.save()
+
+	# Send Email Function	
+	def send_email(self,email,msg):
+		from webnotes.utils.email_lib import sendmail
+		sendmail(email, subject="Inward/Outward Entry Details", msg = msg)
+
 		
 	def validate(self):
 		self.validate_posting_time()
@@ -51,12 +71,39 @@ class DocType(StockController):
 		self.set_total_amount()
 		
 	def on_submit(self):
+
+		if self.doc.internal_purpose=='Outward' and self.doc.purpose=='Material Transfer':
+			if self.doc.approver_1_status=='Approved' and self.doc.approver_2_status=='Approved':
+				pass
+			else:
+				webnotes.msgprint("For successful submition of stock entry Approver 1 & Approver 2 status must be 'Approved' ",raise_exception=1)
 		self.update_stock_ledger()
 
 		from stock.doctype.serial_no.serial_no import update_serial_nos_after_submit
 		update_serial_nos_after_submit(self, "mtn_details")
 		self.update_production_order()
 		self.make_gl_entries()
+		if self.doc.internal_purpose=='Outward' and self.doc.purpose=='Material Transfer':
+			if self.doc.electronically_approved_by_1 and self.doc.electronically_approved_by_2:
+				#webnotes.errprint("on submit")
+				self.assign_to(self.doc.electronically_approved_by_1)
+				self.assign_to(self.doc.electronically_approved_by_2)
+		
+
+
+	def assign_to(self,owner):
+		from webnotes.utils import get_first_day, get_last_day, add_to_date, nowdate, getdate
+		#webnotes.errprint(owner)
+		today = nowdate()
+		d = Document("ToDo")
+		d.owner = owner
+		d.reference_type = "Stock Entry"
+		d.reference_name = self.doc.name
+		d.priority =  'Medium'
+		d.date = today
+		d.assigned_by = webnotes.user.name
+		d.save(1)
+		#webnotes.errprint(d)
 
 	def on_cancel(self):
 		self.update_stock_ledger()
@@ -177,6 +224,9 @@ class DocType(StockController):
 
 	def set_total_amount(self):
 		self.doc.total_amount = sum([flt(item.amount) for item in self.doclist.get({"parentfield": "mtn_details"})])
+	
+	#def get_company_address(self):
+
 			
 	def get_stock_and_rate(self):
 		"""get stock and incoming rate on posting date"""
@@ -793,6 +843,61 @@ return_map = {
 		"purchase_receipt_no": ["Purchase Receipt", ["purchase_receipt_details"]]
 	}
 }
+
+
+#Mapping Stock Entry To Sample Entry 
+@webnotes.whitelist()
+def make_sample_entry(source_name, target_doclist=None):
+	return _make_sample_entry(source_name, target_doclist)
+
+def _make_sample_entry(source_name, target_doclist=None, ignore_permissions=False):
+	from webnotes.model.mapper import get_mapped_doclist
+	mi=webnotes.conn.sql("select qty,serial_no from `tabStock Entry Detail` where parent='"+source_name+"'")
+	# For Field Mapping From Previous doctype to next doctype
+	def postprocess(source, doclist):
+		doclist[0].stock_entry = source_name
+		doclist[0].bottle_no= mi[0][0]
+		doclist[0].bottles_barcodes=mi[0][1]
+		
+	doclist = get_mapped_doclist("Stock Entry", source_name, {
+			"Stock Entry": {
+				"doctype": "Sample Entry", 
+								
+				"validation": {
+					"docstatus": ["=", 1]
+				}
+			}
+	},target_doclist, postprocess)
+
+	return [d.fields for d in doclist]
+
+# @webnotes.whitelist()
+# def make_sample_id(source_name, target_doclist=None):
+# 	#ebnotes.errprint(args)
+# 	return _make_sample_id(source_name, target_doclist)
+
+# def _make_sample_id(source_name, target_doclist=None, ignore_permissions=False):
+# 	from webnotes.model.mapper import get_mapped_doclist
+# 	mi=webnotes.conn.sql("select material_inward from `tabStock Entry` where name='"+source_name+"'")
+# 	#webnotes.errprint(mi)
+# 	# For Field Mapping From Previous doctype to next doctype
+# 	def postprocess(source, doclist):
+# 		doclist[0].stock_e = source_name
+# 		doclist[0].material_in = mi[0][0]
+		
+# 	doclist = get_mapped_doclist("Stock Entry", source_name, {
+# 			"Stock Entry": {
+# 				"doctype": "Sample Creation", 
+								
+# 				"validation": {
+# 					"docstatus": ["=", 1]
+# 				}
+# 			}
+# 	},target_doclist, postprocess)
+
+# 	return [d.fields for d in doclist]
+
+
 
 @webnotes.whitelist()
 def make_return_jv(stock_entry):

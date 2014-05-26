@@ -1,0 +1,52 @@
+[
+ {
+  "creation": "2014-05-14 17:28:40", 
+  "docstatus": 0, 
+  "modified": "2014-05-14 17:31:27", 
+  "modified_by": "Administrator", 
+  "owner": "Administrator"
+ }, 
+ {
+  "autoname": "field:equipment_type", 
+  "doctype": "DocType", 
+  "document_type": "Master", 
+  "istable": 0, 
+  "module": "Test", 
+  "name": "__common__"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "equipment_type", 
+  "fieldtype": "Data", 
+  "label": "Equipment Type ", 
+  "name": "__common__", 
+  "parent": "Equipment Type", 
+  "parentfield": "fields", 
+  "parenttype": "DocType", 
+  "permlevel": 0
+ }, 
+ {
+  "cancel": 0, 
+  "create": 1, 
+  "doctype": "DocPerm", 
+  "name": "__common__", 
+  "parent": "Equipment Type", 
+  "parentfield": "permissions", 
+  "parenttype": "DocType", 
+  "permlevel": 0, 
+  "read": 1, 
+  "report": 1, 
+  "role": "Administrator", 
+  "write": 1
+ }, 
+ {
+  "doctype": "DocType", 
+  "name": "Equipment Type"
+ }, 
+ {
+  "doctype": "DocField"
+ }, 
+ {
+  "doctype": "DocPerm"
+ }
+]

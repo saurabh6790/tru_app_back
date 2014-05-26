@@ -2,7 +2,7 @@
  {
   "creation": "2013-01-10 16:34:32", 
   "docstatus": 0, 
-  "modified": "2013-12-12 12:18:19", 
+  "modified": "2014-05-12 17:15:07", 
   "modified_by": "Administrator", 
   "owner": "Administrator"
  }, 
@@ -64,6 +64,13 @@
   "label": "Last Name", 
   "oldfieldname": "last_name", 
   "oldfieldtype": "Data"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "higher_level", 
+  "fieldtype": "Link", 
+  "label": "Higher Level Contact Person", 
+  "options": "Contact"
  }, 
  {
   "doctype": "DocField", 

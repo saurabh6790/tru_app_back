@@ -1,0 +1,80 @@
+[
+ {
+  "creation": "2014-05-02 14:22:51", 
+  "docstatus": 0, 
+  "modified": "2014-05-16 14:03:10", 
+  "modified_by": "Administrator", 
+  "owner": "Administrator"
+ }, 
+ {
+  "doctype": "DocType", 
+  "istable": 1, 
+  "module": "Selling", 
+  "name": "__common__"
+ }, 
+ {
+  "doctype": "DocField", 
+  "name": "__common__", 
+  "parent": "Contact Person Detail", 
+  "parentfield": "fields", 
+  "parenttype": "DocType", 
+  "permlevel": 0
+ }, 
+ {
+  "amend": 0, 
+  "cancel": 0, 
+  "create": 1, 
+  "doctype": "DocPerm", 
+  "name": "__common__", 
+  "parent": "Contact Person Detail", 
+  "parentfield": "permissions", 
+  "parenttype": "DocType", 
+  "permlevel": 0, 
+  "read": 1, 
+  "report": 0, 
+  "role": "All", 
+  "submit": 0, 
+  "write": 1
+ }, 
+ {
+  "doctype": "DocType", 
+  "name": "Contact Person Detail"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "contact_person_name", 
+  "fieldtype": "Data", 
+  "in_list_view": 1, 
+  "label": "Contact Person Name"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "designation", 
+  "fieldtype": "Data", 
+  "in_list_view": 1, 
+  "label": "Designation"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "phone_nunmber", 
+  "fieldtype": "Data", 
+  "in_list_view": 1, 
+  "label": "Phone Nunmber"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "email_id", 
+  "fieldtype": "Data", 
+  "in_list_view": 1, 
+  "label": "Email ID"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "personal_info", 
+  "fieldtype": "Small Text", 
+  "label": "Personal Info"
+ }, 
+ {
+  "doctype": "DocPerm"
+ }
+]

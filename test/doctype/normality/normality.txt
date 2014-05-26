@@ -1,0 +1,143 @@
+[
+ {
+  "creation": "2014-05-19 15:19:08", 
+  "docstatus": 0, 
+  "modified": "2014-05-20 12:33:43", 
+  "modified_by": "Administrator", 
+  "owner": "Administrator"
+ }, 
+ {
+  "autoname": "NR.####", 
+  "doctype": "DocType", 
+  "document_type": "Transaction", 
+  "icon": "icon-file-text", 
+  "is_submittable": 1, 
+  "module": "Test", 
+  "name": "__common__"
+ }, 
+ {
+  "doctype": "DocField", 
+  "name": "__common__", 
+  "parent": "Normality", 
+  "parentfield": "fields", 
+  "parenttype": "DocType", 
+  "permlevel": 0
+ }, 
+ {
+  "cancel": 1, 
+  "create": 1, 
+  "doctype": "DocPerm", 
+  "name": "__common__", 
+  "parent": "Normality", 
+  "parentfield": "permissions", 
+  "parenttype": "DocType", 
+  "permlevel": 0, 
+  "read": 1, 
+  "role": "Administrator", 
+  "write": 1
+ }, 
+ {
+  "doctype": "DocType", 
+  "name": "Normality"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "equipment_used", 
+  "fieldtype": "Data", 
+  "label": "Equipment Used"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "sample_no", 
+  "fieldtype": "Data", 
+  "hidden": 1, 
+  "label": "Sample No"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "test_type", 
+  "fieldtype": "Select", 
+  "label": "Test Type", 
+  "options": "\nRegular\nQA\nCalibration"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "method", 
+  "fieldtype": "Link", 
+  "label": "Method", 
+  "options": "Test Method"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "column_break_4", 
+  "fieldtype": "Column Break"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "date", 
+  "fieldtype": "Date", 
+  "label": "Date"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "chemical_used", 
+  "fieldtype": "Link", 
+  "label": "Chemical Used", 
+  "options": "Chemical"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "bottle_no", 
+  "fieldtype": "Data", 
+  "hidden": 1, 
+  "label": "Bottle No"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "section_break_8", 
+  "fieldtype": "Section Break", 
+  "label": "Normality Test Details"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "normality", 
+  "fieldtype": "Data", 
+  "label": "Normality Of HCL"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "volume", 
+  "fieldtype": "Data", 
+  "label": "Volume Of 0.1 NHCL"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "column_break_11", 
+  "fieldtype": "Column Break"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "koh_volume", 
+  "fieldtype": "Data", 
+  "label": "Volume Of KOH Used"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "koh_normality", 
+  "fieldtype": "Data", 
+  "label": "Normality Of KOH"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "amended_from", 
+  "fieldtype": "Link", 
+  "label": "Amended From", 
+  "no_copy": 1, 
+  "options": "Normality", 
+  "print_hide": 1, 
+  "read_only": 1
+ }, 
+ {
+  "doctype": "DocPerm"
+ }
+]

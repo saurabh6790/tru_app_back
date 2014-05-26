@@ -7,6 +7,12 @@ cur_frm.cscript.fname = "mtn_details";
 wn.require("public/app/js/controllers/stock_controller.js");
 wn.provide("erpnext.stock");
 
+cur_frm.add_fetch('client_company', 'address', 'company_address');
+
+cur_frm.add_fetch('electronically_approved_by_1', 'first_name', 'approver_1_name');
+
+cur_frm.add_fetch('electronically_approved_by_2', 'first_name', 'approver_2_name');
+
 erpnext.stock.StockEntry = erpnext.stock.StockController.extend({		
 	setup: function() {
 		var me = this;
@@ -66,6 +72,13 @@ erpnext.stock.StockEntry = erpnext.stock.StockController.extend({
 		this.toggle_enable_bom();
 		this.show_stock_ledger();
 		this.show_general_ledger();
+
+		//add button make outward register
+		if(this.frm.doc.docstatus==1 && this.frm.doc.internal_purpose=='Inward')
+			this.frm.add_custom_button(wn._("Make Sample Entry"), function() { me.make_sample_entry(); });
+		
+		// if(this.frm.doc.docstatus==1 && this.frm.doc.purpose=='Material Transfer' && this.frm.doc.material_inward!=null && this.frm.doc.sample_generated!='Yes')
+		// 	this.frm.add_custom_button(wn._("Make Sample Id"), function() { me.make_sample_id(); });
 		
 		if(this.frm.doc.docstatus === 1 && 
 				wn.boot.profile.can_create.indexOf("Journal Voucher")!==-1) {
@@ -226,6 +239,26 @@ erpnext.stock.StockEntry = erpnext.stock.StockController.extend({
 		}
 	},
 
+	//for calling method form py file
+	make_sample_entry: function() {
+		wn.model.open_mapped_doc({
+			method: "stock.doctype.stock_entry.stock_entry.make_sample_entry",
+			source_name: cur_frm.doc.name
+
+		})
+	},
+
+	// make_sample_id: function() {
+	// 	wn.model.open_mapped_doc({
+	// 		method: "stock.doctype.stock_entry.stock_entry.make_sample_id",
+	// 		source_name: cur_frm.doc.name
+	// 		// args: {
+	// 		// 		"source_name": cur_frm.doc.name, 
+	// 		// 		"material": cur_frm.doc.material_inward
+	// 		// 	},
+	// 	})
+	// },
+
 	mtn_details_add: function(doc, cdt, cdn) {
 		var row = wn.model.get_doc(cdt, cdn);
 		this.frm.script_manager.copy_from_first_row("mtn_details", row, 
@@ -246,12 +279,27 @@ cur_frm.cscript.toggle_related_fields = function(doc) {
 	disable_from_warehouse = inList(["Material Receipt", "Sales Return"], doc.purpose);
 	disable_to_warehouse = inList(["Material Issue", "Purchase Return"], doc.purpose);
 	
+	disable_posting_date = inList(["Inward","Outward"],doc.internal_purpose);
+	cur_frm.toggle_enable("posting_date",!disable_posting_date);
+
 	cur_frm.toggle_enable("from_warehouse", !disable_from_warehouse);
 	cur_frm.toggle_enable("to_warehouse", !disable_to_warehouse);
 		
 	cur_frm.fields_dict["mtn_details"].grid.set_column_disp("s_warehouse", !disable_from_warehouse);
 	cur_frm.fields_dict["mtn_details"].grid.set_column_disp("t_warehouse", !disable_to_warehouse);
-		
+	//cur_frm.fields_dict["mtn_details"].grid.set_column_disp("batch_no",!disable_batch_no);
+	if(doc.internal_purpose == 'Outward'){
+		cur_frm.set_value('from_warehouse','Work In Progress - TF')
+		cur_frm.set_value('to_warehouse','Stores - TF')
+		refresh_field('from_warehouse')
+		refresh_field('to_warehouse')
+	}
+	if(doc.internal_purpose == 'Inward'){
+		cur_frm.set_value('from_warehouse','Stores - TF')
+		cur_frm.set_value('to_warehouse','Work In Progress - TF')
+		refresh_field('from_warehouse')
+		refresh_field('to_warehouse')
+	}
 	if(doc.purpose == 'Purchase Return') {
 		doc.customer = doc.customer_name = doc.customer_address = 
 			doc.delivery_note_no = doc.sales_invoice_no = null;
@@ -391,4 +439,43 @@ cur_frm.fields_dict.customer.get_query = function(doc, cdt, cdn) {
 
 cur_frm.fields_dict.supplier.get_query = function(doc, cdt, cdn) {
 	return{	query:"controllers.queries.supplier_query" }
+}
+
+// cur_frm.cscript.client_company = function(doc, cdt, cdn) {
+// 	if(doc.client_company){
+    
+// 	 	return get_server_fields('get_company_address','',doc.client_company, doc, cdt, cdn, 1);
+	 	
+//  	}
+// }
+
+cur_frm.cscript.internal_purpose= function(doc,cdt,cdn){
+	//doc.purpose='Material Transfer';
+	if(doc.internal_purpose=='Inward'){
+
+		doc.naming_series='TRU/IN';
+		refresh_field('naming_series');
+	}
+	else{
+		doc.naming_series='TRU/OUT';
+		refresh_field('naming_series');
+	}
+
+	// refresh_field('purpose');
+	// refresh_field('mtn_details');
+
+}
+
+
+
+
+cur_frm.get_field("electronically_approved_by_1").get_query=function(doc,cdt,cdn)
+{
+   return "select name from `tabProfile` where name!='"+doc.electronically_approved_by_2+"'"
+}
+
+
+cur_frm.get_field("electronically_approved_by_2").get_query=function(doc,cdt,cdn)
+{
+   return "select name from `tabProfile` where name!='"+doc.electronically_approved_by_1+"'"
 }

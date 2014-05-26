@@ -1,0 +1,277 @@
+[
+ {
+  "creation": "2014-05-16 12:36:51", 
+  "docstatus": 0, 
+  "modified": "2014-05-21 13:31:55", 
+  "modified_by": "Administrator", 
+  "owner": "Administrator"
+ }, 
+ {
+  "autoname": "Res/.#####", 
+  "doctype": "DocType", 
+  "document_type": "Transaction", 
+  "is_submittable": 1, 
+  "module": "Test", 
+  "name": "__common__"
+ }, 
+ {
+  "doctype": "DocField", 
+  "name": "__common__", 
+  "parent": "Resistivity and Dissipation", 
+  "parentfield": "fields", 
+  "parenttype": "DocType", 
+  "permlevel": 0
+ }, 
+ {
+  "cancel": 1, 
+  "create": 1, 
+  "doctype": "DocPerm", 
+  "name": "__common__", 
+  "parent": "Resistivity and Dissipation", 
+  "parentfield": "permissions", 
+  "parenttype": "DocType", 
+  "permlevel": 0, 
+  "read": 1, 
+  "role": "All", 
+  "submit": 1, 
+  "write": 1
+ }, 
+ {
+  "doctype": "DocType", 
+  "name": "Resistivity and Dissipation"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "sample_details", 
+  "fieldtype": "Section Break", 
+  "label": "Sample Details "
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "sample_no", 
+  "fieldtype": "Link", 
+  "label": "Sample No", 
+  "options": "Sample"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "bottle_no", 
+  "fieldtype": "Small Text", 
+  "label": "Bottle No"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "method", 
+  "fieldtype": "Link", 
+  "label": "Method", 
+  "options": "Test Method"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "test_type", 
+  "fieldtype": "Select", 
+  "label": "Test Type", 
+  "options": "\nRegular\nQA\nCalibration"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "section_break_7", 
+  "fieldtype": "Section Break", 
+  "label": "CELL CONSTANT"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "zero", 
+  "fieldtype": "Data", 
+  "label": "ZERO"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "column_break_11", 
+  "fieldtype": "Column Break"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "cm", 
+  "fieldtype": "Data", 
+  "label": "CM"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "column_break_13", 
+  "fieldtype": "Column Break"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "cell_no", 
+  "fieldtype": "Data", 
+  "label": "Cell No"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "test_details", 
+  "fieldtype": "Section Break", 
+  "label": "Temperature Details"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "test_temperature", 
+  "fieldtype": "Data", 
+  "label": "Test Temperature"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "column_break_17", 
+  "fieldtype": "Column Break"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "frequency", 
+  "fieldtype": "Data", 
+  "label": "Frequency"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "tan", 
+  "fieldtype": "Section Break", 
+  "label": "Tan \u03b1"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "ir_tan", 
+  "fieldtype": "Data", 
+  "label": "IR Tan \u03b1"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "column_break_21", 
+  "fieldtype": "Column Break"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "power_tan", 
+  "fieldtype": "Data", 
+  "label": "Power Tan \u03b1"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "column_break_18", 
+  "fieldtype": "Column Break"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "tan_value", 
+  "fieldtype": "Data", 
+  "label": "Dissipation Factor"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "section_break_23", 
+  "fieldtype": "Section Break", 
+  "label": "\u03a3"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "ir", 
+  "fieldtype": "Data", 
+  "label": "IR \u03a3"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "column_break_25", 
+  "fieldtype": "Column Break"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "switch", 
+  "fieldtype": "Data", 
+  "label": "Switch"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "column_break_24", 
+  "fieldtype": "Column Break"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "sigma_value", 
+  "fieldtype": "Data", 
+  "label": "Dielectric Constant"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "section_break_27", 
+  "fieldtype": "Section Break", 
+  "label": "RESISTIVITY (\u03a9 - cm)"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "ir_resistivity", 
+  "fieldtype": "Data", 
+  "label": "IR Resistivity"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "cob1", 
+  "fieldtype": "Column Break"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "power_resistivity", 
+  "fieldtype": "Data", 
+  "label": "Power Resistivity"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "column_break_30", 
+  "fieldtype": "Column Break"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "resistivity_value", 
+  "fieldtype": "Data", 
+  "label": "Specific Resistivity"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "amended_from", 
+  "fieldtype": "Link", 
+  "label": "Amended From", 
+  "no_copy": 1, 
+  "options": "Resistivity and Dissipation", 
+  "print_hide": 1, 
+  "read_only": 1
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "info", 
+  "fieldtype": "Section Break", 
+  "label": "Info"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "shift_incharge_approval", 
+  "fieldtype": "Data", 
+  "label": "Shift Incharge Approval"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "lab_incharge_approval", 
+  "fieldtype": "Data", 
+  "label": "Lab Incharge Approval"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "column_break_38", 
+  "fieldtype": "Column Break"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "tested_by", 
+  "fieldtype": "Data", 
+  "label": "Tested By"
+ }, 
+ {
+  "doctype": "DocPerm"
+ }
+]

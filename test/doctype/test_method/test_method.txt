@@ -1,0 +1,64 @@
+[
+ {
+  "creation": "2014-05-16 10:18:42", 
+  "docstatus": 0, 
+  "modified": "2014-05-17 15:46:55", 
+  "modified_by": "Administrator", 
+  "owner": "Administrator"
+ }, 
+ {
+  "autoname": "field:test_method", 
+  "doctype": "DocType", 
+  "document_type": "Master", 
+  "module": "Test", 
+  "name": "__common__"
+ }, 
+ {
+  "doctype": "DocField", 
+  "name": "__common__", 
+  "parent": "Test Method", 
+  "parentfield": "fields", 
+  "parenttype": "DocType", 
+  "permlevel": 0
+ }, 
+ {
+  "cancel": 1, 
+  "create": 1, 
+  "doctype": "DocPerm", 
+  "name": "__common__", 
+  "parent": "Test Method", 
+  "parentfield": "permissions", 
+  "parenttype": "DocType", 
+  "permlevel": 0, 
+  "read": 1, 
+  "report": 1, 
+  "role": "Administrator", 
+  "write": 1
+ }, 
+ {
+  "doctype": "DocType", 
+  "name": "Test Method"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "test_method", 
+  "fieldtype": "Data", 
+  "label": "Test Method"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "as_per_pgcil_spec_limits", 
+  "fieldtype": "Data", 
+  "label": "As Per PGCIL Spec Limits"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "standard", 
+  "fieldtype": "Link", 
+  "label": "Standard", 
+  "options": "Standard"
+ }, 
+ {
+  "doctype": "DocPerm"
+ }
+]

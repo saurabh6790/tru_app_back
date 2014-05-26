@@ -1,0 +1,189 @@
+[
+ {
+  "creation": "2014-05-19 16:49:19", 
+  "docstatus": 0, 
+  "modified": "2014-05-20 12:30:46", 
+  "modified_by": "Administrator", 
+  "owner": "Administrator"
+ }, 
+ {
+  "autoname": "SED.######", 
+  "doctype": "DocType", 
+  "document_type": "Transaction", 
+  "is_submittable": 1, 
+  "module": "Test", 
+  "name": "__common__"
+ }, 
+ {
+  "doctype": "DocField", 
+  "name": "__common__", 
+  "parent": "Sediment", 
+  "parentfield": "fields", 
+  "parenttype": "DocType", 
+  "permlevel": 0
+ }, 
+ {
+  "cancel": 1, 
+  "create": 1, 
+  "doctype": "DocPerm", 
+  "name": "__common__", 
+  "parent": "Sediment", 
+  "parentfield": "permissions", 
+  "parenttype": "DocType", 
+  "permlevel": 0, 
+  "read": 1, 
+  "report": 1, 
+  "role": "Administrator", 
+  "submit": 1, 
+  "write": 1
+ }, 
+ {
+  "doctype": "DocType", 
+  "name": "Sediment"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "sample_id", 
+  "fieldtype": "Link", 
+  "label": "Sample Id", 
+  "options": "Sample"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "test_type", 
+  "fieldtype": "Select", 
+  "label": "Test Type", 
+  "options": "\nRegular\nQA\nCalibration"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "column_break_3", 
+  "fieldtype": "Column Break"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "bottle_no", 
+  "fieldtype": "Data", 
+  "label": "Bottle No"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "method", 
+  "fieldtype": "Link", 
+  "label": "Method", 
+  "options": "Test Method"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "preparation_of_oil", 
+  "fieldtype": "Section Break", 
+  "label": "Preparation Of Oil"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "container_id", 
+  "fieldtype": "Data", 
+  "label": "Container ID"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "time", 
+  "fieldtype": "Link", 
+  "label": "Time ", 
+  "options": "Time"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "column_break_9", 
+  "fieldtype": "Column Break"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "start_time", 
+  "fieldtype": "Time", 
+  "label": "Start Time"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "end_time", 
+  "fieldtype": "Time", 
+  "label": "End Time"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "weight_of_oil", 
+  "fieldtype": "Data", 
+  "label": "Total Weight Of Oil(10gms)"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "testing_of_extract", 
+  "fieldtype": "Section Break", 
+  "label": "Testing Of Extract"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "weight_of_crucible", 
+  "fieldtype": "Date", 
+  "label": "Weight Of Crucible"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "weight_of_crucible_after", 
+  "fieldtype": "Data", 
+  "label": "Weight Of Crucible After Washing/Heating"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "column_break_16", 
+  "fieldtype": "Column Break"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "diffrence", 
+  "fieldtype": "Data", 
+  "label": "Diffrence"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "info", 
+  "fieldtype": "Section Break", 
+  "label": "Info"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "shift_incharge_approval", 
+  "fieldtype": "Data", 
+  "label": "Shift Incharge Approval"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "lab_incharge_approval", 
+  "fieldtype": "Date", 
+  "label": "Lab Incharge Approval"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "column_break_21", 
+  "fieldtype": "Column Break"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "tested_by", 
+  "fieldtype": "Data", 
+  "label": "Tested By"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "amended_from", 
+  "fieldtype": "Link", 
+  "label": "Amended From", 
+  "no_copy": 1, 
+  "options": "Sediment", 
+  "print_hide": 1, 
+  "read_only": 1
+ }, 
+ {
+  "doctype": "DocPerm"
+ }
+]

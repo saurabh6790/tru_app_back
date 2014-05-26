@@ -1,0 +1,61 @@
+[
+ {
+  "creation": "2014-04-03 13:25:43", 
+  "docstatus": 0, 
+  "modified": "2014-04-28 16:31:19", 
+  "modified_by": "Administrator", 
+  "owner": "Administrator"
+ }, 
+ {
+  "doctype": "DocType", 
+  "istable": 1, 
+  "module": "Test", 
+  "name": "__common__"
+ }, 
+ {
+  "doctype": "DocField", 
+  "name": "__common__", 
+  "parent": "Flash Point Details", 
+  "parentfield": "fields", 
+  "parenttype": "DocType", 
+  "permlevel": 0
+ }, 
+ {
+  "doctype": "DocType", 
+  "name": "Flash Point Details"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "sample_no", 
+  "fieldtype": "Data", 
+  "in_list_view": 1, 
+  "label": "Sample No"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "reported_value", 
+  "fieldtype": "Data", 
+  "in_list_view": 1, 
+  "label": "Reported Value (Degree C)"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "instrument_reading", 
+  "fieldtype": "Section Break", 
+  "label": "Instrument Reading"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "1", 
+  "fieldtype": "Data", 
+  "in_list_view": 1, 
+  "label": "1 (Degree C)"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "2", 
+  "fieldtype": "Data", 
+  "in_list_view": 1, 
+  "label": "2 (Degree C)"
+ }
+]

@@ -2,7 +2,7 @@
  {
   "creation": "2013-03-29 18:22:12", 
   "docstatus": 0, 
-  "modified": "2014-01-15 16:08:45", 
+  "modified": "2014-05-14 16:29:05", 
   "modified_by": "Administrator", 
   "owner": "Administrator"
  }, 
@@ -36,7 +36,7 @@
   "oldfieldname": "s_warehouse", 
   "oldfieldtype": "Link", 
   "options": "Warehouse", 
-  "read_only": 0
+  "read_only": 1
  }, 
  {
   "doctype": "DocField", 
@@ -49,7 +49,7 @@
   "oldfieldname": "t_warehouse", 
   "oldfieldtype": "Link", 
   "options": "Warehouse", 
-  "read_only": 0
+  "read_only": 1
  }, 
  {
   "doctype": "DocField", 
@@ -82,8 +82,20 @@
   "oldfieldname": "description", 
   "oldfieldtype": "Text", 
   "print_width": "300px", 
-  "read_only": 0, 
+  "read_only": 1, 
   "width": "300px"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "purpose", 
+  "fieldtype": "Small Text", 
+  "label": "Purpose"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "approximate_value", 
+  "fieldtype": "Data", 
+  "label": "Approximate Value"
  }, 
  {
   "doctype": "DocField", 
@@ -129,6 +141,7 @@
   "doctype": "DocField", 
   "fieldname": "batch_no", 
   "fieldtype": "Link", 
+  "hidden": 1, 
   "label": "Batch No", 
   "oldfieldname": "batch_no", 
   "oldfieldtype": "Link", 
@@ -140,9 +153,11 @@
   "doctype": "DocField", 
   "fieldname": "accounting", 
   "fieldtype": "Section Break", 
+  "hidden": 1, 
   "label": "Accounting"
  }, 
  {
+  "default": "0.00", 
   "doctype": "DocField", 
   "fieldname": "incoming_rate", 
   "fieldtype": "Currency", 
@@ -165,6 +180,7 @@
   "read_only": 1
  }, 
  {
+  "default": "Cash - TF", 
   "depends_on": "eval:cint(sys_defaults.auto_accounting_for_stock)", 
   "doctype": "DocField", 
   "fieldname": "expense_account", 
@@ -190,6 +206,7 @@
   "doctype": "DocField", 
   "fieldname": "more_info", 
   "fieldtype": "Section Break", 
+  "hidden": 1, 
   "label": "More Info"
  }, 
  {
@@ -210,12 +227,13 @@
   "doctype": "DocField", 
   "fieldname": "conversion_factor", 
   "fieldtype": "Float", 
+  "hidden": 1, 
   "label": "Conversion Factor", 
   "oldfieldname": "conversion_factor", 
   "oldfieldtype": "Currency", 
   "print_hide": 1, 
   "read_only": 1, 
-  "reqd": 1
+  "reqd": 0
  }, 
  {
   "doctype": "DocField", 

@@ -1,0 +1,71 @@
+[
+ {
+  "creation": "2014-04-03 14:38:14", 
+  "docstatus": 0, 
+  "modified": "2014-04-03 14:39:44", 
+  "modified_by": "Administrator", 
+  "owner": "Administrator"
+ }, 
+ {
+  "doctype": "DocType", 
+  "module": "Test", 
+  "name": "__common__"
+ }, 
+ {
+  "doctype": "DocField", 
+  "name": "__common__", 
+  "parent": "Neutralization Value Item", 
+  "parentfield": "fields", 
+  "parenttype": "DocType", 
+  "permlevel": 0
+ }, 
+ {
+  "doctype": "DocType", 
+  "name": "Neutralization Value Item"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "sample_no", 
+  "fieldtype": "Data", 
+  "in_list_view": 1, 
+  "label": "Sample No"
+ }, 
+ {
+  "description": "(ml)", 
+  "doctype": "DocField", 
+  "fieldname": "amt_of_oil", 
+  "fieldtype": "Data", 
+  "in_list_view": 1, 
+  "label": "Amt. of Oil "
+ }, 
+ {
+  "description": "(ml)", 
+  "doctype": "DocField", 
+  "fieldname": "reported_value", 
+  "fieldtype": "Data", 
+  "in_list_view": 1, 
+  "label": "Reported Value"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "amt_of_al_koh", 
+  "fieldtype": "Section Break", 
+  "label": "Amt. of AL.KOH "
+ }, 
+ {
+  "description": "(ml)", 
+  "doctype": "DocField", 
+  "fieldname": "initial_reading", 
+  "fieldtype": "Data", 
+  "in_list_view": 1, 
+  "label": "Initial Reading"
+ }, 
+ {
+  "description": "(ml)", 
+  "doctype": "DocField", 
+  "fieldname": "final_reading", 
+  "fieldtype": "Data", 
+  "in_list_view": 1, 
+  "label": "Final Reading"
+ }
+]

@@ -1,0 +1,125 @@
+[
+ {
+  "creation": "2014-04-19 15:51:27", 
+  "docstatus": 0, 
+  "modified": "2014-05-14 10:41:29", 
+  "modified_by": "Administrator", 
+  "owner": "Administrator"
+ }, 
+ {
+  "autoname": "SC.####", 
+  "doctype": "DocType", 
+  "document_type": "Transaction", 
+  "icon": "icon-file-text", 
+  "module": "Test", 
+  "name": "__common__"
+ }, 
+ {
+  "doctype": "DocField", 
+  "name": "__common__", 
+  "parent": "Sample Creation", 
+  "parentfield": "fields", 
+  "parenttype": "DocType", 
+  "permlevel": 0
+ }, 
+ {
+  "cancel": 1, 
+  "create": 1, 
+  "doctype": "DocPerm", 
+  "name": "__common__", 
+  "parent": "Sample Creation", 
+  "parentfield": "permissions", 
+  "parenttype": "DocType", 
+  "permlevel": 0, 
+  "read": 1, 
+  "role": "Administrator", 
+  "write": 1
+ }, 
+ {
+  "doctype": "DocType", 
+  "name": "Sample Creation"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "sample_creation_details", 
+  "fieldtype": "Section Break", 
+  "label": "Sample creation Details"
+ }, 
+ {
+  "default": "Today", 
+  "doctype": "DocField", 
+  "fieldname": "date", 
+  "fieldtype": "Date", 
+  "label": "Date"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "s_entry", 
+  "fieldtype": "Link", 
+  "label": "Sample Entry", 
+  "options": "Sample Entry"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "bottle_no", 
+  "fieldtype": "Data", 
+  "label": "Number Of Bottles"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "column_break_3", 
+  "fieldtype": "Column Break"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "bottles_barcodes", 
+  "fieldtype": "Small Text", 
+  "label": "Bottles Barcodes"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "stock_e", 
+  "fieldtype": "Link", 
+  "hidden": 1, 
+  "label": "Stock entry", 
+  "options": "Stock Entry"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "material_in", 
+  "fieldtype": "Link", 
+  "hidden": 1, 
+  "label": "Material Inward", 
+  "options": "Material Inward"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "no_of_sample_id", 
+  "fieldtype": "Int", 
+  "hidden": 1, 
+  "label": "No Of Sample Id "
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "generate_sample_id", 
+  "fieldtype": "Button", 
+  "label": "Generate Sample Id", 
+  "options": "generate_sample_id"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "sample_creation_item", 
+  "fieldtype": "Section Break", 
+  "label": "Sample Creation Item"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "sample_creation_item_details", 
+  "fieldtype": "Table", 
+  "label": "Sample Creation Details", 
+  "options": "Sample Creation Item Details"
+ }, 
+ {
+  "doctype": "DocPerm"
+ }
+]

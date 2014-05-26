@@ -2,7 +2,7 @@
  {
   "creation": "2013-04-09 11:43:55", 
   "docstatus": 0, 
-  "modified": "2014-02-26 10:51:20", 
+  "modified": "2014-05-26 17:12:23", 
   "modified_by": "Administrator", 
   "owner": "Administrator"
  }, 
@@ -27,7 +27,7 @@
   "name": "__common__", 
   "read_only": 0, 
   "read_only_onload": 0, 
-  "search_fields": "transfer_date, from_warehouse, to_warehouse, purpose, remarks"
+  "search_fields": " from_warehouse, to_warehouse, purpose, remarks"
  }, 
  {
   "doctype": "DocField", 
@@ -38,8 +38,6 @@
   "permlevel": 0
  }, 
  {
-  "amend": 1, 
-  "cancel": 1, 
   "create": 1, 
   "doctype": "DocPerm", 
   "name": "__common__", 
@@ -48,8 +46,6 @@
   "parenttype": "DocType", 
   "permlevel": 0, 
   "read": 1, 
-  "report": 1, 
-  "submit": 1, 
   "write": 1
  }, 
  {
@@ -58,12 +54,15 @@
  }, 
  {
   "doctype": "DocField", 
-  "fieldname": "col1", 
-  "fieldtype": "Column Break", 
-  "oldfieldtype": "Column Break", 
-  "print_width": "50%", 
-  "read_only": 0, 
-  "width": "50%"
+  "fieldname": "column_break_1", 
+  "fieldtype": "Column Break"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "internal_purpose", 
+  "fieldtype": "Select", 
+  "label": "Internal Purpose", 
+  "options": "\nInward\nOutward"
  }, 
  {
   "allow_on_submit": 0, 
@@ -76,7 +75,7 @@
   "no_copy": 1, 
   "oldfieldname": "naming_series", 
   "oldfieldtype": "Select", 
-  "options": "\nSTE", 
+  "options": "\nTRU/IN\nTRU/OUT", 
   "print_hide": 1, 
   "read_only": 0, 
   "report_hide": 0, 
@@ -84,8 +83,49 @@
   "search_index": 0
  }, 
  {
+  "depends_on": "eval:(doc.internal_purpose==\"Outward\" || doc.internal_purpose==\"Inward\")", 
+  "doctype": "DocField", 
+  "fieldname": "client_company", 
+  "fieldtype": "Link", 
+  "label": "Client Company ", 
+  "options": "Company"
+ }, 
+ {
+  "depends_on": "eval:doc.internal_purpose==\"Outward\"||doc.internal_purpose==\"Inward\"", 
+  "doctype": "DocField", 
+  "fieldname": "type_of_challan", 
+  "fieldtype": "Select", 
+  "label": "Type of Challan", 
+  "options": "\nReturnable\nNon-Returnable"
+ }, 
+ {
+  "depends_on": "eval:doc.internal_purpose==\"Outward\" && doc.type_of_challan==\"Non-Returnable\"", 
+  "doctype": "DocField", 
+  "fieldname": "billable", 
+  "fieldtype": "Select", 
+  "label": "Billable", 
+  "options": "\nYes \nNo"
+ }, 
+ {
+  "depends_on": "eval:doc.internal_purpose=='Inward'", 
+  "description": "Name Of The Employee", 
+  "doctype": "DocField", 
+  "fieldname": "verified_by", 
+  "fieldtype": "Data", 
+  "label": "Verified By"
+ }, 
+ {
+  "depends_on": "eval:doc.internal_purpose=='Inward'||doc.internal_purpose=='Outward'", 
+  "doctype": "DocField", 
+  "fieldname": "challan_no", 
+  "fieldtype": "Data", 
+  "hidden": 1, 
+  "label": "Challan No"
+ }, 
+ {
   "allow_on_submit": 0, 
   "default": "Material Issue", 
+  "depends_on": "eval:doc", 
   "doctype": "DocField", 
   "fieldname": "purpose", 
   "fieldtype": "Select", 
@@ -102,6 +142,15 @@
   "report_hide": 0, 
   "reqd": 1, 
   "search_index": 0
+ }, 
+ {
+  "depends_on": "eval:doc.purpose=='Material Transfer' && !doc.outward_register", 
+  "doctype": "DocField", 
+  "fieldname": "material_inward", 
+  "fieldtype": "Link", 
+  "hidden": 1, 
+  "label": "Link From Material Inward No", 
+  "options": "Material Inward"
  }, 
  {
   "allow_on_submit": 0, 
@@ -155,12 +204,31 @@
  }, 
  {
   "doctype": "DocField", 
-  "fieldname": "col2", 
-  "fieldtype": "Column Break", 
-  "oldfieldtype": "Column Break", 
-  "print_width": "50%", 
-  "read_only": 0, 
-  "width": "50%"
+  "fieldname": "column_break_13", 
+  "fieldtype": "Column Break"
+ }, 
+ {
+  "depends_on": "eval:doc.internal_purpose=='Inward'", 
+  "doctype": "DocField", 
+  "fieldname": "outward_challan_no", 
+  "fieldtype": "Data", 
+  "label": "Outward Challan No"
+ }, 
+ {
+  "depends_on": "eval:(doc.internal_purpose==\"Outward\" || doc.internal_purpose==\"Inward\")", 
+  "doctype": "DocField", 
+  "fieldname": "delivery_by", 
+  "fieldtype": "Select", 
+  "label": "Delivery Type", 
+  "options": "\nDoor Delivery\nCourier"
+ }, 
+ {
+  "depends_on": "eval:doc.internal_purpose=='Outward'", 
+  "doctype": "DocField", 
+  "fieldname": "delivery_to", 
+  "fieldtype": "Link", 
+  "label": "Delivery To", 
+  "options": "Customer"
  }, 
  {
   "allow_on_submit": 0, 
@@ -199,6 +267,22 @@
   "search_index": 0
  }, 
  {
+  "depends_on": "eval:doc.purpose=='Material Transfer' && !doc.material_inward", 
+  "doctype": "DocField", 
+  "fieldname": "outward_register", 
+  "fieldtype": "Link", 
+  "hidden": 1, 
+  "label": "Link From Outward Register", 
+  "options": "Outward register"
+ }, 
+ {
+  "depends_on": "eval:(doc.internal_purpose==\"Outward\" || doc.internal_purpose==\"Inward\")", 
+  "doctype": "DocField", 
+  "fieldname": "company_address", 
+  "fieldtype": "Small Text", 
+  "label": "Client Company Address"
+ }, 
+ {
   "doctype": "DocField", 
   "fieldname": "items_section", 
   "fieldtype": "Section Break", 
@@ -220,7 +304,7 @@
   "oldfieldtype": "Link", 
   "options": "Warehouse", 
   "print_hide": 1, 
-  "read_only": 0, 
+  "read_only": 1, 
   "report_hide": 0, 
   "reqd": 0, 
   "search_index": 0
@@ -245,7 +329,7 @@
   "oldfieldtype": "Link", 
   "options": "Warehouse", 
   "print_hide": 1, 
-  "read_only": 0, 
+  "read_only": 1, 
   "report_hide": 0, 
   "reqd": 0, 
   "search_index": 0
@@ -276,6 +360,7 @@
   "search_index": 0
  }, 
  {
+  "depends_on": "eval:!doc.internal_purpose", 
   "description": "Get valuation rate and available stock at source/target warehouse on mentioned posting date-time. If serialized item, please press this button after entering serial nos.", 
   "doctype": "DocField", 
   "fieldname": "get_stock_and_rate", 
@@ -287,10 +372,108 @@
   "read_only": 0
  }, 
  {
+  "depends_on": "eval:doc.internal_purpose==\"Outward\" ", 
+  "doctype": "DocField", 
+  "fieldname": "approver_details", 
+  "fieldtype": "Section Break", 
+  "label": "Approver Details"
+ }, 
+ {
+  "default": "0", 
+  "doctype": "DocField", 
+  "fieldname": "flag", 
+  "fieldtype": "Data", 
+  "hidden": 1, 
+  "label": "Flag"
+ }, 
+ {
+  "depends_on": "eval:doc.internal_purpose==\"Outward\" ", 
+  "doctype": "DocField", 
+  "fieldname": "electronically_approved_by_1", 
+  "fieldtype": "Link", 
+  "label": "Approver  1", 
+  "options": "Profile"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "approver_1_name", 
+  "fieldtype": "Data", 
+  "label": "Approver 1 Name", 
+  "read_only": 1
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "approver_1_status", 
+  "fieldtype": "Select", 
+  "label": "Approver 1 Status", 
+  "options": "\nApproved\nRejected"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "column_break_28", 
+  "fieldtype": "Column Break"
+ }, 
+ {
+  "depends_on": "eval:doc.internal_purpose==\"Outward\" ", 
+  "doctype": "DocField", 
+  "fieldname": "electronically_approved_by_2", 
+  "fieldtype": "Link", 
+  "label": "Approver 2", 
+  "options": "Profile"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "approver_2_name", 
+  "fieldtype": "Data", 
+  "label": "Approver 2 Name", 
+  "read_only": 1
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "approver_2_status", 
+  "fieldtype": "Select", 
+  "label": "Approver 2 Status", 
+  "options": "\nApproved\nRejected"
+ }, 
+ {
+  "depends_on": "eval:(doc.internal_purpose==\"Outward\" || doc.internal_purpose==\"Inward\")", 
+  "doctype": "DocField", 
+  "fieldname": "more_information", 
+  "fieldtype": "Section Break", 
+  "label": "More Information"
+ }, 
+ {
+  "depends_on": "eval:(doc.internal_purpose==\"Outward\" || doc.internal_purpose==\"Inward\")", 
+  "doctype": "DocField", 
+  "fieldname": "prepared_by", 
+  "fieldtype": "Data", 
+  "label": "Prepared By"
+ }, 
+ {
+  "depends_on": "eval:(doc.internal_purpose==\"Outward\" || doc.internal_purpose==\"Inward\")", 
+  "doctype": "DocField", 
+  "fieldname": "carrier_name", 
+  "fieldtype": "Data", 
+  "label": "Carrier Name"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "column_break_36", 
+  "fieldtype": "Column Break"
+ }, 
+ {
+  "depends_on": "eval:doc.internal_purpose=='Outward'||doc.internal_purpose=='Inward'", 
+  "doctype": "DocField", 
+  "fieldname": "remarks_comments", 
+  "fieldtype": "Small Text", 
+  "label": "Challan Remarks"
+ }, 
+ {
   "depends_on": "eval:(doc.purpose!==\"Sales Return\" && doc.purpose!==\"Purchase Return\")", 
   "doctype": "DocField", 
   "fieldname": "sb1", 
   "fieldtype": "Section Break", 
+  "hidden": 1, 
   "label": "From Bill of Materials", 
   "read_only": 0
  }, 
@@ -493,6 +676,7 @@
   "search_index": 0
  }, 
  {
+  "depends_on": "eval:doc.internal_purpose=='null'", 
   "doctype": "DocField", 
   "fieldname": "more_info", 
   "fieldtype": "Section Break", 
@@ -544,6 +728,15 @@
   "report_hide": 0, 
   "reqd": 0, 
   "search_index": 0
+ }, 
+ {
+  "depends_on": "eval:!doc.__islocal", 
+  "doctype": "DocField", 
+  "fieldname": "sample_generated", 
+  "fieldtype": "Select", 
+  "label": "sample_generated", 
+  "options": "\nYes", 
+  "read_only": 1
  }, 
  {
   "doctype": "DocField", 
@@ -618,19 +811,43 @@
   "search_index": 0
  }, 
  {
+  "amend": 1, 
+  "cancel": 1, 
   "doctype": "DocPerm", 
-  "role": "Material User"
+  "report": 1, 
+  "role": "Material User", 
+  "submit": 1
+ }, 
+ {
+  "amend": 1, 
+  "cancel": 1, 
+  "doctype": "DocPerm", 
+  "report": 1, 
+  "role": "Manufacturing User", 
+  "submit": 1
+ }, 
+ {
+  "amend": 1, 
+  "cancel": 1, 
+  "doctype": "DocPerm", 
+  "report": 1, 
+  "role": "Manufacturing Manager", 
+  "submit": 1
+ }, 
+ {
+  "amend": 1, 
+  "cancel": 1, 
+  "doctype": "DocPerm", 
+  "report": 1, 
+  "role": "Material Manager", 
+  "submit": 1
  }, 
  {
   "doctype": "DocPerm", 
-  "role": "Manufacturing User"
+  "role": "Lab Incharge"
  }, 
  {
   "doctype": "DocPerm", 
-  "role": "Manufacturing Manager"
- }, 
- {
-  "doctype": "DocPerm", 
-  "role": "Material Manager"
+  "role": "Shift Incharge"
  }
 ]

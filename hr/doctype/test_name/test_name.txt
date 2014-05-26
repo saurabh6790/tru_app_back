@@ -1,0 +1,111 @@
+[
+ {
+  "creation": "2014-04-15 13:03:45", 
+  "docstatus": 0, 
+  "modified": "2014-05-26 17:06:03", 
+  "modified_by": "Administrator", 
+  "owner": "Administrator"
+ }, 
+ {
+  "autoname": "field:test_name", 
+  "doctype": "DocType", 
+  "document_type": "Transaction", 
+  "icon": "icon-file-text", 
+  "is_submittable": 0, 
+  "module": "HR", 
+  "name": "__common__"
+ }, 
+ {
+  "doctype": "DocField", 
+  "name": "__common__", 
+  "parent": "Test Name", 
+  "parentfield": "fields", 
+  "parenttype": "DocType", 
+  "permlevel": 0
+ }, 
+ {
+  "cancel": 1, 
+  "create": 1, 
+  "doctype": "DocPerm", 
+  "name": "__common__", 
+  "parent": "Test Name", 
+  "parentfield": "permissions", 
+  "parenttype": "DocType", 
+  "permlevel": 0, 
+  "read": 1, 
+  "report": 1, 
+  "role": "Administrator", 
+  "submit": 0, 
+  "write": 1
+ }, 
+ {
+  "doctype": "DocType", 
+  "name": "Test Name"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "test_names", 
+  "fieldtype": "Section Break", 
+  "label": "Test Names"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "amended_from", 
+  "fieldtype": "Link", 
+  "label": "Amended From", 
+  "no_copy": 1, 
+  "options": "Test Name", 
+  "print_hide": 1, 
+  "read_only": 1
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "test_name", 
+  "fieldtype": "Data", 
+  "label": "Test Name", 
+  "reqd": 1
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "employee_type", 
+  "fieldtype": "Select", 
+  "label": "Type Of Employee", 
+  "options": "\nTechnical\nNon-Technical", 
+  "reqd": 1
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "test_group", 
+  "fieldtype": "Link", 
+  "label": "Test Group", 
+  "options": "Test Group"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "column_break_5", 
+  "fieldtype": "Column Break"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "test_type", 
+  "fieldtype": "Select", 
+  "label": "Test Type", 
+  "options": "\nBatch\nIndividual"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "test_method", 
+  "fieldtype": "Data", 
+  "label": "Test Method"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "no_process", 
+  "fieldtype": "Select", 
+  "label": "Number Of Process", 
+  "options": "\n1\n2\n3\n4"
+ }, 
+ {
+  "doctype": "DocPerm"
+ }
+]

@@ -1,0 +1,215 @@
+[
+ {
+  "creation": "2014-04-03 14:24:09", 
+  "docstatus": 0, 
+  "modified": "2014-05-20 12:59:48", 
+  "modified_by": "Administrator", 
+  "owner": "Administrator"
+ }, 
+ {
+  "autoname": "NV.#####", 
+  "doctype": "DocType", 
+  "document_type": "Transaction", 
+  "is_submittable": 1, 
+  "module": "Test", 
+  "name": "__common__"
+ }, 
+ {
+  "doctype": "DocField", 
+  "name": "__common__", 
+  "parent": "Neutralization Value", 
+  "parentfield": "fields", 
+  "parenttype": "DocType", 
+  "permlevel": 0
+ }, 
+ {
+  "create": 1, 
+  "doctype": "DocPerm", 
+  "name": "__common__", 
+  "parent": "Neutralization Value", 
+  "parentfield": "permissions", 
+  "parenttype": "DocType", 
+  "permlevel": 0, 
+  "read": 1, 
+  "write": 1
+ }, 
+ {
+  "doctype": "DocType", 
+  "name": "Neutralization Value"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "status", 
+  "fieldtype": "Select", 
+  "label": "Status", 
+  "options": "\nOpen\nApproved\nRejected"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "date", 
+  "fieldtype": "Date", 
+  "label": "Date"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "column_break_3", 
+  "fieldtype": "Column Break"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "normality", 
+  "fieldtype": "Link", 
+  "label": "Normality", 
+  "options": "Normality"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "method", 
+  "fieldtype": "Link", 
+  "hidden": 0, 
+  "label": "Method", 
+  "options": "Test Method"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "test_type", 
+  "fieldtype": "Select", 
+  "hidden": 1, 
+  "label": "Test Type", 
+  "options": "\nRegular\nQA\nCalibration"
+ }, 
+ {
+  "description": "Selected Normality Test Details", 
+  "doctype": "DocField", 
+  "fieldname": "normality_test_details", 
+  "fieldtype": "Section Break", 
+  "label": "Normality Test Details"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "normality_of_hcl", 
+  "fieldtype": "Data", 
+  "label": "Normality Of HCL"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "volume", 
+  "fieldtype": "Data", 
+  "label": "Volume Of 0.1 NHCL"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "column_break_10", 
+  "fieldtype": "Column Break"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "koh_volume", 
+  "fieldtype": "Data", 
+  "label": "Volume Of KOH Used"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "normality_of_koh", 
+  "fieldtype": "Data", 
+  "label": "Normality Of KOH"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "neutralization_value_details", 
+  "fieldtype": "Section Break", 
+  "hidden": 0, 
+  "label": "Neutralization Value Test  Details"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "neutralisation_test_details", 
+  "fieldtype": "Table", 
+  "label": "test", 
+  "options": "Neutralization Test Details"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "amt_of_oil", 
+  "fieldtype": "Data", 
+  "hidden": 1, 
+  "label": "Amt. of Oil "
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "reported_value", 
+  "fieldtype": "Data", 
+  "hidden": 1, 
+  "label": "Reported Value"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "initial_reading", 
+  "fieldtype": "Data", 
+  "hidden": 1, 
+  "label": "Initial Reading"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "info", 
+  "fieldtype": "Section Break", 
+  "label": "Info"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "shift_incharge_approval", 
+  "fieldtype": "Data", 
+  "label": "Shift Incharge Approval"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "lab_incharge_approval", 
+  "fieldtype": "Data", 
+  "label": "Lab Incharge Approval"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "column_break_7", 
+  "fieldtype": "Column Break"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "tested_by", 
+  "fieldtype": "Data", 
+  "label": "Tested By"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "amended_from", 
+  "fieldtype": "Link", 
+  "label": "Amended From", 
+  "no_copy": 1, 
+  "options": "Neutralization Value", 
+  "print_hide": 1, 
+  "read_only": 1
+ }, 
+ {
+  "amend": 1, 
+  "cancel": 1, 
+  "doctype": "DocPerm", 
+  "report": 1, 
+  "role": "Administrator", 
+  "submit": 0
+ }, 
+ {
+  "doctype": "DocPerm", 
+  "role": "Employee"
+ }, 
+ {
+  "cancel": 1, 
+  "doctype": "DocPerm", 
+  "role": "Shift Incharge", 
+  "submit": 1
+ }, 
+ {
+  "cancel": 1, 
+  "doctype": "DocPerm", 
+  "role": "Lab Incharge", 
+  "submit": 1
+ }
+]

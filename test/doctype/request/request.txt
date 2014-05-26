@@ -1,0 +1,159 @@
+[
+ {
+  "creation": "2014-05-13 11:55:58", 
+  "docstatus": 0, 
+  "modified": "2014-05-14 18:47:22", 
+  "modified_by": "Administrator", 
+  "owner": "Administrator"
+ }, 
+ {
+  "autoname": "RQ.#####", 
+  "doctype": "DocType", 
+  "document_type": "Transaction", 
+  "icon": "icon-file-text", 
+  "is_submittable": 1, 
+  "module": "Test", 
+  "name": "__common__"
+ }, 
+ {
+  "doctype": "DocField", 
+  "name": "__common__", 
+  "parent": "Request", 
+  "parentfield": "fields", 
+  "parenttype": "DocType", 
+  "permlevel": 0
+ }, 
+ {
+  "cancel": 1, 
+  "create": 1, 
+  "doctype": "DocPerm", 
+  "name": "__common__", 
+  "parent": "Request", 
+  "parentfield": "permissions", 
+  "parenttype": "DocType", 
+  "permlevel": 0, 
+  "read": 1, 
+  "report": 1, 
+  "submit": 1, 
+  "write": 1
+ }, 
+ {
+  "doctype": "DocType", 
+  "name": "Request"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "request_from", 
+  "fieldtype": "Select", 
+  "label": "Request From", 
+  "options": "\nSelf\nOn Behalf Of"
+ }, 
+ {
+  "depends_on": "eval:doc.request_from=='Self'", 
+  "doctype": "DocField", 
+  "fieldname": "requestor", 
+  "fieldtype": "Data", 
+  "label": "Requestor"
+ }, 
+ {
+  "depends_on": "eval:doc.request_from=='On Behalf Of'", 
+  "description": "Mention name of Employee behalf of whom your requesting", 
+  "doctype": "DocField", 
+  "fieldname": "e_name", 
+  "fieldtype": "Link", 
+  "label": "Employee Name", 
+  "options": "Employee"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "request_type", 
+  "fieldtype": "Link", 
+  "label": "Request Type", 
+  "options": "Request Type"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "approver", 
+  "fieldtype": "Link", 
+  "label": "Approver", 
+  "options": "Profile"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "priority", 
+  "fieldtype": "Select", 
+  "label": "Priority", 
+  "options": "\nLow\nMedium\nHigh"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "column_break_7", 
+  "fieldtype": "Column Break"
+ }, 
+ {
+  "depends_on": "eval:doc.request_from=='Self'", 
+  "doctype": "DocField", 
+  "fieldname": "executor", 
+  "fieldtype": "Data", 
+  "label": "Executor"
+ }, 
+ {
+  "depends_on": "eval:doc.request_from=='On Behalf Of'||doc.request_from=='Self'", 
+  "description": "Executor Acceptance/Rejection\n", 
+  "doctype": "DocField", 
+  "fieldname": "executor_status", 
+  "fieldtype": "Select", 
+  "label": "Executor Status", 
+  "options": "\nAccepted\nRejected"
+ }, 
+ {
+  "depends_on": "eval:doc.request_from=='On Behalf Of'", 
+  "description": "Mention name of employee as Executor", 
+  "doctype": "DocField", 
+  "fieldname": "executor_name", 
+  "fieldtype": "Link", 
+  "label": "Executor Name", 
+  "options": "Employee"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "status", 
+  "fieldtype": "Select", 
+  "label": "Status", 
+  "options": "\nApproved\nRejected"
+ }, 
+ {
+  "depends_on": "eval:(doc.status==\"Approved\" || doc.status==\"Rejected\")", 
+  "doctype": "DocField", 
+  "fieldname": "comment", 
+  "fieldtype": "Small Text", 
+  "label": "Comment"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "description", 
+  "fieldtype": "Small Text", 
+  "label": "Description"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "amended_from", 
+  "fieldtype": "Link", 
+  "label": "Amended From", 
+  "no_copy": 1, 
+  "options": "Request", 
+  "print_hide": 1, 
+  "read_only": 1
+ }, 
+ {
+  "amend": 1, 
+  "doctype": "DocPerm", 
+  "role": "Administrator"
+ }, 
+ {
+  "amend": 0, 
+  "doctype": "DocPerm", 
+  "match": "approver", 
+  "role": "All"
+ }
+]

@@ -1,0 +1,279 @@
+[
+ {
+  "creation": "2014-05-15 12:07:10", 
+  "docstatus": 0, 
+  "modified": "2014-05-20 10:29:03", 
+  "modified_by": "Administrator", 
+  "owner": "Administrator"
+ }, 
+ {
+  "autoname": "PCD.#####", 
+  "doctype": "DocType", 
+  "document_type": "Transaction", 
+  "is_submittable": 1, 
+  "module": "Test", 
+  "name": "__common__"
+ }, 
+ {
+  "doctype": "DocField", 
+  "name": "__common__", 
+  "parent": "Physical Condition And Density", 
+  "parentfield": "fields", 
+  "parenttype": "DocType", 
+  "permlevel": 0
+ }, 
+ {
+  "cancel": 1, 
+  "create": 1, 
+  "doctype": "DocPerm", 
+  "name": "__common__", 
+  "parent": "Physical Condition And Density", 
+  "parentfield": "permissions", 
+  "parenttype": "DocType", 
+  "permlevel": 0, 
+  "read": 1, 
+  "report": 1, 
+  "submit": 1, 
+  "write": 1
+ }, 
+ {
+  "doctype": "DocType", 
+  "name": "Physical Condition And Density"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "sample_no", 
+  "fieldtype": "Link", 
+  "label": "Sample No", 
+  "options": "Sample"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "test_type", 
+  "fieldtype": "Select", 
+  "label": "Test Type", 
+  "options": "\nRegular\nQA\nCalibration", 
+  "reqd": 0
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "column_break_2", 
+  "fieldtype": "Column Break"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "bottle_no", 
+  "fieldtype": "Data", 
+  "label": "Bottle No"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "method", 
+  "fieldtype": "Link", 
+  "label": "Method", 
+  "options": "Test Method"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "physical__condition_and_density", 
+  "fieldtype": "Section Break", 
+  "label": "Color As per ASTM Color code"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "color", 
+  "fieldtype": "Data", 
+  "label": "Color"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "column_break_7", 
+  "fieldtype": "Column Break"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "to", 
+  "fieldtype": "Data", 
+  "label": "To"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "visual_color_detail", 
+  "fieldtype": "Section Break", 
+  "label": "Visual Color Detail"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "visual_color", 
+  "fieldtype": "Link", 
+  "label": "Visual", 
+  "options": "Visual Color"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "particles", 
+  "fieldtype": "Select", 
+  "label": "Particles", 
+  "options": "\nClear\nSuspended"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "column_break_11", 
+  "fieldtype": "Column Break"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "smell", 
+  "fieldtype": "Link", 
+  "label": "Smell", 
+  "options": "Smell"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "temp", 
+  "fieldtype": "Data", 
+  "label": "JobCard Temparature"
+ }, 
+ {
+  "depends_on": "eval:doc.smell=='Others'", 
+  "doctype": "DocField", 
+  "fieldname": "comments", 
+  "fieldtype": "Small Text", 
+  "label": "Comments"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "details_density", 
+  "fieldtype": "Section Break", 
+  "label": "Density"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "density", 
+  "fieldtype": "Select", 
+  "label": "Density", 
+  "options": "\nBy Weight\nBy Hydrometer"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "density_data", 
+  "fieldtype": "Data", 
+  "hidden": 1, 
+  "label": "Density Data", 
+  "read_only": 1
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "temperature_data", 
+  "fieldtype": "Data", 
+  "hidden": 1, 
+  "label": "Temperature"
+ }, 
+ {
+  "depends_on": "eval:doc.density=='By Weight'", 
+  "doctype": "DocField", 
+  "fieldname": "density_details", 
+  "fieldtype": "Table", 
+  "label": "Density", 
+  "options": "Density Details"
+ }, 
+ {
+  "depends_on": "eval:doc.density=='By Hydrometer'", 
+  "doctype": "DocField", 
+  "fieldname": "density_reading", 
+  "fieldtype": "Table", 
+  "label": "Reading", 
+  "options": "Density Reading"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "amended_from", 
+  "fieldtype": "Link", 
+  "label": "Amended From", 
+  "no_copy": 1, 
+  "options": "Physical Condition And Density", 
+  "print_hide": 1, 
+  "read_only": 1
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "moisture_details", 
+  "fieldtype": "Section Break", 
+  "hidden": 1, 
+  "label": "Moisture Details"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "temperature", 
+  "fieldtype": "Data", 
+  "label": "Temperature"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "moisture", 
+  "fieldtype": "Data", 
+  "label": "Moisture"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "column_break_22", 
+  "fieldtype": "Column Break"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "volume", 
+  "fieldtype": "Data", 
+  "label": "Volume"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "instrument_reading", 
+  "fieldtype": "Data", 
+  "label": "Instrument Reading"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "final_density", 
+  "fieldtype": "Data", 
+  "hidden": 1, 
+  "label": "Final Density"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "info", 
+  "fieldtype": "Section Break", 
+  "label": "Info"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "shift_incharge_approval", 
+  "fieldtype": "Data", 
+  "label": "Shift Incharge Approval"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "lab_incharge_approval", 
+  "fieldtype": "Data", 
+  "label": "Lab Incharge Approval"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "column_break_34", 
+  "fieldtype": "Column Break"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "tested_by", 
+  "fieldtype": "Data", 
+  "label": "Tested By"
+ }, 
+ {
+  "doctype": "DocPerm", 
+  "role": "All"
+ }, 
+ {
+  "amend": 1, 
+  "doctype": "DocPerm", 
+  "role": "Administrator"
+ }
+]

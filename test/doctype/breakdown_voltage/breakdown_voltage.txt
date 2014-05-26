@@ -1,0 +1,274 @@
+[
+ {
+  "creation": "2014-04-03 15:11:46", 
+  "docstatus": 0, 
+  "modified": "2014-05-19 18:23:38", 
+  "modified_by": "Administrator", 
+  "owner": "Administrator"
+ }, 
+ {
+  "autoname": "BV.#####", 
+  "doctype": "DocType", 
+  "document_type": "Transaction", 
+  "is_submittable": 1, 
+  "module": "Test", 
+  "name": "__common__"
+ }, 
+ {
+  "doctype": "DocField", 
+  "name": "__common__", 
+  "parent": "Breakdown Voltage", 
+  "parentfield": "fields", 
+  "parenttype": "DocType", 
+  "permlevel": 0
+ }, 
+ {
+  "cancel": 1, 
+  "create": 1, 
+  "doctype": "DocPerm", 
+  "name": "__common__", 
+  "parent": "Breakdown Voltage", 
+  "parentfield": "permissions", 
+  "parenttype": "DocType", 
+  "permlevel": 0, 
+  "read": 1, 
+  "write": 1
+ }, 
+ {
+  "doctype": "DocType", 
+  "name": "Breakdown Voltage"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "status", 
+  "fieldtype": "Select", 
+  "label": "Status", 
+  "options": "\nOpen\nApproved\nRejected"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "date", 
+  "fieldtype": "Date", 
+  "label": "Date"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "test_type", 
+  "fieldtype": "Select", 
+  "label": "Test Type", 
+  "options": "\nRegular\nQA\nCalibration"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "column_break_3", 
+  "fieldtype": "Column Break"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "equipment_used", 
+  "fieldtype": "Data", 
+  "label": "Equipment Used"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "method", 
+  "fieldtype": "Link", 
+  "label": "Method", 
+  "options": "Test Method"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "gap", 
+  "fieldtype": "Data", 
+  "hidden": 1, 
+  "label": "Gap"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "breakdown_voltage_details", 
+  "fieldtype": "Section Break", 
+  "label": "Breakdown Voltage Details"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "sample_no", 
+  "fieldtype": "Link", 
+  "label": "Sample No", 
+  "options": "Sample"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "column_break_10", 
+  "fieldtype": "Column Break"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "bottle_no", 
+  "fieldtype": "Data", 
+  "label": "Bottle No"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "break_down_voltage_test_details", 
+  "fieldtype": "Section Break", 
+  "label": "Break Down Voltage Test Details"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "break_detail", 
+  "fieldtype": "Table", 
+  "label": "Break Detail", 
+  "options": "Break Details"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "break_1", 
+  "fieldtype": "Data", 
+  "hidden": 1, 
+  "label": "Break 1"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "break_2", 
+  "fieldtype": "Data", 
+  "hidden": 1, 
+  "label": "Break 2"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "break_3", 
+  "fieldtype": "Data", 
+  "hidden": 1, 
+  "label": "Break 3"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "break_4", 
+  "fieldtype": "Data", 
+  "hidden": 1, 
+  "label": "Break 4"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "break_5", 
+  "fieldtype": "Data", 
+  "hidden": 1, 
+  "label": "Break 5"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "break_6", 
+  "fieldtype": "Data", 
+  "hidden": 1, 
+  "label": "Break 6"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "break_7", 
+  "fieldtype": "Data", 
+  "hidden": 1, 
+  "label": "Break 7"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "break_8", 
+  "fieldtype": "Data", 
+  "hidden": 1, 
+  "label": "Break 8"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "section_break_7", 
+  "fieldtype": "Section Break", 
+  "label": "Other Details"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "shift_incharge_approval", 
+  "fieldtype": "Data", 
+  "label": "Shift Incharge Approval"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "lab_incharge_approval", 
+  "fieldtype": "Data", 
+  "label": "Lab Incharge Approval"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "tested_by", 
+  "fieldtype": "Data", 
+  "label": "Tested By"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "column_break_9", 
+  "fieldtype": "Column Break"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "remarks", 
+  "fieldtype": "Small Text", 
+  "hidden": 1, 
+  "label": "Remarks"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "amended_from", 
+  "fieldtype": "Link", 
+  "label": "Amended From", 
+  "no_copy": 1, 
+  "options": "Breakdown Voltage", 
+  "print_hide": 1, 
+  "read_only": 1
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "break_down_temperature", 
+  "fieldtype": "Data", 
+  "hidden": 0, 
+  "label": "Break Down Temperature"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "break_down_humidity", 
+  "fieldtype": "Data", 
+  "hidden": 0, 
+  "label": "Break Down Humidity"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "break_down_ir", 
+  "fieldtype": "Data", 
+  "hidden": 0, 
+  "label": "Break Down IR"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "break_down_frequency", 
+  "fieldtype": "Data", 
+  "hidden": 0, 
+  "label": "Break Down Frequency"
+ }, 
+ {
+  "amend": 1, 
+  "doctype": "DocPerm", 
+  "report": 1, 
+  "role": "Administrator", 
+  "submit": 1
+ }, 
+ {
+  "doctype": "DocPerm", 
+  "role": "Employee"
+ }, 
+ {
+  "doctype": "DocPerm", 
+  "role": "Shift Incharge", 
+  "submit": 1
+ }, 
+ {
+  "doctype": "DocPerm", 
+  "role": "Lab Incharge", 
+  "submit": 1
+ }
+]

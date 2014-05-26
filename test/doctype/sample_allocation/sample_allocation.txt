@@ -1,0 +1,96 @@
+[
+ {
+  "creation": "2014-04-23 20:10:09", 
+  "docstatus": 0, 
+  "modified": "2014-05-14 10:41:12", 
+  "modified_by": "Administrator", 
+  "owner": "Administrator"
+ }, 
+ {
+  "autoname": "SA.#####", 
+  "doctype": "DocType", 
+  "document_type": "Transaction", 
+  "icon": "icon-file-text", 
+  "is_submittable": 1, 
+  "module": "Test", 
+  "name": "__common__"
+ }, 
+ {
+  "doctype": "DocField", 
+  "name": "__common__", 
+  "parent": "Sample Allocation", 
+  "parentfield": "fields", 
+  "parenttype": "DocType", 
+  "permlevel": 0
+ }, 
+ {
+  "amend": 1, 
+  "cancel": 1, 
+  "create": 1, 
+  "doctype": "DocPerm", 
+  "name": "__common__", 
+  "parent": "Sample Allocation", 
+  "parentfield": "permissions", 
+  "parenttype": "DocType", 
+  "permlevel": 0, 
+  "read": 1, 
+  "report": 1, 
+  "role": "Administrator", 
+  "submit": 1, 
+  "write": 1
+ }, 
+ {
+  "doctype": "DocType", 
+  "name": "Sample Allocation"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "sample_type", 
+  "fieldtype": "Select", 
+  "label": "Sample Type", 
+  "options": "\nSingle Sample\nBatch"
+ }, 
+ {
+  "depends_on": "eval:doc.sample_type=='Batch'", 
+  "doctype": "DocField", 
+  "fieldname": "batch", 
+  "fieldtype": "Link", 
+  "label": "Batch", 
+  "options": "Sample Batch"
+ }, 
+ {
+  "depends_on": "eval:doc.sample_type=='Single Sample'", 
+  "doctype": "DocField", 
+  "fieldname": "sample_id", 
+  "fieldtype": "Link", 
+  "label": "Sample ID", 
+  "options": "Sample"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "add_samples", 
+  "fieldtype": "Button", 
+  "label": "Add Samples", 
+  "options": "add_samples"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "sample_allocation_detail", 
+  "fieldtype": "Table", 
+  "label": "Sample Allocation Detail", 
+  "options": "Sample Allocation Detail"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "amended_from", 
+  "fieldtype": "Link", 
+  "label": "Amended From", 
+  "no_copy": 1, 
+  "options": "Sample Allocation", 
+  "print_hide": 1, 
+  "read_only": 1
+ }, 
+ {
+  "doctype": "DocPerm"
+ }
+]

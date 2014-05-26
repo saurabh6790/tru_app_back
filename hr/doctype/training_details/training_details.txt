@@ -1,0 +1,42 @@
+[
+ {
+  "creation": "2014-04-15 13:38:41", 
+  "docstatus": 0, 
+  "modified": "2014-04-15 14:44:33", 
+  "modified_by": "Administrator", 
+  "owner": "Administrator"
+ }, 
+ {
+  "autoname": "TD.###", 
+  "doctype": "DocType", 
+  "istable": 1, 
+  "module": "HR", 
+  "name": "__common__"
+ }, 
+ {
+  "doctype": "DocField", 
+  "in_list_view": 1, 
+  "name": "__common__", 
+  "parent": "Training Details", 
+  "parentfield": "fields", 
+  "parenttype": "DocType", 
+  "permlevel": 0
+ }, 
+ {
+  "doctype": "DocType", 
+  "name": "Training Details"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "test", 
+  "fieldtype": "Link", 
+  "label": "Test ", 
+  "options": "Test Name"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "is_pass", 
+  "fieldtype": "Check", 
+  "label": "Is Pass"
+ }
+]

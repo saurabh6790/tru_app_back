@@ -1,0 +1,65 @@
+[
+ {
+  "creation": "2014-05-05 14:42:07", 
+  "docstatus": 0, 
+  "modified": "2014-05-19 12:58:31", 
+  "modified_by": "Administrator", 
+  "owner": "Administrator"
+ }, 
+ {
+  "doctype": "DocType", 
+  "istable": 1, 
+  "module": "Test", 
+  "name": "__common__"
+ }, 
+ {
+  "doctype": "DocField", 
+  "in_list_view": 1, 
+  "name": "__common__", 
+  "parent": "Break Details", 
+  "parentfield": "fields", 
+  "parenttype": "DocType", 
+  "permlevel": 0
+ }, 
+ {
+  "doctype": "DocType", 
+  "name": "Break Details"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "temparature", 
+  "fieldtype": "Data", 
+  "label": "Temparature"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "humidity", 
+  "fieldtype": "Data", 
+  "label": "Humidity"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "frequency", 
+  "fieldtype": "Data", 
+  "label": "Frequency"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "ir", 
+  "fieldtype": "Data", 
+  "label": "IR"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "remark", 
+  "fieldtype": "Select", 
+  "label": "Remark", 
+  "options": "\nAccepted\nNot-Accepted"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "final_result", 
+  "fieldtype": "Check", 
+  "label": "Consider For Final Result"
+ }
+]

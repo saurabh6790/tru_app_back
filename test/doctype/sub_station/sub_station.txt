@@ -1,0 +1,58 @@
+[
+ {
+  "creation": "2014-05-26 16:48:26", 
+  "docstatus": 0, 
+  "modified": "2014-05-26 16:48:26", 
+  "modified_by": "Administrator", 
+  "owner": "Administrator"
+ }, 
+ {
+  "autoname": "field:sub_station", 
+  "doctype": "DocType", 
+  "document_type": "Master", 
+  "module": "Test", 
+  "name": "__common__"
+ }, 
+ {
+  "doctype": "DocField", 
+  "name": "__common__", 
+  "parent": "Sub Station", 
+  "parentfield": "fields", 
+  "parenttype": "DocType", 
+  "permlevel": 0
+ }, 
+ {
+  "cancel": 1, 
+  "create": 1, 
+  "doctype": "DocPerm", 
+  "name": "__common__", 
+  "parent": "Sub Station", 
+  "parentfield": "permissions", 
+  "parenttype": "DocType", 
+  "permlevel": 0, 
+  "read": 1, 
+  "report": 1, 
+  "role": "All", 
+  "write": 1
+ }, 
+ {
+  "doctype": "DocType", 
+  "name": "Sub Station"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "plant", 
+  "fieldtype": "Link", 
+  "label": "Plant", 
+  "options": "Plant"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "sub_station", 
+  "fieldtype": "Data", 
+  "label": "Sub Station"
+ }, 
+ {
+  "doctype": "DocPerm"
+ }
+]

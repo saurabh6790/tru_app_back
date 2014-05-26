@@ -1,0 +1,121 @@
+[
+ {
+  "creation": "2014-04-03 15:58:07", 
+  "docstatus": 0, 
+  "modified": "2014-05-02 17:13:57", 
+  "modified_by": "Administrator", 
+  "owner": "Administrator"
+ }, 
+ {
+  "autoname": "OR.#####", 
+  "doctype": "DocType", 
+  "document_type": "Master", 
+  "is_submittable": 1, 
+  "module": "Test", 
+  "name": "__common__"
+ }, 
+ {
+  "doctype": "DocField", 
+  "name": "__common__", 
+  "parent": "Outward register", 
+  "parentfield": "fields", 
+  "parenttype": "DocType", 
+  "permlevel": 0
+ }, 
+ {
+  "amend": 1, 
+  "cancel": 1, 
+  "create": 1, 
+  "doctype": "DocPerm", 
+  "name": "__common__", 
+  "parent": "Outward register", 
+  "parentfield": "permissions", 
+  "parenttype": "DocType", 
+  "permlevel": 0, 
+  "read": 1, 
+  "report": 1, 
+  "role": "Administrator", 
+  "submit": 1, 
+  "write": 1
+ }, 
+ {
+  "doctype": "DocType", 
+  "name": "Outward register"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "stock_entry", 
+  "fieldtype": "Link", 
+  "hidden": 1, 
+  "label": "Stock Entry(Material Transfer)", 
+  "options": "Stock Entry"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "carrier_name", 
+  "fieldtype": "Data", 
+  "label": "Carrier Name"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "particulars_of_material", 
+  "fieldtype": "Section Break", 
+  "label": "Particulars of Material"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "inward", 
+  "fieldtype": "Data", 
+  "hidden": 1, 
+  "label": "Inward"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "outward", 
+  "fieldtype": "Data", 
+  "label": "Outward"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "column_break_6", 
+  "fieldtype": "Column Break"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "challan_no", 
+  "fieldtype": "Data", 
+  "label": "Challan No"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "section_break_5", 
+  "fieldtype": "Section Break", 
+  "label": "Remark / Comments"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "remark", 
+  "fieldtype": "Small Text", 
+  "label": "Remark"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "sign", 
+  "fieldtype": "Data", 
+  "hidden": 1, 
+  "label": "Sign"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "amended_from", 
+  "fieldtype": "Link", 
+  "label": "Amended From", 
+  "no_copy": 1, 
+  "options": "Outward register", 
+  "print_hide": 1, 
+  "read_only": 1
+ }, 
+ {
+  "doctype": "DocPerm"
+ }
+]

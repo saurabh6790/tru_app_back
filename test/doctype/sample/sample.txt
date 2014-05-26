@@ -1,0 +1,85 @@
+[
+ {
+  "creation": "2014-04-19 15:47:53", 
+  "docstatus": 0, 
+  "modified": "2014-05-02 11:16:27", 
+  "modified_by": "Administrator", 
+  "owner": "Administrator"
+ }, 
+ {
+  "autoname": "S.####", 
+  "doctype": "DocType", 
+  "document_type": "Transaction", 
+  "module": "Test", 
+  "name": "__common__"
+ }, 
+ {
+  "doctype": "DocField", 
+  "name": "__common__", 
+  "parent": "Sample", 
+  "parentfield": "fields", 
+  "parenttype": "DocType", 
+  "permlevel": 0
+ }, 
+ {
+  "cancel": 1, 
+  "create": 1, 
+  "doctype": "DocPerm", 
+  "name": "__common__", 
+  "parent": "Sample", 
+  "parentfield": "permissions", 
+  "parenttype": "DocType", 
+  "permlevel": 0, 
+  "read": 1, 
+  "report": 1, 
+  "role": "Administrator", 
+  "write": 1
+ }, 
+ {
+  "doctype": "DocType", 
+  "name": "Sample"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "sample_details", 
+  "fieldtype": "Section Break", 
+  "label": "Sample Details"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "sample_entry", 
+  "fieldtype": "Link", 
+  "label": "Sample Entry", 
+  "options": "Sample Entry"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "stock_entry", 
+  "fieldtype": "Link", 
+  "label": "Stock Entry", 
+  "options": "Stock Entry"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "material_inward", 
+  "fieldtype": "Link", 
+  "label": "Material Inward", 
+  "options": "Material Inward"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "barcode", 
+  "fieldtype": "Small Text", 
+  "label": "Barcode"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "status", 
+  "fieldtype": "Select", 
+  "label": "Status", 
+  "options": "\nAssigned\nRegistered\nRejected"
+ }, 
+ {
+  "doctype": "DocPerm"
+ }
+]

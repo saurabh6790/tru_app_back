@@ -1,0 +1,106 @@
+[
+ {
+  "creation": "2014-04-03 15:21:02", 
+  "docstatus": 0, 
+  "modified": "2014-04-18 11:26:23", 
+  "modified_by": "Administrator", 
+  "owner": "Administrator"
+ }, 
+ {
+  "autoname": "MI.#####", 
+  "doctype": "DocType", 
+  "document_type": "Master", 
+  "is_submittable": 1, 
+  "module": "Test", 
+  "name": "__common__"
+ }, 
+ {
+  "doctype": "DocField", 
+  "name": "__common__", 
+  "parent": "Material Inward", 
+  "parentfield": "fields", 
+  "parenttype": "DocType", 
+  "permlevel": 0
+ }, 
+ {
+  "cancel": 1, 
+  "create": 1, 
+  "doctype": "DocPerm", 
+  "name": "__common__", 
+  "parent": "Material Inward", 
+  "parentfield": "permissions", 
+  "parenttype": "DocType", 
+  "permlevel": 0, 
+  "read": 1, 
+  "report": 1, 
+  "role": "Administrator", 
+  "submit": 1, 
+  "write": 1
+ }, 
+ {
+  "doctype": "DocType", 
+  "name": "Material Inward"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "in_date", 
+  "fieldtype": "Date", 
+  "label": "In Date"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "type_of_challan", 
+  "fieldtype": "Select", 
+  "label": "Type Of Challan", 
+  "options": "\nReturnable\nNon-Returnable"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "customer_name", 
+  "fieldtype": "Link", 
+  "label": "Customer Name", 
+  "options": "Customer"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "purpose", 
+  "fieldtype": "Data", 
+  "label": "Purpose"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "column_break_4", 
+  "fieldtype": "Column Break"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "out_date", 
+  "fieldtype": "Date", 
+  "label": "Out date"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "challan_no", 
+  "fieldtype": "Data", 
+  "label": "Challan No"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "customer_address", 
+  "fieldtype": "Small Text", 
+  "label": "Customer Address"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "amended_from", 
+  "fieldtype": "Link", 
+  "label": "Amended From", 
+  "no_copy": 1, 
+  "options": "Material Inward", 
+  "print_hide": 1, 
+  "read_only": 1
+ }, 
+ {
+  "doctype": "DocPerm"
+ }
+]

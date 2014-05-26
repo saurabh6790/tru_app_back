@@ -1,0 +1,60 @@
+[
+ {
+  "creation": "2014-05-17 15:34:47", 
+  "docstatus": 0, 
+  "modified": "2014-05-17 15:37:20", 
+  "modified_by": "Administrator", 
+  "owner": "Administrator"
+ }, 
+ {
+  "autoname": "field:standard", 
+  "doctype": "DocType", 
+  "issingle": 0, 
+  "istable": 0, 
+  "module": "Test", 
+  "name": "__common__"
+ }, 
+ {
+  "doctype": "DocField", 
+  "name": "__common__", 
+  "parent": "Standard", 
+  "parentfield": "fields", 
+  "parenttype": "DocType", 
+  "permlevel": 0
+ }, 
+ {
+  "create": 1, 
+  "doctype": "DocPerm", 
+  "name": "__common__", 
+  "parent": "Standard", 
+  "parentfield": "permissions", 
+  "parenttype": "DocType", 
+  "permlevel": 0, 
+  "read": 1, 
+  "write": 1
+ }, 
+ {
+  "doctype": "DocType", 
+  "name": "Standard"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "standard", 
+  "fieldtype": "Data", 
+  "label": "Standard"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "details", 
+  "fieldtype": "Small Text", 
+  "label": "Details"
+ }, 
+ {
+  "doctype": "DocPerm", 
+  "role": "Administrator"
+ }, 
+ {
+  "doctype": "DocPerm", 
+  "role": "All"
+ }
+]

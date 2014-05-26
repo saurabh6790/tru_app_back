@@ -1,0 +1,48 @@
+[
+ {
+  "creation": "2014-04-03 14:52:20", 
+  "docstatus": 0, 
+  "modified": "2014-04-03 14:52:20", 
+  "modified_by": "Administrator", 
+  "owner": "Administrator"
+ }, 
+ {
+  "doctype": "DocType", 
+  "module": "Test", 
+  "name": "__common__"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldtype": "Data", 
+  "in_list_view": 1, 
+  "name": "__common__", 
+  "parent": "Density And Visual Exam Items", 
+  "parentfield": "fields", 
+  "parenttype": "DocType", 
+  "permlevel": 0
+ }, 
+ {
+  "doctype": "DocType", 
+  "name": "Density And Visual Exam Items"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "sample_no", 
+  "label": "Sample No"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "temp", 
+  "label": "Temp"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "density", 
+  "label": "Density"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "visual_examination", 
+  "label": "Visual Examination"
+ }
+]

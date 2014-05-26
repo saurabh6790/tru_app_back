@@ -12,6 +12,9 @@ erpnext.hr.EmployeeController = wn.ui.form.Controller.extend({
 	
 	onload: function() {
 		this.setup_leave_approver_select();
+		//alert("start");
+		//cur_frm.refresh();
+		//alert("end");
 		this.frm.toggle_display(["esic_card_no", "gratuity_lic_id", "pan_number", "pf_number"],
 			wn.control_panel.country==="India");
 		if(this.frm.doc.__islocal) this.frm.set_value("employee_name", "");
@@ -19,6 +22,7 @@ erpnext.hr.EmployeeController = wn.ui.form.Controller.extend({
 	
 	refresh: function() {
 		var me = this;
+		//refresh_field('employee_training');
 		erpnext.hide_naming_series();
 		if(!this.frm.doc.__islocal) {			
 			cur_frm.add_custom_button(wn._('Make Salary Structure'), function() {

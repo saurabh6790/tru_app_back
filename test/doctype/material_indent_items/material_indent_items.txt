@@ -1,0 +1,44 @@
+[
+ {
+  "creation": "2014-04-03 15:02:52", 
+  "docstatus": 0, 
+  "modified": "2014-04-03 15:02:52", 
+  "modified_by": "Administrator", 
+  "owner": "Administrator"
+ }, 
+ {
+  "doctype": "DocType", 
+  "istable": 1, 
+  "module": "Test", 
+  "name": "__common__"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldtype": "Data", 
+  "in_list_view": 1, 
+  "name": "__common__", 
+  "parent": "Material Indent Items", 
+  "parentfield": "fields", 
+  "parenttype": "DocType", 
+  "permlevel": 0
+ }, 
+ {
+  "doctype": "DocType", 
+  "name": "Material Indent Items"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "sr_no", 
+  "label": "Sr No"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "item_name", 
+  "label": "Item Name"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "quanity", 
+  "label": "Quanity"
+ }
+]

@@ -1,0 +1,155 @@
+[
+ {
+  "creation": "2014-04-03 16:10:31", 
+  "docstatus": 0, 
+  "modified": "2014-05-26 19:27:36", 
+  "modified_by": "Administrator", 
+  "owner": "Administrator"
+ }, 
+ {
+  "autoname": "Reg.######", 
+  "doctype": "DocType", 
+  "document_type": "Master", 
+  "icon": "icon-file-text", 
+  "is_submittable": 1, 
+  "module": "Test", 
+  "name": "__common__"
+ }, 
+ {
+  "doctype": "DocField", 
+  "name": "__common__", 
+  "parent": "Register", 
+  "parentfield": "fields", 
+  "parenttype": "DocType", 
+  "permlevel": 0
+ }, 
+ {
+  "amend": 1, 
+  "cancel": 1, 
+  "create": 1, 
+  "doctype": "DocPerm", 
+  "name": "__common__", 
+  "parent": "Register", 
+  "parentfield": "permissions", 
+  "parenttype": "DocType", 
+  "permlevel": 0, 
+  "read": 1, 
+  "report": 1, 
+  "role": "Administrator", 
+  "submit": 1, 
+  "write": 1
+ }, 
+ {
+  "doctype": "DocType", 
+  "name": "Register"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "sample_no", 
+  "fieldtype": "Link", 
+  "label": "Sample No", 
+  "options": "Sample"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "column_break_2", 
+  "fieldtype": "Column Break"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "bottle_no", 
+  "fieldtype": "Small Text", 
+  "label": "Bottle No.", 
+  "read_only": 1
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "required_tests", 
+  "fieldtype": "Section Break", 
+  "label": "Required Tests"
+ }, 
+ {
+  "depends_on": "eval:doc.others!=1", 
+  "doctype": "DocField", 
+  "fieldname": "test_group", 
+  "fieldtype": "Check", 
+  "label": "Test Group"
+ }, 
+ {
+  "depends_on": "eval:doc.test_group=='1'", 
+  "doctype": "DocField", 
+  "fieldname": "group_name", 
+  "fieldtype": "Link", 
+  "label": "Test Group Name ", 
+  "options": "Test Group"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "column_break_6", 
+  "fieldtype": "Column Break"
+ }, 
+ {
+  "depends_on": "eval:doc.test_group!=1", 
+  "doctype": "DocField", 
+  "fieldname": "others", 
+  "fieldtype": "Check", 
+  "label": "Others"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "section_break_8", 
+  "fieldtype": "Section Break", 
+  "hidden": 1, 
+  "label": "Register Details"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "priority", 
+  "fieldtype": "Select", 
+  "label": "Priority", 
+  "options": "\nCritical\nEmergency\nUrgent"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "alloted_on", 
+  "fieldtype": "Date", 
+  "label": "Alloted On"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "invoice_no", 
+  "fieldtype": "Link", 
+  "label": "Invoice No", 
+  "options": "Sales Invoice"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "column_break_14", 
+  "fieldtype": "Column Break"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "bottle_dispose_on", 
+  "fieldtype": "Date", 
+  "label": "Bottle Dispose On"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "certificate_dispatched_on", 
+  "fieldtype": "Date", 
+  "label": "Certificate Dispatched On"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "amended_from", 
+  "fieldtype": "Link", 
+  "label": "Amended From", 
+  "no_copy": 1, 
+  "options": "Register", 
+  "print_hide": 1, 
+  "read_only": 1
+ }, 
+ {
+  "doctype": "DocPerm"
+ }
+]

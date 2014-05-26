@@ -1,0 +1,35 @@
+[
+ {
+  "creation": "2014-04-22 16:30:09", 
+  "docstatus": 0, 
+  "modified": "2014-04-22 16:30:09", 
+  "modified_by": "Administrator", 
+  "owner": "Administrator"
+ }, 
+ {
+  "doctype": "DocType", 
+  "istable": 1, 
+  "module": "Test", 
+  "name": "__common__"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "test", 
+  "fieldtype": "Link", 
+  "in_list_view": 1, 
+  "label": "Test Name", 
+  "name": "__common__", 
+  "options": "Test Name", 
+  "parent": "Register Test Details", 
+  "parentfield": "fields", 
+  "parenttype": "DocType", 
+  "permlevel": 0
+ }, 
+ {
+  "doctype": "DocType", 
+  "name": "Register Test Details"
+ }, 
+ {
+  "doctype": "DocField"
+ }
+]

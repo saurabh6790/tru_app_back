@@ -1,0 +1,71 @@
+[
+ {
+  "creation": "2014-05-16 10:09:40", 
+  "docstatus": 0, 
+  "modified": "2014-05-16 10:11:17", 
+  "modified_by": "Administrator", 
+  "owner": "Administrator"
+ }, 
+ {
+  "autoname": "CTR.######", 
+  "doctype": "DocType", 
+  "document_type": "Transaction", 
+  "istable": 1, 
+  "module": "Test", 
+  "name": "__common__"
+ }, 
+ {
+  "doctype": "DocField", 
+  "in_list_view": 1, 
+  "name": "__common__", 
+  "parent": "Certificate Test Details", 
+  "parentfield": "fields", 
+  "parenttype": "DocType", 
+  "permlevel": 0
+ }, 
+ {
+  "cancel": 1, 
+  "create": 1, 
+  "doctype": "DocPerm", 
+  "name": "__common__", 
+  "parent": "Certificate Test Details", 
+  "parentfield": "permissions", 
+  "parenttype": "DocType", 
+  "permlevel": 0, 
+  "read": 1, 
+  "report": 1, 
+  "role": "Administrator", 
+  "write": 1
+ }, 
+ {
+  "doctype": "DocType", 
+  "name": "Certificate Test Details"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "particulors_of_test", 
+  "fieldtype": "Small Text", 
+  "label": "Particulors Of Test"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "test_method", 
+  "fieldtype": "Small Text", 
+  "label": "Test Method"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "spec_limits", 
+  "fieldtype": "Data", 
+  "label": "As Per PGCIL Spec. Limits"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "test_values", 
+  "fieldtype": "Data", 
+  "label": "Test Values"
+ }, 
+ {
+  "doctype": "DocPerm"
+ }
+]

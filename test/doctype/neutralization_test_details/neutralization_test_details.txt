@@ -1,0 +1,84 @@
+[
+ {
+  "creation": "2014-05-19 16:20:01", 
+  "docstatus": 0, 
+  "modified": "2014-05-20 11:16:26", 
+  "modified_by": "Administrator", 
+  "owner": "Administrator"
+ }, 
+ {
+  "autoname": "NVD.#####", 
+  "doctype": "DocType", 
+  "document_type": "Transaction", 
+  "istable": 1, 
+  "module": "Test", 
+  "name": "__common__"
+ }, 
+ {
+  "doctype": "DocField", 
+  "in_list_view": 1, 
+  "name": "__common__", 
+  "parent": "Neutralization Test Details", 
+  "parentfield": "fields", 
+  "parenttype": "DocType", 
+  "permlevel": 0
+ }, 
+ {
+  "cancel": 1, 
+  "create": 1, 
+  "doctype": "DocPerm", 
+  "name": "__common__", 
+  "parent": "Neutralization Test Details", 
+  "parentfield": "permissions", 
+  "parenttype": "DocType", 
+  "permlevel": 0, 
+  "read": 1, 
+  "report": 1, 
+  "role": "Administrator", 
+  "write": 1
+ }, 
+ {
+  "doctype": "DocType", 
+  "name": "Neutralization Test Details"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "sample_no", 
+  "fieldtype": "Link", 
+  "label": "Sample Id", 
+  "options": "Sample"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "bottle_no", 
+  "fieldtype": "Small Text", 
+  "label": "Bottle No"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "density_of_oil", 
+  "fieldtype": "Data", 
+  "label": "Density Of Oil"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "volume_of_oil", 
+  "fieldtype": "Data", 
+  "label": "Volume Of Oil"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "ml_consumes_of_alkoh", 
+  "fieldtype": "Data", 
+  "label": "ml Consumes Of ALKOH"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "reported_value", 
+  "fieldtype": "Data", 
+  "label": "Reported Value"
+ }, 
+ {
+  "doctype": "DocPerm"
+ }
+]

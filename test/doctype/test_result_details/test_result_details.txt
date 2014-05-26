@@ -1,0 +1,77 @@
+[
+ {
+  "creation": "2014-05-16 11:21:47", 
+  "docstatus": 0, 
+  "modified": "2014-05-17 15:14:41", 
+  "modified_by": "Administrator", 
+  "owner": "Administrator"
+ }, 
+ {
+  "autoname": "TRD.######", 
+  "doctype": "DocType", 
+  "document_type": "Transaction", 
+  "istable": 1, 
+  "module": "Test", 
+  "name": "__common__"
+ }, 
+ {
+  "doctype": "DocField", 
+  "in_list_view": 1, 
+  "name": "__common__", 
+  "parent": "Test Result Details", 
+  "parentfield": "fields", 
+  "parenttype": "DocType", 
+  "permlevel": 0
+ }, 
+ {
+  "cancel": 1, 
+  "create": 1, 
+  "doctype": "DocPerm", 
+  "name": "__common__", 
+  "parent": "Test Result Details", 
+  "parentfield": "permissions", 
+  "parenttype": "DocType", 
+  "permlevel": 0, 
+  "read": 1, 
+  "report": 1, 
+  "role": "Administrator", 
+  "write": 1
+ }, 
+ {
+  "doctype": "DocType", 
+  "name": "Test Result Details"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "particulors_of_test", 
+  "fieldtype": "Small Text", 
+  "label": "Particulors Of Test"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "test_method", 
+  "fieldtype": "Small Text", 
+  "label": "Test Method"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "spec_limits", 
+  "fieldtype": "Data", 
+  "label": "As Per PGCIL Spec. Limits"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "test_values", 
+  "fieldtype": "Data", 
+  "label": "Test Values"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "test_name", 
+  "fieldtype": "Data", 
+  "label": "Test Name"
+ }, 
+ {
+  "doctype": "DocPerm"
+ }
+]

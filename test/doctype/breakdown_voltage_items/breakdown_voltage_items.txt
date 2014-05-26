@@ -1,0 +1,89 @@
+[
+ {
+  "creation": "2014-04-03 15:18:04", 
+  "docstatus": 0, 
+  "modified": "2014-04-28 16:50:01", 
+  "modified_by": "Administrator", 
+  "owner": "Administrator"
+ }, 
+ {
+  "doctype": "DocType", 
+  "istable": 1, 
+  "module": "Test", 
+  "name": "__common__"
+ }, 
+ {
+  "doctype": "DocField", 
+  "name": "__common__", 
+  "parent": "Breakdown Voltage Items", 
+  "parentfield": "fields", 
+  "parenttype": "DocType", 
+  "permlevel": 0
+ }, 
+ {
+  "doctype": "DocType", 
+  "name": "Breakdown Voltage Items"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "sample_no", 
+  "fieldtype": "Data", 
+  "in_list_view": 1, 
+  "label": "Sample No"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "break_1", 
+  "fieldtype": "Data", 
+  "label": "Break 1"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "break_2", 
+  "fieldtype": "Data", 
+  "label": "Break 2"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "break_3", 
+  "fieldtype": "Data", 
+  "label": "Break 3"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "break_4", 
+  "fieldtype": "Data", 
+  "label": "Break 4"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "break_5", 
+  "fieldtype": "Data", 
+  "label": "Break 5"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "break_6", 
+  "fieldtype": "Data", 
+  "label": "Break 6"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "break_7", 
+  "fieldtype": "Data", 
+  "label": "Break 7"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "break_8", 
+  "fieldtype": "Data", 
+  "label": "Break 8"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "remarks", 
+  "fieldtype": "Small Text", 
+  "in_list_view": 1, 
+  "label": "Remarks"
+ }
+]

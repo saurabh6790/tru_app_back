@@ -1,0 +1,84 @@
+[
+ {
+  "creation": "2014-05-15 12:01:43", 
+  "docstatus": 0, 
+  "modified": "2014-05-15 12:53:26", 
+  "modified_by": "Administrator", 
+  "owner": "Administrator"
+ }, 
+ {
+  "autoname": "DD.####", 
+  "doctype": "DocType", 
+  "istable": 1, 
+  "module": "Test", 
+  "name": "__common__"
+ }, 
+ {
+  "doctype": "DocField", 
+  "name": "__common__", 
+  "parent": "Density Details", 
+  "parentfield": "fields", 
+  "parenttype": "DocType", 
+  "permlevel": 0
+ }, 
+ {
+  "create": 1, 
+  "doctype": "DocPerm", 
+  "name": "__common__", 
+  "parent": "Density Details", 
+  "parentfield": "permissions", 
+  "parenttype": "DocType", 
+  "permlevel": 0, 
+  "read": 1, 
+  "role": "All", 
+  "write": 1
+ }, 
+ {
+  "doctype": "DocType", 
+  "name": "Density Details"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "temparature", 
+  "fieldtype": "Data", 
+  "in_list_view": 1, 
+  "label": "Temparature"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "weight_of_empty_syringe", 
+  "fieldtype": "Data", 
+  "in_list_view": 1, 
+  "label": "Weight Of Empty Syringe"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "volume_of_oil", 
+  "fieldtype": "Data", 
+  "in_list_view": 1, 
+  "label": "Volume Of Oil In(ml)"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "weight_of_syringe", 
+  "fieldtype": "Data", 
+  "in_list_view": 1, 
+  "label": "Weight Of Syringe"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "density", 
+  "fieldtype": "Data", 
+  "in_list_view": 1, 
+  "label": "Density"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "consider_for_final_result", 
+  "fieldtype": "Check", 
+  "label": "Consider For Final Result"
+ }, 
+ {
+  "doctype": "DocPerm"
+ }
+]

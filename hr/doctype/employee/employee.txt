@@ -2,7 +2,7 @@
  {
   "creation": "2013-03-07 09:04:18", 
   "docstatus": 0, 
-  "modified": "2013-11-03 11:19:10", 
+  "modified": "2014-04-15 14:55:15", 
   "modified_by": "Administrator", 
   "owner": "Administrator"
  }, 
@@ -427,6 +427,19 @@
   "fieldtype": "Table", 
   "label": "Leave Approvers", 
   "options": "Employee Leave Approver"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "training_details", 
+  "fieldtype": "Section Break", 
+  "label": "Training Details"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "employee_training", 
+  "fieldtype": "Table", 
+  "label": "Employee Training", 
+  "options": "Employee Training Details"
  }, 
  {
   "doctype": "DocField", 

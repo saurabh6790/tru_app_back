@@ -1,0 +1,177 @@
+[
+ {
+  "creation": "2014-05-16 09:02:13", 
+  "docstatus": 0, 
+  "modified": "2014-05-20 12:36:31", 
+  "modified_by": "Administrator", 
+  "owner": "Administrator"
+ }, 
+ {
+  "autoname": "field:sample_no", 
+  "doctype": "DocType", 
+  "document_type": "Transaction", 
+  "icon": "icon-file-text", 
+  "is_submittable": 0, 
+  "module": "Test", 
+  "name": "__common__"
+ }, 
+ {
+  "doctype": "DocField", 
+  "name": "__common__", 
+  "parent": "Test Certificate", 
+  "parentfield": "fields", 
+  "parenttype": "DocType", 
+  "permlevel": 0
+ }, 
+ {
+  "amend": 0, 
+  "cancel": 1, 
+  "create": 1, 
+  "doctype": "DocPerm", 
+  "name": "__common__", 
+  "parent": "Test Certificate", 
+  "parentfield": "permissions", 
+  "parenttype": "DocType", 
+  "permlevel": 0, 
+  "read": 1, 
+  "report": 1, 
+  "role": "Administrator", 
+  "write": 1
+ }, 
+ {
+  "doctype": "DocType", 
+  "name": "Test Certificate"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "issued_to", 
+  "fieldtype": "Small Text", 
+  "label": "Issued To"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "column_break_2", 
+  "fieldtype": "Column Break"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "dated", 
+  "fieldtype": "Date", 
+  "label": "Dated"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "sampling_details", 
+  "fieldtype": "Section Break", 
+  "label": "Sampling Details"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "sample_no", 
+  "fieldtype": "Link", 
+  "label": "Sample No", 
+  "options": "Sample"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "drawn_by", 
+  "fieldtype": "Data", 
+  "label": "Drawn By"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "sealed", 
+  "fieldtype": "Select", 
+  "label": "Sealed", 
+  "options": "\nYes\nNo"
+ }, 
+ {
+  "depends_on": "eval:doc.sealed=='Yes'", 
+  "doctype": "DocField", 
+  "fieldname": "sealed_in_presence_of", 
+  "fieldtype": "Small Text", 
+  "label": "Sealed In Presence Of"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "column_break_9", 
+  "fieldtype": "Column Break"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "equipment", 
+  "fieldtype": "Data", 
+  "label": "Equipment Installed/Manufactured At"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "instrument", 
+  "fieldtype": "Data", 
+  "label": "Instrument"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "code_designation", 
+  "fieldtype": "Data", 
+  "label": "Code Designation"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "point_of_sample", 
+  "fieldtype": "Link", 
+  "label": "Point of Sample", 
+  "options": "Point Of Sample"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "transformer_details", 
+  "fieldtype": "Section Break", 
+  "label": "Transformer Details"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "sr_no", 
+  "fieldtype": "Link", 
+  "label": "Sr. No.", 
+  "options": "Transformer"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "rating", 
+  "fieldtype": "Data", 
+  "label": "Rating (in KVA)"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "column_break_17", 
+  "fieldtype": "Column Break"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "ratio", 
+  "fieldtype": "Data", 
+  "label": "Ratio (in volts)"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "make", 
+  "fieldtype": "Data", 
+  "label": "Make"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "test_details", 
+  "fieldtype": "Section Break", 
+  "label": "Test Details"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "certificate_test_details", 
+  "fieldtype": "Table", 
+  "label": "Test Detail", 
+  "options": "Certificate Test Details"
+ }, 
+ {
+  "doctype": "DocPerm"
+ }
+]

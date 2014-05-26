@@ -1,0 +1,215 @@
+[
+ {
+  "creation": "2014-04-29 17:44:42", 
+  "docstatus": 0, 
+  "modified": "2014-05-19 10:03:01", 
+  "modified_by": "Administrator", 
+  "owner": "Administrator"
+ }, 
+ {
+  "autoname": "DGA.#####", 
+  "doctype": "DocType", 
+  "document_type": "Transaction", 
+  "is_submittable": 1, 
+  "module": "Test", 
+  "name": "__common__"
+ }, 
+ {
+  "doctype": "DocField", 
+  "name": "__common__", 
+  "parent": "Dissolved Gas Analysis", 
+  "parentfield": "fields", 
+  "parenttype": "DocType", 
+  "permlevel": 0
+ }, 
+ {
+  "create": 1, 
+  "doctype": "DocPerm", 
+  "name": "__common__", 
+  "parent": "Dissolved Gas Analysis", 
+  "parentfield": "permissions", 
+  "parenttype": "DocType", 
+  "permlevel": 0, 
+  "read": 1, 
+  "write": 1
+ }, 
+ {
+  "doctype": "DocType", 
+  "name": "Dissolved Gas Analysis"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "date", 
+  "fieldtype": "Date", 
+  "label": "Date"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "equipment_used", 
+  "fieldtype": "Data", 
+  "label": "Equipment Used"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "sample_no", 
+  "fieldtype": "Link", 
+  "label": "Sample No", 
+  "options": "Sample", 
+  "read_only": 1
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "column_break_4", 
+  "fieldtype": "Column Break"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "test_type", 
+  "fieldtype": "Select", 
+  "label": "Test Type", 
+  "options": "\nRegular\nQA\nCalibration"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "bottle_no", 
+  "fieldtype": "Data", 
+  "label": "Bottle No"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "run_no", 
+  "fieldtype": "Data", 
+  "label": "Run No"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "method", 
+  "fieldtype": "Link", 
+  "label": "Method", 
+  "options": "Test Method"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "method_file", 
+  "fieldtype": "Section Break", 
+  "label": "Method File"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "tcd", 
+  "fieldtype": "Data", 
+  "label": "TCD"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "tcd_run_file", 
+  "fieldtype": "Data", 
+  "label": "TCD Run File"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "sample_file", 
+  "fieldtype": "Section Break", 
+  "label": "Sample File"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "fid", 
+  "fieldtype": "Data", 
+  "label": "FID"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "fid_run_file", 
+  "fieldtype": "Data", 
+  "label": "FID Run File"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "tgc_info", 
+  "fieldtype": "Section Break", 
+  "label": "TGC Info"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "tgc", 
+  "fieldtype": "Data", 
+  "label": "TGC"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "dissolved_gas_details", 
+  "fieldtype": "Section Break", 
+  "label": "Dissolved Gas Details"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "fetch_gases", 
+  "fieldtype": "Button", 
+  "label": "Fetch Gases", 
+  "options": "fetch_gases"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "dissolved_gas_detail", 
+  "fieldtype": "Table", 
+  "label": "Dissolved Gas Detail ", 
+  "options": "Dissolved Gas Analysis Detail"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "other_info", 
+  "fieldtype": "Section Break", 
+  "label": "Other Info"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "shift_incharge_approval", 
+  "fieldtype": "Data", 
+  "label": "Shift Incharge Approval"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "lab_incharge_approval", 
+  "fieldtype": "Data", 
+  "label": "Lab Incharge Approval"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "tested_by", 
+  "fieldtype": "Data", 
+  "label": "Tested By"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "amended_from", 
+  "fieldtype": "Link", 
+  "label": "Amended From", 
+  "no_copy": 1, 
+  "options": "Dissolved Gas Analysis", 
+  "print_hide": 1, 
+  "read_only": 1
+ }, 
+ {
+  "cancel": 1, 
+  "doctype": "DocPerm", 
+  "role": "Administrator", 
+  "submit": 1
+ }, 
+ {
+  "doctype": "DocPerm", 
+  "role": "Employee"
+ }, 
+ {
+  "cancel": 1, 
+  "doctype": "DocPerm", 
+  "role": "Shift Incharge", 
+  "submit": 1
+ }, 
+ {
+  "cancel": 1, 
+  "doctype": "DocPerm", 
+  "role": "Lab Incharge", 
+  "submit": 1
+ }
+]

@@ -1,0 +1,183 @@
+[
+ {
+  "creation": "2014-04-03 14:57:26", 
+  "docstatus": 0, 
+  "modified": "2014-05-14 10:40:47", 
+  "modified_by": "Administrator", 
+  "owner": "Administrator"
+ }, 
+ {
+  "autoname": "MIF.#####", 
+  "doctype": "DocType", 
+  "document_type": "Transaction", 
+  "icon": "icon-file-text", 
+  "module": "Test", 
+  "name": "__common__"
+ }, 
+ {
+  "doctype": "DocField", 
+  "name": "__common__", 
+  "parent": "Material Indent Form", 
+  "parentfield": "fields", 
+  "parenttype": "DocType", 
+  "permlevel": 0
+ }, 
+ {
+  "cancel": 1, 
+  "create": 1, 
+  "doctype": "DocPerm", 
+  "name": "__common__", 
+  "parent": "Material Indent Form", 
+  "parentfield": "permissions", 
+  "parenttype": "DocType", 
+  "permlevel": 0, 
+  "read": 1, 
+  "report": 1, 
+  "role": "Administrator", 
+  "write": 1
+ }, 
+ {
+  "doctype": "DocType", 
+  "name": "Material Indent Form"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "purchase_requisition_no", 
+  "fieldtype": "Data", 
+  "label": "Purchase Requisition No"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "initiated_by", 
+  "fieldtype": "Data", 
+  "label": "Initiated By"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "column_break_3", 
+  "fieldtype": "Column Break"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "date", 
+  "fieldtype": "Date", 
+  "label": "Date"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "vendors", 
+  "fieldtype": "Section Break", 
+  "label": "Vendors"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "recommended_vendor_1", 
+  "fieldtype": "Data", 
+  "label": "Recommended Vendor 1st"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "column_break_7", 
+  "fieldtype": "Column Break"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "recommended_vendor_2", 
+  "fieldtype": "Data", 
+  "label": "Recommended Vendor 2nd"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "material_indent_form_details", 
+  "fieldtype": "Section Break", 
+  "label": "Material Indent Form Details"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "material_indent_item", 
+  "fieldtype": "Table", 
+  "label": "Material Indent Item", 
+  "options": "Material Indent Items"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "section_break_11", 
+  "fieldtype": "Section Break"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "purpose", 
+  "fieldtype": "Data", 
+  "label": "Purpose"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "material_required", 
+  "fieldtype": "Section Break", 
+  "label": "Material Required"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "immidiate", 
+  "fieldtype": "Check", 
+  "label": "Immidiate"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "column_break_15", 
+  "fieldtype": "Column Break"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "one_week", 
+  "fieldtype": "Check", 
+  "label": "One Week"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "column_break_17", 
+  "fieldtype": "Column Break"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "15_days", 
+  "fieldtype": "Check", 
+  "label": "15 Days"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "column_break_19", 
+  "fieldtype": "Column Break"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "one_month", 
+  "fieldtype": "Check", 
+  "label": "One Month"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "section_break_18", 
+  "fieldtype": "Section Break"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "approved_by", 
+  "fieldtype": "Data", 
+  "label": "Approved By"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "column_break_20", 
+  "fieldtype": "Column Break"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "tested_by", 
+  "fieldtype": "Data", 
+  "label": "Tested By"
+ }, 
+ {
+  "doctype": "DocPerm"
+ }
+]

@@ -1,0 +1,239 @@
+[
+ {
+  "creation": "2014-05-19 11:34:40", 
+  "docstatus": 0, 
+  "modified": "2014-05-20 15:55:21", 
+  "modified_by": "Administrator", 
+  "owner": "Administrator"
+ }, 
+ {
+  "doctype": "DocType", 
+  "document_type": "Transaction", 
+  "issingle": 1, 
+  "module": "Test", 
+  "name": "__common__"
+ }, 
+ {
+  "doctype": "DocField", 
+  "name": "__common__", 
+  "parent": "Test Case Dashboard", 
+  "parentfield": "fields", 
+  "parenttype": "DocType", 
+  "permlevel": 0
+ }, 
+ {
+  "create": 1, 
+  "doctype": "DocPerm", 
+  "name": "__common__", 
+  "parent": "Test Case Dashboard", 
+  "parentfield": "permissions", 
+  "parenttype": "DocType", 
+  "permlevel": 0, 
+  "read": 1, 
+  "role": "All", 
+  "write": 1
+ }, 
+ {
+  "doctype": "DocType", 
+  "name": "Test Case Dashboard"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "sample_no", 
+  "fieldtype": "Link", 
+  "label": "Sample No", 
+  "options": "Sample"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "temperature", 
+  "fieldtype": "Data", 
+  "label": "Temperature"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "physical_condition_and_density", 
+  "fieldtype": "Section Break", 
+  "hidden": 1, 
+  "label": "Physical Condition And Density", 
+  "read_only": 0
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "pcd_test_id", 
+  "fieldtype": "Link", 
+  "label": "PCD Test Id", 
+  "options": "Physical Condition And Density"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "color", 
+  "fieldtype": "Data", 
+  "label": "Color"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "smell", 
+  "fieldtype": "Data", 
+  "label": "Smell"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "column_break_6", 
+  "fieldtype": "Column Break"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "particles", 
+  "fieldtype": "Data", 
+  "label": "Particles"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "density", 
+  "fieldtype": "Data", 
+  "label": "Density in gm/cm3"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "moisture_content", 
+  "fieldtype": "Section Break", 
+  "hidden": 1, 
+  "label": "Moisture Content"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "moisture_test_id", 
+  "fieldtype": "Link", 
+  "label": "Moisture Test Id", 
+  "options": "Moisture Content"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "moisture", 
+  "fieldtype": "Data", 
+  "label": "Water Content By KARL FISCHER METHOD"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "resistivity_and_dissipation", 
+  "fieldtype": "Section Break", 
+  "hidden": 1, 
+  "label": "Resistivity and Dissipation"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "rd_test_id", 
+  "fieldtype": "Link", 
+  "label": "RD Test Id", 
+  "options": "Resistivity and Dissipation"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "tan_value", 
+  "fieldtype": "Data", 
+  "label": "Dissipation Factor"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "column_break_15", 
+  "fieldtype": "Column Break"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "sigma_value", 
+  "fieldtype": "Data", 
+  "label": "Dielectric Constant"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "resistivity_value", 
+  "fieldtype": "Data", 
+  "label": "Specific Resistivity"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "breakdown_voltage", 
+  "fieldtype": "Section Break", 
+  "hidden": 1, 
+  "label": "Breakdown Voltage"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "bv_test_id", 
+  "fieldtype": "Link", 
+  "label": "BV Test Id", 
+  "options": "Breakdown Voltage"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "break_down_temperature", 
+  "fieldtype": "Data", 
+  "label": "Break Down Temperature"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "break_down_humidity", 
+  "fieldtype": "Data", 
+  "label": "Break Down Humidity"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "column_break_23", 
+  "fieldtype": "Column Break"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "break_down_ir", 
+  "fieldtype": "Data", 
+  "label": "Break Down IR"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "break_down_frequency", 
+  "fieldtype": "Data", 
+  "label": "Break Down Frequency"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "flash_point", 
+  "fieldtype": "Section Break", 
+  "hidden": 1, 
+  "label": "Flash Point"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "flash_point_test_id", 
+  "fieldtype": "Link", 
+  "label": "Flash Point Test Id", 
+  "options": "Flash Point"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "reported", 
+  "fieldtype": "Data", 
+  "label": "Flash Point Value"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "neutralization_value", 
+  "fieldtype": "Section Break", 
+  "label": "Neutralization Value"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "neutralization_test_id", 
+  "fieldtype": "Link", 
+  "label": "Neutralization Test Id", 
+  "options": "Neutralization Value"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "reported_value", 
+  "fieldtype": "Data", 
+  "label": "Reported Value"
+ }, 
+ {
+  "doctype": "DocPerm"
+ }
+]
