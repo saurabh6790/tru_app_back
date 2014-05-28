@@ -2,7 +2,7 @@
  {
   "creation": "2013-04-09 11:43:55", 
   "docstatus": 0, 
-  "modified": "2014-05-26 17:12:23", 
+  "modified": "2014-05-27 13:08:37", 
   "modified_by": "Administrator", 
   "owner": "Administrator"
  }, 
@@ -62,7 +62,8 @@
   "fieldname": "internal_purpose", 
   "fieldtype": "Select", 
   "label": "Internal Purpose", 
-  "options": "\nInward\nOutward"
+  "options": "\nInward\nOutward", 
+  "reqd": 1
  }, 
  {
   "allow_on_submit": 0, 
@@ -83,12 +84,13 @@
   "search_index": 0
  }, 
  {
-  "depends_on": "eval:(doc.internal_purpose==\"Outward\" || doc.internal_purpose==\"Inward\")", 
+  "depends_on": "eval:doc.internal_purpose==\"Outward\" ", 
   "doctype": "DocField", 
-  "fieldname": "client_company", 
-  "fieldtype": "Link", 
-  "label": "Client Company ", 
-  "options": "Company"
+  "fieldname": "outward_purpose", 
+  "fieldtype": "Select", 
+  "label": "Outward Purpose", 
+  "options": "\nClient Specific\nGeneral", 
+  "reqd": 1
  }, 
  {
   "depends_on": "eval:doc.internal_purpose==\"Outward\"||doc.internal_purpose==\"Inward\"", 
@@ -96,7 +98,8 @@
   "fieldname": "type_of_challan", 
   "fieldtype": "Select", 
   "label": "Type of Challan", 
-  "options": "\nReturnable\nNon-Returnable"
+  "options": "\nReturnable\nNon-Returnable", 
+  "reqd": 1
  }, 
  {
   "depends_on": "eval:doc.internal_purpose==\"Outward\" && doc.type_of_challan==\"Non-Returnable\"", 
@@ -142,6 +145,14 @@
   "report_hide": 0, 
   "reqd": 1, 
   "search_index": 0
+ }, 
+ {
+  "depends_on": "eval:(doc.internal_purpose==\"Outward\" && doc.outward_purpose==\"Client Specific\")", 
+  "doctype": "DocField", 
+  "fieldname": "client_company", 
+  "fieldtype": "Link", 
+  "label": "Client Company ", 
+  "options": "Company"
  }, 
  {
   "depends_on": "eval:doc.purpose=='Material Transfer' && !doc.outward_register", 
@@ -204,31 +215,16 @@
  }, 
  {
   "doctype": "DocField", 
-  "fieldname": "column_break_13", 
+  "fieldname": "column_break_15", 
   "fieldtype": "Column Break"
  }, 
  {
   "depends_on": "eval:doc.internal_purpose=='Inward'", 
   "doctype": "DocField", 
   "fieldname": "outward_challan_no", 
-  "fieldtype": "Data", 
-  "label": "Outward Challan No"
- }, 
- {
-  "depends_on": "eval:(doc.internal_purpose==\"Outward\" || doc.internal_purpose==\"Inward\")", 
-  "doctype": "DocField", 
-  "fieldname": "delivery_by", 
-  "fieldtype": "Select", 
-  "label": "Delivery Type", 
-  "options": "\nDoor Delivery\nCourier"
- }, 
- {
-  "depends_on": "eval:doc.internal_purpose=='Outward'", 
-  "doctype": "DocField", 
-  "fieldname": "delivery_to", 
   "fieldtype": "Link", 
-  "label": "Delivery To", 
-  "options": "Customer"
+  "label": "Outward Challan No", 
+  "options": "Stock Entry"
  }, 
  {
   "allow_on_submit": 0, 
@@ -267,6 +263,29 @@
   "search_index": 0
  }, 
  {
+  "depends_on": "eval:(doc.internal_purpose==\"Outward\" || doc.internal_purpose==\"Inward\")", 
+  "doctype": "DocField", 
+  "fieldname": "delivery_by", 
+  "fieldtype": "Select", 
+  "label": "Delivery Type", 
+  "options": "\nDoor Delivery\nCourier"
+ }, 
+ {
+  "depends_on": "eval:(doc.internal_purpose==\"Outward\" && doc.outward_purpose==\"Client Specific\")", 
+  "doctype": "DocField", 
+  "fieldname": "delivery_to", 
+  "fieldtype": "Link", 
+  "label": "Delivery To", 
+  "options": "Customer"
+ }, 
+ {
+  "depends_on": "eval:(doc.internal_purpose==\"Outward\" && doc.outward_purpose==\"Client Specific\")", 
+  "doctype": "DocField", 
+  "fieldname": "company_address", 
+  "fieldtype": "Small Text", 
+  "label": "Client Company Address"
+ }, 
+ {
   "depends_on": "eval:doc.purpose=='Material Transfer' && !doc.material_inward", 
   "doctype": "DocField", 
   "fieldname": "outward_register", 
@@ -274,13 +293,6 @@
   "hidden": 1, 
   "label": "Link From Outward Register", 
   "options": "Outward register"
- }, 
- {
-  "depends_on": "eval:(doc.internal_purpose==\"Outward\" || doc.internal_purpose==\"Inward\")", 
-  "doctype": "DocField", 
-  "fieldname": "company_address", 
-  "fieldtype": "Small Text", 
-  "label": "Client Company Address"
  }, 
  {
   "doctype": "DocField", 

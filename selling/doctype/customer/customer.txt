@@ -2,7 +2,7 @@
  {
   "creation": "2013-06-11 14:26:44", 
   "docstatus": 0, 
-  "modified": "2014-05-26 19:16:55", 
+  "modified": "2014-05-27 18:55:35", 
   "modified_by": "Administrator", 
   "owner": "Administrator"
  }, 
@@ -89,7 +89,7 @@
   "doctype": "DocField", 
   "fieldname": "lead_name", 
   "fieldtype": "Link", 
-  "hidden": 0, 
+  "hidden": 1, 
   "in_filter": 1, 
   "label": "From Lead", 
   "no_copy": 1, 
@@ -169,38 +169,39 @@
  }, 
  {
   "doctype": "DocField", 
-  "fieldname": "division_head_name", 
-  "fieldtype": "Data", 
-  "label": "Division Head Name", 
+  "fieldname": "division_head", 
+  "fieldtype": "Link", 
+  "label": "Division Head", 
+  "options": "Division Head", 
   "permlevel": 0
  }, 
  {
   "doctype": "DocField", 
-  "fieldname": "effective_start_date", 
-  "fieldtype": "Date", 
-  "hidden": 1, 
-  "label": "Effective Start Date", 
+  "fieldname": "division_head_address", 
+  "fieldtype": "Small Text", 
+  "label": "Division Head Address", 
   "permlevel": 0
  }, 
  {
   "doctype": "DocField", 
-  "fieldname": "effective_end_date", 
+  "fieldname": "date", 
   "fieldtype": "Date", 
-  "hidden": 1, 
-  "label": "Effective End Date", 
+  "label": "From Date", 
+  "permlevel": 0
+ }, 
+ {
+  "depends_on": "eval:doc.customer_type==\"Utilities\" || doc.customer_type==\"Railways\"", 
+  "doctype": "DocField", 
+  "fieldname": "column_+break_16", 
+  "fieldtype": "Column Break", 
   "permlevel": 0
  }, 
  {
   "doctype": "DocField", 
   "fieldname": "report_to", 
-  "fieldtype": "Data", 
+  "fieldtype": "Link", 
   "label": "Report To", 
-  "permlevel": 0
- }, 
- {
-  "doctype": "DocField", 
-  "fieldname": "column_break_15", 
-  "fieldtype": "Column Break", 
+  "options": "Division Head", 
   "permlevel": 0
  }, 
  {
@@ -208,12 +209,14 @@
   "fieldname": "short_name", 
   "fieldtype": "Data", 
   "label": "Short Name", 
-  "permlevel": 0
+  "permlevel": 0, 
+  "read_only": 1
  }, 
  {
   "doctype": "DocField", 
   "fieldname": "master_of_division_head_name", 
   "fieldtype": "Data", 
+  "hidden": 1, 
   "label": "Master Of Division Head Name", 
   "permlevel": 0
  }, 
@@ -237,7 +240,22 @@
   "doctype": "DocField", 
   "fieldname": "address", 
   "fieldtype": "Small Text", 
-  "label": "Address", 
+  "label": "Reporting Person Address", 
+  "permlevel": 0
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "attach", 
+  "fieldtype": "Button", 
+  "hidden": 1, 
+  "label": "Attach", 
+  "permlevel": 0
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "dettach", 
+  "fieldtype": "Button", 
+  "label": "Dettach", 
   "permlevel": 0
  }, 
  {

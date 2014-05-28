@@ -227,6 +227,31 @@ class DocType(StockController):
 	
 	#def get_company_address(self):
 
+	def get_outward_details(self):
+		mtn_details=webnotes.conn.sql("select * from `tabStock Entry Detail` where parent='%s'"%(self.doc.outward_challan_no),as_dict=1)
+		self.doc.purpose='Material Transfer'
+		for data in mtn_details:
+			nl = addchild(self.doc, 'mtn_details', 'Stock Entry Detail', self.doclist)
+			nl.s_warehouse=data['t_warehouse']
+			nl.t_warehouse=data['s_warehouse']
+			nl.item_code=data['item_code']
+			nl.item_name=data['item_name']
+			nl.description=data['description']
+			nl.purpose=data['purpose']
+			nl.approximate_value=data['approximate_value']
+			nl.uom=data['uom']
+			nl.outward_qty=data['qty']
+			nl.serial_no=data['serial_no']
+			nl.incoming_rate=data['incoming_rate']
+			nl.expense_account=data['expense_account']
+			nl.actual_qty=webnotes.conn.get_value('Bin',{'item_code':data['item_code'],'warehouse':data['t_warehouse']},'actual_qty')
+			nl.stock_uom=data['stock_uom']
+			nl.amount=data['amount']
+			nl.cost_center=data['cost_center']
+			nl.transfer_qty=data['transfer_qty']
+		return "Done"
+
+
 			
 	def get_stock_and_rate(self):
 		"""get stock and incoming rate on posting date"""

@@ -3,6 +3,17 @@
 
 wn.require('app/setup/doctype/contact_control/contact_control.js');
 
+
+
+cur_frm.add_fetch('division_head', 'address','division_head_address');
+
+
+cur_frm.add_fetch('report_to', 'address','address');
+
+cur_frm.add_fetch('report_to', 'short_name','short_name');
+
+
+
 cur_frm.cscript.onload = function(doc,dt,dn){
 	cur_frm.cscript.load_defaults(doc, dt, dn);
 }
@@ -35,6 +46,14 @@ cur_frm.cscript.refresh = function(doc, dt, dn) {
 			doc: doc,
 		});
 	}
+
+	if(doc.__islocal){
+		hide_field('dettach'); 
+    
+	}
+  	else{
+    	unhide_field('dettach');
+  	}
 }
 
 cur_frm.cscript.setup_dashboard = function(doc) {
@@ -125,3 +144,36 @@ cur_frm.fields_dict['default_price_list'].get_query = function(doc, cdt, cdn) {
 		filters:{'selling': 1}
 	}
 }
+
+cur_frm.cscript.dettach = function(doc,cdt,cdn) {
+
+	args={
+    		"report_to":doc.report_to,
+    		"date":doc.date,
+    		"client":doc.customer_name
+    	}
+	return 	get_server_fields('get_new_reporting',JSON.stringify(args),'',doc,cdt,cdn,1);//,function(r,rt){refresh_field('training')});
+
+}
+
+cur_frm.cscript.report_to = function(doc,cdt,cdn) {
+	return 	get_server_fields('get_today_date','','',doc,cdt,cdn,1);//,function(r,rt){refresh_field('training')});
+
+	}
+
+// }
+// cur_frm.cscript.refresh = function(doc,cdt,cdn){
+
+// 	//if(doc.customer_type=='Utilities' || doc.customer_type=='Railways')
+// 	//{
+// 		if(doc.__islocal){
+//     		unhide_field('dettach'); 
+    
+//   		}
+//   		else{
+//     		hide_field('dettach');
+//   		}
+// 	//}
+// 	//else
+// 	//	console.log("ok");
+// }

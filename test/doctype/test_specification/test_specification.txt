@@ -2,7 +2,7 @@
  {
   "creation": "2014-05-26 17:08:59", 
   "docstatus": 0, 
-  "modified": "2014-05-26 17:09:59", 
+  "modified": "2014-05-27 14:56:04", 
   "modified_by": "Administrator", 
   "owner": "Administrator"
  }, 
@@ -66,14 +66,36 @@
  }, 
  {
   "doctype": "DocField", 
-  "fieldname": "column_break_4", 
-  "fieldtype": "Column Break"
+  "fieldname": "test_method", 
+  "fieldtype": "Link", 
+  "label": "Test Method", 
+  "options": "Test Method"
  }, 
  {
   "doctype": "DocField", 
-  "fieldname": "related_sop", 
-  "fieldtype": "Small Text", 
-  "label": "Related SOP"
+  "fieldname": "standard", 
+  "fieldtype": "Data", 
+  "label": "Standard", 
+  "read_only": 1
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "column_break_6", 
+  "fieldtype": "Column Break"
+ }, 
+ {
+  "depends_on": "eval:doc.test", 
+  "doctype": "DocField", 
+  "fieldname": "violation_limit", 
+  "fieldtype": "Data", 
+  "label": "Violation Limit"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "sop", 
+  "fieldtype": "Data", 
+  "label": "Related SOP", 
+  "read_only": 1
  }, 
  {
   "doctype": "DocField", 

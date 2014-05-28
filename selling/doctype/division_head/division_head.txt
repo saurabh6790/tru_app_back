@@ -1,22 +1,22 @@
 [
  {
-  "creation": "2014-05-26 16:49:48", 
+  "creation": "2014-05-27 16:46:52", 
   "docstatus": 0, 
-  "modified": "2014-05-26 16:49:48", 
+  "modified": "2014-05-27 17:31:17", 
   "modified_by": "Administrator", 
   "owner": "Administrator"
  }, 
  {
-  "autoname": "field:functional_location", 
+  "autoname": "field:division_head", 
   "doctype": "DocType", 
   "document_type": "Master", 
-  "module": "Test", 
+  "module": "Selling", 
   "name": "__common__"
  }, 
  {
   "doctype": "DocField", 
   "name": "__common__", 
-  "parent": "Functional Location", 
+  "parent": "Division Head", 
   "parentfield": "fields", 
   "parenttype": "DocType", 
   "permlevel": 0
@@ -26,7 +26,7 @@
   "create": 1, 
   "doctype": "DocPerm", 
   "name": "__common__", 
-  "parent": "Functional Location", 
+  "parent": "Division Head", 
   "parentfield": "permissions", 
   "parenttype": "DocType", 
   "permlevel": 0, 
@@ -37,14 +37,20 @@
  }, 
  {
   "doctype": "DocType", 
-  "name": "Functional Location"
+  "name": "Division Head"
+ }, 
+ {
+  "description": "Division Head Designation", 
+  "doctype": "DocField", 
+  "fieldname": "division_head", 
+  "fieldtype": "Data", 
+  "label": "Division Head"
  }, 
  {
   "doctype": "DocField", 
-  "fieldname": "sub_station", 
-  "fieldtype": "Link", 
-  "label": "Sub Station", 
-  "options": "Sub Station"
+  "fieldname": "short_name", 
+  "fieldtype": "Data", 
+  "label": "Short Name"
  }, 
  {
   "doctype": "DocField", 
@@ -53,9 +59,9 @@
  }, 
  {
   "doctype": "DocField", 
-  "fieldname": "functional_location", 
+  "fieldname": "address", 
   "fieldtype": "Small Text", 
-  "label": "Functional Location"
+  "label": "Address"
  }, 
  {
   "doctype": "DocPerm"

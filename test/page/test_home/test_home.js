@@ -75,9 +75,9 @@ wn.module_page["Test"] = [
 				doctype:"Test Name"
 			},
 			{
-				label: wn._("Test Timetable"),
-				description: wn._("Predrfined Timetable"),
-				doctype:"Test Timetable"
+				label: wn._("Test Specification"),
+				description: wn._("Predrfined Test Specification"),
+				doctype:"Test Specification"
 			},
 			{
 				label: wn._("Test Group"),
@@ -122,9 +122,9 @@ wn.module_page["Test"] = [
 				doctype:"Sample Entry"
 			},
 			{
-				label: wn._("Register"),
+				label: wn._("Test Allocation"),
 				description: wn._("Sample registration including priority and test conduted on it"),
-				doctype:"Register"
+				doctype:"Test Allocation"
 			},
 			{
 				label: wn._("Material Indent Form"),

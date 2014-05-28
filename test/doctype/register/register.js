@@ -1,6 +1,5 @@
 cur_frm.add_fetch('sample_no', 'barcode', 'bottle_no');
 
-
 cur_frm.fields_dict.sample_no.get_query = function(doc, cdt, cdn) {
 	return{
 		query:"test.doctype.register.register.get_samples"

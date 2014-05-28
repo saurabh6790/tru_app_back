@@ -53,7 +53,8 @@
    "color": "#8e44ad", 
    "icon": "icon-wrench", 
    "label":"Contacts",
-   "link": "List/Contact"
+   "link": "contacts",
+   "type":"page"
   }, 
   "Selling": {
    "color": "#1abc9c", 

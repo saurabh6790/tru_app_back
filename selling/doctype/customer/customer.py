@@ -3,6 +3,8 @@
 
 from __future__ import unicode_literals
 import webnotes
+from webnotes.model.doc import addchild, Document
+from webnotes.utils import get_first_day, get_last_day, add_to_date, nowdate, getdate
 
 from webnotes.model.doc import Document, make_autoname
 from webnotes import msgprint, _
@@ -116,6 +118,7 @@ class DocType(TransactionBase):
 		self.update_credit_days_limit()
 		#create address and contact from lead
 		self.create_lead_address_contact()
+
 		
 	def validate_name_with_customer_group(self):
 		if webnotes.conn.exists("Customer Group", self.doc.name):
@@ -170,6 +173,30 @@ class DocType(TransactionBase):
 		webnotes.conn.sql("""update `tabAddress` set address_title=%(newdn)s 
 			{set_field} where customer=%(newdn)s"""\
 			.format(set_field=set_field), ({"newdn": newdn}))
+
+
+	def get_new_reporting(self,args):
+		webnotes.errprint(args)
+		dic=eval(args)
+		webnotes.errprint((dic['date']))
+		today = nowdate()
+		d = Document("Reporting Person History")
+		d.ad_type='Customer'
+		d.from_date = (dic['date'])
+		d.to_date=today
+		d.client = (dic['client'])
+		d.report_to= (dic['report_to'])
+		d.save()
+		return{
+		"report_to":''
+		}
+
+	def get_today_date(self):
+		today = nowdate()
+		#webnotes.errprint(today)
+		return{
+		"date":today
+		}
 
 @webnotes.whitelist()
 def get_dashboard_info(customer):

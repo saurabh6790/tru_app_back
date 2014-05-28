@@ -1,26 +1,25 @@
 [
  {
-  "creation": "2014-05-20 12:30:21", 
+  "creation": "2014-05-27 14:51:07", 
   "docstatus": 0, 
-  "modified": "2014-05-20 12:31:00", 
+  "modified": "2014-05-27 14:51:07", 
   "modified_by": "Administrator", 
   "owner": "Administrator"
  }, 
  {
-  "autoname": "field:time", 
+  "autoname": "field:sop", 
   "doctype": "DocType", 
   "document_type": "Master", 
   "module": "Test", 
   "name": "__common__"
  }, 
  {
-  "description": "In Hours", 
   "doctype": "DocField", 
-  "fieldname": "time", 
+  "fieldname": "sop", 
   "fieldtype": "Data", 
-  "label": "Time", 
+  "label": "SOP", 
   "name": "__common__", 
-  "parent": "Time", 
+  "parent": "SOP", 
   "parentfield": "fields", 
   "parenttype": "DocType", 
   "permlevel": 0
@@ -30,18 +29,18 @@
   "create": 1, 
   "doctype": "DocPerm", 
   "name": "__common__", 
-  "parent": "Time", 
+  "parent": "SOP", 
   "parentfield": "permissions", 
   "parenttype": "DocType", 
   "permlevel": 0, 
   "read": 1, 
   "report": 1, 
-  "role": "Administrator", 
+  "role": "All", 
   "write": 1
  }, 
  {
   "doctype": "DocType", 
-  "name": "Time"
+  "name": "SOP"
  }, 
  {
   "doctype": "DocField"

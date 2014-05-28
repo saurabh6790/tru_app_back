@@ -1,13 +1,13 @@
 [
  {
-  "creation": "2014-04-03 16:10:31", 
+  "creation": "2014-05-27 15:11:12", 
   "docstatus": 0, 
-  "modified": "2014-05-27 15:03:42", 
+  "modified": "2014-05-27 15:11:34", 
   "modified_by": "Administrator", 
   "owner": "Administrator"
  }, 
  {
-  "autoname": "Reg.######", 
+  "autoname": "TA.######", 
   "doctype": "DocType", 
   "document_type": "Master", 
   "icon": "icon-file-text", 
@@ -18,7 +18,7 @@
  {
   "doctype": "DocField", 
   "name": "__common__", 
-  "parent": "Register", 
+  "parent": "Test Allocation", 
   "parentfield": "fields", 
   "parenttype": "DocType", 
   "permlevel": 0
@@ -29,7 +29,7 @@
   "create": 1, 
   "doctype": "DocPerm", 
   "name": "__common__", 
-  "parent": "Register", 
+  "parent": "Test Allocation", 
   "parentfield": "permissions", 
   "parenttype": "DocType", 
   "permlevel": 0, 
@@ -41,7 +41,7 @@
  }, 
  {
   "doctype": "DocType", 
-  "name": "Register"
+  "name": "Test Allocation"
  }, 
  {
   "doctype": "DocField", 

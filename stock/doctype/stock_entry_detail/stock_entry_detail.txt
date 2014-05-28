@@ -2,7 +2,7 @@
  {
   "creation": "2013-03-29 18:22:12", 
   "docstatus": 0, 
-  "modified": "2014-05-14 16:29:05", 
+  "modified": "2014-05-27 14:49:25", 
   "modified_by": "Administrator", 
   "owner": "Administrator"
  }, 
@@ -90,6 +90,12 @@
   "fieldname": "purpose", 
   "fieldtype": "Small Text", 
   "label": "Purpose"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "outward_qty", 
+  "fieldtype": "Data", 
+  "label": "Outward Qty"
  }, 
  {
   "doctype": "DocField", 

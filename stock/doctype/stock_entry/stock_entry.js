@@ -479,3 +479,14 @@ cur_frm.get_field("electronically_approved_by_2").get_query=function(doc,cdt,cdn
 {
    return "select name from `tabProfile` where name!='"+doc.electronically_approved_by_1+"'"
 }
+
+cur_frm.get_field("outward_challan_no").get_query=function(doc,cdt,cdn){
+	return "select name from `tabStock Entry` where internal_purpose='Outward' and (docstatus = 1 or docstatus=0)"
+}
+
+cur_frm.cscript.outward_challan_no=function(doc,cdt,cdn){
+	get_server_fields('get_outward_details','','',doc,cdt,cdn,1,function(doc,cdt,cdn){
+		refresh_field(['mtn_details','purpose']);
+		cur_frm.cscript.toggle_related_fields(doc,cdt,cdn)
+	})
+}

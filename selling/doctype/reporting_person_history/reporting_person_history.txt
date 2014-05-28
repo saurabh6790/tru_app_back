@@ -1,0 +1,82 @@
+[
+ {
+  "creation": "2014-05-27 18:21:58", 
+  "docstatus": 0, 
+  "modified": "2014-05-27 19:01:58", 
+  "modified_by": "Administrator", 
+  "owner": "Administrator"
+ }, 
+ {
+  "autoname": "AD_LOG.########", 
+  "doctype": "DocType", 
+  "document_type": "Master", 
+  "module": "Selling", 
+  "name": "__common__"
+ }, 
+ {
+  "doctype": "DocField", 
+  "name": "__common__", 
+  "parent": "Reporting Person History", 
+  "parentfield": "fields", 
+  "parenttype": "DocType", 
+  "permlevel": 0
+ }, 
+ {
+  "cancel": 0, 
+  "create": 1, 
+  "doctype": "DocPerm", 
+  "name": "__common__", 
+  "parent": "Reporting Person History", 
+  "parentfield": "permissions", 
+  "parenttype": "DocType", 
+  "permlevel": 0, 
+  "read": 1, 
+  "report": 1, 
+  "role": "All", 
+  "write": 1
+ }, 
+ {
+  "doctype": "DocType", 
+  "name": "Reporting Person History"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "ad_type", 
+  "fieldtype": "Data", 
+  "label": "AD Type"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "client", 
+  "fieldtype": "Data", 
+  "label": "Client "
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "report_to", 
+  "fieldtype": "Data", 
+  "label": "Report To"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "column_break_3", 
+  "fieldtype": "Column Break"
+ }, 
+ {
+  "description": "Date at which reporting person is assigned to the client", 
+  "doctype": "DocField", 
+  "fieldname": "from_date", 
+  "fieldtype": "Date", 
+  "label": "From Date"
+ }, 
+ {
+  "default": "Today", 
+  "doctype": "DocField", 
+  "fieldname": "to_date", 
+  "fieldtype": "Date", 
+  "label": "To Date"
+ }, 
+ {
+  "doctype": "DocPerm"
+ }
+]
