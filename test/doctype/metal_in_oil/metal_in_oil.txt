@@ -1,0 +1,252 @@
+[
+ {
+  "creation": "2014-06-13 16:11:34", 
+  "docstatus": 0, 
+  "modified": "2014-07-01 11:33:01", 
+  "modified_by": "Administrator", 
+  "owner": "Administrator"
+ }, 
+ {
+  "autoname": "MIO.######", 
+  "doctype": "DocType", 
+  "document_type": "Transaction", 
+  "icon": "icon-file-text", 
+  "is_submittable": 1, 
+  "module": "Test", 
+  "name": "__common__"
+ }, 
+ {
+  "doctype": "DocField", 
+  "name": "__common__", 
+  "parent": "Metal In Oil", 
+  "parentfield": "fields", 
+  "parenttype": "DocType", 
+  "permlevel": 0
+ }, 
+ {
+  "cancel": 1, 
+  "create": 1, 
+  "doctype": "DocPerm", 
+  "name": "__common__", 
+  "parent": "Metal In Oil", 
+  "parentfield": "permissions", 
+  "parenttype": "DocType", 
+  "permlevel": 0, 
+  "read": 1, 
+  "report": 1, 
+  "write": 1
+ }, 
+ {
+  "doctype": "DocType", 
+  "name": "Metal In Oil"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "status", 
+  "fieldtype": "Data", 
+  "label": "Status", 
+  "options": "\nOpen\nApproved\nRejected", 
+  "read_only": 1
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "carried_out", 
+  "fieldtype": "Select", 
+  "label": "Carried Out", 
+  "options": "\nInternally\nExternally"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "equipment_used", 
+  "fieldtype": "Link", 
+  "label": "Equipment Used", 
+  "options": "Equipment Used"
+ }, 
+ {
+  "depends_on": "eval:doc.equipment_used", 
+  "doctype": "DocField", 
+  "fieldname": "add", 
+  "fieldtype": "Button", 
+  "label": "ADD"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "amended_from", 
+  "fieldtype": "Link", 
+  "label": "Amended From", 
+  "no_copy": 1, 
+  "options": "Metal In Oil", 
+  "print_hide": 1, 
+  "read_only": 1
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "column_break_2", 
+  "fieldtype": "Column Break"
+ }, 
+ {
+  "depends_on": "eval:doc.carried_out=='Externally'", 
+  "description": "If Carried Out Externally", 
+  "doctype": "DocField", 
+  "fieldname": "matrix_report_no", 
+  "fieldtype": "Data", 
+  "label": "Matrix Report No"
+ }, 
+ {
+  "depends_on": "eval:doc.carried_out=='Externally'", 
+  "description": "If Carried Out Externally", 
+  "doctype": "DocField", 
+  "fieldname": "agency", 
+  "fieldtype": "Data", 
+  "label": "Agency"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "equipment_used_list", 
+  "fieldtype": "Small Text", 
+  "label": "Equipment Used List"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "sample_details", 
+  "fieldtype": "Section Break", 
+  "label": "Sample Details"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "sample_no", 
+  "fieldtype": "Link", 
+  "label": "Sample No", 
+  "options": "Sample"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "column_break_7", 
+  "fieldtype": "Column Break"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "bottle_no", 
+  "fieldtype": "Data", 
+  "label": "Bottle No"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "temperature", 
+  "fieldtype": "Data", 
+  "label": "temperature", 
+  "read_only": 1
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "details", 
+  "fieldtype": "Section Break", 
+  "label": "Metal & Its ppm as per ICP"
+ }, 
+ {
+  "description": "ppm as per ICP\n", 
+  "doctype": "DocField", 
+  "fieldname": "aluminium", 
+  "fieldtype": "Data", 
+  "label": "Aluminium(Al)"
+ }, 
+ {
+  "description": "ppm as per ICP\n", 
+  "doctype": "DocField", 
+  "fieldname": "copper", 
+  "fieldtype": "Data", 
+  "label": "Copper(Cu)"
+ }, 
+ {
+  "description": "ppm as per ICP\n", 
+  "doctype": "DocField", 
+  "fieldname": "iron", 
+  "fieldtype": "Data", 
+  "label": "Iron(Fe)"
+ }, 
+ {
+  "description": "ppm as per ICP\n", 
+  "doctype": "DocField", 
+  "fieldname": "lead", 
+  "fieldtype": "Data", 
+  "label": "Lead(Pb)"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "column_break_15", 
+  "fieldtype": "Column Break"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "silver", 
+  "fieldtype": "Data", 
+  "label": "Silver(Ag)"
+ }, 
+ {
+  "description": "ppm as per ICP\n", 
+  "doctype": "DocField", 
+  "fieldname": "tin", 
+  "fieldtype": "Data", 
+  "label": "Tin(Sn)"
+ }, 
+ {
+  "description": "ppm as per ICP\n", 
+  "doctype": "DocField", 
+  "fieldname": "zinc", 
+  "fieldtype": "Data", 
+  "label": "Zinc(Zn)"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "info", 
+  "fieldtype": "Section Break", 
+  "label": "Info"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "shift_incharge_approval", 
+  "fieldtype": "Data", 
+  "hidden": 1, 
+  "label": "Shift Incharge Approval"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "lab_incharge_approval", 
+  "fieldtype": "Data", 
+  "hidden": 1, 
+  "label": "Lab Incharge Approval"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "tested_by", 
+  "fieldtype": "Data", 
+  "label": "Tested By"
+ }, 
+ {
+  "amend": 1, 
+  "doctype": "DocPerm", 
+  "role": "Administrator", 
+  "submit": 1
+ }, 
+ {
+  "amend": 1, 
+  "doctype": "DocPerm", 
+  "role": "Lab Incharge", 
+  "submit": 1
+ }, 
+ {
+  "amend": 1, 
+  "doctype": "DocPerm", 
+  "role": "Shift Incharge", 
+  "submit": 1
+ }, 
+ {
+  "doctype": "DocPerm", 
+  "role": "Employee"
+ }, 
+ {
+  "doctype": "DocPerm", 
+  "role": "Tester", 
+  "submit": 1
+ }
+]

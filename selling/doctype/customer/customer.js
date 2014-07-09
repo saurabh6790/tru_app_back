@@ -38,8 +38,11 @@ cur_frm.cscript.refresh = function(doc, dt, dn) {
 	}else{		
 		unhide_field(['address_html','contact_html']);
 		// make lists
-		cur_frm.cscript.make_address(doc,dt,dn);
-		cur_frm.cscript.make_contact(doc,dt,dn);
+		cur_frm.cscript.make_address(doc,dt,dn,'address_html');
+		cur_frm.cscript.make_contact(doc,dt,dn,'contact_html');
+
+		cur_frm.cscript.make_address(doc,dt,dn,'division_address');
+		cur_frm.cscript.make_contact(doc,dt,dn,'division_contact');
 
 		cur_frm.communication_view = new wn.views.CommunicationList({
 			parent: cur_frm.fields_dict.communication_html.wrapper,
@@ -89,10 +92,11 @@ cur_frm.cscript.setup_dashboard = function(doc) {
 	})
 }
 
-cur_frm.cscript.make_address = function() {
+cur_frm.cscript.make_address = function(doc,cdt,cdn,address_html) {
+	//alert(address_html)
 	if(!cur_frm.address_list) {
 		cur_frm.address_list = new wn.ui.Listing({
-			parent: cur_frm.fields_dict['address_html'].wrapper,
+			parent: cur_frm.fields_dict[address_html].wrapper,
 			page_length: 5,
 			new_doctype: "Address",
 			get_query: function() {
@@ -107,10 +111,10 @@ cur_frm.cscript.make_address = function() {
 	cur_frm.address_list.run();
 }
 
-cur_frm.cscript.make_contact = function() {
+cur_frm.cscript.make_contact = function(doc,cdt,cdn,contact_html) {
 	if(!cur_frm.contact_list) {
 		cur_frm.contact_list = new wn.ui.Listing({
-			parent: cur_frm.fields_dict['contact_html'].wrapper,
+			parent: cur_frm.fields_dict[contact_html].wrapper,
 			page_length: 5,
 			new_doctype: "Contact",
 			get_query: function() {
@@ -161,19 +165,3 @@ cur_frm.cscript.report_to = function(doc,cdt,cdn) {
 
 	}
 
-// }
-// cur_frm.cscript.refresh = function(doc,cdt,cdn){
-
-// 	//if(doc.customer_type=='Utilities' || doc.customer_type=='Railways')
-// 	//{
-// 		if(doc.__islocal){
-//     		unhide_field('dettach'); 
-    
-//   		}
-//   		else{
-//     		hide_field('dettach');
-//   		}
-// 	//}
-// 	//else
-// 	//	console.log("ok");
-// }

@@ -2,7 +2,7 @@
  {
   "creation": "2014-04-29 17:44:42", 
   "docstatus": 0, 
-  "modified": "2014-05-19 10:03:01", 
+  "modified": "2014-07-09 16:00:07", 
   "modified_by": "Administrator", 
   "owner": "Administrator"
  }, 
@@ -10,6 +10,7 @@
   "autoname": "DGA.#####", 
   "doctype": "DocType", 
   "document_type": "Transaction", 
+  "icon": "icon-file-text", 
   "is_submittable": 1, 
   "module": "Test", 
   "name": "__common__"
@@ -23,6 +24,7 @@
   "permlevel": 0
  }, 
  {
+  "cancel": 1, 
   "create": 1, 
   "doctype": "DocPerm", 
   "name": "__common__", 
@@ -31,6 +33,7 @@
   "parenttype": "DocType", 
   "permlevel": 0, 
   "read": 1, 
+  "submit": 1, 
   "write": 1
  }, 
  {
@@ -39,11 +42,27 @@
  }, 
  {
   "doctype": "DocField", 
+  "fieldname": "status", 
+  "fieldtype": "Data", 
+  "label": "Status", 
+  "options": "\nOpen\nApproved\nRejected", 
+  "read_only": 1
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "specification", 
+  "fieldtype": "Link", 
+  "label": "Specification", 
+  "options": "Specification"
+ }, 
+ {
+  "doctype": "DocField", 
   "fieldname": "date", 
   "fieldtype": "Date", 
   "label": "Date"
  }, 
  {
+  "depends_on": "eval:doc.equipment_used", 
   "doctype": "DocField", 
   "fieldname": "equipment_used", 
   "fieldtype": "Data", 
@@ -51,23 +70,120 @@
  }, 
  {
   "doctype": "DocField", 
-  "fieldname": "sample_no", 
-  "fieldtype": "Link", 
-  "label": "Sample No", 
-  "options": "Sample", 
-  "read_only": 1
- }, 
- {
-  "doctype": "DocField", 
-  "fieldname": "column_break_4", 
-  "fieldtype": "Column Break"
+  "fieldname": "add", 
+  "fieldtype": "Button", 
+  "label": "ADD"
  }, 
  {
   "doctype": "DocField", 
   "fieldname": "test_type", 
   "fieldtype": "Select", 
-  "label": "Test Type", 
+  "hidden": 1, 
+  "label": "Test Condition", 
   "options": "\nRegular\nQA\nCalibration"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "1", 
+  "fieldtype": "Column Break"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "method", 
+  "fieldtype": "Link", 
+  "label": "Test Method", 
+  "options": "Test Method", 
+  "reqd": 1
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "equipment_used_list", 
+  "fieldtype": "Small Text", 
+  "label": "Equipment Used List"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "run", 
+  "fieldtype": "Data", 
+  "hidden": 1, 
+  "label": "Run"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "temperature", 
+  "fieldtype": "Data", 
+  "label": "Temperature", 
+  "read_only": 1
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "method_used", 
+  "fieldtype": "Section Break", 
+  "label": "Method Used"
+ }, 
+ {
+  "description": "Method Used", 
+  "doctype": "DocField", 
+  "fieldname": "tcd", 
+  "fieldtype": "Data", 
+  "label": "TCD"
+ }, 
+ {
+  "description": "Against the method(TCD) used", 
+  "doctype": "DocField", 
+  "fieldname": "run_no", 
+  "fieldtype": "Data", 
+  "label": "Standardize Run"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "sample_file1", 
+  "fieldtype": "Data", 
+  "label": "Sample File"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "column_break_14", 
+  "fieldtype": "Column Break"
+ }, 
+ {
+  "description": "Method Used", 
+  "doctype": "DocField", 
+  "fieldname": "fid", 
+  "fieldtype": "Data", 
+  "label": "FID"
+ }, 
+ {
+  "description": "Against the method(FID) used", 
+  "doctype": "DocField", 
+  "fieldname": "standardize_run", 
+  "fieldtype": "Data", 
+  "label": "standardize Run"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "sample_file2", 
+  "fieldtype": "Data", 
+  "label": "Sample File"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "sample_details", 
+  "fieldtype": "Section Break", 
+  "label": "Sample Details"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "sample_no", 
+  "fieldtype": "Link", 
+  "label": "Sample No", 
+  "options": "Sample", 
+  "read_only": 0
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "column_break_4", 
+  "fieldtype": "Column Break"
  }, 
  {
   "doctype": "DocField", 
@@ -77,57 +193,9 @@
  }, 
  {
   "doctype": "DocField", 
-  "fieldname": "run_no", 
-  "fieldtype": "Data", 
-  "label": "Run No"
- }, 
- {
-  "doctype": "DocField", 
-  "fieldname": "method", 
-  "fieldtype": "Link", 
-  "label": "Method", 
-  "options": "Test Method"
- }, 
- {
-  "doctype": "DocField", 
-  "fieldname": "method_file", 
-  "fieldtype": "Section Break", 
-  "label": "Method File"
- }, 
- {
-  "doctype": "DocField", 
-  "fieldname": "tcd", 
-  "fieldtype": "Data", 
-  "label": "TCD"
- }, 
- {
-  "doctype": "DocField", 
-  "fieldname": "tcd_run_file", 
-  "fieldtype": "Data", 
-  "label": "TCD Run File"
- }, 
- {
-  "doctype": "DocField", 
-  "fieldname": "sample_file", 
-  "fieldtype": "Section Break", 
-  "label": "Sample File"
- }, 
- {
-  "doctype": "DocField", 
-  "fieldname": "fid", 
-  "fieldtype": "Data", 
-  "label": "FID"
- }, 
- {
-  "doctype": "DocField", 
-  "fieldname": "fid_run_file", 
-  "fieldtype": "Data", 
-  "label": "FID Run File"
- }, 
- {
-  "doctype": "DocField", 
   "fieldname": "tgc_info", 
   "fieldtype": "Section Break", 
+  "hidden": 1, 
   "label": "TGC Info"
  }, 
  {
@@ -158,20 +226,22 @@
  }, 
  {
   "doctype": "DocField", 
-  "fieldname": "other_info", 
+  "fieldname": "other_information", 
   "fieldtype": "Section Break", 
-  "label": "Other Info"
+  "label": "Other Information"
  }, 
  {
   "doctype": "DocField", 
   "fieldname": "shift_incharge_approval", 
   "fieldtype": "Data", 
+  "hidden": 1, 
   "label": "Shift Incharge Approval"
  }, 
  {
   "doctype": "DocField", 
   "fieldname": "lab_incharge_approval", 
   "fieldtype": "Data", 
+  "hidden": 1, 
   "label": "Lab Incharge Approval"
  }, 
  {
@@ -191,25 +261,25 @@
   "read_only": 1
  }, 
  {
-  "cancel": 1, 
   "doctype": "DocPerm", 
-  "role": "Administrator", 
-  "submit": 1
+  "role": "Administrator"
  }, 
  {
   "doctype": "DocPerm", 
+  "report": 1, 
   "role": "Employee"
  }, 
  {
-  "cancel": 1, 
   "doctype": "DocPerm", 
-  "role": "Shift Incharge", 
-  "submit": 1
+  "role": "Shift Incharge"
  }, 
  {
-  "cancel": 1, 
   "doctype": "DocPerm", 
-  "role": "Lab Incharge", 
-  "submit": 1
+  "role": "Lab Incharge"
+ }, 
+ {
+  "doctype": "DocPerm", 
+  "report": 1, 
+  "role": "Tester"
  }
 ]

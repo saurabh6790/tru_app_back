@@ -1,0 +1,102 @@
+[
+ {
+  "creation": "2014-06-13 18:43:50", 
+  "docstatus": 0, 
+  "modified": "2014-07-01 18:40:49", 
+  "modified_by": "Administrator", 
+  "owner": "Administrator"
+ }, 
+ {
+  "autoname": "Tan.#######", 
+  "doctype": "DocType", 
+  "document_type": "Transaction", 
+  "istable": 1, 
+  "module": "Test", 
+  "name": "__common__"
+ }, 
+ {
+  "doctype": "DocField", 
+  "name": "__common__", 
+  "parent": "Tan Alpha Details", 
+  "parentfield": "fields", 
+  "parenttype": "DocType", 
+  "permlevel": 0
+ }, 
+ {
+  "cancel": 0, 
+  "create": 1, 
+  "doctype": "DocPerm", 
+  "name": "__common__", 
+  "parent": "Tan Alpha Details", 
+  "parentfield": "permissions", 
+  "parenttype": "DocType", 
+  "permlevel": 0, 
+  "read": 1, 
+  "report": 1, 
+  "role": "All", 
+  "write": 1
+ }, 
+ {
+  "doctype": "DocType", 
+  "name": "Tan Alpha Details"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "test_temperature", 
+  "fieldtype": "Data", 
+  "in_list_view": 1, 
+  "label": "Test Temperature"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "frequency", 
+  "fieldtype": "Data", 
+  "in_list_view": 1, 
+  "label": "Frequency"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "reported_hz", 
+  "fieldtype": "Data", 
+  "in_list_view": 1, 
+  "label": "Reported HZ"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "ir_tan", 
+  "fieldtype": "Data", 
+  "in_list_view": 1, 
+  "label": "IR Tan"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "power_tan", 
+  "fieldtype": "Data", 
+  "in_list_view": 1, 
+  "label": "Power Tan"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "calculate", 
+  "fieldtype": "Button", 
+  "label": "Calculate"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "tan_value", 
+  "fieldtype": "Data", 
+  "in_list_view": 1, 
+  "label": "Reported Dissipation Factor"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "sample_no", 
+  "fieldtype": "Link", 
+  "hidden": 1, 
+  "label": "Sample No", 
+  "options": "Sample"
+ }, 
+ {
+  "doctype": "DocPerm"
+ }
+]

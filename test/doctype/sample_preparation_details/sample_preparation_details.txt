@@ -1,0 +1,126 @@
+[
+ {
+  "creation": "2014-06-14 13:49:22", 
+  "docstatus": 0, 
+  "modified": "2014-07-02 16:02:41", 
+  "modified_by": "Administrator", 
+  "owner": "Administrator"
+ }, 
+ {
+  "doctype": "DocType", 
+  "istable": 1, 
+  "module": "Test", 
+  "name": "__common__"
+ }, 
+ {
+  "doctype": "DocField", 
+  "name": "__common__", 
+  "parent": "Sample Preparation Details", 
+  "parentfield": "fields", 
+  "parenttype": "DocType", 
+  "permlevel": 0
+ }, 
+ {
+  "create": 1, 
+  "doctype": "DocPerm", 
+  "name": "__common__", 
+  "parent": "Sample Preparation Details", 
+  "parentfield": "permissions", 
+  "parenttype": "DocType", 
+  "permlevel": 0, 
+  "read": 1, 
+  "role": "Administrator", 
+  "write": 1
+ }, 
+ {
+  "doctype": "DocType", 
+  "name": "Sample Preparation Details"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "sample_no", 
+  "fieldtype": "Link", 
+  "in_list_view": 1, 
+  "label": "Sample No", 
+  "options": "Sample"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "bottle_no", 
+  "fieldtype": "Data", 
+  "in_list_view": 1, 
+  "label": "Bottle No"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "container_no", 
+  "fieldtype": "Data", 
+  "in_list_view": 1, 
+  "label": "Container No"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "specification", 
+  "fieldtype": "Data", 
+  "label": "Specification", 
+  "read_only": 1
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "test", 
+  "fieldtype": "Data", 
+  "label": "Test", 
+  "read_only": 1
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "notification_time", 
+  "fieldtype": "Data", 
+  "label": "Notification Time"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "section_break_6", 
+  "fieldtype": "Section Break"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "equipment_used", 
+  "fieldtype": "Link", 
+  "hidden": 1, 
+  "label": "Equipment Used", 
+  "options": "Equipment Used"
+ }, 
+ {
+  "description": "In hrs", 
+  "doctype": "DocField", 
+  "fieldname": "reading_to_be_taken", 
+  "fieldtype": "Data", 
+  "label": "Reading To Be Taken"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "add", 
+  "fieldtype": "Button", 
+  "hidden": 1, 
+  "label": "ADD"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "equipment_used_list", 
+  "fieldtype": "Small Text", 
+  "hidden": 1, 
+  "label": "Equipment Used List"
+ }, 
+ {
+  "default": "Pending", 
+  "doctype": "DocField", 
+  "fieldname": "status", 
+  "fieldtype": "Select", 
+  "label": "Status", 
+  "options": "\nCompleted\nPending"
+ }, 
+ {
+  "doctype": "DocPerm"
+ }
+]

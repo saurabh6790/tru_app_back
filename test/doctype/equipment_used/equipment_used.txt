@@ -1,0 +1,51 @@
+[
+ {
+  "creation": "2014-05-29 15:23:29", 
+  "docstatus": 0, 
+  "modified": "2014-05-29 15:23:29", 
+  "modified_by": "Administrator", 
+  "owner": "Administrator"
+ }, 
+ {
+  "autoname": "field:equipment_used", 
+  "doctype": "DocType", 
+  "document_type": "Master", 
+  "module": "Test", 
+  "name": "__common__"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "equipment_used", 
+  "fieldtype": "Data", 
+  "label": "Equipment Used", 
+  "name": "__common__", 
+  "parent": "Equipment Used", 
+  "parentfield": "fields", 
+  "parenttype": "DocType", 
+  "permlevel": 0
+ }, 
+ {
+  "cancel": 1, 
+  "create": 1, 
+  "doctype": "DocPerm", 
+  "name": "__common__", 
+  "parent": "Equipment Used", 
+  "parentfield": "permissions", 
+  "parenttype": "DocType", 
+  "permlevel": 0, 
+  "read": 1, 
+  "report": 1, 
+  "role": "All", 
+  "write": 1
+ }, 
+ {
+  "doctype": "DocType", 
+  "name": "Equipment Used"
+ }, 
+ {
+  "doctype": "DocField"
+ }, 
+ {
+  "doctype": "DocPerm"
+ }
+]

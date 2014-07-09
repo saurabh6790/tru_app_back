@@ -1,0 +1,98 @@
+[
+ {
+  "creation": "2014-05-29 16:16:31", 
+  "docstatus": 0, 
+  "modified": "2014-06-23 10:07:12", 
+  "modified_by": "Administrator", 
+  "owner": "Administrator"
+ }, 
+ {
+  "autoname": "EID.########", 
+  "doctype": "DocType", 
+  "document_type": "Master", 
+  "module": "Test", 
+  "name": "__common__"
+ }, 
+ {
+  "doctype": "DocField", 
+  "name": "__common__", 
+  "parent": "Transformer Detail", 
+  "parentfield": "fields", 
+  "parenttype": "DocType", 
+  "permlevel": 0
+ }, 
+ {
+  "cancel": 1, 
+  "create": 1, 
+  "doctype": "DocPerm", 
+  "name": "__common__", 
+  "parent": "Transformer Detail", 
+  "parentfield": "permissions", 
+  "parenttype": "DocType", 
+  "permlevel": 0, 
+  "read": 1, 
+  "report": 1, 
+  "role": "All", 
+  "write": 1
+ }, 
+ {
+  "doctype": "DocType", 
+  "name": "Transformer Detail"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "transformer_details", 
+  "fieldtype": "Section Break", 
+  "label": "Transformer Details"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "serial_no", 
+  "fieldtype": "Int", 
+  "label": "Serial No"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "make", 
+  "fieldtype": "Data", 
+  "label": "Make"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "rating", 
+  "fieldtype": "Int", 
+  "label": "Rating(MVA)"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "column_break_5", 
+  "fieldtype": "Column Break"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "ratio", 
+  "fieldtype": "Float", 
+  "label": "Ratio(KV)"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "phase", 
+  "fieldtype": "Int", 
+  "label": "Phase"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "year_of_mfg", 
+  "fieldtype": "Int", 
+  "label": "Year Of Mfg"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "voltage_ratio", 
+  "fieldtype": "Float", 
+  "label": "Voltage Ratio"
+ }, 
+ {
+  "doctype": "DocPerm"
+ }
+]

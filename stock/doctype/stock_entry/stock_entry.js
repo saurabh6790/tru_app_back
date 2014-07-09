@@ -73,6 +73,15 @@ erpnext.stock.StockEntry = erpnext.stock.StockController.extend({
 		this.show_stock_ledger();
 		this.show_general_ledger();
 
+		if(!this.frm.doc.__islocal){
+
+			set_field_permlevel('electronically_approved_by_1',1);
+			set_field_permlevel('electronically_approved_by_2',1);
+
+			set_field_permlevel('approver_1_status',1);
+			set_field_permlevel('approver_2_status',1);
+		}
+
 		//add button make outward register
 		if(this.frm.doc.docstatus==1 && this.frm.doc.internal_purpose=='Inward')
 			this.frm.add_custom_button(wn._("Make Sample Entry"), function() { me.make_sample_entry(); });
@@ -471,13 +480,13 @@ cur_frm.cscript.internal_purpose= function(doc,cdt,cdn){
 
 cur_frm.get_field("electronically_approved_by_1").get_query=function(doc,cdt,cdn)
 {
-   return "select name from `tabProfile` where name!='"+doc.electronically_approved_by_2+"'"
+   return "select name from `tabProfile` where name!='"+doc.electronically_approved_by_2+"' and name!='Administrator' and name!='Guest'"
 }
 
 
 cur_frm.get_field("electronically_approved_by_2").get_query=function(doc,cdt,cdn)
 {
-   return "select name from `tabProfile` where name!='"+doc.electronically_approved_by_1+"'"
+   return "select name from `tabProfile` where name!='"+doc.electronically_approved_by_1+"' and name!='Administrator' and name!='Guest'"
 }
 
 cur_frm.get_field("outward_challan_no").get_query=function(doc,cdt,cdn){
@@ -489,4 +498,21 @@ cur_frm.cscript.outward_challan_no=function(doc,cdt,cdn){
 		refresh_field(['mtn_details','purpose']);
 		cur_frm.cscript.toggle_related_fields(doc,cdt,cdn)
 	})
+}
+
+
+cur_frm.cscript.on_load = function(doc,cdt,cdn){
+	set_field_permlevel('electronically_approved_by_1',1);
+	set_field_permlevel('electronically_approved_by_2',1);
+
+	set_field_permlevel('approver_1_status',1);
+	set_field_permlevel('approver_2_status',1);
+
+	set_field_permlevel('approver_name',1);
+	set_field_permlevel('approver_name',1);
+
+	
+
+
+//	}
 }

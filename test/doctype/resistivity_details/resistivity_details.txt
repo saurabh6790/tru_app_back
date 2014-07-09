@@ -1,0 +1,81 @@
+[
+ {
+  "creation": "2014-06-13 18:47:48", 
+  "docstatus": 0, 
+  "modified": "2014-07-01 18:40:58", 
+  "modified_by": "Administrator", 
+  "owner": "Administrator"
+ }, 
+ {
+  "autoname": "Resistivity.#####", 
+  "doctype": "DocType", 
+  "document_type": "Transaction", 
+  "istable": 1, 
+  "module": "Test", 
+  "name": "__common__"
+ }, 
+ {
+  "doctype": "DocField", 
+  "name": "__common__", 
+  "parent": "Resistivity Details", 
+  "parentfield": "fields", 
+  "parenttype": "DocType", 
+  "permlevel": 0
+ }, 
+ {
+  "create": 1, 
+  "doctype": "DocPerm", 
+  "name": "__common__", 
+  "parent": "Resistivity Details", 
+  "parentfield": "permissions", 
+  "parenttype": "DocType", 
+  "permlevel": 0, 
+  "read": 1, 
+  "report": 1, 
+  "role": "All", 
+  "write": 1
+ }, 
+ {
+  "doctype": "DocType", 
+  "name": "Resistivity Details"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "temperature", 
+  "fieldtype": "Data", 
+  "in_list_view": 1, 
+  "label": "Temperature"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "ir_resistivity", 
+  "fieldtype": "Data", 
+  "in_list_view": 1, 
+  "label": "IR Resistivity"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "power_resistivity", 
+  "fieldtype": "Data", 
+  "in_list_view": 1, 
+  "label": "Power Resistivity"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "resistivity_value", 
+  "fieldtype": "Data", 
+  "in_list_view": 1, 
+  "label": "Specific Resistivity"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "sample_no", 
+  "fieldtype": "Link", 
+  "hidden": 1, 
+  "label": "Sample No", 
+  "options": "Sample"
+ }, 
+ {
+  "doctype": "DocPerm"
+ }
+]

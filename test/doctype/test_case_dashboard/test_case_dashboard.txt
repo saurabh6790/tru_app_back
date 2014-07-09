@@ -2,7 +2,7 @@
  {
   "creation": "2014-05-19 11:34:40", 
   "docstatus": 0, 
-  "modified": "2014-05-20 15:55:21", 
+  "modified": "2014-06-30 15:18:50", 
   "modified_by": "Administrator", 
   "owner": "Administrator"
  }, 
@@ -49,6 +49,12 @@
   "fieldname": "temperature", 
   "fieldtype": "Data", 
   "label": "Temperature"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "get_details", 
+  "fieldtype": "Button", 
+  "label": "Get Details"
  }, 
  {
   "doctype": "DocField", 
@@ -218,6 +224,7 @@
   "doctype": "DocField", 
   "fieldname": "neutralization_value", 
   "fieldtype": "Section Break", 
+  "hidden": 1, 
   "label": "Neutralization Value"
  }, 
  {
@@ -232,6 +239,185 @@
   "fieldname": "reported_value", 
   "fieldtype": "Data", 
   "label": "Reported Value"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "sediment_details", 
+  "fieldtype": "Section Break", 
+  "hidden": 1, 
+  "label": "Sediment Details"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "sediment_test_id", 
+  "fieldtype": "Link", 
+  "label": "Sediment Test iD", 
+  "options": "Test Of Extract"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "diffrence", 
+  "fieldtype": "Data", 
+  "label": "Diffrence"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "kinematic_viscosity_details", 
+  "fieldtype": "Section Break", 
+  "hidden": 1, 
+  "label": "Kinematic Viscosity Details"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "kinematic_viscosity_test_id", 
+  "fieldtype": "Link", 
+  "label": "Kinematic Viscosity Test Id", 
+  "options": "Kinematic Viscosity"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "reported_viscocity", 
+  "fieldtype": "Data", 
+  "label": "Reported Kinematic Viscosity (in Cst)"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "pour_point_details", 
+  "fieldtype": "Section Break", 
+  "hidden": 1, 
+  "label": "Pour Point Details"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "pour_point_test_id", 
+  "fieldtype": "Link", 
+  "label": "Pour Point Test Id", 
+  "options": "Pour Point"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "temperature_ir", 
+  "fieldtype": "Data", 
+  "label": "Temperature IR"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "dissolved_gas_analysis_details", 
+  "fieldtype": "Section Break", 
+  "hidden": 1, 
+  "label": "Dissolved Gas Analysis Details"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "dissolved_gas_test_id", 
+  "fieldtype": "Link", 
+  "label": "Dissolved Gas Test Id", 
+  "options": "Dissolved Gas Analysis"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "dashboard_gas_detail", 
+  "fieldtype": "Table", 
+  "label": "Gas Details", 
+  "options": "Dashboard Dissolve Gas Detail"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "furan_content_details", 
+  "fieldtype": "Section Break", 
+  "hidden": 1, 
+  "label": "Furan Content Details"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "furan_content_test_id", 
+  "fieldtype": "Link", 
+  "label": "Furan Content Test Id", 
+  "options": "Furan Content"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "pcb_details", 
+  "fieldtype": "Section Break", 
+  "hidden": 1, 
+  "label": "PCB Details"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "pcb_test_id", 
+  "fieldtype": "Link", 
+  "label": "PCB Test Id", 
+  "options": "PCB"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "corrosive_sulphur", 
+  "fieldtype": "Section Break", 
+  "hidden": 1, 
+  "label": "Corrosive Sulphur"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "corrosive_sulphur_test_id", 
+  "fieldtype": "Link", 
+  "label": "Corrosive Sulphur Test Id", 
+  "options": "Corrossive Sulphur"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "oxidation_inhibiters", 
+  "fieldtype": "Section Break", 
+  "hidden": 1, 
+  "label": "Oxidation Inhibiters"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "oxidation_inhibiters_test_id", 
+  "fieldtype": "Link", 
+  "label": "Oxidation Inhibiters Test Id", 
+  "options": "Oxidation Inhibiters"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "metal_in_oil_details", 
+  "fieldtype": "Section Break", 
+  "hidden": 1, 
+  "label": "Metal In Oil Details"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "metal_in_oil_test_id", 
+  "fieldtype": "Link", 
+  "label": "Metal In Oil Test Id", 
+  "options": "Metal In Oil"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "oxidation_stability", 
+  "fieldtype": "Section Break", 
+  "hidden": 1, 
+  "label": "Oxidation Stability"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "accelerated_aging_details", 
+  "fieldtype": "Section Break", 
+  "hidden": 1, 
+  "label": "Accelerated Aging Details"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "interfacial_tension_details", 
+  "fieldtype": "Section Break", 
+  "hidden": 1, 
+  "label": "Interfacial Tension Details"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "ift_test_id", 
+  "fieldtype": "Link", 
+  "label": "IFT Test Id", 
+  "options": "Interfacial Tension"
  }, 
  {
   "doctype": "DocPerm"

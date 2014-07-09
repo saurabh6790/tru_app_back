@@ -34,6 +34,7 @@ cur_frm.fields_dict.trainner.grid.get_field("trainners").get_query = function(do
   return "select employee from `tabEmployee` where employee!='"+doc.employee+"'"  
 }
 
+
 cur_frm.cscript.send_notification = function(doc, dt, dn) {
   if (doc.employee && doc.name && doc.training_date)
   {
@@ -41,7 +42,7 @@ cur_frm.cscript.send_notification = function(doc, dt, dn) {
                	method: "hr.doctype.training.training.send_notification",
               	 args: {
                        	employee: doc.employee,
-                       	docname: doc.name,
+                        docname: doc.name,
                         date:doc.training_date
                	}
       	 });
@@ -49,6 +50,7 @@ cur_frm.cscript.send_notification = function(doc, dt, dn) {
   else
     msgprint("Employee Name,Training Date are mandatory")
 }
+
 
 
 cur_frm.cscript.refresh = function(doc,cdt,cdn){

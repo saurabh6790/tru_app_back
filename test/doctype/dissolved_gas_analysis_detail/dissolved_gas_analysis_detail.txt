@@ -2,11 +2,12 @@
  {
   "creation": "2014-04-29 17:33:30", 
   "docstatus": 0, 
-  "modified": "2014-04-29 17:57:47", 
+  "modified": "2014-06-26 15:35:49", 
   "modified_by": "Administrator", 
   "owner": "Administrator"
  }, 
  {
+  "autoname": "DGAD.###", 
   "doctype": "DocType", 
   "istable": 1, 
   "module": "Test", 
@@ -37,11 +38,13 @@
   "name": "Dissolved Gas Analysis Detail"
  }, 
  {
+  "description": "In %", 
   "doctype": "DocField", 
   "fieldname": "gas", 
   "fieldtype": "Link", 
   "label": "Gas", 
-  "options": "Gas"
+  "options": "Gas", 
+  "reqd": 1
  }, 
  {
   "doctype": "DocField", 

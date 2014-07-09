@@ -2,7 +2,7 @@
  {
   "creation": "2014-04-15 13:03:45", 
   "docstatus": 0, 
-  "modified": "2014-05-26 17:06:03", 
+  "modified": "2014-05-30 15:27:31", 
   "modified_by": "Administrator", 
   "owner": "Administrator"
  }, 
@@ -67,11 +67,23 @@
  }, 
  {
   "doctype": "DocField", 
-  "fieldname": "employee_type", 
+  "fieldname": "test_type", 
   "fieldtype": "Select", 
-  "label": "Type Of Employee", 
-  "options": "\nTechnical\nNon-Technical", 
-  "reqd": 1
+  "label": "Test Type", 
+  "options": "\nBatch\nIndividual"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "no_process", 
+  "fieldtype": "Select", 
+  "hidden": 1, 
+  "label": "Number Of Process", 
+  "options": "\n1\n2\n3\n4"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "column_break_5", 
+  "fieldtype": "Column Break"
  }, 
  {
   "doctype": "DocField", 
@@ -82,28 +94,40 @@
  }, 
  {
   "doctype": "DocField", 
-  "fieldname": "column_break_5", 
-  "fieldtype": "Column Break"
- }, 
- {
-  "doctype": "DocField", 
-  "fieldname": "test_type", 
-  "fieldtype": "Select", 
-  "label": "Test Type", 
-  "options": "\nBatch\nIndividual"
- }, 
- {
-  "doctype": "DocField", 
   "fieldname": "test_method", 
   "fieldtype": "Data", 
+  "hidden": 1, 
   "label": "Test Method"
  }, 
  {
   "doctype": "DocField", 
-  "fieldname": "no_process", 
+  "fieldname": "employee_type", 
   "fieldtype": "Select", 
-  "label": "Number Of Process", 
-  "options": "\n1\n2\n3\n4"
+  "hidden": 1, 
+  "label": "Type Of Employee", 
+  "options": "\nTechnical\nNon-Technical", 
+  "reqd": 0
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "qualification_of_employee", 
+  "fieldtype": "Select", 
+  "label": "Qualification Of Employee", 
+  "options": "\nTester\nLab Incharge\nShift Incharge"
+ }, 
+ {
+  "depends_on": "eval:doc.qualification_of_employee", 
+  "doctype": "DocField", 
+  "fieldname": "min_qualification", 
+  "fieldtype": "Data", 
+  "label": "Min Qualification"
+ }, 
+ {
+  "depends_on": "eval:doc.qualification_of_employee", 
+  "doctype": "DocField", 
+  "fieldname": "max_qualification", 
+  "fieldtype": "Data", 
+  "label": "Max Qualification"
  }, 
  {
   "doctype": "DocPerm"

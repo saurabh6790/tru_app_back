@@ -1,0 +1,153 @@
+[
+ {
+  "creation": "2014-06-06 11:29:35", 
+  "docstatus": 0, 
+  "modified": "2014-06-27 15:45:16", 
+  "modified_by": "Administrator", 
+  "owner": "Administrator"
+ }, 
+ {
+  "autoname": "SAL.#####", 
+  "doctype": "DocType", 
+  "document_type": "Transaction", 
+  "icon": "icon-file-text", 
+  "is_submittable": 1, 
+  "istable": 0, 
+  "module": "Test", 
+  "name": "__common__"
+ }, 
+ {
+  "doctype": "DocField", 
+  "name": "__common__", 
+  "parent": "Sample Allocation To Lab", 
+  "parentfield": "fields", 
+  "parenttype": "DocType", 
+  "permlevel": 0
+ }, 
+ {
+  "amend": 0, 
+  "cancel": 0, 
+  "create": 1, 
+  "doctype": "DocPerm", 
+  "name": "__common__", 
+  "parent": "Sample Allocation To Lab", 
+  "parentfield": "permissions", 
+  "parenttype": "DocType", 
+  "permlevel": 0, 
+  "read": 1, 
+  "report": 1, 
+  "role": "Administrator", 
+  "submit": 1, 
+  "write": 1
+ }, 
+ {
+  "doctype": "DocType", 
+  "name": "Sample Allocation To Lab"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "sample_details", 
+  "fieldtype": "Section Break", 
+  "label": "Sample Details"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "priority", 
+  "fieldtype": "Select", 
+  "label": "Priority", 
+  "options": "\nCritical\nNormal\nUrgent", 
+  "reqd": 1
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "flag1", 
+  "fieldtype": "Data", 
+  "hidden": 1, 
+  "label": "Flag1"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "flag2", 
+  "fieldtype": "Data", 
+  "hidden": 1, 
+  "label": "Flag2"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "flag3", 
+  "fieldtype": "Data", 
+  "hidden": 1, 
+  "label": "Flag3"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "critical_samples", 
+  "fieldtype": "Data", 
+  "hidden": 1, 
+  "label": "Critical Samples"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "urgent_samples", 
+  "fieldtype": "Data", 
+  "hidden": 1, 
+  "label": "Urgent Samples"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "normal_samples", 
+  "fieldtype": "Data", 
+  "hidden": 1, 
+  "label": "Normal Samples"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "priority_wise_sample_allocation", 
+  "fieldtype": "Section Break", 
+  "label": "Priority Wise Sample Allocation"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "prioritywise_sample_allocation", 
+  "fieldtype": "Table", 
+  "label": "Priority Wise Sample Details", 
+  "options": "Priority Wise Sample Allocation"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "section_break_5", 
+  "fieldtype": "Section Break"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "make_final_lab_entry", 
+  "fieldtype": "Button", 
+  "label": "Make Final Lab Entry"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "amended_from", 
+  "fieldtype": "Link", 
+  "label": "Amended From", 
+  "no_copy": 1, 
+  "options": "Sample Allocation To Lab", 
+  "print_hide": 1, 
+  "read_only": 1
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "final_sample_allocation_to_lab", 
+  "fieldtype": "Section Break", 
+  "label": "Final Sample Allocation To Lab"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "final_sample_allocation", 
+  "fieldtype": "Table", 
+  "label": "Final Sample Allocation", 
+  "options": "Final Sample Allocation To Lab"
+ }, 
+ {
+  "doctype": "DocPerm"
+ }
+]

@@ -2,7 +2,7 @@
  {
   "creation": "2014-05-15 12:07:10", 
   "docstatus": 0, 
-  "modified": "2014-05-20 10:29:03", 
+  "modified": "2014-06-27 16:04:34", 
   "modified_by": "Administrator", 
   "owner": "Administrator"
  }, 
@@ -10,6 +10,7 @@
   "autoname": "PCD.#####", 
   "doctype": "DocType", 
   "document_type": "Transaction", 
+  "icon": "icon-file-text", 
   "is_submittable": 1, 
   "module": "Test", 
   "name": "__common__"
@@ -42,6 +43,14 @@
  }, 
  {
   "doctype": "DocField", 
+  "fieldname": "status", 
+  "fieldtype": "Data", 
+  "label": "Status", 
+  "options": "\nOpen\nApproved\nRejected", 
+  "read_only": 1
+ }, 
+ {
+  "doctype": "DocField", 
   "fieldname": "sample_no", 
   "fieldtype": "Link", 
   "label": "Sample No", 
@@ -49,15 +58,30 @@
  }, 
  {
   "doctype": "DocField", 
+  "fieldname": "temperature", 
+  "fieldtype": "Data", 
+  "label": "Temperature", 
+  "read_only": 1
+ }, 
+ {
+  "doctype": "DocField", 
   "fieldname": "test_type", 
   "fieldtype": "Select", 
+  "hidden": 1, 
   "label": "Test Type", 
   "options": "\nRegular\nQA\nCalibration", 
   "reqd": 0
  }, 
  {
   "doctype": "DocField", 
-  "fieldname": "column_break_2", 
+  "fieldname": "specification", 
+  "fieldtype": "Link", 
+  "label": "Specification", 
+  "options": "Specification"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "column_break_4", 
   "fieldtype": "Column Break"
  }, 
  {
@@ -70,20 +94,84 @@
   "doctype": "DocField", 
   "fieldname": "method", 
   "fieldtype": "Link", 
-  "label": "Method", 
-  "options": "Test Method"
+  "label": "Test Method", 
+  "options": "Test Method", 
+  "reqd": 1
  }, 
  {
   "doctype": "DocField", 
-  "fieldname": "physical__condition_and_density", 
-  "fieldtype": "Section Break", 
-  "label": "Color As per ASTM Color code"
+  "fieldname": "test_condition", 
+  "fieldtype": "Select", 
+  "hidden": 1, 
+  "label": "Test Condition", 
+  "options": "\nRegular Test\nQuality Test\nCaliberation"
  }, 
  {
+  "doctype": "DocField", 
+  "fieldname": "color_details", 
+  "fieldtype": "Section Break", 
+  "label": "Color Details"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "color_detail", 
+  "fieldtype": "Select", 
+  "label": "Color Detail", 
+  "options": "\nPer ASTM Color Code\nVisual Color"
+ }, 
+ {
+  "depends_on": "eval:doc.color_detail=='Per ASTM Color Code'||doc.color_detail=='Visual Color'", 
+  "doctype": "DocField", 
+  "fieldname": "section_break_10", 
+  "fieldtype": "Section Break"
+ }, 
+ {
+  "depends_on": "eval:doc.color_detail=='Per ASTM Color Code'||doc.color_detail=='Visual Color'", 
+  "doctype": "DocField", 
+  "fieldname": "equipment_used", 
+  "fieldtype": "Link", 
+  "label": "Equipment Used", 
+  "options": "Equipment Used"
+ }, 
+ {
+  "depends_on": "eval:doc.equipment_used", 
+  "doctype": "DocField", 
+  "fieldname": "add", 
+  "fieldtype": "Button", 
+  "label": "ADD"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "column_break_12", 
+  "fieldtype": "Column Break"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "equipment_used_list", 
+  "fieldtype": "Small Text", 
+  "label": "Equipment Used List", 
+  "read_only": 1
+ }, 
+ {
+  "depends_on": "eval:doc.color_detail=='Per ASTM Color Code'||doc.color_detail=='Visual Color'", 
+  "doctype": "DocField", 
+  "fieldname": "1", 
+  "fieldtype": "Section Break"
+ }, 
+ {
+  "depends_on": "eval:doc.color_detail=='Per ASTM Color Code'", 
   "doctype": "DocField", 
   "fieldname": "color", 
   "fieldtype": "Data", 
   "label": "Color"
+ }, 
+ {
+  "depends_on": "eval:doc.color_detail=='Visual Color'", 
+  "doctype": "DocField", 
+  "fieldname": "visual_color", 
+  "fieldtype": "Link", 
+  "label": "Visual Color", 
+  "options": "Visual Color"
  }, 
  {
   "doctype": "DocField", 
@@ -91,25 +179,27 @@
   "fieldtype": "Column Break"
  }, 
  {
+  "depends_on": "eval:doc.color_detail=='Per ASTM Color Code'", 
   "doctype": "DocField", 
   "fieldname": "to", 
   "fieldtype": "Data", 
   "label": "To"
  }, 
  {
+  "depends_on": "eval:doc.color_detail=='Visual Color'", 
   "doctype": "DocField", 
-  "fieldname": "visual_color_detail", 
-  "fieldtype": "Section Break", 
-  "label": "Visual Color Detail"
- }, 
- {
-  "doctype": "DocField", 
-  "fieldname": "visual_color", 
+  "fieldname": "smell", 
   "fieldtype": "Link", 
-  "label": "Visual", 
-  "options": "Visual Color"
+  "label": "Smell", 
+  "options": "Smell"
  }, 
  {
+  "doctype": "DocField", 
+  "fieldname": "section_break_18", 
+  "fieldtype": "Section Break"
+ }, 
+ {
+  "depends_on": "eval:doc.color_detail=='Visual Color'", 
   "doctype": "DocField", 
   "fieldname": "particles", 
   "fieldtype": "Select", 
@@ -118,17 +208,11 @@
  }, 
  {
   "doctype": "DocField", 
-  "fieldname": "column_break_11", 
+  "fieldname": "column_break_20", 
   "fieldtype": "Column Break"
  }, 
  {
-  "doctype": "DocField", 
-  "fieldname": "smell", 
-  "fieldtype": "Link", 
-  "label": "Smell", 
-  "options": "Smell"
- }, 
- {
+  "depends_on": "eval:doc.color_detail=='Visual Color'", 
   "doctype": "DocField", 
   "fieldname": "temp", 
   "fieldtype": "Data", 
@@ -138,7 +222,7 @@
   "depends_on": "eval:doc.smell=='Others'", 
   "doctype": "DocField", 
   "fieldname": "comments", 
-  "fieldtype": "Small Text", 
+  "fieldtype": "Data", 
   "label": "Comments"
  }, 
  {
@@ -204,12 +288,6 @@
  }, 
  {
   "doctype": "DocField", 
-  "fieldname": "temperature", 
-  "fieldtype": "Data", 
-  "label": "Temperature"
- }, 
- {
-  "doctype": "DocField", 
   "fieldname": "moisture", 
   "fieldtype": "Data", 
   "label": "Moisture"
@@ -248,18 +326,15 @@
   "doctype": "DocField", 
   "fieldname": "shift_incharge_approval", 
   "fieldtype": "Data", 
+  "hidden": 1, 
   "label": "Shift Incharge Approval"
  }, 
  {
   "doctype": "DocField", 
   "fieldname": "lab_incharge_approval", 
   "fieldtype": "Data", 
+  "hidden": 1, 
   "label": "Lab Incharge Approval"
- }, 
- {
-  "doctype": "DocField", 
-  "fieldname": "column_break_34", 
-  "fieldtype": "Column Break"
  }, 
  {
   "doctype": "DocField", 
@@ -275,5 +350,22 @@
   "amend": 1, 
   "doctype": "DocPerm", 
   "role": "Administrator"
+ }, 
+ {
+  "doctype": "DocPerm", 
+  "role": "Shift Incharge"
+ }, 
+ {
+  "amend": 1, 
+  "doctype": "DocPerm", 
+  "role": "Lab Incharge"
+ }, 
+ {
+  "doctype": "DocPerm", 
+  "role": "Tester"
+ }, 
+ {
+  "doctype": "DocPerm", 
+  "role": "Employee"
  }
 ]

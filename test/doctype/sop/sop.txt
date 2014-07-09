@@ -2,7 +2,7 @@
  {
   "creation": "2014-05-27 14:51:07", 
   "docstatus": 0, 
-  "modified": "2014-05-27 14:51:07", 
+  "modified": "2014-05-30 15:40:25", 
   "modified_by": "Administrator", 
   "owner": "Administrator"
  }, 
@@ -15,9 +15,6 @@
  }, 
  {
   "doctype": "DocField", 
-  "fieldname": "sop", 
-  "fieldtype": "Data", 
-  "label": "SOP", 
   "name": "__common__", 
   "parent": "SOP", 
   "parentfield": "fields", 
@@ -43,7 +40,29 @@
   "name": "SOP"
  }, 
  {
-  "doctype": "DocField"
+  "doctype": "DocField", 
+  "fieldname": "sop", 
+  "fieldtype": "Data", 
+  "label": "SOP"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "number_of_process", 
+  "fieldtype": "Select", 
+  "label": "Number Of Process", 
+  "options": "\n1\n2\n3\n4"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "column_break_2", 
+  "fieldtype": "Column Break"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "equipment_used", 
+  "fieldtype": "Link", 
+  "label": "Equipment Used", 
+  "options": "Equipment Used"
  }, 
  {
   "doctype": "DocPerm"

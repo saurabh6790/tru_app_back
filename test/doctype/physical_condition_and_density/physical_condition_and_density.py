@@ -1,14 +1,14 @@
-# Copyright (c) 2013, Web Notes Technologies Pvt. Ltd. and Contributors
-# MIT License. See license.txt
+# # Copyright (c) 2013, Web Notes Technologies Pvt. Ltd. and Contributors
+# # MIT License. See license.txt
 
-# For license information, please see license.txt
+# # For license information, please see license.txt
 
 from __future__ import unicode_literals
 import webnotes
 import json
 from webnotes.utils import cint, cstr, flt, now, nowdate, get_first_day, get_last_day, add_to_date, getdate
 from webnotes.model.bean import getlist
-from test.doctype import assign_notify
+from test.doctype import assign_notify,verfy_bottle_number,update_test_log
 from test.doctype import create_test_results
 from test.doctype import create_child_testresult, get_pgcil_limit
 
@@ -18,7 +18,7 @@ class DocType:
 
 	def on_update(self):
 		#Assign To Function
-		self.assign_physical_density_test();
+		#self.assign_physical_density_test();
 		self.update_status();
 		temp,density=self.get_density_temp()
 		if density:
@@ -26,6 +26,19 @@ class DocType:
 			self.doc.temperature_data=temp
 			self.doc.final_density=self.generate_testresult(temp,density,self.doc.temp)
 			self.doc.save()
+
+		verfy_bottle_number(self.doc.sample_no, self.doc.bottle_no)
+
+
+	def add_equipment(self,equipment):
+		#webnotes.errprint(equipment)
+		if self.doc.equipment_used_list:
+			equipment_list = self.doc.equipment_used_list + ', ' + equipment
+		else:
+			equipment_list = equipment 
+		return{	
+		"equipment_used_list": equipment_list
+		}
 
 	def update_status(self):
 		webnotes.conn.sql("update `tabSample Allocation Detail` set status='"+self.doc.workflow_state+"' where test_id='"+self.doc.name+"' ")
@@ -53,16 +66,21 @@ class DocType:
 			assign_notify(test_details)
 
 	def on_submit(self):
-		if self.doc.test_type == 'Regular':
-			self.check_final_result()
-			pgcil_limit = get_pgcil_limit(self.doc.method)
-			test_detail = {'test': "Physical Condition And Density", 'sample_no':self.doc.sample_no,'name': self.doc.name, 'method':self.doc.method, 'pgcil_limit':pgcil_limit}
-			temp,density=self.get_density_temp()
-			parent=create_test_results(test_detail)
+		# if self.doc.test_type == 'Regular':
+		self.check_final_result()
+		pgcil_limit = get_pgcil_limit(self.doc.method)
+		test_detail = {'test': "Physical Condition And Density", 'sample_no':self.doc.sample_no,'name': self.doc.name, 'method':self.doc.method, 'pgcil_limit':pgcil_limit}
+		temp,density=self.get_density_temp()
+		parent=create_test_results(test_detail)
 
-			if density:
-				final_density=self.generate_testresult(temp,density,self.doc.temp)
-				create_child_testresult(parent,final_density,test_detail,'Density in gm/cm3')	
+		if density:
+			final_density=self.generate_testresult(temp,density,self.doc.temp)
+			create_child_testresult(parent,final_density,test_detail,'Density in gm/cm3')
+
+		if self.doc.workflow_state=='Rejected':
+			#webnotes.errprint(self.doc.workflow_state)
+			update_test_log(test_detail)
+	
 
 	def get_density_details(self,args):
 		dic=eval(args)
@@ -83,6 +101,7 @@ class DocType:
 				return density_for_moisture
 
 	def get_density_temp(self):
+		result = None
 		if self.doc.density=='By Weight':
 			result=webnotes.conn.sql("select temparature,density from `tabDensity Details` where consider_for_final_result='1' and parent='%s'"%(self.doc.name),as_list=1)
 		elif self.doc.density=='By Hydrometer':
@@ -130,15 +149,6 @@ def calculate_moisture_content(source_name, target_doclist=None):
 
 def _calculate_moisture_content(source_name, target_doclist=None, ignore_permissions=False):
 	from webnotes.model.mapper import get_mapped_doclist
-	#source_detail=webnotes.conn.sql("select sample_no from `tabPhysical Condition And Density` where name='"+source_name+"'")
-	#result=webnotes.conn.sql("select density_data from `tabPhysical Condition And Density` where name='"+source_name+"'",as_list=1)
-	#webnotes.errprint(mi[0][1])
-	#For Field Mapping From Previous doctype to next doctype
-	# def postprocess(source, doclist):
-	# 	doclist[0].source_name = source_name
-	# 	doclist[0].sample_no = source_detail[0][0]
-	# 	doclist[0].density=result[0][0]
-		
 	doclist = get_mapped_doclist("Physical Condition And Density", source_name, {
 			"Physical Condition And Density": {
 				"doctype": "Moisture Content", 
@@ -182,3 +192,23 @@ def _calculate_interfacial_tension(source_name, target_doclist=None, ignore_perm
 	return [d.fields for d in doclist]
 
 	
+
+@webnotes.whitelist()
+def calculate_neutralisation_value(source_name, target_doclist=None):
+	return _calculate_neutralisation_value(source_name, target_doclist)
+
+def _calculate_neutralisation_value(source_name, target_doclist=None, ignore_permissions=False):
+	from webnotes.model.mapper import get_mapped_doclist
+	
+		
+	doclist = get_mapped_doclist("Physical Condition And Density", source_name, {
+			"Physical Condition And Density": {
+				"doctype": "Neutralization Value", 
+								
+				"validation": {
+					"docstatus": ["=", 1]
+				}
+			}
+	},target_doclist)#, postprocess)
+
+	return [d.fields for d in doclist]

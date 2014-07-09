@@ -1,0 +1,32 @@
+[
+ {
+  "creation": "2014-07-09 10:39:51", 
+  "docstatus": 0, 
+  "modified": "2014-07-09 10:39:51", 
+  "modified_by": "Administrator", 
+  "owner": "Administrator"
+ }, 
+ {
+  "doctype": "DocType", 
+  "document_type": "Transaction", 
+  "module": "Request For Service", 
+  "name": "__common__"
+ }, 
+ {
+  "doctype": "DocPerm", 
+  "name": "__common__", 
+  "parent": "Check", 
+  "parentfield": "permissions", 
+  "parenttype": "DocType", 
+  "permlevel": 0, 
+  "read": 1, 
+  "role": "All"
+ }, 
+ {
+  "doctype": "DocType", 
+  "name": "Check"
+ }, 
+ {
+  "doctype": "DocPerm"
+ }
+]

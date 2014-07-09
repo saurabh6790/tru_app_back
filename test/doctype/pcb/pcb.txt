@@ -1,0 +1,267 @@
+[
+ {
+  "creation": "2014-06-10 16:37:55", 
+  "docstatus": 0, 
+  "modified": "2014-06-26 17:35:13", 
+  "modified_by": "Administrator", 
+  "owner": "Administrator"
+ }, 
+ {
+  "autoname": "PCB.######", 
+  "doctype": "DocType", 
+  "document_type": "Transaction", 
+  "icon": "icon-file-text", 
+  "is_submittable": 1, 
+  "module": "Test", 
+  "name": "__common__"
+ }, 
+ {
+  "doctype": "DocField", 
+  "name": "__common__", 
+  "parent": "PCB", 
+  "parentfield": "fields", 
+  "parenttype": "DocType", 
+  "permlevel": 0
+ }, 
+ {
+  "amend": 1, 
+  "cancel": 1, 
+  "create": 1, 
+  "doctype": "DocPerm", 
+  "name": "__common__", 
+  "parent": "PCB", 
+  "parentfield": "permissions", 
+  "parenttype": "DocType", 
+  "permlevel": 0, 
+  "read": 1, 
+  "report": 1, 
+  "role": "All", 
+  "submit": 1, 
+  "write": 1
+ }, 
+ {
+  "doctype": "DocType", 
+  "name": "PCB"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "status", 
+  "fieldtype": "Data", 
+  "label": "Status", 
+  "options": "\nOpen\nApproved\nRejected", 
+  "read_only": 1
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "specification", 
+  "fieldtype": "Link", 
+  "label": "Specification", 
+  "options": "Specification"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "equipment_used", 
+  "fieldtype": "Link", 
+  "label": "Equipment Used", 
+  "options": "Equipment Used"
+ }, 
+ {
+  "depends_on": "eval:doc.equipment_used", 
+  "doctype": "DocField", 
+  "fieldname": "add", 
+  "fieldtype": "Button", 
+  "label": "ADD"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "column_break_2", 
+  "fieldtype": "Column Break"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "test_method", 
+  "fieldtype": "Link", 
+  "label": "Test Method", 
+  "options": "Test Method", 
+  "reqd": 1
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "equipment_used_list", 
+  "fieldtype": "Small Text", 
+  "label": "Equipment Used List"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "sample_details", 
+  "fieldtype": "Section Break", 
+  "label": "Sample Details"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "sample_no", 
+  "fieldtype": "Link", 
+  "label": "Sample ID", 
+  "options": "Sample"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "bottle_no", 
+  "fieldtype": "Data", 
+  "label": "Bottle No"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "temperature", 
+  "fieldtype": "Data", 
+  "label": "temperature", 
+  "read_only": 1
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "column_break_7", 
+  "fieldtype": "Column Break"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "carried_out", 
+  "fieldtype": "Select", 
+  "label": "Carried Out", 
+  "options": "\nInternally\nExternally"
+ }, 
+ {
+  "depends_on": "eval:doc.carried_out=='Externally'", 
+  "description": "If carried out externally", 
+  "doctype": "DocField", 
+  "fieldname": "matrix_report_no", 
+  "fieldtype": "Data", 
+  "label": "Matrix Report No"
+ }, 
+ {
+  "depends_on": "eval:doc.carried_out=='Externally'", 
+  "description": "If carried out externally", 
+  "doctype": "DocField", 
+  "fieldname": "agency", 
+  "fieldtype": "Data", 
+  "label": "Agency"
+ }, 
+ {
+  "description": "Arcolor Details", 
+  "doctype": "DocField", 
+  "fieldname": "pcb_details", 
+  "fieldtype": "Section Break", 
+  "label": "PCB Details"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "pcb", 
+  "fieldtype": "Table", 
+  "hidden": 1, 
+  "label": "PCB", 
+  "options": "PCB Details"
+ }, 
+ {
+  "default": "1242\n", 
+  "doctype": "DocField", 
+  "fieldname": "arcolor_0", 
+  "fieldtype": "Data", 
+  "label": "Arcolor", 
+  "read_only": 1
+ }, 
+ {
+  "default": "1254\n", 
+  "doctype": "DocField", 
+  "fieldname": "arcolor_1", 
+  "fieldtype": "Data", 
+  "label": "Arcolor", 
+  "read_only": 1
+ }, 
+ {
+  "default": "1260\n", 
+  "doctype": "DocField", 
+  "fieldname": "arcolor_2", 
+  "fieldtype": "Data", 
+  "label": "Arcolor", 
+  "read_only": 1
+ }, 
+ {
+  "description": "Others", 
+  "doctype": "DocField", 
+  "fieldname": "others", 
+  "fieldtype": "Data", 
+  "label": "Arcolor", 
+  "read_only": 0, 
+  "reqd": 0
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "column_break_14", 
+  "fieldtype": "Column Break"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "reported_in_ppm_0", 
+  "fieldtype": "Data", 
+  "label": "Reported In ppm"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "reported_in_ppm_1", 
+  "fieldtype": "Data", 
+  "label": "Reported In ppm"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "reported_in_ppm_2", 
+  "fieldtype": "Data", 
+  "label": "Reported In ppm"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "reported_in_ppm_others", 
+  "fieldtype": "Data", 
+  "label": "Reported In ppm"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "info", 
+  "fieldtype": "Section Break", 
+  "label": "Info"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "shift_incharge_approval", 
+  "fieldtype": "Data", 
+  "hidden": 1, 
+  "label": "Shift Incharge Approval", 
+  "read_only": 0
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "lab_incharge_approval", 
+  "fieldtype": "Data", 
+  "hidden": 1, 
+  "label": "Lab Incharge Approval", 
+  "read_only": 0
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "tested_by", 
+  "fieldtype": "Data", 
+  "label": "Tested By", 
+  "read_only": 0
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "amended_from", 
+  "fieldtype": "Link", 
+  "label": "Amended From", 
+  "no_copy": 1, 
+  "options": "PCB", 
+  "print_hide": 1, 
+  "read_only": 1
+ }, 
+ {
+  "doctype": "DocPerm"
+ }
+]

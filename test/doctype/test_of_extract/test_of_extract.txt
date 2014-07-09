@@ -1,0 +1,237 @@
+[
+ {
+  "creation": "2014-06-10 15:20:42", 
+  "docstatus": 0, 
+  "modified": "2014-06-27 09:44:40", 
+  "modified_by": "Administrator", 
+  "owner": "Administrator"
+ }, 
+ {
+  "autoname": "TE.######", 
+  "doctype": "DocType", 
+  "document_type": "Transaction", 
+  "icon": "icon-file-text", 
+  "is_submittable": 1, 
+  "module": "Test", 
+  "name": "__common__"
+ }, 
+ {
+  "doctype": "DocField", 
+  "name": "__common__", 
+  "parent": "Test Of Extract", 
+  "parentfield": "fields", 
+  "parenttype": "DocType", 
+  "permlevel": 0
+ }, 
+ {
+  "cancel": 1, 
+  "create": 1, 
+  "doctype": "DocPerm", 
+  "name": "__common__", 
+  "parent": "Test Of Extract", 
+  "parentfield": "permissions", 
+  "parenttype": "DocType", 
+  "permlevel": 0, 
+  "read": 1, 
+  "report": 1, 
+  "submit": 1, 
+  "write": 1
+ }, 
+ {
+  "doctype": "DocType", 
+  "name": "Test Of Extract"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "status", 
+  "fieldtype": "Data", 
+  "label": "Status", 
+  "options": "\nOpen\nApproved\nRejected", 
+  "read_only": 1
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "specification", 
+  "fieldtype": "Data", 
+  "label": "Specification", 
+  "options": "Specification"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "amended_from", 
+  "fieldtype": "Link", 
+  "label": "Amended From", 
+  "no_copy": 1, 
+  "options": "Test Of Extract", 
+  "print_hide": 1, 
+  "read_only": 1
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "test_type", 
+  "fieldtype": "Select", 
+  "hidden": 1, 
+  "label": "Test Condition", 
+  "options": "\nRegular\nQA\nCaliberation"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "equipment", 
+  "fieldtype": "Link", 
+  "label": "Equipment Used", 
+  "options": "Equipment Used"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "add", 
+  "fieldtype": "Button", 
+  "label": "ADD"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "test_preparation", 
+  "fieldtype": "Data", 
+  "label": "Test Preparation", 
+  "read_only": 1
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "column_break_2", 
+  "fieldtype": "Column Break"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "method", 
+  "fieldtype": "Link", 
+  "label": "Test Method", 
+  "options": "Test Method", 
+  "reqd": 1
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "total_weight_of_oil", 
+  "fieldtype": "Data", 
+  "label": "Total Weight Of Oil", 
+  "read_only": 1
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "equipment_list", 
+  "fieldtype": "Small Text", 
+  "label": "Equipment List"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "sample_details", 
+  "fieldtype": "Section Break", 
+  "label": "Sample Details"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "sample_no", 
+  "fieldtype": "Link", 
+  "label": "Sample Id", 
+  "options": "Sample", 
+  "reqd": 1
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "column_break_3", 
+  "fieldtype": "Column Break"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "bottle_no", 
+  "fieldtype": "Data", 
+  "label": "Bottle No"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "temperature", 
+  "fieldtype": "Data", 
+  "label": "temperature", 
+  "read_only": 1
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "result_of_preparation_of_oil", 
+  "fieldtype": "Section Break", 
+  "label": "Testing Of Extract Details"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "container_id", 
+  "fieldtype": "Data", 
+  "label": "Container ID"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "weight_of_crucible", 
+  "fieldtype": "Data", 
+  "hidden": 0, 
+  "label": "Weight Of Crucible", 
+  "reqd": 1
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "column_break_16", 
+  "fieldtype": "Column Break", 
+  "hidden": 0
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "weight_of_crucible_after", 
+  "fieldtype": "Data", 
+  "hidden": 0, 
+  "label": "Weight Of Crucible After Washing/Heating", 
+  "reqd": 1
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "diffrence", 
+  "fieldtype": "Data", 
+  "hidden": 0, 
+  "label": "Diffrence", 
+  "read_only": 1
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "info", 
+  "fieldtype": "Section Break", 
+  "label": "Info"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "shift_incharge_approval", 
+  "fieldtype": "Data", 
+  "hidden": 1, 
+  "label": "Shift Incharge Approval"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "lab_incharge_approval", 
+  "fieldtype": "Date", 
+  "hidden": 1, 
+  "label": "Lab Incharge Approval"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "tested_by", 
+  "fieldtype": "Data", 
+  "label": "Tested By"
+ }, 
+ {
+  "amend": 1, 
+  "doctype": "DocPerm", 
+  "role": "Administrator"
+ }, 
+ {
+  "doctype": "DocPerm", 
+  "role": "Shift Incharge"
+ }, 
+ {
+  "amend": 0, 
+  "doctype": "DocPerm", 
+  "role": "Lab Incharge"
+ }
+]

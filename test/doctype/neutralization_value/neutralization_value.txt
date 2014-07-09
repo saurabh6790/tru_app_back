@@ -2,7 +2,7 @@
  {
   "creation": "2014-04-03 14:24:09", 
   "docstatus": 0, 
-  "modified": "2014-05-20 12:59:48", 
+  "modified": "2014-07-09 15:55:04", 
   "modified_by": "Administrator", 
   "owner": "Administrator"
  }, 
@@ -10,6 +10,7 @@
   "autoname": "NV.#####", 
   "doctype": "DocType", 
   "document_type": "Transaction", 
+  "icon": "icon-file-text", 
   "is_submittable": 1, 
   "module": "Test", 
   "name": "__common__"
@@ -46,9 +47,64 @@
  }, 
  {
   "doctype": "DocField", 
-  "fieldname": "date", 
-  "fieldtype": "Date", 
-  "label": "Date"
+  "fieldname": "specification", 
+  "fieldtype": "Link", 
+  "label": "Specification", 
+  "options": "Specification"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "method", 
+  "fieldtype": "Link", 
+  "hidden": 0, 
+  "label": "Test Method", 
+  "options": "Test Method", 
+  "reqd": 1
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "equipment_used", 
+  "fieldtype": "Link", 
+  "label": "Equipment Used", 
+  "options": "Equipment Used"
+ }, 
+ {
+  "depends_on": "eval:doc.equipment_used", 
+  "doctype": "DocField", 
+  "fieldname": "add", 
+  "fieldtype": "Button", 
+  "label": "ADD"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "sample_no", 
+  "fieldtype": "Link", 
+  "label": "Sample No", 
+  "options": "Sample", 
+  "reqd": 1
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "test", 
+  "fieldtype": "Data", 
+  "hidden": 1, 
+  "label": "Test ", 
+  "read_only": 1
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "test_preparation", 
+  "fieldtype": "Data", 
+  "label": "Test Preparation", 
+  "read_only": 1
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "physical_condition_density", 
+  "fieldtype": "Link", 
+  "label": "Physical Condition & Density", 
+  "options": "Physical Condition And Density", 
+  "reqd": 1
  }, 
  {
   "doctype": "DocField", 
@@ -57,26 +113,59 @@
  }, 
  {
   "doctype": "DocField", 
-  "fieldname": "normality", 
-  "fieldtype": "Link", 
-  "label": "Normality", 
-  "options": "Normality"
+  "fieldname": "date", 
+  "fieldtype": "Date", 
+  "label": "Date"
  }, 
  {
   "doctype": "DocField", 
-  "fieldname": "method", 
+  "fieldname": "normality", 
   "fieldtype": "Link", 
-  "hidden": 0, 
-  "label": "Method", 
-  "options": "Test Method"
+  "label": "Normality", 
+  "options": "Normality", 
+  "reqd": 1
  }, 
  {
   "doctype": "DocField", 
   "fieldname": "test_type", 
   "fieldtype": "Select", 
   "hidden": 1, 
-  "label": "Test Type", 
-  "options": "\nRegular\nQA\nCalibration"
+  "label": "Test Condition", 
+  "options": "\nRegular\nQA\nCaliberation"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "density_data", 
+  "fieldtype": "Data", 
+  "label": "Density", 
+  "read_only": 1
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "temperature_data", 
+  "fieldtype": "Data", 
+  "label": "Temperature", 
+  "read_only": 1
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "density", 
+  "fieldtype": "Data", 
+  "label": "Density By", 
+  "read_only": 1
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "equipment_used_list", 
+  "fieldtype": "Small Text", 
+  "label": "Equipment  Used List"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "temperature", 
+  "fieldtype": "Data", 
+  "label": "Temperature", 
+  "read_only": 1
  }, 
  {
   "description": "Selected Normality Test Details", 
@@ -89,13 +178,15 @@
   "doctype": "DocField", 
   "fieldname": "normality_of_hcl", 
   "fieldtype": "Data", 
-  "label": "Normality Of HCL"
+  "label": "Normality Of HCL", 
+  "read_only": 1
  }, 
  {
   "doctype": "DocField", 
   "fieldname": "volume", 
   "fieldtype": "Data", 
-  "label": "Volume Of 0.1 NHCL"
+  "label": "Volume Of 0.1 NHCL", 
+  "read_only": 1
  }, 
  {
   "doctype": "DocField", 
@@ -106,13 +197,15 @@
   "doctype": "DocField", 
   "fieldname": "koh_volume", 
   "fieldtype": "Data", 
-  "label": "Volume Of KOH Used"
+  "label": "Volume Of KOH Used", 
+  "read_only": 1
  }, 
  {
   "doctype": "DocField", 
   "fieldname": "normality_of_koh", 
   "fieldtype": "Data", 
-  "label": "Normality Of KOH"
+  "label": "Normality Of KOH", 
+  "read_only": 1
  }, 
  {
   "doctype": "DocField", 
@@ -120,6 +213,15 @@
   "fieldtype": "Section Break", 
   "hidden": 0, 
   "label": "Neutralization Value Test  Details"
+ }, 
+ {
+  "depends_on": "eval:(doc.sample_no && doc.physical_condition_density)", 
+  "doctype": "DocField", 
+  "fieldname": "add_sample_nos", 
+  "fieldtype": "Button", 
+  "hidden": 0, 
+  "label": "ADD Sample No", 
+  "options": "add_sample_nos"
  }, 
  {
   "doctype": "DocField", 
@@ -151,32 +253,30 @@
  }, 
  {
   "doctype": "DocField", 
-  "fieldname": "info", 
+  "fieldname": "information", 
   "fieldtype": "Section Break", 
-  "label": "Info"
+  "label": "Information"
  }, 
  {
   "doctype": "DocField", 
   "fieldname": "shift_incharge_approval", 
   "fieldtype": "Data", 
+  "hidden": 1, 
   "label": "Shift Incharge Approval"
  }, 
  {
   "doctype": "DocField", 
   "fieldname": "lab_incharge_approval", 
   "fieldtype": "Data", 
+  "hidden": 1, 
   "label": "Lab Incharge Approval"
- }, 
- {
-  "doctype": "DocField", 
-  "fieldname": "column_break_7", 
-  "fieldtype": "Column Break"
  }, 
  {
   "doctype": "DocField", 
   "fieldname": "tested_by", 
   "fieldtype": "Data", 
-  "label": "Tested By"
+  "label": "Tested By", 
+  "read_only": 1
  }, 
  {
   "doctype": "DocField", 
@@ -194,7 +294,7 @@
   "doctype": "DocPerm", 
   "report": 1, 
   "role": "Administrator", 
-  "submit": 0
+  "submit": 1
  }, 
  {
   "doctype": "DocPerm", 
@@ -210,6 +310,14 @@
   "cancel": 1, 
   "doctype": "DocPerm", 
   "role": "Lab Incharge", 
+  "submit": 1
+ }, 
+ {
+  "amend": 1, 
+  "cancel": 1, 
+  "doctype": "DocPerm", 
+  "report": 1, 
+  "role": "Tester", 
   "submit": 1
  }
 ]

@@ -1,0 +1,32 @@
+[
+ {
+  "creation": "2014-07-08 16:13:38", 
+  "docstatus": 0, 
+  "modified": "2014-07-08 16:13:38", 
+  "modified_by": "Administrator", 
+  "owner": "Administrator"
+ }, 
+ {
+  "doctype": "DocType", 
+  "document_type": "Transaction", 
+  "module": "Inward-Outward", 
+  "name": "__common__"
+ }, 
+ {
+  "doctype": "DocPerm", 
+  "name": "__common__", 
+  "parent": "Dummy", 
+  "parentfield": "permissions", 
+  "parenttype": "DocType", 
+  "permlevel": 0, 
+  "read": 1, 
+  "role": "All"
+ }, 
+ {
+  "doctype": "DocType", 
+  "name": "Dummy"
+ }, 
+ {
+  "doctype": "DocPerm"
+ }
+]

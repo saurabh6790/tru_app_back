@@ -1,0 +1,133 @@
+[
+ {
+  "creation": "2014-06-03 15:16:33", 
+  "docstatus": 0, 
+  "modified": "2014-06-27 15:44:43", 
+  "modified_by": "Administrator", 
+  "owner": "Administrator"
+ }, 
+ {
+  "doctype": "DocType", 
+  "document_type": "Transaction", 
+  "issingle": 1, 
+  "module": "Test", 
+  "name": "__common__"
+ }, 
+ {
+  "doctype": "DocField", 
+  "name": "__common__", 
+  "parent": "Test Allocation Interface", 
+  "parentfield": "fields", 
+  "parenttype": "DocType", 
+  "permlevel": 0
+ }, 
+ {
+  "cancel": 0, 
+  "create": 1, 
+  "doctype": "DocPerm", 
+  "name": "__common__", 
+  "parent": "Test Allocation Interface", 
+  "parentfield": "permissions", 
+  "parenttype": "DocType", 
+  "permlevel": 0, 
+  "read": 1, 
+  "report": 0, 
+  "role": "All", 
+  "write": 1
+ }, 
+ {
+  "doctype": "DocType", 
+  "name": "Test Allocation Interface"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "sample_no", 
+  "fieldtype": "Link", 
+  "label": "Sample Id", 
+  "options": "Sample", 
+  "reqd": 1
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "add", 
+  "fieldtype": "Button", 
+  "label": "Add to Test Allocation"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "test_allocation_details", 
+  "fieldtype": "Section Break", 
+  "label": "Test Allocation Details"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "test_allocation_detail", 
+  "fieldtype": "Table", 
+  "label": "Test Allocation Table", 
+  "options": "Test Allocation Detail"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "section_break_4", 
+  "fieldtype": "Section Break"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "test_group", 
+  "fieldtype": "Link", 
+  "label": "Test Group", 
+  "options": "Test Group", 
+  "reqd": 1
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "test_names", 
+  "fieldtype": "Section Break", 
+  "label": "Test Names"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "test", 
+  "fieldtype": "Table", 
+  "label": "Test", 
+  "options": "Test"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "section_break_8", 
+  "fieldtype": "Section Break"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "final_result", 
+  "fieldtype": "Button", 
+  "label": "Generate Final Result Table"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "final_test_allocation_table", 
+  "fieldtype": "Section Break", 
+  "label": "Final Test Allocation table"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "final_test", 
+  "fieldtype": "Table", 
+  "label": "Final Test", 
+  "options": "Final Test Allocation Detail"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "section_break_12", 
+  "fieldtype": "Section Break"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "submit", 
+  "fieldtype": "Button", 
+  "label": "Submit"
+ }, 
+ {
+  "doctype": "DocPerm"
+ }
+]

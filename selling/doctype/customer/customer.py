@@ -49,6 +49,11 @@ class DocType(TransactionBase):
 		if self.doc.lead_name:
 			webnotes.conn.sql("update `tabLead` set status='Converted' where name = %s", self.doc.lead_name)
 
+	# def update_address(self):
+	# 	webnotes.conn.sql("""update `tabAddress` set customer_name=%s, modified=NOW() 
+	# 		where customer=%s""", (self.doc.division_head, self.doc.name))
+
+
 	def update_address(self):
 		webnotes.conn.sql("""update `tabAddress` set customer_name=%s, modified=NOW() 
 			where customer=%s""", (self.doc.customer_name, self.doc.name))
@@ -62,7 +67,7 @@ class DocType(TransactionBase):
 			abbr = self.get_company_abbr()
 			if not webnotes.conn.exists("Account", (self.doc.name + " - " + abbr)):
 				parent_account = self.get_receivables_group()
-				# create
+				#create
 				ac_bean = webnotes.bean({
 					"doctype": "Account",
 					'account_name': self.doc.name,
@@ -106,6 +111,10 @@ class DocType(TransactionBase):
 				pass
 
 	def on_update(self):
+		#def on_update(self):
+ 	# 	from webnotes.utils import now_datetime
+		# current_hour = int(now_datetime().strftime('%H'))
+ 	# 	webnotes.errprint(current_hour)
 		self.validate_name_with_customer_group()
 		
 		self.update_lead_status()
@@ -176,9 +185,9 @@ class DocType(TransactionBase):
 
 
 	def get_new_reporting(self,args):
-		webnotes.errprint(args)
+		#webnotes.errprint(args)
 		dic=eval(args)
-		webnotes.errprint((dic['date']))
+		#webnotes.errprint((dic['date']))
 		today = nowdate()
 		d = Document("Reporting Person History")
 		d.ad_type='Customer'

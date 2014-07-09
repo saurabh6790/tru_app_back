@@ -2,7 +2,7 @@
  {
   "creation": "2014-04-23 20:10:09", 
   "docstatus": 0, 
-  "modified": "2014-05-14 10:41:12", 
+  "modified": "2014-07-09 15:28:13", 
   "modified_by": "Administrator", 
   "owner": "Administrator"
  }, 
@@ -45,40 +45,75 @@
  }, 
  {
   "doctype": "DocField", 
-  "fieldname": "sample_type", 
-  "fieldtype": "Select", 
-  "label": "Sample Type", 
-  "options": "\nSingle Sample\nBatch"
- }, 
- {
-  "depends_on": "eval:doc.sample_type=='Batch'", 
-  "doctype": "DocField", 
-  "fieldname": "batch", 
+  "fieldname": "tester", 
   "fieldtype": "Link", 
-  "label": "Batch", 
-  "options": "Sample Batch"
+  "label": "Tester", 
+  "options": "Employee", 
+  "reqd": 1
  }, 
  {
-  "depends_on": "eval:doc.sample_type=='Single Sample'", 
   "doctype": "DocField", 
-  "fieldname": "sample_id", 
+  "fieldname": "test_name", 
   "fieldtype": "Link", 
-  "label": "Sample ID", 
-  "options": "Sample"
+  "label": "Test Name", 
+  "options": "Test Name"
  }, 
  {
+  "depends_on": "eval:doc.test_name", 
   "doctype": "DocField", 
-  "fieldname": "add_samples", 
+  "fieldname": "add_test", 
   "fieldtype": "Button", 
-  "label": "Add Samples", 
-  "options": "add_samples"
+  "label": "ADD TEST"
  }, 
  {
   "doctype": "DocField", 
-  "fieldname": "sample_allocation_detail", 
-  "fieldtype": "Table", 
-  "label": "Sample Allocation Detail", 
-  "options": "Sample Allocation Detail"
+  "fieldname": "bottle_no", 
+  "fieldtype": "Data", 
+  "hidden": 1, 
+  "label": "Bottle No", 
+  "read_only": 1
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "s_priority", 
+  "fieldtype": "Data", 
+  "hidden": 1, 
+  "label": "Priority", 
+  "read_only": 1
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "sample_allocation_lab", 
+  "fieldtype": "Data", 
+  "label": "Sample Allocation To Lab Name", 
+  "read_only": 1
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "column_break_3", 
+  "fieldtype": "Column Break"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "sample_no", 
+  "fieldtype": "Link", 
+  "hidden": 1, 
+  "label": "Sample ID", 
+  "options": "Sample", 
+  "reqd": 0
+ }, 
+ {
+  "default": "Today", 
+  "doctype": "DocField", 
+  "fieldname": "date", 
+  "fieldtype": "Date", 
+  "label": "Date"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "time", 
+  "fieldtype": "Time", 
+  "label": "Time"
  }, 
  {
   "doctype": "DocField", 
@@ -89,6 +124,27 @@
   "options": "Sample Allocation", 
   "print_hide": 1, 
   "read_only": 1
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "test_group", 
+  "fieldtype": "Data", 
+  "hidden": 1, 
+  "label": "Test Group", 
+  "read_only": 1
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "sample_allocation_details", 
+  "fieldtype": "Section Break", 
+  "label": "Sample Allocation Details"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "sample_allocation_detail", 
+  "fieldtype": "Table", 
+  "label": "Sample Allocation Details", 
+  "options": "Sample Allocation Detail"
  }, 
  {
   "doctype": "DocPerm"

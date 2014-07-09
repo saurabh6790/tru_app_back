@@ -16,6 +16,7 @@ class DocType:
 		self.child_table()
 		return "Done"
 
+
 	def fill_parent_details(self):
 		sample_entry=webnotes.conn.get_value('Sample',self.doc.sample_no,'sample_entry')
 		if sample_entry:
@@ -40,3 +41,9 @@ class DocType:
 		ch.particulors_of_test=particulors_of_test
 		ch.spec_limits=spec_limits
 		ch.test_method=test_method
+
+	def on_submit(self):
+		webnotes.conn.sql("update `tabSample` set docstatus=2 where name='%s'"%self.doc.name,as_list=1)
+		webnotes.conn.sql("commit")
+
+	

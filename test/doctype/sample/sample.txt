@@ -2,7 +2,7 @@
  {
   "creation": "2014-04-19 15:47:53", 
   "docstatus": 0, 
-  "modified": "2014-05-02 11:16:27", 
+  "modified": "2014-07-02 16:38:15", 
   "modified_by": "Administrator", 
   "owner": "Administrator"
  }, 
@@ -22,18 +22,13 @@
   "permlevel": 0
  }, 
  {
-  "cancel": 1, 
-  "create": 1, 
   "doctype": "DocPerm", 
   "name": "__common__", 
   "parent": "Sample", 
   "parentfield": "permissions", 
   "parenttype": "DocType", 
   "permlevel": 0, 
-  "read": 1, 
-  "report": 1, 
-  "role": "Administrator", 
-  "write": 1
+  "read": 1
  }, 
  {
   "doctype": "DocType", 
@@ -49,37 +44,93 @@
   "doctype": "DocField", 
   "fieldname": "sample_entry", 
   "fieldtype": "Link", 
+  "hidden": 0, 
   "label": "Sample Entry", 
-  "options": "Sample Entry"
+  "options": "Sample Entry", 
+  "read_only": 1
  }, 
  {
   "doctype": "DocField", 
   "fieldname": "stock_entry", 
   "fieldtype": "Link", 
   "label": "Stock Entry", 
-  "options": "Stock Entry"
+  "options": "Stock Entry", 
+  "read_only": 1
  }, 
  {
   "doctype": "DocField", 
   "fieldname": "material_inward", 
   "fieldtype": "Link", 
+  "hidden": 1, 
   "label": "Material Inward", 
-  "options": "Material Inward"
+  "options": "Material Inward", 
+  "read_only": 1
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "client_name", 
+  "fieldtype": "Link", 
+  "label": "Client Name", 
+  "options": "Customer", 
+  "read_only": 1
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "column_break_5", 
+  "fieldtype": "Column Break"
  }, 
  {
   "doctype": "DocField", 
   "fieldname": "barcode", 
-  "fieldtype": "Small Text", 
-  "label": "Barcode"
+  "fieldtype": "Data", 
+  "label": "Barcode", 
+  "read_only": 1
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "priority", 
+  "fieldtype": "Select", 
+  "label": "Priority", 
+  "options": "\nCritical\nNormal\nUrgent", 
+  "read_only": 1
  }, 
  {
   "doctype": "DocField", 
   "fieldname": "status", 
   "fieldtype": "Select", 
   "label": "Status", 
-  "options": "\nAssigned\nRegistered\nRejected"
+  "options": "\nAssigned\nRejected\nReady To Lab Entry\nLab Entry", 
+  "read_only": 1
  }, 
  {
-  "doctype": "DocPerm"
+  "doctype": "DocField", 
+  "fieldname": "specification", 
+  "fieldtype": "Link", 
+  "label": "Specification", 
+  "options": "Specification", 
+  "read_only": 1
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "temperature", 
+  "fieldtype": "Data", 
+  "label": "Temperature", 
+  "read_only": 1
+ }, 
+ {
+  "cancel": 1, 
+  "create": 1, 
+  "doctype": "DocPerm", 
+  "report": 1, 
+  "role": "Administrator", 
+  "write": 1
+ }, 
+ {
+  "doctype": "DocPerm", 
+  "role": "Lab Incharge"
+ }, 
+ {
+  "doctype": "DocPerm", 
+  "role": "Shift Incharge"
  }
 ]

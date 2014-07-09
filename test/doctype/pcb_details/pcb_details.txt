@@ -1,0 +1,58 @@
+[
+ {
+  "creation": "2014-06-10 16:39:24", 
+  "docstatus": 0, 
+  "modified": "2014-06-10 16:39:33", 
+  "modified_by": "Administrator", 
+  "owner": "Administrator"
+ }, 
+ {
+  "autoname": "PCBD.####", 
+  "doctype": "DocType", 
+  "document_type": "Transaction", 
+  "istable": 1, 
+  "module": "Test", 
+  "name": "__common__"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldtype": "Data", 
+  "in_list_view": 1, 
+  "name": "__common__", 
+  "parent": "PCB Details", 
+  "parentfield": "fields", 
+  "parenttype": "DocType", 
+  "permlevel": 0
+ }, 
+ {
+  "cancel": 0, 
+  "create": 1, 
+  "doctype": "DocPerm", 
+  "name": "__common__", 
+  "parent": "PCB Details", 
+  "parentfield": "permissions", 
+  "parenttype": "DocType", 
+  "permlevel": 0, 
+  "read": 1, 
+  "report": 1, 
+  "role": "All", 
+  "write": 1
+ }, 
+ {
+  "doctype": "DocType", 
+  "name": "PCB Details"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "arcolor", 
+  "label": "Arcolor"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "reported_in_ppm", 
+  "label": "Reported In ppm"
+ }, 
+ {
+  "doctype": "DocPerm"
+ }
+]

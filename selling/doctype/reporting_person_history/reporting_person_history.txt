@@ -2,7 +2,7 @@
  {
   "creation": "2014-05-27 18:21:58", 
   "docstatus": 0, 
-  "modified": "2014-05-27 19:01:58", 
+  "modified": "2014-06-06 11:14:45", 
   "modified_by": "Administrator", 
   "owner": "Administrator"
  }, 
@@ -23,7 +23,7 @@
  }, 
  {
   "cancel": 0, 
-  "create": 1, 
+  "create": 0, 
   "doctype": "DocPerm", 
   "name": "__common__", 
   "parent": "Reporting Person History", 
@@ -59,6 +59,12 @@
  }, 
  {
   "doctype": "DocField", 
+  "fieldname": "plant", 
+  "fieldtype": "Data", 
+  "label": "Plant"
+ }, 
+ {
+  "doctype": "DocField", 
   "fieldname": "column_break_3", 
   "fieldtype": "Column Break"
  }, 
@@ -75,6 +81,24 @@
   "fieldname": "to_date", 
   "fieldtype": "Date", 
   "label": "To Date"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "equipment_id", 
+  "fieldtype": "Data", 
+  "label": "Equipment ID"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "sub_station", 
+  "fieldtype": "Data", 
+  "label": "Sub Station"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "functional_location", 
+  "fieldtype": "Data", 
+  "label": "Functional Location"
  }, 
  {
   "doctype": "DocPerm"

@@ -1,0 +1,71 @@
+[
+ {
+  "creation": "2014-06-26 15:35:02", 
+  "docstatus": 0, 
+  "modified": "2014-06-26 15:35:28", 
+  "modified_by": "Administrator", 
+  "owner": "Administrator"
+ }, 
+ {
+  "autoname": "DGD.####", 
+  "doctype": "DocType", 
+  "istable": 1, 
+  "module": "Test", 
+  "name": "__common__"
+ }, 
+ {
+  "doctype": "DocField", 
+  "in_list_view": 1, 
+  "name": "__common__", 
+  "parent": "Dashboard Dissolve Gas Detail", 
+  "parentfield": "fields", 
+  "parenttype": "DocType", 
+  "permlevel": 0
+ }, 
+ {
+  "create": 1, 
+  "doctype": "DocPerm", 
+  "name": "__common__", 
+  "parent": "Dashboard Dissolve Gas Detail", 
+  "parentfield": "permissions", 
+  "parenttype": "DocType", 
+  "permlevel": 0, 
+  "read": 1, 
+  "write": 1
+ }, 
+ {
+  "doctype": "DocType", 
+  "name": "Dashboard Dissolve Gas Detail"
+ }, 
+ {
+  "description": "In %", 
+  "doctype": "DocField", 
+  "fieldname": "gas", 
+  "fieldtype": "Link", 
+  "label": "Gas", 
+  "options": "Gas", 
+  "reqd": 1
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "reported", 
+  "fieldtype": "Data", 
+  "label": "Reported"
+ }, 
+ {
+  "doctype": "DocPerm", 
+  "role": "Lab Incharge"
+ }, 
+ {
+  "doctype": "DocPerm", 
+  "role": "Shift Incharge"
+ }, 
+ {
+  "doctype": "DocPerm", 
+  "role": "Employee"
+ }, 
+ {
+  "doctype": "DocPerm", 
+  "role": "Administrator"
+ }
+]

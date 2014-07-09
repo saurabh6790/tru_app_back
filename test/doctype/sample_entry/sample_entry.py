@@ -24,7 +24,8 @@ class DocType:
 			ch.save(new=1)
 
 	def validate(self):
-		self.check_date()
+		pass
+		# self.check_date()
 
 
 	def check_date(self):

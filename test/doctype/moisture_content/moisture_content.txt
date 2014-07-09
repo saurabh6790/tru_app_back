@@ -2,7 +2,7 @@
  {
   "creation": "2014-05-16 15:05:30", 
   "docstatus": 0, 
-  "modified": "2014-05-19 12:25:31", 
+  "modified": "2014-07-01 11:43:46", 
   "modified_by": "Administrator", 
   "owner": "Administrator"
  }, 
@@ -10,6 +10,7 @@
   "autoname": "MC.#######", 
   "doctype": "DocType", 
   "document_type": "Transaction", 
+  "icon": "icon-file-text", 
   "is_submittable": 1, 
   "module": "Test", 
   "name": "__common__"
@@ -25,7 +26,7 @@
  {
   "amend": 1, 
   "cancel": 1, 
-  "create": 0, 
+  "create": 1, 
   "doctype": "DocPerm", 
   "name": "__common__", 
   "parent": "Moisture Content", 
@@ -60,6 +61,35 @@
  }, 
  {
   "doctype": "DocField", 
+  "fieldname": "specification", 
+  "fieldtype": "Link", 
+  "label": "Specification", 
+  "options": "Specification"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "equipment_used", 
+  "fieldtype": "Link", 
+  "label": "Equipment Used", 
+  "options": "Equipment Used"
+ }, 
+ {
+  "depends_on": "eval:doc.equipment_used", 
+  "doctype": "DocField", 
+  "fieldname": "add", 
+  "fieldtype": "Button", 
+  "label": "ADD"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "physical_condition_density", 
+  "fieldtype": "Link", 
+  "label": "Physical Condition & Density", 
+  "options": "Physical Condition And Density", 
+  "reqd": 1
+ }, 
+ {
+  "doctype": "DocField", 
   "fieldname": "density_data", 
   "fieldtype": "Data", 
   "label": "Density", 
@@ -69,6 +99,7 @@
   "doctype": "DocField", 
   "fieldname": "test_type", 
   "fieldtype": "Select", 
+  "hidden": 1, 
   "label": "Test Type", 
   "options": "\nRegular\nQA\nCalibration"
  }, 
@@ -89,8 +120,30 @@
   "doctype": "DocField", 
   "fieldname": "method", 
   "fieldtype": "Link", 
-  "label": "Method", 
-  "options": "Test Method"
+  "label": "Test Method", 
+  "options": "Test Method", 
+  "reqd": 1
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "test_condition", 
+  "fieldtype": "Select", 
+  "hidden": 1, 
+  "label": "Test Condition", 
+  "options": "\nRegular Test\nQuality Test\nCaliberation"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "equipment_used_list", 
+  "fieldtype": "Small Text", 
+  "label": "Equipment Used List"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "density", 
+  "fieldtype": "Data", 
+  "label": "Density By", 
+  "read_only": 1
  }, 
  {
   "doctype": "DocField", 
@@ -123,15 +176,9 @@
  }, 
  {
   "doctype": "DocField", 
-  "fieldname": "density_mois", 
+  "fieldname": "volume", 
   "fieldtype": "Data", 
-  "label": "Density", 
-  "read_only": 1
- }, 
- {
-  "doctype": "DocField", 
-  "fieldname": "column_break_5", 
-  "fieldtype": "Column Break"
+  "label": "Volume"
  }, 
  {
   "doctype": "DocField", 
@@ -142,15 +189,21 @@
  }, 
  {
   "doctype": "DocField", 
-  "fieldname": "volume", 
-  "fieldtype": "Data", 
-  "label": "Volume"
+  "fieldname": "column_break_5", 
+  "fieldtype": "Column Break"
  }, 
  {
   "doctype": "DocField", 
   "fieldname": "instrument_reading", 
   "fieldtype": "Data", 
   "label": "Instrument Reading"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "density_mois", 
+  "fieldtype": "Data", 
+  "label": "Density", 
+  "read_only": 1
  }, 
  {
   "doctype": "DocPerm"

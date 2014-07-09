@@ -1,0 +1,40 @@
+[
+ {
+  "creation": "2014-06-17 11:36:54", 
+  "docstatus": 0, 
+  "modified": "2014-06-30 11:16:07", 
+  "modified_by": "Administrator", 
+  "owner": "Administrator"
+ }, 
+ {
+  "doctype": "Page", 
+  "module": "Test", 
+  "name": "__common__", 
+  "page_name": "Verification", 
+  "standard": "Yes", 
+  "title": "Verification"
+ }, 
+ {
+  "doctype": "Page Role", 
+  "name": "__common__", 
+  "parent": "verification", 
+  "parentfield": "roles", 
+  "parenttype": "Page"
+ }, 
+ {
+  "doctype": "Page", 
+  "name": "verification"
+ }, 
+ {
+  "doctype": "Page Role", 
+  "role": "Shift Incharge"
+ }, 
+ {
+  "doctype": "Page Role", 
+  "role": "Lab Incharge"
+ }, 
+ {
+  "doctype": "Page Role", 
+  "role": "Administrator"
+ }
+]

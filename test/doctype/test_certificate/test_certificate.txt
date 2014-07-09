@@ -2,7 +2,7 @@
  {
   "creation": "2014-05-16 09:02:13", 
   "docstatus": 0, 
-  "modified": "2014-05-20 12:36:31", 
+  "modified": "2014-07-02 16:33:18", 
   "modified_by": "Administrator", 
   "owner": "Administrator"
  }, 
@@ -11,7 +11,7 @@
   "doctype": "DocType", 
   "document_type": "Transaction", 
   "icon": "icon-file-text", 
-  "is_submittable": 0, 
+  "is_submittable": 1, 
   "module": "Test", 
   "name": "__common__"
  }, 
@@ -36,6 +36,7 @@
   "read": 1, 
   "report": 1, 
   "role": "Administrator", 
+  "submit": 1, 
   "write": 1
  }, 
  {
@@ -170,6 +171,16 @@
   "fieldtype": "Table", 
   "label": "Test Detail", 
   "options": "Certificate Test Details"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "amended_from", 
+  "fieldtype": "Link", 
+  "label": "Amended From", 
+  "no_copy": 1, 
+  "options": "Test Certificate", 
+  "print_hide": 1, 
+  "read_only": 1
  }, 
  {
   "doctype": "DocPerm"

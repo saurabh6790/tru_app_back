@@ -8,7 +8,7 @@ import webnotes
 from webnotes.utils import cint, cstr, flt, now, nowdate, get_first_day, get_last_day, add_to_date, getdate
 from webnotes.model.bean import getlist
 from test.doctype import assign_notify
-from test.doctype import create_test_results
+from test.doctype import create_test_results,update_test_log,verfy_bottle_number
 from test.doctype import create_child_testresult, get_pgcil_limit
 
 
@@ -21,7 +21,21 @@ class DocType:
 		if self.doc.instrument_reading and self.doc.volume and self.doc.density_mois:
 			self.doc.moisture=self.calculate_moisture()
 			self.doc.save()
+			
+		verfy_bottle_number(self.doc.sample_no, self.doc.bottle_no)
 
+
+	# def get_density_details(self,temperature):
+
+	def add_equipment(self,equipment):
+		if self.doc.equipment_used_list:
+			equipment_list = self.doc.equipment_used_list + ', ' + equipment
+		else:
+			equipment_list = equipment 
+		return{	
+		"equipment_used_list": equipment_list
+		}
+		
 	def calculate_moisture(self):
 		return cstr(flt(self.doc.instrument_reading)/(flt(self.doc.volume)*flt(self.doc.density_mois)))
 
@@ -31,9 +45,39 @@ class DocType:
 			return cstr(flt(self.doc.density_data)*flt(cal))
 
 	def on_submit(self):
-		if self.doc.test_type == 'Regular':
-			pgcil_limit = get_pgcil_limit(self.doc.method)
-			test_detail = {'test': "Moisture Content", 'sample_no':self.doc.sample_no,'name': self.doc.name, 'method':self.doc.method, 'pgcil_limit':pgcil_limit}
-			parent=create_test_results(test_detail)
-			if parent and self.doc.moisture: 
-				create_child_testresult(parent,self.doc.moisture,test_detail,'Water Content By KARL FISCHER METHOD')
+		# if self.doc.test_type == 'Regular':
+		pgcil_limit = get_pgcil_limit(self.doc.method)
+		test_detail = {'test': "Moisture Content", 'sample_no':self.doc.sample_no,'name': self.doc.name, 'method':self.doc.method, 'pgcil_limit':pgcil_limit}
+		parent=create_test_results(test_detail)
+		if parent and self.doc.moisture: 
+			create_child_testresult(parent,self.doc.moisture,test_detail,'Water Content By KARL FISCHER METHOD')
+
+		if self.doc.workflow_state=='Rejected':
+			#webnotes.errprint(self.doc.workflow_state)
+			update_test_log(test_detail)
+
+def get_physical_density_details(doctype, txt, searchfield, start, page_len, filters):
+	#webnotes.errprint([filters])
+	return 	webnotes.conn.sql("""select name from `tabPhysical Condition And Density` 
+			 where sample_no='%s' and docstatus=1 """ %filters['sample_no'],debug=1)
+	
+
+# @webnotes.whitelist()
+# def calculate_neutralisation_value(source_name, target_doclist=None):
+# 	return _calculate_neutralisation_value(source_name, target_doclist)
+
+# def _calculate_neutralisation_value(source_name, target_doclist=None, ignore_permissions=False):
+# 	from webnotes.model.mapper import get_mapped_doclist
+	
+		
+# 	doclist = get_mapped_doclist("Moisture Content", source_name, {
+# 			"Moisture Content": {
+# 				"doctype": "Neutralization Value", 
+								
+# 				"validation": {
+# 					"docstatus": ["=", 1]
+# 				}
+# 			}
+# 	},target_doclist)#, postprocess)
+
+# 	return [d.fields for d in doclist]

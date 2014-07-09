@@ -1,0 +1,36 @@
+[
+ {
+  "creation": "2014-06-24 09:52:01", 
+  "docstatus": 0, 
+  "modified": "2014-06-24 12:00:57", 
+  "modified_by": "Administrator", 
+  "owner": "Administrator"
+ }, 
+ {
+  "doctype": "Page", 
+  "module": "Test", 
+  "name": "__common__", 
+  "page_name": "Test Result Book", 
+  "standard": "Yes", 
+  "title": "Test Result Book"
+ }, 
+ {
+  "doctype": "Page Role", 
+  "name": "__common__", 
+  "parent": "test-result-book", 
+  "parentfield": "roles", 
+  "parenttype": "Page"
+ }, 
+ {
+  "doctype": "Page", 
+  "name": "test-result-book"
+ }, 
+ {
+  "doctype": "Page Role", 
+  "role": "Administrator"
+ }, 
+ {
+  "doctype": "Page Role", 
+  "role": "All"
+ }
+]

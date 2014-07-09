@@ -2,7 +2,7 @@
  {
   "creation": "2013-06-11 14:26:44", 
   "docstatus": 0, 
-  "modified": "2014-05-27 18:55:35", 
+  "modified": "2014-05-28 13:17:11", 
   "modified_by": "Administrator", 
   "owner": "Administrator"
  }, 
@@ -190,6 +190,13 @@
   "permlevel": 0
  }, 
  {
+  "doctype": "DocField", 
+  "fieldname": "division_address", 
+  "fieldtype": "HTML", 
+  "label": "Division Address", 
+  "permlevel": 0
+ }, 
+ {
   "depends_on": "eval:doc.customer_type==\"Utilities\" || doc.customer_type==\"Railways\"", 
   "doctype": "DocField", 
   "fieldname": "column_+break_16", 
@@ -256,6 +263,13 @@
   "fieldname": "dettach", 
   "fieldtype": "Button", 
   "label": "Dettach", 
+  "permlevel": 0
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "division_contact", 
+  "fieldtype": "HTML", 
+  "label": "Division Contact", 
   "permlevel": 0
  }, 
  {

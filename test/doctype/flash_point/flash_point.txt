@@ -2,7 +2,7 @@
  {
   "creation": "2014-04-03 13:20:26", 
   "docstatus": 0, 
-  "modified": "2014-05-20 11:17:42", 
+  "modified": "2014-07-09 15:51:00", 
   "modified_by": "Administrator", 
   "owner": "Administrator"
  }, 
@@ -10,6 +10,7 @@
   "autoname": "FP.#####", 
   "doctype": "DocType", 
   "document_type": "Transaction", 
+  "icon": "icon-file-text", 
   "is_submittable": 1, 
   "module": "Test", 
   "name": "__common__"
@@ -44,22 +45,70 @@
  }, 
  {
   "doctype": "DocField", 
+  "fieldname": "specification", 
+  "fieldtype": "Link", 
+  "label": "Specification", 
+  "options": "Specification"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "equipment_used", 
+  "fieldtype": "Link", 
+  "label": "Equipment Used", 
+  "options": "Equipment Used"
+ }, 
+ {
+  "depends_on": "eval:doc.equipement_used", 
+  "doctype": "DocField", 
+  "fieldname": "add", 
+  "fieldtype": "Button", 
+  "label": "ADD"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "1", 
+  "fieldtype": "Column Break"
+ }, 
+ {
+  "doctype": "DocField", 
   "fieldname": "date", 
   "fieldtype": "Date", 
   "label": "Date "
  }, 
  {
   "doctype": "DocField", 
-  "fieldname": "equipement_used", 
-  "fieldtype": "Data", 
-  "label": "Equipement Used"
+  "fieldname": "method", 
+  "fieldtype": "Link", 
+  "label": "Test Method", 
+  "options": "Test Method", 
+  "reqd": 1
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "equipment_used_list", 
+  "fieldtype": "Small Text", 
+  "label": "Equipment Used List"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "sample_details", 
+  "fieldtype": "Section Break", 
+  "label": "Sample Details"
  }, 
  {
   "doctype": "DocField", 
   "fieldname": "sample_no", 
   "fieldtype": "Link", 
   "label": "Sample Id", 
-  "options": "Sample"
+  "options": "Sample", 
+  "reqd": 1
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "temperature", 
+  "fieldtype": "Data", 
+  "label": "Temperature", 
+  "read_only": 1
  }, 
  {
   "doctype": "DocField", 
@@ -68,23 +117,17 @@
  }, 
  {
   "doctype": "DocField", 
-  "fieldname": "test_type", 
-  "fieldtype": "Select", 
-  "label": "Test Type", 
-  "options": "\nRegular\nQA\nCalibration"
- }, 
- {
-  "doctype": "DocField", 
-  "fieldname": "method", 
-  "fieldtype": "Link", 
-  "label": "Method", 
-  "options": "Test Method"
- }, 
- {
-  "doctype": "DocField", 
   "fieldname": "bottle_no", 
   "fieldtype": "Data", 
   "label": "Bottle No"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "test_type", 
+  "fieldtype": "Select", 
+  "hidden": 1, 
+  "label": "Test Condition", 
+  "options": "\nRegular\nQA\nCaliberation"
  }, 
  {
   "doctype": "DocField", 
@@ -123,7 +166,8 @@
   "doctype": "DocField", 
   "fieldname": "temparature_ir", 
   "fieldtype": "Data", 
-  "label": "Temparature IR"
+  "label": "Temperature IR", 
+  "reqd": 1
  }, 
  {
   "doctype": "DocField", 
@@ -134,30 +178,28 @@
   "doctype": "DocField", 
   "fieldname": "reported", 
   "fieldtype": "Data", 
-  "label": "Reported"
+  "label": "Reported", 
+  "reqd": 1
  }, 
  {
   "doctype": "DocField", 
-  "fieldname": "info", 
+  "fieldname": "information", 
   "fieldtype": "Section Break", 
-  "label": "Info"
+  "label": "Information"
  }, 
  {
   "doctype": "DocField", 
   "fieldname": "shift_incharge_approval", 
   "fieldtype": "Data", 
+  "hidden": 1, 
   "label": "Shift Incharge Approval"
  }, 
  {
   "doctype": "DocField", 
   "fieldname": "lab_incharge_approval", 
   "fieldtype": "Data", 
+  "hidden": 1, 
   "label": "Lab Incharge Approval"
- }, 
- {
-  "doctype": "DocField", 
-  "fieldname": "column_break_10", 
-  "fieldtype": "Column Break"
  }, 
  {
   "doctype": "DocField", 
@@ -210,6 +252,16 @@
   "doctype": "DocPerm", 
   "permlevel": 0, 
   "role": "Lab Incharge", 
+  "submit": 1
+ }, 
+ {
+  "amend": 1, 
+  "cancel": 1, 
+  "create": 1, 
+  "doctype": "DocPerm", 
+  "permlevel": 0, 
+  "report": 1, 
+  "role": "Tester", 
   "submit": 1
  }
 ]

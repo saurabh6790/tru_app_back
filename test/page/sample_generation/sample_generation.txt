@@ -1,0 +1,36 @@
+[
+ {
+  "creation": "2014-06-10 10:11:47", 
+  "docstatus": 0, 
+  "modified": "2014-06-27 15:19:34", 
+  "modified_by": "Administrator", 
+  "owner": "Administrator"
+ }, 
+ {
+  "doctype": "Page", 
+  "module": "Test", 
+  "name": "__common__", 
+  "page_name": "Sample Generation", 
+  "standard": "Yes", 
+  "title": "Sample Generation"
+ }, 
+ {
+  "doctype": "Page Role", 
+  "name": "__common__", 
+  "parent": "sample-generation", 
+  "parentfield": "roles", 
+  "parenttype": "Page"
+ }, 
+ {
+  "doctype": "Page", 
+  "name": "sample-generation"
+ }, 
+ {
+  "doctype": "Page Role", 
+  "role": "Administrator"
+ }, 
+ {
+  "doctype": "Page Role", 
+  "role": "Lab Incharge"
+ }
+]

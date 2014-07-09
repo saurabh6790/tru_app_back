@@ -9,6 +9,26 @@ from webnotes.model.doc import addchild, Document
 from webnotes.utils.email_lib import sendmail
 from webnotes.utils import cint, cstr, flt, now, nowdate
 
+def update_test_log(test_details):
+	#webnotes.errprint(emp)
+	d = Document('Test Log')
+	d.sample_no = test_details.get("sample_no")
+	d.test = test_details.get("test")
+	d.status = test_details.get("workflow_state")
+	#webnotes.errprint(d.status)
+	d.tester=test_details.get("tested_by")
+	d.shift_incharge=test_details.get("shift_incharge")
+	d.lab_incharge=test_details.get("lab_incharge")
+	d.save()
+
+def verfy_bottle_number(sample_no, bottle_number):
+	if bottle_number:
+		if cint(webnotes.conn.sql("""select count(*) from tabSample 
+			where name='%s' and barcode like '%%%s%%'"""%(sample_no, bottle_number))[0][0]) != 1:
+			webnotes.msgprint("Entered bottle number not belongs to Sample No. Please correct it",raise_exception=1)
+	else:
+		webnotes.msgprint("Please enter bottle number",raise_exception=1)
+
 def assign_notify(test_details):
 	#webnotes.errprint(test_details.get("workflow_state"))
 	if test_details.get("incharge"):
@@ -47,6 +67,7 @@ def create_child_testresult(parent,value,test_detail,label):
 		ch.test_method = test_detail.get('method')
 		ch.particulors_of_test=label
 		ch.save()
+
 
 def create_email(session_userid,test_details):
 	msg="Hello, %(test)s=%(name)s is assigned to you please check it in your ToDo List " %test_details

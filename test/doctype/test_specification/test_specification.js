@@ -2,8 +2,8 @@
 // License: GNU General Public License v3. See license.txt"
 
 
-cur_frm.add_fetch('test_method', 'standard', 'standard');
+// cur_frm.add_fetch('test_method', 'standard', 'standard');
 
-cur_frm.add_fetch('test_method', 'sop', 'sop');
+// cur_frm.add_fetch('test_method', 'sop', 'sop');
 
 

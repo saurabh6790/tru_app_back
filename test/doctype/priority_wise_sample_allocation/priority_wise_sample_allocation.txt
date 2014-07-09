@@ -1,0 +1,79 @@
+[
+ {
+  "creation": "2014-06-06 11:31:55", 
+  "docstatus": 0, 
+  "modified": "2014-06-16 16:40:00", 
+  "modified_by": "Administrator", 
+  "owner": "Administrator"
+ }, 
+ {
+  "autoname": "PSA.####", 
+  "doctype": "DocType", 
+  "istable": 1, 
+  "module": "Test", 
+  "name": "__common__"
+ }, 
+ {
+  "doctype": "DocField", 
+  "name": "__common__", 
+  "parent": "Priority Wise Sample Allocation", 
+  "parentfield": "fields", 
+  "parenttype": "DocType", 
+  "permlevel": 0
+ }, 
+ {
+  "create": 1, 
+  "doctype": "DocPerm", 
+  "name": "__common__", 
+  "parent": "Priority Wise Sample Allocation", 
+  "parentfield": "permissions", 
+  "parenttype": "DocType", 
+  "permlevel": 0, 
+  "read": 1, 
+  "role": "Administrator", 
+  "write": 1
+ }, 
+ {
+  "doctype": "DocType", 
+  "name": "Priority Wise Sample Allocation"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "sample_no", 
+  "fieldtype": "Link", 
+  "in_list_view": 1, 
+  "label": "Sample ID", 
+  "options": "Sample"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "bottle_no", 
+  "fieldtype": "Data", 
+  "in_list_view": 1, 
+  "label": "Bottle No"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "priority", 
+  "fieldtype": "Data", 
+  "in_list_view": 1, 
+  "label": "Priority", 
+  "reqd": 1
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "test_group", 
+  "fieldtype": "Data", 
+  "label": "Test Group"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "test", 
+  "fieldtype": "Small Text", 
+  "in_list_view": 1, 
+  "label": "Test Name"
+ }, 
+ {
+  "doctype": "DocPerm"
+ }
+]

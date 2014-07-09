@@ -26,12 +26,30 @@ cur_frm.cscript.onload = function(doc, cdt, cdn) {
 				var refdoc = wn.model.get_doc(doctype, docname);
 
 				if(refdoc.doctype == "Quotation" ? refdoc.quotation_to=="Customer" : true) {
-					cur_frm.set_value("customer", refdoc.customer || refdoc.name);
-					cur_frm.set_value("customer_name", refdoc.customer_name);
-					if(cur_frm.doc.doctype==="Address")
-						cur_frm.set_value("address_title", cur_frm.doc.customer_name);
-				}
+					//if (refdoc.customer_type=='Utilities'|| refdoc.customer_type=='Railways')
+					// {
+
+					// 	cur_frm.set_value("division_head", refdoc.division_head );//|| refdoc.name);
+					// 	cur_frm.set_value("division_head_name", refdoc.division_head);
+					// 	if(cur_frm.doc.doctype==="Address")
+					// 		cur_frm.set_value("address_title", cur_frm.doc.division_head);
+
+					// 	// cur_frm.set_value("customer", refdoc.customer || refdoc.name);
+					// 	// cur_frm.set_value("customer_name", refdoc.customer_name);
+					// 	// if(cur_frm.doc.doctype==="Address")
+					// 	// 	cur_frm.set_value("address_title", cur_frm.doc.customer_name);
+					// }
+				// if(refdoc.doctype == "Quotation" ? refdoc.quotation_to=="Customer" : true) {
+					// else{
+
+						cur_frm.set_value("customer", refdoc.customer || refdoc.name);
+						cur_frm.set_value("customer_name", refdoc.customer_name);
+						if(cur_frm.doc.doctype==="Address")
+							cur_frm.set_value("address_title", cur_frm.doc.customer_name);
+					// }
 			}
+
+		}
 			if(["Supplier", "Supplier Quotation", "Purchase Order", "Purchase Invoice", "Purchase Receipt"]
 				.indexOf(doctype)!==-1) {
 				var refdoc = wn.model.get_doc(doctype, docname);

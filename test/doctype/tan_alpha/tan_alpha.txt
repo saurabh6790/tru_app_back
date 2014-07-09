@@ -1,0 +1,79 @@
+[
+ {
+  "creation": "2014-06-13 15:51:10", 
+  "docstatus": 0, 
+  "modified": "2014-06-13 16:52:07", 
+  "modified_by": "Administrator", 
+  "owner": "Administrator"
+ }, 
+ {
+  "doctype": "DocType", 
+  "istable": 1, 
+  "module": "Test", 
+  "name": "__common__"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldtype": "Data", 
+  "name": "__common__", 
+  "parent": "Tan alpha", 
+  "parentfield": "fields", 
+  "parenttype": "DocType", 
+  "permlevel": 0
+ }, 
+ {
+  "create": 1, 
+  "doctype": "DocPerm", 
+  "name": "__common__", 
+  "parent": "Tan alpha", 
+  "parentfield": "permissions", 
+  "parenttype": "DocType", 
+  "permlevel": 0, 
+  "read": 1, 
+  "role": "Administrator", 
+  "write": 1
+ }, 
+ {
+  "doctype": "DocType", 
+  "name": "Tan alpha"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "oil_temp", 
+  "in_list_view": 1, 
+  "label": "Oil Temp"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "frequency", 
+  "in_list_view": 1, 
+  "label": "Frequency"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "reported_hz", 
+  "in_list_view": 1, 
+  "label": "reported hz"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "ir_tan", 
+  "in_list_view": 1, 
+  "label": "IR TAN"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "power_tan", 
+  "label": "Power TAN"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "dissipation_factor", 
+  "in_list_view": 1, 
+  "label": "Dissipation Factor", 
+  "read_only": 1
+ }, 
+ {
+  "doctype": "DocPerm"
+ }
+]

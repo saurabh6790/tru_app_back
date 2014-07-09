@@ -2,7 +2,7 @@
  {
   "creation": "2013-04-09 11:43:55", 
   "docstatus": 0, 
-  "modified": "2014-05-27 13:08:37", 
+  "modified": "2014-07-09 19:05:20", 
   "modified_by": "Administrator", 
   "owner": "Administrator"
  }, 
@@ -38,15 +38,12 @@
   "permlevel": 0
  }, 
  {
-  "create": 1, 
   "doctype": "DocPerm", 
   "name": "__common__", 
   "parent": "Stock Entry", 
   "parentfield": "permissions", 
   "parenttype": "DocType", 
-  "permlevel": 0, 
-  "read": 1, 
-  "write": 1
+  "read": 1
  }, 
  {
   "doctype": "DocType", 
@@ -90,7 +87,7 @@
   "fieldtype": "Select", 
   "label": "Outward Purpose", 
   "options": "\nClient Specific\nGeneral", 
-  "reqd": 1
+  "reqd": 0
  }, 
  {
   "depends_on": "eval:doc.internal_purpose==\"Outward\"||doc.internal_purpose==\"Inward\"", 
@@ -271,6 +268,14 @@
   "options": "\nDoor Delivery\nCourier"
  }, 
  {
+  "depends_on": "eval:doc.internal_purpose=='Inward'", 
+  "doctype": "DocField", 
+  "fieldname": "inward_stock_entry", 
+  "fieldtype": "Data", 
+  "label": "Inward Stock Entry No", 
+  "read_only": 1
+ }, 
+ {
   "depends_on": "eval:(doc.internal_purpose==\"Outward\" && doc.outward_purpose==\"Client Specific\")", 
   "doctype": "DocField", 
   "fieldname": "delivery_to", 
@@ -377,6 +382,7 @@
   "doctype": "DocField", 
   "fieldname": "get_stock_and_rate", 
   "fieldtype": "Button", 
+  "hidden": 1, 
   "label": "Get Stock and Rate", 
   "oldfieldtype": "Button", 
   "options": "get_stock_and_rate", 
@@ -825,41 +831,80 @@
  {
   "amend": 1, 
   "cancel": 1, 
+  "create": 1, 
   "doctype": "DocPerm", 
+  "permlevel": 0, 
   "report": 1, 
   "role": "Material User", 
-  "submit": 1
+  "submit": 1, 
+  "write": 1
  }, 
  {
   "amend": 1, 
   "cancel": 1, 
+  "create": 1, 
   "doctype": "DocPerm", 
+  "permlevel": 0, 
   "report": 1, 
   "role": "Manufacturing User", 
-  "submit": 1
+  "submit": 1, 
+  "write": 1
  }, 
  {
   "amend": 1, 
   "cancel": 1, 
+  "create": 1, 
   "doctype": "DocPerm", 
+  "permlevel": 0, 
   "report": 1, 
   "role": "Manufacturing Manager", 
-  "submit": 1
+  "submit": 1, 
+  "write": 1
  }, 
  {
   "amend": 1, 
   "cancel": 1, 
+  "create": 1, 
   "doctype": "DocPerm", 
+  "permlevel": 0, 
   "report": 1, 
   "role": "Material Manager", 
-  "submit": 1
+  "submit": 1, 
+  "write": 1
+ }, 
+ {
+  "create": 1, 
+  "doctype": "DocPerm", 
+  "permlevel": 0, 
+  "role": "Lab Incharge", 
+  "write": 1
+ }, 
+ {
+  "create": 1, 
+  "doctype": "DocPerm", 
+  "permlevel": 0, 
+  "role": "Shift Incharge", 
+  "write": 1
+ }, 
+ {
+  "amend": 1, 
+  "cancel": 1, 
+  "create": 1, 
+  "doctype": "DocPerm", 
+  "permlevel": 0, 
+  "report": 1, 
+  "role": "Administrator", 
+  "submit": 1, 
+  "write": 1
  }, 
  {
   "doctype": "DocPerm", 
-  "role": "Lab Incharge"
+  "permlevel": 1, 
+  "role": "Administrator"
  }, 
  {
   "doctype": "DocPerm", 
-  "role": "Shift Incharge"
+  "permlevel": 0, 
+  "role": "All"
  }
 ]

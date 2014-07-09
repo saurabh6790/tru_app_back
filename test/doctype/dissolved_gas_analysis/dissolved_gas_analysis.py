@@ -5,8 +5,10 @@
 
 from __future__ import unicode_literals
 from webnotes.model.doc import addchild
-from test.doctype import assign_notify
-from test.doctype import create_test_results
+from webnotes.model.bean import getlist
+from test.doctype import assign_notify,verfy_bottle_number,update_test_log
+from test.doctype import create_test_results,create_child_testresult, get_pgcil_limit
+from webnotes.utils import cint, cstr, flt, now, nowdate, get_first_day, get_last_day, add_to_date, getdate
 import webnotes
 
 class DocType:
@@ -15,9 +17,34 @@ class DocType:
 
 	def on_update(self):
 		#Assign To Function
-		self.assign_flash_point_test();
+		#self.assign_dissolvedgas_test();
+		verfy_bottle_number(self.doc.sample_no, self.doc.bottle_no)
 
-	def assign_flash_point_test(self):
+
+	def add_equipment(self,equipment):
+		#webnotes.errprint(equipment)
+		if self.doc.equipment_used_list:
+			equipment_list = self.doc.equipment_used_list + ', ' + equipment
+		else:
+			equipment_list = equipment 
+		return{	
+		"equipment_used_list": equipment_list
+		}
+
+
+
+	def get_dissolvedgas_details(self,run1):
+		#webnotes.errprint(run1)
+		if run1 and self.doc.run:
+
+			reported=cstr(flt(run1)*flt(self.doc.run)*100)
+			#webnotes.errprint(reported)
+			return{
+				"reported":reported
+			}
+		else:
+			webnotes.msgprint("Specify Run1 For TGS")
+	def assign_dissolvedgas_test(self):
 		test_details = {'test': "Dissolved Gas Analysis", 'name': self.doc.name}
 		
 		# for assigening ticket to the person of role Shift Incharge in worflow Shift Incharge- Lab Incharge
@@ -36,17 +63,33 @@ class DocType:
 
 
 	def fetch_gases(self):
-		gases = webnotes.conn.sql("select name from tabGas")
+		gases = webnotes.conn.sql("select name from tabGas where name!='TGS'")
 		self.doclist=self.doc.clear_table(self.doclist,'dissolved_gas_detail')
-		for gas in gases:
+		if gases:
+
 			nl = addchild(self.doc, 'dissolved_gas_detail', 'Dissolved Gas Analysis Detail', self.doclist)
-			nl.gas = gas
+			nl.gas='TGS'
+			for gas in gases:
+				nl = addchild(self.doc, 'dissolved_gas_detail', 'Dissolved Gas Analysis Detail', self.doclist)
+				nl.gas = gas
+		else:
+			webnotes.msgprint("There is no any Gas Recorded In Gas Table")
 
 
 
 	def on_submit(self):
+		pgcil_limit = get_pgcil_limit(self.doc.method)
+		test_detail = {'test': "Dissolved Gas Analysis", 'sample_no':self.doc.sample_no,'name': self.doc.name, 'method':self.doc.method, 'pgcil_limit':pgcil_limit}
+		parent = create_test_results(test_detail)
 
-		test_detail = {'test': "Dissolved Gas Analysis", 'sample_no':self.doc.sample_no,'name': self.doc.name}
-		create_test_results(test_detail)
+		for gas_detail in getlist(self.doclist, 'dissolved_gas_detail'):
+			if gas_detail.gas == 'TGS':
+				create_child_testresult(parent,gas_detail.run1,test_detail,gas_detail.gas)					
+			else:
+				create_child_testresult(parent,gas_detail.reported,test_detail,gas_detail.gas)
 
 
+		if self.doc.workflow_state=='Rejected':
+			#webnotes.errprint(self.doc.workflow_state)
+			update_test_log(test_detail)
+				

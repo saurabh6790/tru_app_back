@@ -1,0 +1,716 @@
+[
+ {
+  "creation": "2014-04-03 16:49:02", 
+  "docstatus": 0, 
+  "modified": "2014-07-08 16:04:47", 
+  "modified_by": "Administrator", 
+  "owner": "Administrator"
+ }, 
+ {
+  "autoname": "SE.#####", 
+  "doctype": "DocType", 
+  "document_type": "Master", 
+  "icon": "icon-file-text", 
+  "is_submittable": 1, 
+  "module": "Inward-Outward", 
+  "name": "__common__"
+ }, 
+ {
+  "doctype": "DocField", 
+  "name": "__common__", 
+  "parent": "Sample Entry", 
+  "parentfield": "fields", 
+  "parenttype": "DocType", 
+  "permlevel": 0
+ }, 
+ {
+  "cancel": 1, 
+  "create": 1, 
+  "doctype": "DocPerm", 
+  "name": "__common__", 
+  "parent": "Sample Entry", 
+  "parentfield": "permissions", 
+  "parenttype": "DocType", 
+  "permlevel": 0, 
+  "read": 1, 
+  "report": 1, 
+  "role": "All", 
+  "submit": 1, 
+  "write": 1
+ }, 
+ {
+  "doctype": "DocType", 
+  "name": "Sample Entry"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "functional_location", 
+  "fieldtype": "Link", 
+  "label": "Functional Location", 
+  "options": "Functional Location"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "11", 
+  "fieldtype": "Column Break"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "inward_stock_entry", 
+  "fieldtype": "Data", 
+  "label": "Inward Stock Entry No", 
+  "read_only": 1
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "client_information", 
+  "fieldtype": "Section Break", 
+  "label": "Client Information"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "client_name", 
+  "fieldtype": "Link", 
+  "hidden": 0, 
+  "label": "Client Name", 
+  "options": "Customer"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "column_break_4", 
+  "fieldtype": "Column Break"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "plant", 
+  "fieldtype": "Link", 
+  "label": "Plant", 
+  "options": "Plant"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "column_break_6", 
+  "fieldtype": "Column Break"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "sub_station", 
+  "fieldtype": "Link", 
+  "label": "Sub Station", 
+  "options": "Sub Station"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "equipment_information", 
+  "fieldtype": "Section Break", 
+  "label": "Equipment Information"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "type_of_equipment", 
+  "fieldtype": "Link", 
+  "label": "Equipment Type", 
+  "options": "Equipment Type"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "stock_entry", 
+  "fieldtype": "Link", 
+  "hidden": 1, 
+  "label": "Stock Entry(Challan No)", 
+  "options": "Stock Entry"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "bottle_no", 
+  "fieldtype": "Data", 
+  "hidden": 1, 
+  "label": "Number Of Bottles"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "column_break_2", 
+  "fieldtype": "Column Break"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "serial_no", 
+  "fieldtype": "Data", 
+  "label": "Serial No"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "column_break_14", 
+  "fieldtype": "Column Break"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "make", 
+  "fieldtype": "Data", 
+  "label": "Make"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "bottles_barcodes", 
+  "fieldtype": "Small Text", 
+  "hidden": 1, 
+  "label": "Bottles Barcodes"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "material_inward", 
+  "fieldtype": "Link", 
+  "hidden": 1, 
+  "label": "Link From Material Inward", 
+  "options": "Material Inward"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "job_card_no", 
+  "fieldtype": "Data", 
+  "hidden": 1, 
+  "label": "Job Card No"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "section_break_19", 
+  "fieldtype": "Section Break"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "rating", 
+  "fieldtype": "Data", 
+  "label": "Rating"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "transformer", 
+  "fieldtype": "Link", 
+  "hidden": 1, 
+  "label": "Transformer Id", 
+  "options": "Transformer"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "indoor_outdoor", 
+  "fieldtype": "Data", 
+  "label": "Indoor/Outdoor"
+ }, 
+ {
+  "description": "In Liters", 
+  "doctype": "DocField", 
+  "fieldname": "oil_quantity", 
+  "fieldtype": "Data", 
+  "label": "Oil Quantity"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "column_break_24", 
+  "fieldtype": "Column Break"
+ }, 
+ {
+  "description": "Voltage Ratio", 
+  "doctype": "DocField", 
+  "fieldname": "voltage_ratio_hv", 
+  "fieldtype": "Data", 
+  "label": "HV"
+ }, 
+ {
+  "description": "Voltage Ratio", 
+  "doctype": "DocField", 
+  "fieldname": "voltage_ratio_lv", 
+  "fieldtype": "Data", 
+  "label": "LV"
+ }, 
+ {
+  "default": "Today", 
+  "doctype": "DocField", 
+  "fieldname": "date", 
+  "fieldtype": "Date", 
+  "label": "Date of Sample Collected"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "column_break_28", 
+  "fieldtype": "Column Break"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "phase", 
+  "fieldtype": "Data", 
+  "label": "Phase"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "connection", 
+  "fieldtype": "Data", 
+  "label": "Connection"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "amended_from", 
+  "fieldtype": "Link", 
+  "label": "Amended From", 
+  "no_copy": 1, 
+  "options": "Sample Entry", 
+  "print_hide": 1, 
+  "read_only": 1
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "tap_charger", 
+  "fieldtype": "Section Break", 
+  "label": "Tap Charger"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "internal", 
+  "fieldtype": "Check", 
+  "label": "Internal"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "column_break_35", 
+  "fieldtype": "Column Break"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "external", 
+  "fieldtype": "Check", 
+  "label": "External"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "column_break_37", 
+  "fieldtype": "Column Break"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "dry_type", 
+  "fieldtype": "Check", 
+  "label": "Dry Type"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "visual_inspection", 
+  "fieldtype": "Section Break", 
+  "label": "Visual Inspection"
+ }, 
+ {
+  "description": "Tempareture OTT", 
+  "doctype": "DocField", 
+  "fieldname": "ott_temp", 
+  "fieldtype": "Data", 
+  "label": "Oil Temp"
+ }, 
+ {
+  "description": "Liquid Level", 
+  "doctype": "DocField", 
+  "fieldname": "tank_conservator", 
+  "fieldtype": "Data", 
+  "label": "Tank Conservator"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "column_break_41", 
+  "fieldtype": "Column Break"
+ }, 
+ {
+  "description": "Temperature WTT", 
+  "doctype": "DocField", 
+  "fieldname": "wtt_temp", 
+  "fieldtype": "Data", 
+  "label": "Winding Temp"
+ }, 
+ {
+  "description": "Liquid Level", 
+  "doctype": "DocField", 
+  "fieldname": "octc_conservator", 
+  "fieldtype": "Data", 
+  "label": "OCTC Conservator"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "section_break_45", 
+  "fieldtype": "Section Break"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "leakage", 
+  "fieldtype": "Select", 
+  "label": "Leakage", 
+  "options": "\nYes\nNo"
+ }, 
+ {
+  "depends_on": "eval:doc.leakage=='Yes'", 
+  "description": "If Leakage is present", 
+  "doctype": "DocField", 
+  "fieldname": "comment", 
+  "fieldtype": "Data", 
+  "label": "Comment"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "column_break_47", 
+  "fieldtype": "Column Break"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "temp_high_reading", 
+  "fieldtype": "Data", 
+  "label": "Temperature Guage High Reading"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "section_break_50", 
+  "fieldtype": "Section Break"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "filteration_done", 
+  "fieldtype": "Select", 
+  "label": "Filteration Done", 
+  "options": "\nYes\nNo"
+ }, 
+ {
+  "depends_on": "eval:doc.filteration_done=='Yes'", 
+  "doctype": "DocField", 
+  "fieldname": "date_of_filteration", 
+  "fieldtype": "Date", 
+  "label": "Date Of Filteration"
+ }, 
+ {
+  "depends_on": "eval:doc.filteration_done=='Yes'", 
+  "doctype": "DocField", 
+  "fieldname": "column_break_52", 
+  "fieldtype": "Column Break"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "buccholz_level", 
+  "fieldtype": "Data", 
+  "label": "Buccholz Level"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "section_break_55", 
+  "fieldtype": "Section Break"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "breather_silica_gel_condition", 
+  "fieldtype": "Data", 
+  "label": "Breather Silica Gel Condition"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "column_break_57", 
+  "fieldtype": "Column Break"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "oil_cup", 
+  "fieldtype": "Data", 
+  "label": "Oil Cup"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "section_break_59", 
+  "fieldtype": "Section Break"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "any_other_condition", 
+  "fieldtype": "Data", 
+  "label": "Any Other Condition"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "sampling_condition", 
+  "fieldtype": "Section Break", 
+  "label": "Sampling Condition"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "rainy", 
+  "fieldtype": "Check", 
+  "label": "Climate-Rainy"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "temperature", 
+  "fieldtype": "Data", 
+  "label": "Temperature"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "point_of_sample", 
+  "fieldtype": "Select", 
+  "label": "Point Of Sample", 
+  "options": "\nTop\nBottom\nOLTC-Top\nOLTC-Bottom\nRadiator"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "column_break_63", 
+  "fieldtype": "Column Break"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "sunny", 
+  "fieldtype": "Check", 
+  "label": "Climate-Sunny"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "relative_humidity", 
+  "fieldtype": "Data", 
+  "label": "Relative humidity"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "filteration", 
+  "fieldtype": "Select", 
+  "label": "Filteration", 
+  "options": "\nBefore Filteration\nAfter Filteration"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "column_break_65", 
+  "fieldtype": "Column Break"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "cloudy", 
+  "fieldtype": "Check", 
+  "label": "Climate-Cloudy"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "test", 
+  "fieldtype": "Select", 
+  "label": "Test", 
+  "options": "\nBefore Test\nAfter HV\nBefore Short Circuit\nAfter Short Circuit\nBefore Heatrun\nAfter Heatrun"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "details_of_bottles", 
+  "fieldtype": "Section Break", 
+  "label": "Details Of Bottles"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "bottle_owner", 
+  "fieldtype": "Select", 
+  "label": "Bottle Owner", 
+  "options": "\nSelf\nClient"
+ }, 
+ {
+  "depends_on": "eval:doc.bottle_owner=='Self'||doc.bottle_owner=='Client'", 
+  "doctype": "DocField", 
+  "fieldname": "column_break_74", 
+  "fieldtype": "Column Break"
+ }, 
+ {
+  "depends_on": "eval:doc.bottle_owner=='Self'", 
+  "doctype": "DocField", 
+  "fieldname": "bottle", 
+  "fieldtype": "Link", 
+  "label": "Bottle No", 
+  "options": "Serial No"
+ }, 
+ {
+  "depends_on": "eval:doc.bottle_owner=='Client'", 
+  "doctype": "DocField", 
+  "fieldname": "bottle_identifier", 
+  "fieldtype": "Data", 
+  "label": "Bottle Identifier"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "bottle_list", 
+  "fieldtype": "Small Text", 
+  "label": "Bottle List"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "sampling_witness_detail", 
+  "fieldtype": "Section Break", 
+  "label": "Sampling Witness Detail"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "employee_number", 
+  "fieldtype": "Link", 
+  "label": "Employee Number", 
+  "options": "Employee"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "1", 
+  "fieldtype": "Column Break"
+ }, 
+ {
+  "description": "Sampling Vitness Name", 
+  "doctype": "DocField", 
+  "fieldname": "vitness", 
+  "fieldtype": "Data", 
+  "label": "Name"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "2", 
+  "fieldtype": "Column Break"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "designation", 
+  "fieldtype": "Data", 
+  "label": "Designation"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "info", 
+  "fieldtype": "Section Break", 
+  "label": "Additional Info"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "transformer_impreesion", 
+  "fieldtype": "Data", 
+  "label": "Vision impression Of The Transformer"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "sample_drawan_by", 
+  "fieldtype": "Select", 
+  "label": "Sample Drawan By", 
+  "options": "\nParty"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "container_type_nos", 
+  "fieldtype": "Data", 
+  "label": "Container Type And Nos"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "column_break_79", 
+  "fieldtype": "Column Break"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "condition_of_sample", 
+  "fieldtype": "Data", 
+  "label": "Condition Of Sample"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "sealed", 
+  "fieldtype": "Select", 
+  "label": "Sealed", 
+  "options": "\nYes\nNo"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "testing_temperature", 
+  "fieldtype": "Data", 
+  "label": "Testing Temperature"
+ }, 
+ {
+  "depends_on": "eval:doc.sealed=='Yes'", 
+  "doctype": "DocField", 
+  "fieldname": "sample_sealed_detail", 
+  "fieldtype": "Section Break", 
+  "label": "Sample Sealed Detail"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "employee_no", 
+  "fieldtype": "Link", 
+  "label": "Employee Number", 
+  "options": "Employee"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "column_break_91", 
+  "fieldtype": "Column Break"
+ }, 
+ {
+  "depends_on": "eval:doc.sealed=='Yes'", 
+  "description": "Sealed In Presence Of", 
+  "doctype": "DocField", 
+  "fieldname": "sealed_name", 
+  "fieldtype": "Data", 
+  "label": "Name"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "column_break_93", 
+  "fieldtype": "Column Break"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "designations", 
+  "fieldtype": "Data", 
+  "label": "Designation"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "any_other_information", 
+  "fieldtype": "Data", 
+  "hidden": 1, 
+  "label": "Any Other Information"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "section_break_81", 
+  "fieldtype": "Section Break"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "test_required", 
+  "fieldtype": "Select", 
+  "hidden": 1, 
+  "label": "Test Required", 
+  "options": "\nOST\nDGA\nFuran\nOthers"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "priority", 
+  "fieldtype": "Select", 
+  "hidden": 1, 
+  "label": "Priority", 
+  "options": "\nCritical\nEmergency\nUrgent"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "column_break_23", 
+  "fieldtype": "Column Break"
+ }, 
+ {
+  "depends_on": "eval:doc.test_required=='Others'", 
+  "doctype": "DocField", 
+  "fieldname": "other_test_details", 
+  "fieldtype": "Section Break", 
+  "label": "Other Test Details"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "test_details", 
+  "fieldtype": "Table", 
+  "label": "Test Details", 
+  "options": "Register Test Details"
+ }, 
+ {
+  "default": "No", 
+  "doctype": "DocField", 
+  "fieldname": "is_sample_generated", 
+  "fieldtype": "Select", 
+  "hidden": 1, 
+  "label": "Is Sample Generated", 
+  "options": "\nYes\nNo"
+ }, 
+ {
+  "doctype": "DocPerm"
+ }
+]

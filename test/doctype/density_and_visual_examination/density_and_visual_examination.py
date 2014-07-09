@@ -5,7 +5,7 @@
 
 from __future__ import unicode_literals
 import webnotes
-from test.doctype import assign_notify
+from test.doctype import assign_notify,verfy_bottle_number,update_test_log
 from test.doctype import create_test_results
 
 
@@ -16,8 +16,21 @@ class DocType:
 
 	def on_update(self):
 		#Assign To Function
-		self.assign_density_visual_test();
+		#self.assign_density_visual_test();
 		self.update_status();
+		verfy_bottle_number(self.doc.sample_no, self.doc.bottle_no)
+
+
+	def add_equipment(self,equipment):
+		webnotes.errprint(equipment)
+		if self.doc.equipment_used_list:
+			equipment_list = self.doc.equipment_used_list + ', ' + equipment
+		else:
+			equipment_list = equipment 
+		return{	
+		"equipment_used_list": equipment_list
+		}
+
 
 	def update_status(self):
 		webnotes.conn.sql("update `tabSample Allocation Detail` set status='"+self.doc.workflow_state+"' where test_id='"+self.doc.name+"' ")
@@ -49,3 +62,7 @@ class DocType:
 
 		test_detail = {'test': "Density And Visual Examination", 'sample_no':self.doc.sample_no, 'name': self.doc.name}
 		create_test_results(test_detail)
+
+		if self.doc.workflow_state=='Rejected':
+			#webnotes.errprint(self.doc.workflow_state)
+			update_test_log(test_detail)

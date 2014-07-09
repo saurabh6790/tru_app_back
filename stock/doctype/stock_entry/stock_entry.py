@@ -40,8 +40,7 @@ class DocType(StockController):
 			self.send_email(self.doc.electronically_approved_by_1,msg)
 			self.send_email(self.doc.electronically_approved_by_2,msg)
 			self.doc.flag='1'
-		# else:
-		# 	webnotes.msgprint("Mention Approver 1 & Approver 2",raise_exception=1)
+		self.doc.inward_stock_entry=self.doc.name
 		self.doc.save()
 
 	# Send Email Function	
@@ -69,6 +68,7 @@ class DocType(StockController):
 		self.validate_with_material_request()
 		self.validate_fiscal_year()
 		self.set_total_amount()
+		self.validate_quantity()
 		
 	def on_submit(self):
 
@@ -78,16 +78,16 @@ class DocType(StockController):
 			else:
 				webnotes.msgprint("For successful submition of stock entry Approver 1 & Approver 2 status must be 'Approved' ",raise_exception=1)
 		self.update_stock_ledger()
-
+		#if self.doc.internal_purpose=='Outward' and self.doc.purpose=='Material Transfer':
+		if self.doc.electronically_approved_by_1 and self.doc.electronically_approved_by_2:
+			#webnotes.errprint("on submit")
+			self.assign_to(self.doc.electronically_approved_by_1)
+			self.assign_to(self.doc.electronically_approved_by_2)
+		
 		from stock.doctype.serial_no.serial_no import update_serial_nos_after_submit
 		update_serial_nos_after_submit(self, "mtn_details")
 		self.update_production_order()
 		self.make_gl_entries()
-		if self.doc.internal_purpose=='Outward' and self.doc.purpose=='Material Transfer':
-			if self.doc.electronically_approved_by_1 and self.doc.electronically_approved_by_2:
-				#webnotes.errprint("on submit")
-				self.assign_to(self.doc.electronically_approved_by_1)
-				self.assign_to(self.doc.electronically_approved_by_2)
 		
 
 
@@ -114,6 +114,17 @@ class DocType(StockController):
 		import accounts.utils
 		accounts.utils.validate_fiscal_year(self.doc.posting_date, self.doc.fiscal_year,
 			self.meta.get_label("posting_date"))
+
+	def validate_quantity(self):
+		webnotes.errprint("in validate quantity")
+		if self.doc.internal_purpose=='Inward' and self.doc.outward_challan_no:
+			for d in getlist(self.doclist, 'mtn_details'):
+				webnotes.errprint(d.qty<=d.outward_qty)
+				if cint(d.qty)<=cint(d.outward_qty):
+					pass
+				else:
+					webnotes.msgprint("Quantity should be always less than or equal to the Outward oty",raise_exception=1)
+
 		
 	def validate_purpose(self):
 		valid_purposes = ["Material Issue", "Material Receipt", "Material Transfer", 
@@ -877,16 +888,16 @@ def make_sample_entry(source_name, target_doclist=None):
 
 def _make_sample_entry(source_name, target_doclist=None, ignore_permissions=False):
 	from webnotes.model.mapper import get_mapped_doclist
-	mi=webnotes.conn.sql("select qty,serial_no from `tabStock Entry Detail` where parent='"+source_name+"'")
+	#mi=webnotes.conn.sql("select qty,serial_no from `tabStock Entry Detail` where parent='"+source_name+"'")
 	# For Field Mapping From Previous doctype to next doctype
 	def postprocess(source, doclist):
-		doclist[0].stock_entry = source_name
-		doclist[0].bottle_no= mi[0][0]
-		doclist[0].bottles_barcodes=mi[0][1]
+		doclist[0].inward_stock_entry = source_name
+		# doclist[0].bottle_no= mi[0][0]
+		# doclist[0].bottles_barcodes=mi[0][1]
 		
 	doclist = get_mapped_doclist("Stock Entry", source_name, {
 			"Stock Entry": {
-				"doctype": "Sample Entry", 
+				"doctype": "Sample Entry Interface", 
 								
 				"validation": {
 					"docstatus": ["=", 1]

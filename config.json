@@ -74,6 +74,20 @@
    "link": "stock-home", 
    "type": "module"
   },
+  "Inward-Outward": {
+   "color": "#f39c12", 
+   "icon": "icon-truck", 
+   "label":"Inward-Outward",
+   "link": "inward-outward",
+   "type":"page"
+  }, 
+  "Request For Service": {
+   "color": "#2ecc71", 
+   "icon": "icon-file-alt",
+   "label":"Request For Service",
+   "link": "request-for-service",
+   "type":"module"
+  }, 
    "Test": {
    "color": "#1abc9c", 
    "icon": "icon-tint", 

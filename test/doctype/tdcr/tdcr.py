@@ -5,7 +5,7 @@
 
 from __future__ import unicode_literals
 from test.doctype import assign_notify
-from test.doctype import create_test_results
+from test.doctype import create_test_results,verfy_bottle_number
 import webnotes
 
 class DocType:
@@ -14,7 +14,9 @@ class DocType:
 
 	def on_update(self):
 		#Assign To Function
-		self.assign_flash_point_test();
+		#self.assign_flash_point_test();
+		verfy_bottle_number(self.doc.sample_no, self.doc.bottle_no)
+
 
 	def assign_flash_point_test(self):
 		test_details = {'test': "TDCR", 'name': self.doc.name}

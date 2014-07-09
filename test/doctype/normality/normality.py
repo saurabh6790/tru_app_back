@@ -14,3 +14,14 @@ class DocType:
 	def on_update(self):
 		self.doc.koh_normality=cstr(flt(self.doc.normality)*flt(self.doc.volume)/flt(self.doc.koh_volume))
 		self.doc.save()
+
+
+
+	def add_equipment(self,equipment):
+		if self.doc.equipment_used_list:
+			equipment_list = self.doc.equipment_used_list + ', ' + equipment
+		else:
+			equipment_list = equipment 
+		return{	
+		"equipment_used_list": equipment_list
+		}

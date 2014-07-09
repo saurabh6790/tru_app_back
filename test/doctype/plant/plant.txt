@@ -2,7 +2,7 @@
  {
   "creation": "2014-05-26 16:47:19", 
   "docstatus": 0, 
-  "modified": "2014-05-26 16:47:19", 
+  "modified": "2014-06-16 11:33:05", 
   "modified_by": "Administrator", 
   "owner": "Administrator"
  }, 
@@ -43,6 +43,7 @@
   "doctype": "DocField", 
   "fieldname": "client_name", 
   "fieldtype": "Link", 
+  "hidden": 1, 
   "label": "Client Name", 
   "options": "Customer"
  }, 
@@ -50,7 +51,8 @@
   "doctype": "DocField", 
   "fieldname": "plant", 
   "fieldtype": "Data", 
-  "label": "Plant"
+  "label": "Plant", 
+  "reqd": 1
  }, 
  {
   "doctype": "DocPerm"

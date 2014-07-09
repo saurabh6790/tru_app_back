@@ -2,7 +2,7 @@
  {
   "creation": "2014-04-29 19:12:23", 
   "docstatus": 0, 
-  "modified": "2014-04-29 20:02:02", 
+  "modified": "2014-06-24 10:20:42", 
   "modified_by": "Administrator", 
   "owner": "Administrator"
  }, 
@@ -10,6 +10,7 @@
   "autoname": "TDCR.#####", 
   "doctype": "DocType", 
   "document_type": "Transaction", 
+  "icon": "icon-file-text", 
   "is_submittable": 1, 
   "module": "Test", 
   "name": "__common__"
@@ -36,6 +37,13 @@
  {
   "doctype": "DocType", 
   "name": "TDCR"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "status", 
+  "fieldtype": "Data", 
+  "label": "Status", 
+  "options": "\nOpen\nApproved\nRejected"
  }, 
  {
   "doctype": "DocField", 
@@ -172,12 +180,14 @@
   "doctype": "DocField", 
   "fieldname": "shift_incharge_approval", 
   "fieldtype": "Data", 
+  "hidden": 1, 
   "label": "Shift Incharge Approval"
  }, 
  {
   "doctype": "DocField", 
   "fieldname": "lab_incharge_approval", 
   "fieldtype": "Data", 
+  "hidden": 1, 
   "label": "Lab Incharge Approval"
  }, 
  {

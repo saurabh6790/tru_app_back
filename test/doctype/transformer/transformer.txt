@@ -2,12 +2,12 @@
  {
   "creation": "2014-05-02 14:38:32", 
   "docstatus": 0, 
-  "modified": "2014-05-26 16:50:35", 
+  "modified": "2014-06-23 09:59:26", 
   "modified_by": "Administrator", 
   "owner": "Administrator"
  }, 
  {
-  "autoname": "field:transformer_identity", 
+  "autoname": "field:functional_location", 
   "doctype": "DocType", 
   "document_type": "Master", 
   "icon": "icon-truck", 
@@ -47,8 +47,46 @@
  }, 
  {
   "doctype": "DocField", 
+  "fieldname": "column_break_2", 
+  "fieldtype": "Column Break"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "plant", 
+  "fieldtype": "Link", 
+  "label": "Plant", 
+  "options": "Plant"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "section_break_4", 
+  "fieldtype": "Section Break"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "sub_station", 
+  "fieldtype": "Link", 
+  "label": "Sub Station", 
+  "options": "Sub Station"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "column_break_6", 
+  "fieldtype": "Column Break"
+ }, 
+ {
+  "description": "Transformer Identity", 
+  "doctype": "DocField", 
+  "fieldname": "functional_location", 
+  "fieldtype": "Link", 
+  "label": "Functional Location", 
+  "options": "Functional Location"
+ }, 
+ {
+  "doctype": "DocField", 
   "fieldname": "effective_start_date", 
   "fieldtype": "Date", 
+  "hidden": 1, 
   "label": "Effective Start Date"
  }, 
  {
@@ -61,14 +99,23 @@
  }, 
  {
   "doctype": "DocField", 
-  "fieldname": "column_break_2", 
-  "fieldtype": "Column Break"
+  "fieldname": "section_break_10", 
+  "fieldtype": "Section Break"
  }, 
  {
   "doctype": "DocField", 
   "fieldname": "effective_end_date", 
   "fieldtype": "Date", 
+  "hidden": 1, 
   "label": "Effective End Date"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "equipment_id", 
+  "fieldtype": "Link", 
+  "label": "Equipment ID", 
+  "options": "Transformer Detail", 
+  "reqd": 1
  }, 
  {
   "doctype": "DocField", 
@@ -78,98 +125,112 @@
  }, 
  {
   "doctype": "DocField", 
-  "fieldname": "plant", 
-  "fieldtype": "Link", 
-  "label": "Plant Name", 
-  "options": "Plant"
- }, 
- {
-  "doctype": "DocField", 
-  "fieldname": "plant_address", 
-  "fieldtype": "Small Text", 
-  "label": "Plant Address"
- }, 
- {
-  "doctype": "DocField", 
-  "fieldname": "functional_location", 
-  "fieldtype": "Link", 
-  "label": "Functional Location", 
-  "options": "Functional Location"
- }, 
- {
-  "description": "Transformer Identity", 
-  "doctype": "DocField", 
-  "fieldname": "transformer_identity", 
+  "fieldname": "serial_no", 
   "fieldtype": "Data", 
+  "hidden": 0, 
   "label": "Serial No", 
-  "reqd": 1
+  "read_only": 1
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "column_break_13", 
+  "fieldtype": "Column Break"
  }, 
  {
   "doctype": "DocField", 
   "fieldname": "make", 
   "fieldtype": "Data", 
-  "label": "Make"
+  "label": "Make", 
+  "read_only": 1
  }, 
  {
   "doctype": "DocField", 
-  "fieldname": "serial_no", 
-  "fieldtype": "Data", 
-  "hidden": 1, 
-  "label": "Serial No"
+  "fieldname": "column_break_15", 
+  "fieldtype": "Column Break"
  }, 
  {
   "doctype": "DocField", 
   "fieldname": "rating", 
   "fieldtype": "Data", 
-  "label": "Rating (MVA)"
+  "label": "Rating (MVA)", 
+  "read_only": 1
  }, 
  {
   "doctype": "DocField", 
-  "fieldname": "column_break_9", 
-  "fieldtype": "Column Break"
- }, 
- {
-  "doctype": "DocField", 
-  "fieldname": "sub_station", 
-  "fieldtype": "Link", 
-  "label": "Sub Station Name", 
-  "options": "Sub Station"
+  "fieldname": "section_break_17", 
+  "fieldtype": "Section Break"
  }, 
  {
   "doctype": "DocField", 
   "fieldname": "sub_station_address", 
   "fieldtype": "Small Text", 
+  "hidden": 1, 
   "label": "Sub Station Address"
  }, 
  {
   "doctype": "DocField", 
   "fieldname": "equipment_type", 
   "fieldtype": "Link", 
+  "hidden": 1, 
   "label": "Equipment Type", 
   "options": "Equipment Type"
  }, 
  {
   "doctype": "DocField", 
+  "fieldname": "ratio", 
+  "fieldtype": "Data", 
+  "label": "Ratio (KV)", 
+  "read_only": 1
+ }, 
+ {
+  "doctype": "DocField", 
   "fieldname": "voltage_ratio", 
   "fieldtype": "Data", 
-  "label": "Ratio (KV)"
+  "label": "Voltage Ratio", 
+  "read_only": 1
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "column_break_21", 
+  "fieldtype": "Column Break"
  }, 
  {
   "doctype": "DocField", 
   "fieldname": "phase", 
   "fieldtype": "Data", 
-  "label": "Phase"
+  "label": "Phase", 
+  "read_only": 1
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "attach_dettach", 
+  "fieldtype": "Button", 
+  "label": "Dettach"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "column_break_23", 
+  "fieldtype": "Column Break"
  }, 
  {
   "doctype": "DocField", 
   "fieldname": "year_of_mfg", 
   "fieldtype": "Data", 
-  "label": "Year of Mfg"
+  "label": "Year of Mfg", 
+  "read_only": 1
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "dettach", 
+  "fieldtype": "Button", 
+  "hidden": 1, 
+  "label": "Dettach"
  }, 
  {
   "doctype": "DocField", 
   "fieldname": "contact_person", 
   "fieldtype": "Section Break", 
+  "hidden": 1, 
   "label": "Contact Person"
  }, 
  {

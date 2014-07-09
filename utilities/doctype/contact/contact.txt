@@ -2,7 +2,7 @@
  {
   "creation": "2013-01-10 16:34:32", 
   "docstatus": 0, 
-  "modified": "2014-05-12 17:15:07", 
+  "modified": "2014-05-28 15:49:43", 
   "modified_by": "Administrator", 
   "owner": "Administrator"
  }, 
@@ -153,6 +153,18 @@
   "fieldtype": "Column Break", 
   "oldfieldtype": "Column Break", 
   "width": "50%"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "division_head", 
+  "fieldtype": "Data", 
+  "label": "Division Head "
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "division_head_name", 
+  "fieldtype": "Data", 
+  "label": "Division Head Name"
  }, 
  {
   "depends_on": "eval:!doc.customer && !doc.sales_partner", 

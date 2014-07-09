@@ -5,8 +5,26 @@
 
 from __future__ import unicode_literals
 import webnotes
+
 mapper = {"Physical Condition And Density":['name', 'color', 'smell', 'particles','final_density'], 
-	"Moisture Content":['name', 'moisture'], "Resistivity and Dissipation": ['name', 'tan_value','sigma_value','resistivity_value'],"Breakdown Voltage":['name','break_down_temperature','break_down_humidity','break_down_ir','break_down_frequency'],"Flash Point":['name','reported'],"Neutralization Test Details":['parent','reported_value']}
+	"Moisture Content":['name', 'moisture'], 
+	"Dissolved Gas Analysis Detail":['parent'],
+	"Breakdown Voltage":['name','break_down_temperature','break_down_humidity','break_down_ir','break_down_frequency'],
+	"Flash Point":['name','reported'],
+	"Furan Content":['name','hydroxymythyl_furaldehyde','furfuryl_alcohol','furaldehyde','acetyl_furan','mythyl_furaldehyde'],
+	"Kinematic Viscocity":['name','reported_viscosity'],
+	"Pour Point":['name','temperature_ir'],
+	"PCB":['name','reported_in_ppm_0','reported_in_ppm_1','reported_in_ppm_2','reported_in_ppm_others'],
+	"Corrossive Sulphur":['name','visual_observation'],
+	"Oxidation Inhibiters":['name','phenol_type_inhibiter','amine_type','di_infrared_spectrophotometry','dpc'],
+	"Metal In Oil":['name','aluminium','copper','iron','lead','silver','tin','zinc'],
+	"Interfacial Tension":['name','ift'],
+	"Test Of Extract":['name','diffrence'],
+	"Resistivity and Dissipation": {'Resistivity and Dissipation':['name', 'sigma_value'], 
+		'Tan Alpha Details': ['parent','tan_value'], "Resistivity Details":['parent','resistivity_value']},
+	"Neutralization Value": {"Neutralization Test Details":['parent','reported_value']}
+	}
+
 class DocType:
 	def __init__(self, d, dl):
 		self.doc, self.doclist = d, dl
@@ -20,25 +38,34 @@ class DocType:
 		tests = self.check_group_or_other(sample_id)
 		if tests:
 			return tests
-		else:
-			return webnotes.conn.sql("""select test from `tabGroup Test` 
-				where parent in (select test_required from `tabSample Entry` 
-					where name=(select sample_entry from tabSample where name = '%s'))"""%(sample_id),as_list=1)
 
 	def check_group_or_other(self, sample_id):
-		test_required = webnotes.conn.sql(""" select test_required, name from `tabSample Entry`
-		 where name = (select sample_entry from tabSample where name = '%s')"""%(sample_id))[0][0]
-		if test_required == 'Others':
-			return webnotes.conn.sql(""" select test from `tabRegister Test Details` 
-				where parent = '%s' """%(test_required[0][1]), as_list=1)
+		test_required = webnotes.conn.sql("""select test_name from `tabRegister Test Name` 
+			where parent in (select name from `tabTest Allocation` 
+				where sample_no = '%s' and docstatus=1) """%(sample_id), as_list=1)
+		return test_required
 
 	def get_test_wise_results(self, tests, sample_id):
 		results = {}
+
 		for test in tests:
-			if test[0]=='Neutralization Value':
-				test[0]='Neutralization Test Details'				
 			if test[0] in mapper:
-				result = webnotes.conn.sql("select %s from `tab%s` where sample_no = '%s' and docstatus=1"%(', '.join(mapper.get(test[0])), test[0], sample_id), as_dict=1)
-				results[test[0]] = result
+				if isinstance(mapper.get(test[0]), list):
+					self.get_result(test[0], sample_id, results)
+
+				elif isinstance(mapper.get(test[0]), dict):
+					for sub_test in mapper.get(test[0]):
+						self.get_result(sub_test, sample_id, results, mapper.get(test[0])[sub_test])
 
 		return results
+
+	def get_result(self,test, sample_id, results, list_val=None):
+
+		if list_val:
+			args = {'cols':', '.join(list_val), 'test': test, 'sample_id': sample_id}
+		else :
+			args = {'cols': ', '.join(mapper.get(test)), 'test': test, 'sample_id':sample_id}
+
+		result = webnotes.conn.sql("""select %(cols)s from `tab%(test)s` 
+			where sample_no = '%(sample_id)s' and docstatus=1"""%args, as_dict=1)
+		results[test] = result

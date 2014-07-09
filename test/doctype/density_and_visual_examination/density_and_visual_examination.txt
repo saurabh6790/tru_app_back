@@ -2,13 +2,15 @@
  {
   "creation": "2014-04-03 14:50:33", 
   "docstatus": 0, 
-  "modified": "2014-05-19 10:00:37", 
+  "modified": "2014-06-27 16:02:50", 
   "modified_by": "Administrator", 
   "owner": "Administrator"
  }, 
  {
   "autoname": "DV.#####", 
   "doctype": "DocType", 
+  "document_type": "Transaction", 
+  "icon": "icon-file-text", 
   "is_submittable": 1, 
   "module": "Test", 
   "name": "__common__"
@@ -52,25 +54,35 @@
  {
   "doctype": "DocField", 
   "fieldname": "equipment_used", 
-  "fieldtype": "Data", 
-  "label": "Equipment Used"
+  "fieldtype": "Link", 
+  "label": "Equipment Used", 
+  "options": "Equipment Used"
+ }, 
+ {
+  "depends_on": "eval:doc.equipment_used", 
+  "doctype": "DocField", 
+  "fieldname": "add", 
+  "fieldtype": "Button", 
+  "label": "ADD"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "column_break_4", 
+  "fieldtype": "Column Break"
  }, 
  {
   "doctype": "DocField", 
   "fieldname": "method", 
   "fieldtype": "Link", 
-  "label": "Method", 
-  "options": "Test Method"
- }, 
- {
-  "doctype": "DocField", 
-  "fieldname": "column_break_3", 
-  "fieldtype": "Column Break"
+  "label": "Test Method", 
+  "options": "Test Method", 
+  "reqd": 1
  }, 
  {
   "doctype": "DocField", 
   "fieldname": "test_type", 
   "fieldtype": "Select", 
+  "hidden": 1, 
   "label": "Test Type", 
   "options": "\nRegular\nQA\nCalibration"
  }, 
@@ -88,6 +100,12 @@
  }, 
  {
   "doctype": "DocField", 
+  "fieldname": "equipment_used_list", 
+  "fieldtype": "Small Text", 
+  "label": "Equipment Used List"
+ }, 
+ {
+  "doctype": "DocField", 
   "fieldname": "d", 
   "fieldtype": "Section Break", 
   "label": "Density & Visual Examination Details"
@@ -95,19 +113,34 @@
  {
   "doctype": "DocField", 
   "fieldname": "sample_no", 
-  "fieldtype": "Data", 
-  "label": "Sample No"
+  "fieldtype": "Link", 
+  "label": "Sample No", 
+  "options": "Sample"
  }, 
  {
   "doctype": "DocField", 
-  "fieldname": "temp", 
+  "fieldname": "temperature", 
   "fieldtype": "Data", 
-  "label": "Temp"
+  "label": "temperature", 
+  "read_only": 1
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "specification", 
+  "fieldtype": "Link", 
+  "label": "Specification", 
+  "options": "Specification"
  }, 
  {
   "doctype": "DocField", 
   "fieldname": "column_break_11", 
   "fieldtype": "Column Break"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "bottle_no", 
+  "fieldtype": "Data", 
+  "label": "Bottle No"
  }, 
  {
   "doctype": "DocField", 
@@ -124,24 +157,22 @@
  {
   "doctype": "DocField", 
   "fieldname": "section_break_13", 
-  "fieldtype": "Section Break"
+  "fieldtype": "Section Break", 
+  "label": "Info"
  }, 
  {
   "doctype": "DocField", 
   "fieldname": "shift_incharge_approval", 
   "fieldtype": "Data", 
+  "hidden": 1, 
   "label": "Shift Incharge Approval"
  }, 
  {
   "doctype": "DocField", 
   "fieldname": "lab_incharge_approval", 
   "fieldtype": "Data", 
+  "hidden": 1, 
   "label": "Lab Incharge Approval"
- }, 
- {
-  "doctype": "DocField", 
-  "fieldname": "column_break_15", 
-  "fieldtype": "Column Break"
  }, 
  {
   "doctype": "DocField", 
@@ -166,8 +197,10 @@
   "role": "Administrator"
  }, 
  {
+  "amend": 1, 
   "doctype": "DocPerm", 
-  "role": "Employee"
+  "role": "Employee", 
+  "submit": 1
  }, 
  {
   "cancel": 1, 
@@ -179,6 +212,14 @@
   "cancel": 1, 
   "doctype": "DocPerm", 
   "role": "Lab Incharge", 
+  "submit": 1
+ }, 
+ {
+  "amend": 1, 
+  "cancel": 1, 
+  "doctype": "DocPerm", 
+  "report": 1, 
+  "role": "Tester", 
   "submit": 1
  }
 ]

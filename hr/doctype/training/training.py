@@ -105,7 +105,7 @@ class DocType:
 				ch.save(new=1)
 				
 
-	#For Updating Table Employee Training Details In Employee DocType
+	#For Updating Table EmployTraining Details In Employee DocType
 	def on_submit(self):
 
 		if self.doc.training_status=='Completed' or self.doc.training_status==None:
@@ -143,23 +143,25 @@ class DocType:
 
 
 		
-
-
-	# For Creating email,msg
+#fromr Creating email,msg
 	def create_email(self,user=None,msg=None):
 		user=webnotes.conn.sql("select user_id from `tabTrainners Details` where parent='"+self.doc.name+"' ",as_list=1)
 		#webnotes.errprint(user)
 		msg1=webnotes.conn.sql("select test from `tabTraining Details` where parent='"+self.doc.name+"'",as_dict=1)
 		msg2=webnotes.conn.sql("select test from `tabTraining Details` where is_pass='1' and parent='"+self.doc.name+"'",as_dict=1)
 		msg3=webnotes.conn.sql("select test from `tabTraining Details` where is_pass is null and parent='"+self.doc.name+"'",as_dict=1)
-		msg="Hello, Employee '"+self.doc.employee+"' have applied for the tests which are '"+cstr(msg1)+"' and from which he/she cleared tests which are '"+cstr(msg2)+"' and tests which he/she needs to recondut are '"+cstr(msg3)+"'"
+		msg="Hello, Employee '"+self.doc.employee+"' have applied for the tests which are '"+cstr(msg1)+"' and from which he/she cleared tests which are '"+cstr(msg2)+"' and tests which he/she needs to reconduct are '"+cstr(msg3)+"'"
 		#webnotes.errprint(msg)
 		if user:
 			for j in user:
 				self.send_email(j,msg)
+				#self.create_todo()
 
+		else:
+			webnotes.msgprint("set user id for emplpyee in employee table")
 
 	# For creating ToDo Document- Assigning To	
+
 	def assign_to(self):
 		userid=webnotes.conn.sql("select user_id from `tabEmployee` where employee='"+self.doc.employee+"'",as_list=1)
 		#webnotes.errprint(userid)
@@ -182,7 +184,6 @@ class DocType:
 	def send_email(self,email,msg):
 		from webnotes.utils.email_lib import sendmail
 		sendmail(email, subject="Training Details", msg = msg)
-
 
 # For send notification to employee & trainers.
 @webnotes.whitelist()

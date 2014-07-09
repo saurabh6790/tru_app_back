@@ -2,7 +2,7 @@
  {
   "creation": "2014-05-26 16:48:26", 
   "docstatus": 0, 
-  "modified": "2014-05-26 16:48:26", 
+  "modified": "2014-06-16 11:33:20", 
   "modified_by": "Administrator", 
   "owner": "Administrator"
  }, 
@@ -43,6 +43,7 @@
   "doctype": "DocField", 
   "fieldname": "plant", 
   "fieldtype": "Link", 
+  "hidden": 1, 
   "label": "Plant", 
   "options": "Plant"
  }, 
@@ -50,7 +51,8 @@
   "doctype": "DocField", 
   "fieldname": "sub_station", 
   "fieldtype": "Data", 
-  "label": "Sub Station"
+  "label": "Sub Station", 
+  "reqd": 1
  }, 
  {
   "doctype": "DocPerm"

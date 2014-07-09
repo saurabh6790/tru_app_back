@@ -1,0 +1,118 @@
+[
+ {
+  "creation": "2014-06-10 13:18:12", 
+  "docstatus": 0, 
+  "modified": "2014-06-10 13:18:13", 
+  "modified_by": "Administrator", 
+  "owner": "Administrator"
+ }, 
+ {
+  "doctype": "DocType", 
+  "document_type": "Transaction", 
+  "istable": 1, 
+  "module": "Test", 
+  "name": "__common__"
+ }, 
+ {
+  "doctype": "DocField", 
+  "name": "__common__", 
+  "parent": "Interfacial Tension Against Water", 
+  "parentfield": "fields", 
+  "parenttype": "DocType", 
+  "permlevel": 0
+ }, 
+ {
+  "create": 1, 
+  "doctype": "DocPerm", 
+  "name": "__common__", 
+  "parent": "Interfacial Tension Against Water", 
+  "parentfield": "permissions", 
+  "parenttype": "DocType", 
+  "permlevel": 0, 
+  "read": 1, 
+  "report": 1, 
+  "role": "All", 
+  "write": 1
+ }, 
+ {
+  "doctype": "DocType", 
+  "name": "Interfacial Tension Against Water"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "sample_no", 
+  "fieldtype": "Link", 
+  "in_list_view": 1, 
+  "label": "Sample ID", 
+  "options": "Sample"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "bottle_no", 
+  "fieldtype": "Data", 
+  "in_list_view": 1, 
+  "label": "Bottle No"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "reported_temp", 
+  "fieldtype": "Data", 
+  "in_list_view": 1, 
+  "label": "Reported Temperature From Client"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "temperature_of_water", 
+  "fieldtype": "Data", 
+  "in_list_view": 1, 
+  "label": "Temperature Of Water"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "water_density", 
+  "fieldtype": "Data", 
+  "in_list_view": 1, 
+  "label": "Density Of Water @ Reported Temp"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "ift_of_water", 
+  "fieldtype": "Data", 
+  "label": "IFT of water"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "temparature_of_oil", 
+  "fieldtype": "Data", 
+  "in_list_view": 1, 
+  "label": "Temperature Of Oil"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "density_of_oil", 
+  "fieldtype": "Data", 
+  "label": "Density Of Oil"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "density_of_oil_@_reported_temp", 
+  "fieldtype": "Button", 
+  "label": "Density Of Oil @ Reported Temp"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "ir", 
+  "fieldtype": "Data", 
+  "label": "IR (dync/cm)"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "reported_ir", 
+  "fieldtype": "Data", 
+  "in_list_view": 1, 
+  "label": "Reported IR"
+ }, 
+ {
+  "doctype": "DocPerm"
+ }
+]

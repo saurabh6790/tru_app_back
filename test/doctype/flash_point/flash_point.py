@@ -7,7 +7,7 @@ from __future__ import unicode_literals
 import webnotes
 from test.doctype import assign_notify
 from test.doctype import create_test_results
-from test.doctype import create_child_testresult,get_pgcil_limit
+from test.doctype import create_child_testresult,get_pgcil_limit, verfy_bottle_number,update_test_log
 from webnotes.model.bean import getlist
 from webnotes.utils import cint, cstr, flt, now, nowdate, get_first_day, get_last_day, add_to_date, getdate
 
@@ -17,16 +17,28 @@ class DocType:
 
 	def on_update(self):
 		#Assign To Function
-		self.assign_flash_point_test();
+		#self.assign_flash_point_test();
 		self.update_status();
+		verfy_bottle_number(self.doc.sample_no, self.doc.bottle_no)
+
+
+	def add_equipment(self,equipment):
+		#webnotes.errprint(equipment)
+		if self.doc.equipment_used_list:
+			equipment_list = self.doc.equipment_used_list + ', ' + equipment
+		else:
+			equipment_list = equipment 
+		return{	
+		"equipment_used_list": equipment_list
+		}
 
 	def update_status(self):
 		webnotes.conn.sql("update `tabSample Allocation Detail` set status='"+self.doc.workflow_state+"' where test_id='"+self.doc.name+"' ")
 		webnotes.conn.commit()
 	
-	def get_barcode(self,sample_no):
-		self.doc.bottle_no=webnotes.conn.get_value('Sample',sample_no,'barcode')
-		return {'bottle_no':self.doc.bottle_no}
+	# def get_barcode(self,sample_no):
+	# 	self.doc.bottle_no=webnotes.conn.get_value('Sample',sample_no,'barcode')
+	# 	return {'bottle_no':self.doc.bottle_no}
 
 	def assign_flash_point_test(self):
 		test_details = {'test': "Flash Point", 'name': self.doc.name}
@@ -53,6 +65,12 @@ class DocType:
 		#self.doc.reported={'Reported value of Flash Point':self.doc.reported}
 		parent=create_test_results(test_detail)
 		create_child_testresult(parent,self.doc.reported,test_detail,'Flash Point')
+
+		if self.doc.workflow_state=='Rejected':
+			webnotes.errprint(self.doc.workflow_state)
+			update_test_log(test_detail)
+
+
 
 
 

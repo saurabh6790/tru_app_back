@@ -2,7 +2,7 @@
  {
   "creation": "2013-05-03 10:45:46", 
   "docstatus": 0, 
-  "modified": "2014-04-19 17:20:13", 
+  "modified": "2014-06-11 15:51:53", 
   "modified_by": "Administrator", 
   "owner": "Administrator"
  }, 
@@ -15,7 +15,7 @@
   "doctype": "DocType", 
   "document_type": "Master", 
   "icon": "icon-tag", 
-  "max_attachments": 1, 
+  "max_attachments": 5, 
   "module": "Stock", 
   "name": "__common__", 
   "search_fields": "item_name,description,item_group,customer_code"

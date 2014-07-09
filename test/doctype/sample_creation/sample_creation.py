@@ -66,9 +66,9 @@ class DocType:
 		webnotes.conn.sql("commit")
 		
 	def get_sample_entry_details(self,s_entry):
-		webnotes.errprint(s_entry)
+		#webnotes.errprint(s_entry)
 		details=webnotes.conn.sql("select bottle_no,bottles_barcodes from `tabSample Entry` where name='"+s_entry+"'",as_list=1)
-		webnotes.errprint(details)
+		#webnotes.errprint(details)
 		return {
 			'bottle_no':details[0][0],
 			'bottles_barcodes':details[0][1]

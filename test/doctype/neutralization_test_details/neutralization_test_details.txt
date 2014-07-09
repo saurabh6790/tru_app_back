@@ -2,7 +2,7 @@
  {
   "creation": "2014-05-19 16:20:01", 
   "docstatus": 0, 
-  "modified": "2014-05-20 11:16:26", 
+  "modified": "2014-06-12 13:49:25", 
   "modified_by": "Administrator", 
   "owner": "Administrator"
  }, 
@@ -16,7 +16,6 @@
  }, 
  {
   "doctype": "DocField", 
-  "in_list_view": 1, 
   "name": "__common__", 
   "parent": "Neutralization Test Details", 
   "parentfield": "fields", 
@@ -45,38 +44,56 @@
   "doctype": "DocField", 
   "fieldname": "sample_no", 
   "fieldtype": "Link", 
+  "in_list_view": 1, 
   "label": "Sample Id", 
-  "options": "Sample"
+  "options": "Sample", 
+  "reqd": 1
  }, 
  {
   "doctype": "DocField", 
   "fieldname": "bottle_no", 
   "fieldtype": "Small Text", 
+  "in_list_view": 1, 
   "label": "Bottle No"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "temperature_of_oil", 
+  "fieldtype": "Data", 
+  "in_list_view": 1, 
+  "label": "Temperature Of Oil", 
+  "reqd": 1
  }, 
  {
   "doctype": "DocField", 
   "fieldname": "density_of_oil", 
   "fieldtype": "Data", 
-  "label": "Density Of Oil"
+  "in_list_view": 1, 
+  "label": "Density Of Oil", 
+  "read_only": 1
  }, 
  {
   "doctype": "DocField", 
   "fieldname": "volume_of_oil", 
   "fieldtype": "Data", 
-  "label": "Volume Of Oil"
- }, 
- {
-  "doctype": "DocField", 
-  "fieldname": "ml_consumes_of_alkoh", 
-  "fieldtype": "Data", 
-  "label": "ml Consumes Of ALKOH"
+  "in_list_view": 1, 
+  "label": "Volume Of Oil", 
+  "reqd": 1
  }, 
  {
   "doctype": "DocField", 
   "fieldname": "reported_value", 
   "fieldtype": "Data", 
-  "label": "Reported Value"
+  "in_list_view": 1, 
+  "label": "Result", 
+  "read_only": 1
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "ml_consumes_of_alkoh", 
+  "fieldtype": "Data", 
+  "label": "ml Consumes Of Alkoh", 
+  "reqd": 1
  }, 
  {
   "doctype": "DocPerm"

@@ -1,0 +1,22 @@
+[
+ {
+  "creation": "2014-05-28 10:35:38", 
+  "docstatus": 0, 
+  "modified": "2014-05-28 10:35:38", 
+  "modified_by": "Administrator", 
+  "owner": "Administrator"
+ }, 
+ {
+  "doctype": "Report", 
+  "is_standard": "Yes", 
+  "json": "{\"filters\":[[\"Sample Entry\",\"creation\",\"like\",\"2014-05-19%\"]],\"columns\":[[\"name\",\"Sample Entry\"],[\"plant\",\"Sample Entry\"],[\"functional_location\",\"Sample Entry\"],[\"rating\",\"Sample Entry\"],[\"voltage_ratio\",\"Sample Entry\"],[\"make\",\"Sample Entry\"],[\"bottles_barcodes\",\"Sample Entry\"]],\"sort_by\":\"Sample Entry.functional_location\",\"sort_order\":\"desc\",\"sort_by_next\":\"Sample Entry.rating\",\"sort_order_next\":\"desc\"}", 
+  "name": "__common__", 
+  "ref_doctype": "Sample Entry", 
+  "report_name": "S1", 
+  "report_type": "Report Builder"
+ }, 
+ {
+  "doctype": "Report", 
+  "name": "S1"
+ }
+]

@@ -2,7 +2,7 @@
  {
   "creation": "2014-05-05 14:42:07", 
   "docstatus": 0, 
-  "modified": "2014-05-19 12:58:31", 
+  "modified": "2014-07-09 15:38:16", 
   "modified_by": "Administrator", 
   "owner": "Administrator"
  }, 
@@ -29,7 +29,7 @@
   "doctype": "DocField", 
   "fieldname": "temparature", 
   "fieldtype": "Data", 
-  "label": "Temparature"
+  "label": "Temperature"
  }, 
  {
   "doctype": "DocField", 
@@ -54,7 +54,7 @@
   "fieldname": "remark", 
   "fieldtype": "Select", 
   "label": "Remark", 
-  "options": "\nAccepted\nNot-Accepted"
+  "options": "\nAccepted\nRejected"
  }, 
  {
   "doctype": "DocField", 

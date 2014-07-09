@@ -2,7 +2,7 @@
  {
   "creation": "2014-05-26 17:08:59", 
   "docstatus": 0, 
-  "modified": "2014-05-27 14:56:04", 
+  "modified": "2014-05-30 15:53:40", 
   "modified_by": "Administrator", 
   "owner": "Administrator"
  }, 
@@ -46,61 +46,90 @@
   "doctype": "DocField", 
   "fieldname": "test_details", 
   "fieldtype": "Section Break", 
+  "label": "Test Specification"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "specification", 
+  "fieldtype": "Link", 
+  "label": "Specification", 
+  "options": "Specification"
+ }, 
+ {
+  "depends_on": "eval:doc.specification", 
+  "doctype": "DocField", 
+  "fieldname": "section_break_5", 
+  "fieldtype": "Section Break", 
   "label": "Test Details"
  }, 
  {
+  "depends_on": "eval:doc.specification", 
   "doctype": "DocField", 
   "fieldname": "test", 
   "fieldtype": "Link", 
-  "label": "Test", 
+  "label": "Test Name", 
   "options": "Test Name", 
-  "reqd": 1
- }, 
- {
-  "doctype": "DocField", 
-  "fieldname": "test_type", 
-  "fieldtype": "Select", 
-  "hidden": 1, 
-  "label": "Test Type", 
-  "options": "\nBatch\nIndividual"
- }, 
- {
-  "doctype": "DocField", 
-  "fieldname": "test_method", 
-  "fieldtype": "Link", 
-  "label": "Test Method", 
-  "options": "Test Method"
- }, 
- {
-  "doctype": "DocField", 
-  "fieldname": "standard", 
-  "fieldtype": "Data", 
-  "label": "Standard", 
-  "read_only": 1
- }, 
- {
-  "doctype": "DocField", 
-  "fieldname": "column_break_6", 
-  "fieldtype": "Column Break"
+  "reqd": 0
  }, 
  {
   "depends_on": "eval:doc.test", 
   "doctype": "DocField", 
   "fieldname": "violation_limit", 
   "fieldtype": "Data", 
+  "hidden": 0, 
   "label": "Violation Limit"
  }, 
  {
   "doctype": "DocField", 
+  "fieldname": "column_break_9", 
+  "fieldtype": "Column Break"
+ }, 
+ {
+  "depends_on": "eval:doc.test", 
+  "doctype": "DocField", 
+  "fieldname": "test_method", 
+  "fieldtype": "Link", 
+  "hidden": 0, 
+  "label": "Test Method", 
+  "options": "Test Method"
+ }, 
+ {
+  "depends_on": "eval:doc.test_method", 
+  "doctype": "DocField", 
+  "fieldname": "section_break_11", 
+  "fieldtype": "Section Break", 
+  "label": "Test Method Details"
+ }, 
+ {
+  "depends_on": "eval:doc.test_method", 
+  "doctype": "DocField", 
+  "fieldname": "standard", 
+  "fieldtype": "Link", 
+  "hidden": 0, 
+  "label": "Standard", 
+  "options": "Standard", 
+  "read_only": 0
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "column_break_13", 
+  "fieldtype": "Column Break"
+ }, 
+ {
+  "depends_on": "eval:doc.test_method", 
+  "doctype": "DocField", 
   "fieldname": "sop", 
-  "fieldtype": "Data", 
-  "label": "Related SOP", 
-  "read_only": 1
+  "fieldtype": "Link", 
+  "hidden": 0, 
+  "label": "SOP", 
+  "options": "SOP", 
+  "read_only": 0
  }, 
  {
   "doctype": "DocField", 
   "fieldname": "time_budget", 
   "fieldtype": "Section Break", 
+  "hidden": 1, 
   "label": "Time Details"
  }, 
  {

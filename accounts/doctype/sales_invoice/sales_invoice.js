@@ -17,6 +17,7 @@ wn.require('app/accounts/doctype/sales_invoice/pos.js');
 wn.provide("erpnext.accounts");
 erpnext.accounts.SalesInvoiceController = erpnext.selling.SellingController.extend({
 	onload: function() {
+		
 		this._super();
 
 		if(!this.frm.doc.__islocal && !this.frm.doc.customer && this.frm.doc.debit_to) {

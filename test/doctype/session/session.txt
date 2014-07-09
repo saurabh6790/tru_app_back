@@ -1,0 +1,62 @@
+[
+ {
+  "creation": "2014-06-27 11:35:35", 
+  "docstatus": 0, 
+  "modified": "2014-06-27 12:41:15", 
+  "modified_by": "Administrator", 
+  "owner": "Administrator"
+ }, 
+ {
+  "autoname": "Sess.####", 
+  "doctype": "DocType", 
+  "document_type": "Master", 
+  "module": "Test", 
+  "name": "__common__"
+ }, 
+ {
+  "doctype": "DocField", 
+  "name": "__common__", 
+  "parent": "Session", 
+  "parentfield": "fields", 
+  "parenttype": "DocType", 
+  "permlevel": 0
+ }, 
+ {
+  "create": 1, 
+  "doctype": "DocPerm", 
+  "name": "__common__", 
+  "parent": "Session", 
+  "parentfield": "permissions", 
+  "parenttype": "DocType", 
+  "permlevel": 0, 
+  "read": 1, 
+  "role": "Administrator", 
+  "write": 1
+ }, 
+ {
+  "doctype": "DocType", 
+  "name": "Session"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "details", 
+  "fieldtype": "Small Text", 
+  "label": "Details"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "pos_test_no", 
+  "fieldtype": "Data", 
+  "label": "Possible Test Count"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "status", 
+  "fieldtype": "Select", 
+  "label": "Status", 
+  "options": "Open\nClose"
+ }, 
+ {
+  "doctype": "DocPerm"
+ }
+]

@@ -9,7 +9,14 @@ cur_frm.add_fetch('transformer', 'voltage_ratio', 'voltage_ratio');
 
 cur_frm.add_fetch('transformer', 'phase', 'phase');
 
-cur_frm.add_fetch('transformer', 'transformer_identity', 'serial_no');
+cur_frm.add_fetch('transformer', 'serial_no', 'serial_no');
+
+cur_frm.add_fetch('transformer', 'sub_station', 'sub_station');
+
+cur_frm.add_fetch('transformer', 'functional_location', 'functional_location');
+
+//cur_frm.add_fetch('transformer','point_of_sample','point_of_sample');
+
 
 
 cur_frm.cscript.test_required = function(doc,cdt,cdn){
