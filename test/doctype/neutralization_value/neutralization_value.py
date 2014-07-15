@@ -18,7 +18,7 @@ class DocType:
 
 	def on_update(self):
 		#Assign To Function
-		#self.assign_neutralization_value_test()
+		webnotes.errprint("in on_update")
 		#self.update_status()
 		self.check_bottle_no()
 		#self.calculate_neutralisation_value()

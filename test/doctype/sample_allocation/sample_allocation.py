@@ -57,6 +57,10 @@ class DocType:
 		#webnotes.errprint("in on update")
 		self.update_sample_status()
 
+	def on_update(self):
+		webnotes.errprint("in on update")
+		self.update_sample_status()
+
 	def get_sample_no(self):
 		samples=webnotes.conn.sql("""select sample_no from `tabFinal Sample Allocation To Lab` 
 			where parent='%s' and find_in_set('%s',test) """ %(self.doc.sample_allocation_lab,self.doc.test_name),as_list=1)
@@ -72,7 +76,7 @@ class DocType:
 						webnotes.errprint(d.sample_no)
 						webnotes.errprint(sample_no)
 						if d.test:
-							d.test = d.test + ', ' +self.doc.test_name 
+							d.test = d.test + ',' +self.doc.test_name 
 						else:
 							d.test = self.doc.test_name
 						return{	
@@ -107,8 +111,8 @@ class DocType:
 			self.test_allocation(sample)
 
 		#for updation of status in Sample Doctype
-		webnotes.conn.sql("update tabSample set status = 'Assigned' where name ='"+self.doc.sample_no+"'")
-		webnotes.conn.sql("commit")
+		# webnotes.conn.sql("update tabSample set status = 'Assigned' where name ='"+self.doc.sample_no+"'")
+		# webnotes.conn.sql("commit")
 		
 	def test_allocation(self, sample):
 		#webnotes.errprint("in test allocation")
@@ -119,17 +123,35 @@ class DocType:
 
 	def create_test(self,sample):
 		#webnotes.errprint("in create test")
-		webnotes.errprint(sample.get("test"))
-		test_method, specification = self.get_test_method(sample)
-		test = Document(sample.get("test"))
-		test.sample_no = sample.get("sample_no")
-		#test.method = test_method
-		test.specification = specification
-		test.temperature = webnotes.conn.get_value('Sample', self.doc.sample_no, 'temperature')
-		test.tested_by = self.doc.tester
-		test.save()
-		self.update_test_id(sample,test.name)
-		return test.name
+		tests=sample.get("test").split(',')
+		#webnotes.errprint(tests)
+		length=len(tests)
+		#webnotes.errprint(length)
+		if length==1:
+			webnotes.errprint("length 1")
+			webnotes.errprint(tests[0])
+			test_method, specification = self.get_test_method(sample)
+			test = Document(tests[0])
+			test.sample_no = sample.get("sample_no")
+			test.specification = specification
+			test.temperature = webnotes.conn.get_value('Sample', self.doc.sample_no, 'temperature')
+			test.tested_by = self.doc.tester
+			test.save()
+			self.update_test_id(sample,test.name)
+			return test.name
+		else:
+			for i in tests:
+				#webnotes.errprint("in else")
+				#webnotes.errprint(i)
+				test_method, specification = self.get_test_method(sample)
+				test = Document(i)
+				test.sample_no = sample.get("sample_no")
+				test.specification = specification
+				test.temperature = webnotes.conn.get_value('Sample', self.doc.sample_no, 'temperature')
+				test.tested_by = self.doc.tester
+				test.save()
+				self.update_test_id(sample,test.name)
+			return test.name
 
 	def get_test_method(self, sample):
 		specification = webnotes.conn.get_value("Sample", self.doc.sample_no, 'specification')

@@ -2,7 +2,7 @@
  {
   "creation": "2014-06-13 16:11:34", 
   "docstatus": 0, 
-  "modified": "2014-07-01 11:33:01", 
+  "modified": "2014-07-10 11:33:25", 
   "modified_by": "Administrator", 
   "owner": "Administrator"
  }, 
@@ -47,6 +47,13 @@
   "label": "Status", 
   "options": "\nOpen\nApproved\nRejected", 
   "read_only": 1
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "specification", 
+  "fieldtype": "Link", 
+  "label": "Specification", 
+  "options": "Specification"
  }, 
  {
   "doctype": "DocField", 

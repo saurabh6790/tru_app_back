@@ -24,7 +24,7 @@ class DocType:
 		if density:
 			self.doc.density_data=density
 			self.doc.temperature_data=temp
-			self.doc.final_density=self.generate_testresult(temp,density,self.doc.temp)
+			self.doc.final_density=self.generate_testresult(temp,density,self.doc.temperature)
 			self.doc.save()
 
 		verfy_bottle_number(self.doc.sample_no, self.doc.bottle_no)
