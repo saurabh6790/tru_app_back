@@ -60,22 +60,21 @@
   "doctype": "DocField", 
   "fieldname": "physical_condition_density", 
   "fieldtype": "Link", 
-  "label": "Physical Condition & Density Name", 
-  "options": "Physical Condition And Density", 
-  "reqd": 1
- }, 
- {
-  "doctype": "DocField", 
-  "fieldname": "density_data", 
-  "fieldtype": "Data", 
-  "label": "Density", 
-  "read_only": 1
+  "label": "Physical Condition & Density", 
+  "options": "Physical Condition And Density"
  }, 
  {
   "doctype": "DocField", 
   "fieldname": "temperature_data", 
   "fieldtype": "Data", 
   "label": "Temperature", 
+  "read_only": 1
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "density_data", 
+  "fieldtype": "Data", 
+  "label": "Density ", 
   "read_only": 1
  }, 
  {

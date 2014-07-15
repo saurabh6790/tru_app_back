@@ -50,6 +50,7 @@ class DocType:
 
 		for test in tests:
 			if test[0] in mapper:
+				webnotes.errprint(test[0])
 				if isinstance(mapper.get(test[0]), list):
 					self.get_result(test[0], sample_id, results)
 
