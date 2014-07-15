@@ -2,7 +2,7 @@
  {
   "creation": "2014-06-14 13:49:22", 
   "docstatus": 0, 
-  "modified": "2014-07-02 16:02:41", 
+  "modified": "2014-07-11 15:16:20", 
   "modified_by": "Administrator", 
   "owner": "Administrator"
  }, 
@@ -69,14 +69,22 @@
   "doctype": "DocField", 
   "fieldname": "test", 
   "fieldtype": "Data", 
+  "hidden": 1, 
   "label": "Test", 
-  "read_only": 1
+  "read_only": 0
  }, 
  {
   "doctype": "DocField", 
   "fieldname": "notification_time", 
   "fieldtype": "Data", 
   "label": "Notification Time"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "tester", 
+  "fieldtype": "Link", 
+  "label": "Tester", 
+  "options": "Employee"
  }, 
  {
   "doctype": "DocField", 
@@ -117,6 +125,7 @@
   "doctype": "DocField", 
   "fieldname": "status", 
   "fieldtype": "Select", 
+  "hidden": 1, 
   "label": "Status", 
   "options": "\nCompleted\nPending"
  }, 

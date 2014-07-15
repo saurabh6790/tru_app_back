@@ -2,7 +2,7 @@
  {
   "creation": "2014-05-15 12:04:47", 
   "docstatus": 0, 
-  "modified": "2014-05-15 12:53:46", 
+  "modified": "2014-07-12 15:18:19", 
   "modified_by": "Administrator", 
   "owner": "Administrator"
  }, 
@@ -39,10 +39,10 @@
  }, 
  {
   "doctype": "DocField", 
-  "fieldname": "temprature", 
+  "fieldname": "temparature", 
   "fieldtype": "Data", 
   "in_list_view": 1, 
-  "label": "Temprature"
+  "label": "Temparature"
  }, 
  {
   "doctype": "DocField", 

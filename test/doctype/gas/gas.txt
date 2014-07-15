@@ -2,7 +2,7 @@
  {
   "creation": "2014-04-29 17:30:43", 
   "docstatus": 0, 
-  "modified": "2014-06-13 15:04:34", 
+  "modified": "2014-07-10 12:46:02", 
   "modified_by": "Administrator", 
   "owner": "Administrator"
  }, 
@@ -62,7 +62,7 @@
   "read_only": 1
  }, 
  {
-  "cancel": 0, 
+  "cancel": 1, 
   "doctype": "DocPerm", 
   "role": "Administrator", 
   "submit": 0

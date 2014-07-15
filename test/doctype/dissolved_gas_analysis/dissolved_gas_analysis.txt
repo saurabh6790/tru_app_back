@@ -2,7 +2,7 @@
  {
   "creation": "2014-04-29 17:44:42", 
   "docstatus": 0, 
-  "modified": "2014-07-09 16:00:07", 
+  "modified": "2014-07-10 12:47:03", 
   "modified_by": "Administrator", 
   "owner": "Administrator"
  }, 
@@ -62,13 +62,13 @@
   "label": "Date"
  }, 
  {
-  "depends_on": "eval:doc.equipment_used", 
   "doctype": "DocField", 
   "fieldname": "equipment_used", 
   "fieldtype": "Data", 
   "label": "Equipment Used"
  }, 
  {
+  "depends_on": "eval:doc.equipment_used", 
   "doctype": "DocField", 
   "fieldname": "add", 
   "fieldtype": "Button", 
@@ -261,7 +261,9 @@
   "read_only": 1
  }, 
  {
+  "amend": 1, 
   "doctype": "DocPerm", 
+  "report": 1, 
   "role": "Administrator"
  }, 
  {

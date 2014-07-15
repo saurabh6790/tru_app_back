@@ -24,12 +24,12 @@ class DocType:
 		if density:
 			self.doc.density_data=density
 			self.doc.temperature_data=temp
-			self.doc.final_density=self.generate_testresult(temp,density,self.doc.temp)
+			self.doc.final_density=self.generate_testresult(temp,density,self.doc.temperature)
 			self.doc.save()
 
 		verfy_bottle_number(self.doc.sample_no, self.doc.bottle_no)
 
-
+	
 	def add_equipment(self,equipment):
 		#webnotes.errprint(equipment)
 		if self.doc.equipment_used_list:
@@ -74,8 +74,9 @@ class DocType:
 		parent=create_test_results(test_detail)
 
 		if density:
-			final_density=self.generate_testresult(temp,density,self.doc.temp)
-			create_child_testresult(parent,final_density,test_detail,'Density in gm/cm3')
+			# final_density=self.generate_testresult(temp,density,self.doc.temparature)
+			webnotes.errprint(self.doc.final_density)
+			create_child_testresult(parent,self.doc.final_density,test_detail,'Density in gm/cm3')
 
 		if self.doc.workflow_state=='Rejected':
 			#webnotes.errprint(self.doc.workflow_state)
@@ -105,12 +106,14 @@ class DocType:
 		if self.doc.density=='By Weight':
 			result=webnotes.conn.sql("select temparature,density from `tabDensity Details` where consider_for_final_result='1' and parent='%s'"%(self.doc.name),as_list=1)
 		elif self.doc.density=='By Hydrometer':
-			result=webnotes.conn.sql("select temprature,reported from `tabDensity Reading` where consider_for_final_result='1' and parent='%s'"%(self.doc.name),as_list=1)
+			result=webnotes.conn.sql("select temparature,reported from `tabDensity Reading` where consider_for_final_result='1' and parent='%s'"%(self.doc.name),as_list=1)
 		if result:
 			return result[0][0],result[0][1]
 
 	def generate_testresult(self,temp,density,temp_on_job_card):
 		cal=cstr(cint(1)+(0.00065*flt((flt(temp)-flt(temp_on_job_card)))))
+		webnotes.errprint(cal)
+		webnotes.errprint(flt(density)*flt(cal))
 		return cstr(flt(density)*flt(cal))
 
 	def check_final_result(self):

@@ -2,7 +2,7 @@
  {
   "creation": "2014-05-16 15:05:30", 
   "docstatus": 0, 
-  "modified": "2014-07-01 11:43:46", 
+  "modified": "2014-07-12 16:51:48", 
   "modified_by": "Administrator", 
   "owner": "Administrator"
  }, 
@@ -55,9 +55,10 @@
  {
   "doctype": "DocField", 
   "fieldname": "sample_no", 
-  "fieldtype": "Data", 
+  "fieldtype": "Link", 
   "label": "Sample No", 
-  "read_only": 1
+  "options": "Sample", 
+  "read_only": 0
  }, 
  {
   "doctype": "DocField", 
@@ -114,7 +115,7 @@
   "fieldtype": "Data", 
   "hidden": 0, 
   "label": "Bottle No", 
-  "read_only": 1
+  "read_only": 0
  }, 
  {
   "doctype": "DocField", 

@@ -57,6 +57,10 @@ class DocType:
 		#webnotes.errprint("in on update")
 		self.update_sample_status()
 
+	def on_update(self):
+		webnotes.errprint("in on update")
+		self.update_sample_status()
+
 	def get_sample_no(self):
 		samples=webnotes.conn.sql("""select sample_no from `tabFinal Sample Allocation To Lab` 
 			where parent='%s' and find_in_set('%s',test) """ %(self.doc.sample_allocation_lab,self.doc.test_name),as_list=1)
@@ -72,7 +76,7 @@ class DocType:
 						webnotes.errprint(d.sample_no)
 						webnotes.errprint(sample_no)
 						if d.test:
-							d.test = d.test + ', ' +self.doc.test_name 
+							d.test = d.test + ',' +self.doc.test_name 
 						else:
 							d.test = self.doc.test_name
 						return{	
@@ -107,23 +111,58 @@ class DocType:
 			self.test_allocation(sample)
 
 		#for updation of status in Sample Doctype
-		webnotes.conn.sql("update tabSample set status = 'Assigned' where name ='"+self.doc.sample_no+"'")
-		webnotes.conn.sql("commit")
+		for sample in getlist(self.doclist,'sample_allocation_detail'):
+			webnotes.conn.sql("update tabSample set status = 'Assigned' where name ='"+sample.sample_no+"'")
+			webnotes.conn.sql("commit")
 		
 	def test_allocation(self, sample):
 		#webnotes.errprint("in test allocation")
-
-		test_id = self.create_test(sample)
- 		self.create_todo(sample, test_id)
+		self.create_test(sample)
  		
-
 	def create_test(self,sample):
-		#webnotes.errprint("in create test")
-		webnotes.errprint(sample.get("test"))
+		tests=sample.get("test").split(',')
+		
+		length=len(tests)
+
+		if length==1:
+			test_id = self.ckeck_test(tests[0],sample)
+			self.create_todo(sample, test_id)
+		else:
+			for test in tests:
+				test_id = self.ckeck_test(test,sample)
+				self.create_todo(sample, test_id)
+
+	def ckeck_test(self, test_name, sample):
+		escape_tests=['Sediment','Furan Content','Corrossive Sulphur','Oxidation Stability','Accelerated Ageing']
+		if test_name not in escape_tests:
+			return self.create_doc(test_name, sample)
+		else:
+			webnotes.errprint(test_name)
+			webnotes.errprint(sample.get("sample_no"))
+			parent=self.create_test_preparation(test_name,sample)
+			self.create_child_test_preparation(test_name,sample,parent)
+	def create_test_preparation(self,test_name,sample):
+		webnotes.errprint("in create test")
+		test_preparation=Document("Test Preparation")
+		test_preparation.test=test_name
+		test_preparation.save()
+		return test_preparation.name
+	def create_child_test_preparation(self,test_name,sample,parent):
+		webnotes.errprint("in child")
+		from webnotes.model.doc import get
+		if parent and test_name and sample:
+			doc = get('Test Preparation', parent)
+			doclist = get('Test Preparation', parent, with_children=1)
+			ch = addchild(doc[0], 'sample_details', 'Sample Preparation Details', doclist)
+			ch.sample_no = sample.get("sample_no")
+			ch.bottle_no= sample.get("bottle_no")
+			ch.tester=self.doc.tester
+			ch.save()
+
+	def create_doc(self, test_name, sample):
 		test_method, specification = self.get_test_method(sample)
-		test = Document(sample.get("test"))
+		test = Document(test_name)
 		test.sample_no = sample.get("sample_no")
-		#test.method = test_method
 		test.specification = specification
 		test.temperature = webnotes.conn.get_value('Sample', self.doc.sample_no, 'temperature')
 		test.tested_by = self.doc.tester
@@ -138,8 +177,6 @@ class DocType:
 		return test_method[0][0] if test_method else '', specification
 
 	def update_test_id(self,sample,test_name):
-		#webnotes.errprint("in update test id")
-
 		#webnotes.errprint("update `tabSample Allocation Detail` set test_id='"+test_name+"' where sample_no='"+self.doc.sample_no+"' and test='"+sample.get("test")+"' and parent='"+self.doc.name+"'")
 		webnotes.conn.sql("update `tabSample Allocation Detail` set test_id='"+test_name+"' where test='"+sample.get("test")+"' and parent='"+self.doc.name+"'")
 		webnotes.conn.commit()
@@ -158,26 +195,30 @@ class DocType:
 			d.assigned_by = webnotes.user.name
 			d.save(1)
 
+
 def get_sample_no(doctype, txt, searchfield, start, page_len, filters):
 	
 	return 	webnotes.conn.sql(""" select  name from tabSample where status = 'Lab Entry' 
 		union select distinct sample_no from`tabTest Log` tl""")
 
-	
-# 	def add_samples(self):
-# 		if self.doc.sample_type == 'Single Sample':
-# 			test_details = self.get_sample_wise_test(self.doc.sample_id)
-# 			# self.check_register(self.doc.sample_id)
-# 			self.fill_sample_alloacation_detail(test_details, self.doc.sample_id)
 
-# 		if self.doc.sample_type == "Batch":
-# 			samples = webnotes.conn.sql("select sample from `tabBatch Detail` bd where bd.parent =  '%s' "%self.doc.batch, as_list=1)
-# 			for sample in samples:
-# 				# self.check_register(sample[0])
-# 				self.fill_sample_alloacation_detail(self.get_sample_wise_test(sample[0]), sample[0])
 
-# 	def check_register(self, sample_id):
-# 		register_no = webnotes.conn.sql("""select name from tabRegister where sample_no = '%s'"""%(sample_id))
+	# def add_samples(self):
+	# 	if self.doc.sample_type == 'Single Sample':
+	# 		test_details = self.get_sample_wise_test(self.doc.sample_id)
+	# 		# self.check_register(self.doc.sample_id)
+	# 		self.fill_sample_alloacation_detail(test_details, self.doc.sample_id)
+
+	# 	if self.doc.sample_type == "Batch":
+	# 		samples = webnotes.conn.sql("select sample from `tabBatch Detail` bd where bd.parent =  '%s' "%self.doc.batch, as_list=1)
+	# 		for sample in samples:
+	# 			# self.check_register(sample[0])
+	# 			self.fill_sample_alloacation_detail(self.get_sample_wise_test(sample[0]), sample[0])
+
+# def add_sample_numbers(self):
+
+# # 	def check_register(self, sample_id):
+# # 		register_no = webnotes.conn.sql("""select name from tabRegister where sample_no = '%s'"""%(sample_id))
 # 		if not register_no:
 # 			webnotes.msgprint("Registration not yet done for selected sample.",raise_exception=1)
 
@@ -226,21 +267,3 @@ def get_employee(doctype, txt, searchfield, start, page_len, filters):
 # 		%(key)s like "%(txt)s" and %(cond)s  
 # 		limit %(start)s, %(page_len)s """%{'key': searchfield, 'txt': "%%%s%%" % txt, 
 # 		'cond': conditions, 'start': start, 'page_len': page_len})
-
-# def make_condition(filters):
-# 	cond = ''
-
-# 	# if filters.get("level"):
-# 	# 	cond += " level = '%(level)s'"%{'level': filters.get("level")}
-
-# 	if filters.get("test"):
-# 		cond += " and test = '%(test)s'"%{'test': filters.get("test")}
-
-# 	# if filters.get("parent"):
-# 	# 	if isinstance(filters.get("parent"), list):
-# 	# 		parent = "('%s', '%s')"%(filters.get("parent")[0], filters.get("parent")[1])
-# 	# 		cond += " and parent not in %(parent)s"%{'parent':parent}
-# 	# 	else:
-# 	# 		cond += " and parent != '%s'"%filters.get('parent')
-
-# 	return cond 

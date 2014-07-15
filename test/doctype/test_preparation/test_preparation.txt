@@ -2,7 +2,7 @@
  {
   "creation": "2014-06-14 15:22:18", 
   "docstatus": 0, 
-  "modified": "2014-07-02 16:06:44", 
+  "modified": "2014-07-11 12:18:47", 
   "modified_by": "Administrator", 
   "owner": "Administrator"
  }, 
@@ -24,6 +24,7 @@
   "permlevel": 0
  }, 
  {
+  "amend": 1, 
   "cancel": 1, 
   "create": 1, 
   "doctype": "DocPerm", 
@@ -53,7 +54,7 @@
   "doctype": "DocField", 
   "fieldname": "temperature", 
   "fieldtype": "Data", 
-  "label": "temperature", 
+  "label": "Temperature", 
   "read_only": 1
  }, 
  {
@@ -79,14 +80,24 @@
   "doctype": "DocField", 
   "fieldname": "test_preparation", 
   "fieldtype": "Data", 
+  "hidden": 1, 
   "label": "Test Preparation", 
   "read_only": 1
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "tester", 
+  "fieldtype": "Link", 
+  "hidden": 1, 
+  "label": "Tester", 
+  "options": "Employee"
  }, 
  {
   "default": "Pending", 
   "doctype": "DocField", 
   "fieldname": "status", 
   "fieldtype": "Select", 
+  "hidden": 1, 
   "label": "Status", 
   "options": "\nCompleted\nPending", 
   "read_only": 0, 

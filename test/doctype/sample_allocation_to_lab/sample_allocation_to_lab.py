@@ -26,8 +26,6 @@ class DocType:
 			webnotes.conn.sql("update tabSample set status = 'Lab Entry' where name ='"+sample.sample_no+"'")
 			webnotes.conn.sql("commit")
 
-
-
 	def get_sample_details(self,priority):
 		#n=0
 		if priority=='Critical':

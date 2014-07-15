@@ -2,7 +2,7 @@
  {
   "creation": "2014-04-03 14:24:09", 
   "docstatus": 0, 
-  "modified": "2014-07-09 15:55:04", 
+  "modified": "2014-07-14 15:25:08", 
   "modified_by": "Administrator", 
   "owner": "Administrator"
  }, 
@@ -79,9 +79,10 @@
   "doctype": "DocField", 
   "fieldname": "sample_no", 
   "fieldtype": "Link", 
+  "hidden": 1, 
   "label": "Sample No", 
   "options": "Sample", 
-  "reqd": 1
+  "reqd": 0
  }, 
  {
   "doctype": "DocField", 
@@ -95,6 +96,7 @@
   "doctype": "DocField", 
   "fieldname": "test_preparation", 
   "fieldtype": "Data", 
+  "hidden": 1, 
   "label": "Test Preparation", 
   "read_only": 1
  }, 
@@ -102,9 +104,10 @@
   "doctype": "DocField", 
   "fieldname": "physical_condition_density", 
   "fieldtype": "Link", 
+  "hidden": 1, 
   "label": "Physical Condition & Density", 
   "options": "Physical Condition And Density", 
-  "reqd": 1
+  "reqd": 0
  }, 
  {
   "doctype": "DocField", 
@@ -137,6 +140,7 @@
   "doctype": "DocField", 
   "fieldname": "density_data", 
   "fieldtype": "Data", 
+  "hidden": 1, 
   "label": "Density", 
   "read_only": 1
  }, 
@@ -144,6 +148,7 @@
   "doctype": "DocField", 
   "fieldname": "temperature_data", 
   "fieldtype": "Data", 
+  "hidden": 1, 
   "label": "Temperature", 
   "read_only": 1
  }, 
@@ -151,6 +156,7 @@
   "doctype": "DocField", 
   "fieldname": "density", 
   "fieldtype": "Data", 
+  "hidden": 1, 
   "label": "Density By", 
   "read_only": 1
  }, 
@@ -164,6 +170,7 @@
   "doctype": "DocField", 
   "fieldname": "temperature", 
   "fieldtype": "Data", 
+  "hidden": 1, 
   "label": "Temperature", 
   "read_only": 1
  }, 

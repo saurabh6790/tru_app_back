@@ -7,6 +7,7 @@ from __future__ import unicode_literals
 import webnotes
 from webnotes.model.doc import addchild, Document
 
+
 class DocType:
 	def __init__(self, d, dl):
 		self.doc, self.doclist = d, dl
@@ -45,5 +46,3 @@ class DocType:
 	def on_submit(self):
 		webnotes.conn.sql("update `tabSample` set docstatus=2 where name='%s'"%self.doc.name,as_list=1)
 		webnotes.conn.sql("commit")
-
-	
