@@ -2,7 +2,7 @@
  {
   "creation": "2014-06-13 16:11:34", 
   "docstatus": 0, 
-  "modified": "2014-07-10 11:33:25", 
+  "modified": "2014-07-10 15:42:02", 
   "modified_by": "Administrator", 
   "owner": "Administrator"
  }, 
@@ -184,6 +184,7 @@
   "fieldtype": "Column Break"
  }, 
  {
+  "description": "ppm as per ICP\n", 
   "doctype": "DocField", 
   "fieldname": "silver", 
   "fieldtype": "Data", 

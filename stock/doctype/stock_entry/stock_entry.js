@@ -78,8 +78,7 @@ erpnext.stock.StockEntry = erpnext.stock.StockController.extend({
 			set_field_permlevel('electronically_approved_by_1',1);
 			set_field_permlevel('electronically_approved_by_2',1);
 
-			set_field_permlevel('approver_1_status',1);
-			set_field_permlevel('approver_2_status',1);
+			
 		}
 
 		//add button make outward register
@@ -501,18 +500,11 @@ cur_frm.cscript.outward_challan_no=function(doc,cdt,cdn){
 }
 
 
-cur_frm.cscript.on_load = function(doc,cdt,cdn){
-	set_field_permlevel('electronically_approved_by_1',1);
-	set_field_permlevel('electronically_approved_by_2',1);
+// cur_frm.cscript.on_load = function(doc,cdt,cdn){
+// 	set_field_permlevel('electronically_approved_by_1',1);
+// 	set_field_permlevel('electronically_approved_by_2',1);
 
-	set_field_permlevel('approver_1_status',1);
-	set_field_permlevel('approver_2_status',1);
+// 	// set_field_permlevel('approver_1_status',1);
+// 	// set_field_permlevel('approver_2_status',1);
 
-	set_field_permlevel('approver_name',1);
-	set_field_permlevel('approver_name',1);
-
-	
-
-
-//	}
-}
+// }

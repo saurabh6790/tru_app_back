@@ -42,11 +42,11 @@ class DocType:
 		}
 
 
-	def get_density_details(self,temperature):
-		#webnotes.errprint(temperature)
-		if self.doc.temperature_data and self.doc.density_data:
-			cal=cstr(cint(1)+(0.00065*flt((flt(self.doc.temperature_data)-flt(temperature)))))
-			density= cstr(flt(self.doc.density_data)*flt(cal))
+	def get_density_details(self,args):
+		dic=eval(args)
+		if ((dic['temperature_data']) and (dic['density'])):
+			cal=cstr(cint(1)+(0.00065*flt((flt(dic['temperature_data'])-flt(dic['temp'])))))
+			density= cstr(flt(dic['density'])*flt(cal))
 
 			return{
 			"density_of_oil":density
@@ -170,11 +170,11 @@ def get_physical_density_details(doctype, txt, searchfield, start, page_len, fil
 	return 	webnotes.conn.sql("""select name from `tabPhysical Condition And Density` 
 			 where sample_no='%s' and docstatus=1""" %filters['sample_no'],debug=1)
 
-def get_sample_details(doctype, txt, searchfield, start, page_len, filters):
-	#webnotes.errprint([filters])
-	return 	webnotes.conn.sql("""select s.sample_no from `tabSample Preparation Details` s,
-		`tabTest Preparation` p where s.parent=p.name and s.parent='%s' 
-		and p.docstatus=1 and s.status='Pending'""" %filters['test_preparation'],debug=1)
+# def get_sample_details(doctype, txt, searchfield, start, page_len, filters):
+# 	#webnotes.errprint([filters])
+# 	return 	webnotes.conn.sql("""select s.sample_no from `tabSample Preparation Details` s,
+# 		`tabTest Preparation` p where s.parent=p.name and s.parent='%s' 
+# 		and p.docstatus=1 and s.status='Pending'""" %filters['test_preparation'],debug=1)
 			
 
 @webnotes.whitelist()

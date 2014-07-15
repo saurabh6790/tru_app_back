@@ -1,16 +1,24 @@
 
-cur_frm.fields_dict.sample_allocation_detail.grid.get_field("tester").get_query = function(doc,cdt,cdn)
-{	
-  var d = locals[cdt][cdn];
-  return {
-		query: "test.doctype.sample_allocation.sample_allocation.get_employee",
-		filters: {
-			//"level": 'Level 1',
-			"test": d.test,
-			"tester":d.tester
-		}
-	}
-}
+// cur_frm.fields_dict.sample_allocation_detail.grid.get_field("tester").get_query = function(doc,cdt,cdn)
+// {	
+//   var d = locals[cdt][cdn];
+//   return {
+// 		query: "test.doctype.sample_allocation.sample_allocation.get_employee",
+// 		filters: {
+// 			//"level": 'Level 1',
+// 			"test": d.testtest_method, specification = self.get_test_method(sample)
+// 				test = Document(tests[0])
+// 				test.sample_no = sample.get("sample_no")
+// 				test.specification = specification
+// 				test.temperature = webnotes.conn.get_value('Sample', self.doc.sample_no, 'temperature')
+// 				test.tested_by = self.doc.tester
+// 				test.save()
+// 				self.update_test_id(sample,test.name)
+// 				retu,
+// 			"tester":d.tester
+// 		}
+// 	}
+// }
 
 
 

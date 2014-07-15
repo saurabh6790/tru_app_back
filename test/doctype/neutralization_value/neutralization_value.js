@@ -26,9 +26,16 @@ cur_frm.cscript.normality=function(doc, cdt, cdn){
 
 cur_frm.cscript.temperature_of_oil= function(doc, cdt, cdn) {
    var d = locals[cdt][cdn];
-   if(d.temperature_of_oil)
+   if(d.temperature_of_oil && d.physical_condition_density){
+    args={
+      
+        "temp":d.temperature_of_oil,
+        "temperature_data":d.temperature_data,
+        "density":d.density_data
+      }
 
-   	return get_server_fields('get_density_details',d.temperature_of_oil, 'neutralisation_test_details', doc, cdt, cdn, 1)
+   	return get_server_fields('get_density_details',JSON.stringify(args), 'neutralisation_test_details', doc, cdt, cdn, 1)
+  }
 }
 
 
@@ -57,18 +64,28 @@ cur_frm.get_field("normality").get_query=function(doc,cdt,cdn){
   return "select name from `tabNormality` order by creation desc" 
 
 }
+//cur_frm.fields_dict['neutralisation_test_details'].grid.get_field("physical_condition_density").get_query
 
 
-cur_frm.fields_dict['sample_no'].get_query=function(doc,cdt,cdn)
-{ 
-  return{
-    query:"test.doctype.neutralization_value.neutralization_value.get_sample_details",
-    filters:{
-      "test_preparation":doc.test_preparation
-    }
-    
-  }
+
+cur_frm.fields_dict.neutralisation_test_details.grid.get_field("physical_condition_density").get_query = function(doc,cdt,cdn)
+{
+  var d = locals[cdt][cdn];
+  if (d.sample_no)
+    return "select name from `tabPhysical Condition And Density` where sample_no='"+d.sample_no+"'"  
+  else
+    msgprint("Sample Number field for selecting physical condition & density");
 }
+// cur_frm.fields_dict['sample_no'].get_query=function(doc,cdt,cdn)
+// { 
+//   return{
+//     query:"test.doctype.neutralization_value.neutralization_value.get_sample_details",
+//     filters:{
+//       "test_preparation":doc.test_preparation
+//     }
+    
+//   }
+// }
 cur_frm.fields_dict['physical_condition_density'].get_query=function(doc,cdt,cdn)
 {
   return{

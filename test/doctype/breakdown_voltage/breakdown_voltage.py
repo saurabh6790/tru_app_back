@@ -17,31 +17,31 @@ class DocType:
 		#self.update_status();
 		self.calculate_avg()
 		verfy_bottle_number(self.doc.sample_no, self.doc.bottle_no)
-		user=webnotes.session.user
-		if user:
-			emp=webnotes.conn.sql("select name from `tabEmployee` where user_id='"+user+"'",debug=1)
-			#webnotes.errprint(emp[0][0])
-			role=webnotes.conn.sql("Select r.role from `tabProfile` p, `tabUserRole` r where p.name='"+user+"' and r.parent=p.name",as_list=1,debug=1)
-			#webnotes.errprint(role)
-			test_details={'test':"Breakdown Voltage",'sample_no':self.doc.sample_no,'workflow_state':self.doc.workflow_state,'tested_by':self.doc.tested_by}
-			if ['Shift Incharge'] in role and emp[0][0]: #and self.doc.workflow_state=='Waiting For Approval Of Lab Incharge':
-				#webnotes.errprint("in shift incharge")
-				test_details['shift_incharge'] =emp[0][0]
-				update_test_log(test_details)
-			elif ['Lab Incharge'] in role and emp[0][0]: #and (self.doc.workflow_state=='Approved' or self.doc.workflow_state=='Rejected'):
-				#webnotes.errprint("in lab incharge")
-				test_details['lab_incharge'] =emp[0][0]
-				update_test_log(test_details)
-			elif self.doc.workflow_state=='Rejected' and emp[0][0]:
-				webnotes.errprint("in rejected")
-				if ['Shift Incharge'] in role:
-					webnotes.errprint("in shift incharge")
-					test_details['shift_incharge'] =emp[0][0]
-					update_test_log(test_details)
-				elif['Lab Incharge'] in role and emp[0][0]:
-					webnotes.errprint("in lab incharge")
-					test_details['lab_incharge'] =emp[0][0]
-					update_test_log(test_details)
+		# user=webnotes.session.user
+		# if user:
+		# 	emp=webnotes.conn.sql("select name from `tabEmployee` where user_id='"+user+"'",debug=1)
+		# 	#webnotes.errprint(emp[0][0])
+		# 	role=webnotes.conn.sql("Select r.role from `tabProfile` p, `tabUserRole` r where p.name='"+user+"' and r.parent=p.name",as_list=1,debug=1)
+		# 	#webnotes.errprint(role)
+		# 	test_details={'test':"Breakdown Voltage",'sample_no':self.doc.sample_no,'workflow_state':self.doc.workflow_state,'tested_by':self.doc.tested_by}
+		# 	if ['Shift Incharge'] in role and emp[0][0]: #and self.doc.workflow_state=='Waiting For Approval Of Lab Incharge':
+		# 		#webnotes.errprint("in shift incharge")
+		# 		test_details['shift_incharge'] =emp[0][0]
+		# 		update_test_log(test_details)
+		# 	elif ['Lab Incharge'] in role and emp[0][0]: #and (self.doc.workflow_state=='Approved' or self.doc.workflow_state=='Rejected'):
+		# 		#webnotes.errprint("in lab incharge")
+		# 		test_details['lab_incharge'] =emp[0][0]
+		# 		update_test_log(test_details)
+		# 	elif self.doc.workflow_state=='Rejected' and emp[0][0]:
+		# 		webnotes.errprint("in rejected")
+		# 		if ['Shift Incharge'] in role:
+		# 			webnotes.errprint("in shift incharge")
+		# 			test_details['shift_incharge'] =emp[0][0]
+		# 			update_test_log(test_details)
+		# 		elif['Lab Incharge'] in role and emp[0][0]:
+		# 			webnotes.errprint("in lab incharge")
+		# 			test_details['lab_incharge'] =emp[0][0]
+		# 			update_test_log(test_details)
 
 			 	
 	def get_barcode(self,sample_no):
@@ -67,11 +67,8 @@ class DocType:
 		"equipment_used_list": equipment_list
 		}
 
-	# def get_test_log(self):
-	# 	webnotes.errprint("self.doc.workflow_state")
-	# 	self.doc.create_test_log()
-
-
+	def validate(self):
+		self.check_break_details()
 	# def update_status(self):
 	# 	webnotes.conn.sql("update `tabSample Allocation Detail` set status='"+self.doc.workflow_state+"' where test_id='"+self.doc.name+"' ")
 	# 	webnotes.conn.commit()

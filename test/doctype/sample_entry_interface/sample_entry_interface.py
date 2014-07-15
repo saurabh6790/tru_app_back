@@ -11,13 +11,15 @@ from webnotes.model.doc import get, Document
 class DocType:
 	def __init__(self, d, dl):
 		self.doc, self.doclist = d, dl
-	
+		
 	def generate_sample_entry(self):
+		#count=count+1
 		se_details = eval(str(self.doc))
 		se_details['doctype'] = 'Sample Entry'
 		se_details['docstatus'] = '1'
 		webnotes.bean(se_details).insert()
-
+		webnotes.msgprint("Sample Entry created successfully.. Now Next step is Sample Creation!!!")
+		#webnotes.errprint(count)
 
 	def add_bottle_no(self,bottle):
 		if self.doc.bottle_list:
@@ -27,6 +29,7 @@ class DocType:
 		return{	
 		"bottle_list": bottle_list
 		}
+
 
 def get_functional_location(doctype, txt, searchfield, start, page_len, filters):
 	#webnotes.errprint([filters])
