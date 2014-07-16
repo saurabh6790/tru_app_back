@@ -4,6 +4,7 @@
 
 
 cur_frm.cscript.validate=function(doc,cdt,cdn){
+	console.log(this)
 	refresh_field(['break_down_temperature','break_down_humidity','break_down_ir','break_down_frequency'])
 }
 

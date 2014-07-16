@@ -26,6 +26,9 @@ class DocType:
 		
 		verfy_bottle_number(self.doc.sample_no, self.doc.bottle_no)
 
+	def validate(self):
+		if cint(self.doc.viscometer_tube_constant) < 0 or cint(self.doc.time_taken) < 0:
+			webnotes.msgprint("Viscometer Tube Constant or Time Taken should not be negative")
 
 	def add_equipment(self,equipment):
 		#webnotes.errprint(equipment)
