@@ -2,7 +2,7 @@
  {
   "creation": "2014-06-10 16:10:06", 
   "docstatus": 0, 
-  "modified": "2014-07-09 12:19:37", 
+  "modified": "2014-07-16 12:20:30", 
   "modified_by": "Administrator", 
   "owner": "Administrator"
  }, 
@@ -161,9 +161,9 @@
  }, 
  {
   "doctype": "DocField", 
-  "fieldname": "info", 
+  "fieldname": "information", 
   "fieldtype": "Section Break", 
-  "label": "Info"
+  "label": "Information"
  }, 
  {
   "doctype": "DocField", 
@@ -183,7 +183,8 @@
   "doctype": "DocField", 
   "fieldname": "tested_by", 
   "fieldtype": "Data", 
-  "label": "Tested By"
+  "label": "Tested By", 
+  "read_only": 1
  }, 
  {
   "doctype": "DocPerm", 

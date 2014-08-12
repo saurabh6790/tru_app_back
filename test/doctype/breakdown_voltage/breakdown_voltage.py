@@ -71,9 +71,7 @@ class DocType:
 	def validate(self):
 		webnotes.errprint(self.doc.workflow_state)
 		self.check_break_details()
-	# def update_status(self):
-	# 	webnotes.conn.sql("update `tabSample Allocation Detail` set status='"+self.doc.workflow_state+"' where test_id='"+self.doc.name+"' ")
-	# 	webnotes.conn.commit()
+
 	def check_break_details(self):
 		count=0
 		for m in getlist(self.doclist, 'break_detail'):
@@ -92,7 +90,6 @@ class DocType:
 		
 	# 	# for assigening ticket to the person of role Shift Incharge in worflow Shift Incharge- Lab Incharge
 	# 	if self.doc.workflow_state=='Waiting For Approval':
-	# 		webnotes.errprint(self.doc.workflow_state)
 	# 		test_details['incharge'] = self.doc.shift_incharge_approval
 	# 		assign_notify(test_details)
 

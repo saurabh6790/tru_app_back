@@ -2,7 +2,7 @@
  {
   "creation": "2014-06-10 16:02:53", 
   "docstatus": 0, 
-  "modified": "2014-06-27 16:05:22", 
+  "modified": "2014-07-16 12:19:37", 
   "modified_by": "Administrator", 
   "owner": "Administrator"
  }, 
@@ -194,9 +194,11 @@
  }, 
  {
   "doctype": "DocField", 
-  "fieldname": "info", 
+  "fieldname": "information", 
   "fieldtype": "Section Break", 
-  "label": "Info"
+  "label": "Information", 
+  "read_only": 1, 
+  "reqd": 0
  }, 
  {
   "doctype": "DocField", 

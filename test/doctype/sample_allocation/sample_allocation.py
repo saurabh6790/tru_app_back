@@ -41,7 +41,6 @@ class DocType:
 			if test:
 				self.doclist=self.doc.clear_table(self.doclist,'sample_allocation_detail')
 				for i in test:
-					#webnotes.errprint(i)
 					ch = addchild(self.doc, 'sample_allocation_detail', 
 							'Sample Allocation Detail', self.doclist)
 					ch.test=i
@@ -54,110 +53,119 @@ class DocType:
 		}
 	
 	def on_submit(self):
-		#webnotes.errprint("in on update")
 		self.update_sample_status()
 
-	def on_update(self):
-		webnotes.errprint("in on update")
-		self.update_sample_status()
+	# def on_update(self):
+	# 	webnotes.errprint("in on update")
+	# 	self.update_sample_status()
 
 	def get_sample_no(self):
 		samples=webnotes.conn.sql("""select sample_no from `tabFinal Sample Allocation To Lab` 
 			where parent='%s' and find_in_set('%s',test) """ %(self.doc.sample_allocation_lab,self.doc.test_name),as_list=1)
-		#webnotes.errprint(samples[0])
 		if samples:
-			for [sample_no] in samples:
-				webnotes.errprint(sample_no)
+			for sample_no in samples:
+				flag = False
 				sample_detail=webnotes.conn.sql("""select barcode,priority from `tabSample` 
-					where name='%s'"""%(sample_no),as_list=1)
-				webnotes.errprint(sample_detail)
+					where name='%s'"""%(sample_no[0]),as_list=1)
 				for d in getlist(self.doclist, 'sample_allocation_detail'):
-					if d.sample_no==sample_no:
-						webnotes.errprint(d.sample_no)
-						webnotes.errprint(sample_no)
+					if d.sample_no==sample_no[0]:
 						if d.test:
 							d.test = d.test + ',' +self.doc.test_name 
 						else:
 							d.test = self.doc.test_name
-						return{	
-							"test": d.test,
-							"test_name":''
-						}
-
-				ch = addchild(self.doc, 'sample_allocation_detail', 
-					'Sample Allocation Detail', self.doclist)
-				#webnotes.errprint(ch)
-				ch.sample_no=sample_no
-				ch.test=self.doc.test_name
-				ch.bottle_no=sample_detail[0][0]
-				ch.priority=sample_detail[0][1]
-				ch.save(new=1)
+						flag = True
+				if not flag:
+					self.create_child_record(sample_no[0], sample_detail)	
 		else:
 			webnotes.msgprint("There is no any Samle Number allocated aginst the test='"+self.doc.test_name+"'",raise_exception=1)
 			return{
 				"test_name":''
 			}
-
-
 		return{
 			"test_name": ''
 		}
 
+	def create_child_record(self, sample_no, sample_detail):
+		ch = addchild(self.doc, 'sample_allocation_detail', 
+					'Sample Allocation Detail', self.doclist)
+		ch.sample_no=sample_no
+		ch.test=self.doc.test_name
+		ch.bottle_no=sample_detail[0][0]
+		ch.priority=sample_detail[0][1]
+		ch.save(new=1)
+
 	def update_sample_status(self):
-		#webnotes.errprint("in update sample status")
-		samples = {}
+		samples, dic = {}, {}
 		for sample in getlist(self.doclist, 'sample_allocation_detail'):
 			#samples[sample.get('sample_no')] = ''
-			self.test_allocation(sample)
+			self.test_allocation(sample, dic)
+
+		self.prepare_escape_test(dic)
 
 		#for updation of status in Sample Doctype
 		for sample in getlist(self.doclist,'sample_allocation_detail'):
 			webnotes.conn.sql("update tabSample set status = 'Assigned' where name ='"+sample.sample_no+"'")
 			webnotes.conn.sql("commit")
 		
-	def test_allocation(self, sample):
-		#webnotes.errprint("in test allocation")
-		self.create_test(sample)
+	def test_allocation(self, sample, dic):
+		self.create_test(sample, dic)
  		
-	def create_test(self,sample):
+	def create_test(self,sample, dic):
 		tests=sample.get("test").split(',')
-		
 		length=len(tests)
-
 		if length==1:
-			test_id = self.ckeck_test(tests[0],sample)
+			single_sample =[]
+			self.ckeck_test(tests[0],sample, dic, single_sample)
 			self.create_todo(sample, test_id)
 		else:
 			for test in tests:
-				test_id = self.ckeck_test(test,sample)
-				self.create_todo(sample, test_id)
+				test_id = self.ckeck_test(test,sample,dic)
 
-	def ckeck_test(self, test_name, sample):
-		escape_tests=['Sediment','Furan Content','Corrossive Sulphur','Oxidation Stability','Accelerated Ageing']
+	def ckeck_test(self, test_name, sample, dic, sample_nos=None):
+		escape_tests=['Neutralization Value', 'Sediment','Furan Content','Corrossive Sulphur','Oxidation Stability','Accelerated Ageing']
 		if test_name not in escape_tests:
-			return self.create_doc(test_name, sample)
+			test_id=self.create_doc(test_name, sample)
+			self.create_todo(sample, test_name,  test_id)
 		else:
-			webnotes.errprint(test_name)
-			webnotes.errprint(sample.get("sample_no"))
-			parent=self.create_test_preparation(test_name,sample)
-			self.create_child_test_preparation(test_name,sample,parent)
-	def create_test_preparation(self,test_name,sample):
-		webnotes.errprint("in create test")
-		test_preparation=Document("Test Preparation")
-		test_preparation.test=test_name
-		test_preparation.save()
+			if dic.get(test_name):
+				dic[test_name].append(sample.get('sample_no'))
+			else:
+				dic[test_name] = [sample.get('sample_no')]
+			webnotes.errprint(dic[test_name])
+	
+	def prepare_escape_test(self, dic):
+			# dic = {'Test Name':['sample numbers']}
+			for test_name in dic:
+				parent=self.create_test_preparation(test_name)
+				self.create_child_test_preparation(dic[test_name], test_name, parent)
+				self.create_todo_preparation(parent,self.doc.tester, test_name)
+
+	def create_test_preparation(self,test_name):
+		if test_name == 'Neutralization Value':
+			test_preparation = Document("Neutralization Value")
+			test_preparation.tested_by = self.doc.tester 
+			test_preparation.save() 
+
+		else :
+			test_preparation=Document("Test Preparation")
+			test_preparation.test=test_name
+			test_preparation.save()
+
 		return test_preparation.name
-	def create_child_test_preparation(self,test_name,sample,parent):
-		webnotes.errprint("in child")
+
+	def create_child_test_preparation(self, samples, test_name, parent):
+		childtab = {'Neutralization Value':['neutralisation_test_details', 'Neutralization Test Details']}
 		from webnotes.model.doc import get
-		if parent and test_name and sample:
-			doc = get('Test Preparation', parent)
-			doclist = get('Test Preparation', parent, with_children=1)
-			ch = addchild(doc[0], 'sample_details', 'Sample Preparation Details', doclist)
-			ch.sample_no = sample.get("sample_no")
-			ch.bottle_no= sample.get("bottle_no")
-			ch.tester=self.doc.tester
-			ch.save()
+		if parent and samples:
+			doc = get('Neutralization Value' if test_name=='Neutralization Value' else 'Test Preparation', parent)
+			doclist = get('Neutralization Value' if test_name=='Neutralization Value' else 'Test Preparation', parent, with_children=1)
+			for sample in samples:
+				ch = addchild(doc[0], childtab.get(test_name)[0] if childtab.get(test_name) else 'sample_details', childtab.get(test_name)[1] if childtab.get(test_name) else 'Sample Preparation Details', doclist)
+				ch.sample_no = sample
+				ch.bottle_no= webnotes.conn.get_value("Sample", sample, "barcode")
+				if test_name != 'Neutralization Value': 
+					ch.tester=self.doc.tester 
+				ch.save()
 
 	def create_doc(self, test_name, sample):
 		test_method, specification = self.get_test_method(sample)
@@ -176,32 +184,39 @@ class DocType:
 			where specification = '%s' and test = '%s'"""%(specification, sample.get("test")))
 		return test_method[0][0] if test_method else '', specification
 
-	def update_test_id(self,sample,test_name):
-		#webnotes.errprint("update `tabSample Allocation Detail` set test_id='"+test_name+"' where sample_no='"+self.doc.sample_no+"' and test='"+sample.get("test")+"' and parent='"+self.doc.name+"'")
+	def update_test_id(self, sample, test_name):
 		webnotes.conn.sql("update `tabSample Allocation Detail` set test_id='"+test_name+"' where test='"+sample.get("test")+"' and parent='"+self.doc.name+"'")
 		webnotes.conn.commit()
 
-	def create_todo(self,sample,test_id):
-		#webnotes.errprint("in create todo")
-		userid = webnotes.conn.sql("select user_id  from tabEmployee where name = '%s'"%(sample.get("tester")),as_list=1)
-		#webnotes.errprint(user[0][0])
+	def create_todo(self, sample, test_name, test_id):
+		webnotes.errprint("in create to do")
+		userid = webnotes.conn.sql("select user_id from tabEmployee where name = '%s'"%(self.doc.tester),as_list=1)
+		# webnotes.errprint([userid , sample, sample.get("tester")])
 		if userid:
 			d = Document("ToDo")
 			d.owner = userid[0][0]
-			d.reference_type = sample.get("test")
+			d.reference_type = test_name
 			d.reference_name = test_id
 			d.priority =  'Medium'
 			d.date = nowdate()
 			d.assigned_by = webnotes.user.name
 			d.save(1)
+			webnotes.errprint(d.name)
 
+	def create_todo_preparation(self, parent, tester, test_name):
+		webnotes.errprint("in create to do test preparation")
+		d = Document("ToDo")
+		d.owner = webnotes.conn.get_value("Employee",tester,'user_id')
+		d.reference_type = 'Neutralization Value' if test_name == 'Neutralization Value' else 'Test Preparation'	
+		d.reference_name = parent
+		d.priority =  'Medium'
+		d.date = nowdate()
+		d.assigned_by = webnotes.user.name
+		d.save(1)	
 
 def get_sample_no(doctype, txt, searchfield, start, page_len, filters):
-	
 	return 	webnotes.conn.sql(""" select  name from tabSample where status = 'Lab Entry' 
 		union select distinct sample_no from`tabTest Log` tl""")
-
-
 
 	# def add_samples(self):
 	# 	if self.doc.sample_type == 'Single Sample':

@@ -28,7 +28,7 @@ cur_frm.fields_dict['sample_no'].get_query=function(doc,cdt,cdn)
 	return{
 		query:"test.doctype.sample_allocation.sample_allocation.get_sample_no",
 		// filters: {
-		// 	"sample_no":doc.sample_no
+		// 	"samp_no":doc.sample_no
 		// }
 		
 	}

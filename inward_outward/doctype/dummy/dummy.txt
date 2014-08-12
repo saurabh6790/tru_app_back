@@ -2,17 +2,34 @@
  {
   "creation": "2014-07-08 16:13:38", 
   "docstatus": 0, 
-  "modified": "2014-07-08 16:13:38", 
+  "modified": "2014-07-28 12:55:24", 
   "modified_by": "Administrator", 
   "owner": "Administrator"
  }, 
  {
+  "allow_attach": 1, 
+  "allow_import": 1, 
+  "autoname": "D.########", 
+  "custom": 0, 
   "doctype": "DocType", 
   "document_type": "Transaction", 
+  "icon": "icon-file-text", 
+  "is_submittable": 1, 
   "module": "Inward-Outward", 
   "name": "__common__"
  }, 
  {
+  "doctype": "DocField", 
+  "name": "__common__", 
+  "parent": "Dummy", 
+  "parentfield": "fields", 
+  "parenttype": "DocType", 
+  "permlevel": 0
+ }, 
+ {
+  "amend": 1, 
+  "cancel": 1, 
+  "create": 1, 
   "doctype": "DocPerm", 
   "name": "__common__", 
   "parent": "Dummy", 
@@ -20,11 +37,37 @@
   "parenttype": "DocType", 
   "permlevel": 0, 
   "read": 1, 
-  "role": "All"
+  "report": 1, 
+  "role": "All", 
+  "submit": 1, 
+  "write": 1
  }, 
  {
   "doctype": "DocType", 
   "name": "Dummy"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "amended_from", 
+  "fieldtype": "Link", 
+  "label": "Amended From", 
+  "no_copy": 1, 
+  "options": "Dummy", 
+  "print_hide": 1, 
+  "read_only": 1
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "status", 
+  "fieldtype": "Select", 
+  "label": "Status", 
+  "options": "\nOpen\nApproved\nRejected"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "name1", 
+  "fieldtype": "Data", 
+  "label": "Name"
  }, 
  {
   "doctype": "DocPerm"

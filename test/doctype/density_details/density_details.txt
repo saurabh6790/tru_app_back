@@ -2,7 +2,7 @@
  {
   "creation": "2014-05-15 12:01:43", 
   "docstatus": 0, 
-  "modified": "2014-05-15 12:53:26", 
+  "modified": "2014-07-16 10:14:48", 
   "modified_by": "Administrator", 
   "owner": "Administrator"
  }, 
@@ -42,35 +42,41 @@
   "fieldname": "temparature", 
   "fieldtype": "Data", 
   "in_list_view": 1, 
-  "label": "Temparature"
+  "label": "Temperature", 
+  "read_only": 0, 
+  "reqd": 1
  }, 
  {
   "doctype": "DocField", 
   "fieldname": "weight_of_empty_syringe", 
   "fieldtype": "Data", 
   "in_list_view": 1, 
-  "label": "Weight Of Empty Syringe"
+  "label": "Weight Of Empty Syringe", 
+  "reqd": 1
  }, 
  {
   "doctype": "DocField", 
   "fieldname": "volume_of_oil", 
   "fieldtype": "Data", 
   "in_list_view": 1, 
-  "label": "Volume Of Oil In(ml)"
+  "label": "Volume Of Oil In(ml)", 
+  "reqd": 1
  }, 
  {
   "doctype": "DocField", 
   "fieldname": "weight_of_syringe", 
   "fieldtype": "Data", 
   "in_list_view": 1, 
-  "label": "Weight Of Syringe"
+  "label": "Weight Of Syringe", 
+  "reqd": 1
  }, 
  {
   "doctype": "DocField", 
   "fieldname": "density", 
   "fieldtype": "Data", 
   "in_list_view": 1, 
-  "label": "Density"
+  "label": "Density", 
+  "read_only": 1
  }, 
  {
   "doctype": "DocField", 

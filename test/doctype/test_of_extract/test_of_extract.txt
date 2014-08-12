@@ -2,7 +2,7 @@
  {
   "creation": "2014-06-10 15:20:42", 
   "docstatus": 0, 
-  "modified": "2014-06-27 09:44:40", 
+  "modified": "2014-08-11 13:07:21", 
   "modified_by": "Administrator", 
   "owner": "Administrator"
  }, 
@@ -91,6 +91,7 @@
   "doctype": "DocField", 
   "fieldname": "test_preparation", 
   "fieldtype": "Data", 
+  "hidden": 1, 
   "label": "Test Preparation", 
   "read_only": 1
  }, 
@@ -233,5 +234,10 @@
   "amend": 0, 
   "doctype": "DocPerm", 
   "role": "Lab Incharge"
+ }, 
+ {
+  "amend": 1, 
+  "doctype": "DocPerm", 
+  "role": "Employee"
  }
 ]

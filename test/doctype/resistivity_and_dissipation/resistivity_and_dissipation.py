@@ -23,7 +23,7 @@ class DocType:
 
 	def on_submit(self):
 		# if self.doc.test_type == 'Regular':
-		webnotes.errprint("test sssssss")
+		#webnotes.errprint("test sssssss")
 		pgcil_limit = get_pgcil_limit(self.doc.method)
 		test_detail = {'test': "Resistivity and Dissipation", 'sample_no':self.doc.sample_no,'name': self.doc.name,'temperature':self.doc.temperature, 'method': self.doc.method, 'pgcil_limit': pgcil_limit}
 		parent=create_test_results(test_detail)

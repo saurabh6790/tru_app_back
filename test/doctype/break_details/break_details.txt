@@ -2,7 +2,7 @@
  {
   "creation": "2014-05-05 14:42:07", 
   "docstatus": 0, 
-  "modified": "2014-07-09 15:38:16", 
+  "modified": "2014-07-15 14:58:51", 
   "modified_by": "Administrator", 
   "owner": "Administrator"
  }, 
@@ -29,25 +29,29 @@
   "doctype": "DocField", 
   "fieldname": "temparature", 
   "fieldtype": "Data", 
-  "label": "Temperature"
+  "label": "Temperature", 
+  "reqd": 1
  }, 
  {
   "doctype": "DocField", 
   "fieldname": "humidity", 
   "fieldtype": "Data", 
-  "label": "Humidity"
+  "label": "Humidity", 
+  "reqd": 1
  }, 
  {
   "doctype": "DocField", 
   "fieldname": "frequency", 
   "fieldtype": "Data", 
-  "label": "Frequency"
+  "label": "Frequency", 
+  "reqd": 1
  }, 
  {
   "doctype": "DocField", 
   "fieldname": "ir", 
   "fieldtype": "Data", 
-  "label": "IR"
+  "label": "IR", 
+  "reqd": 1
  }, 
  {
   "doctype": "DocField", 

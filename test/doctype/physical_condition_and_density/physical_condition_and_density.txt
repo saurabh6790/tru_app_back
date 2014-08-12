@@ -2,7 +2,7 @@
  {
   "creation": "2014-05-15 12:07:10", 
   "docstatus": 0, 
-  "modified": "2014-07-15 15:57:45", 
+  "modified": "2014-07-16 12:18:59", 
   "modified_by": "Administrator", 
   "owner": "Administrator"
  }, 
@@ -54,7 +54,8 @@
   "fieldname": "sample_no", 
   "fieldtype": "Link", 
   "label": "Sample No", 
-  "options": "Sample"
+  "options": "Sample", 
+  "reqd": 1
  }, 
  {
   "doctype": "DocField", 
@@ -212,10 +213,10 @@
   "fieldtype": "Column Break"
  }, 
  {
-  "depends_on": "eval:doc.color_detail=='Visual Color'", 
   "doctype": "DocField", 
   "fieldname": "temp", 
   "fieldtype": "Data", 
+  "hidden": 1, 
   "label": "JobCard Temparature"
  }, 
  {
@@ -236,7 +237,8 @@
   "fieldname": "density", 
   "fieldtype": "Select", 
   "label": "Density", 
-  "options": "\nBy Weight\nBy Hydrometer"
+  "options": "\nBy Weight\nBy Hydrometer", 
+  "reqd": 1
  }, 
  {
   "doctype": "DocField", 
@@ -318,9 +320,9 @@
  }, 
  {
   "doctype": "DocField", 
-  "fieldname": "info", 
+  "fieldname": "information", 
   "fieldtype": "Section Break", 
-  "label": "Info"
+  "label": "Information"
  }, 
  {
   "doctype": "DocField", 
@@ -340,7 +342,8 @@
   "doctype": "DocField", 
   "fieldname": "tested_by", 
   "fieldtype": "Data", 
-  "label": "Tested By"
+  "label": "Tested By", 
+  "read_only": 1
  }, 
  {
   "doctype": "DocPerm", 

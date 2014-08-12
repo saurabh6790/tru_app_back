@@ -70,7 +70,7 @@ cur_frm.fields_dict.neutralisation_test_details.grid.get_field("physical_conditi
 {
   var d = locals[cdt][cdn];
   if (d.sample_no)
-    return "select name from `tabPhysical Condition And Density` where sample_no='"+d.sample_no+"'"  
+    return "select name from `tabPhysical Condition And Density` where sample_no='"+d.sample_no+"' and docstatus=1"  
   else
     msgprint("Sample Number field for selecting physical condition & density");
 }

@@ -2,7 +2,7 @@
  {
   "creation": "2013-03-29 18:22:12", 
   "docstatus": 0, 
-  "modified": "2014-05-27 14:49:25", 
+  "modified": "2014-08-11 16:29:30", 
   "modified_by": "Administrator", 
   "owner": "Administrator"
  }, 
@@ -95,7 +95,8 @@
   "doctype": "DocField", 
   "fieldname": "outward_qty", 
   "fieldtype": "Data", 
-  "label": "Outward Qty"
+  "label": "Outward Qty", 
+  "read_only": 1
  }, 
  {
   "doctype": "DocField", 

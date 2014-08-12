@@ -2,7 +2,7 @@
  {
   "creation": "2014-05-19 16:20:01", 
   "docstatus": 0, 
-  "modified": "2014-07-14 15:05:37", 
+  "modified": "2014-08-09 15:33:59", 
   "modified_by": "Administrator", 
   "owner": "Administrator"
  }, 
@@ -45,7 +45,7 @@
   "fieldname": "sample_no", 
   "fieldtype": "Link", 
   "in_list_view": 1, 
-  "label": "Sample Id", 
+  "label": "Sample No", 
   "options": "Sample", 
   "reqd": 1
  }, 
@@ -60,21 +60,22 @@
   "doctype": "DocField", 
   "fieldname": "physical_condition_density", 
   "fieldtype": "Link", 
-  "label": "Physical Condition & Density", 
-  "options": "Physical Condition And Density"
+  "label": "Physical Condition & Density Name", 
+  "options": "Physical Condition And Density", 
+  "reqd": 1
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "density_data", 
+  "fieldtype": "Data", 
+  "label": "Density", 
+  "read_only": 1
  }, 
  {
   "doctype": "DocField", 
   "fieldname": "temperature_data", 
   "fieldtype": "Data", 
   "label": "Temperature", 
-  "read_only": 1
- }, 
- {
-  "doctype": "DocField", 
-  "fieldname": "density_data", 
-  "fieldtype": "Data", 
-  "label": "Density ", 
   "read_only": 1
  }, 
  {
@@ -98,7 +99,8 @@
   "fieldtype": "Data", 
   "in_list_view": 1, 
   "label": "Density Of Oil", 
-  "read_only": 1
+  "read_only": 1, 
+  "reqd": 1
  }, 
  {
   "doctype": "DocField", 

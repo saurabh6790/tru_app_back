@@ -303,14 +303,7 @@ cur_frm.cscript.toggle_related_fields = function(doc) {
 		refresh_field('from_warehouse')
 		refresh_field('to_warehouse')
 	}
-	else{
-		cur_frm.set_value('from_warehouse','')
-		cur_frm.set_value('to_warehouse','')
-		refresh_field('from_warehouse')
-		refresh_field('to_warehouse')
-	}
-
-	if(doc.internal_purpose == 'Inward' && doc.purpose == 'Material Transfer'){
+	else if(doc.internal_purpose == 'Inward' && doc.purpose=='Material Transfer'){
 		cur_frm.set_value('from_warehouse','Stores - TF')
 		cur_frm.set_value('to_warehouse','Work In Progress - TF')
 		refresh_field('from_warehouse')
@@ -322,7 +315,7 @@ cur_frm.cscript.toggle_related_fields = function(doc) {
 		refresh_field('from_warehouse')
 		refresh_field('to_warehouse')
 	}
-
+	
 	if(doc.purpose == 'Purchase Return') {
 		doc.customer = doc.customer_name = doc.customer_address = 
 			doc.delivery_note_no = doc.sales_invoice_no = null;

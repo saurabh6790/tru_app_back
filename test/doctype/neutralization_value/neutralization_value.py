@@ -99,8 +99,6 @@ class DocType:
 		bottle_no=webnotes.conn.get_value('Sample',sample_no,'barcode')
 		return {'bottle_no':bottle_no}
 		
-
-
 	def assign_neutralization_value_test(self):
 
 		test_details = {'test': "Neutralization Value", 'name': self.doc.name}

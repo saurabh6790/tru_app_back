@@ -47,7 +47,7 @@ class DocType:
 
 	def get_test_wise_results(self, tests, sample_id):
 		results = {}
-
+		webnotes.errprint(tests)
 		for test in tests:
 			if test[0] in mapper:
 				webnotes.errprint(test[0])
