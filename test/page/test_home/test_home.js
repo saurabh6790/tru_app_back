@@ -19,12 +19,7 @@ wn.module_page["Test"] = [
 				root:('/app.html#Form/Page/test-result-book'),
 				doctype:"Flash Point"
 			},
-			// {
-			// 	label: wn._("Furan Content"),
-			// 	description: wn._(" Furan Conten Test Details."),
-			// 	root:('/app.html#Form/Page/test-result-book'),
-			// 	doctype:"Furan Content"
-			// },
+			
 			{
 				label: wn._("Neutralization Value"),
 				description: wn._("Requests for items."),
@@ -80,12 +75,7 @@ wn.module_page["Test"] = [
 				root:'/app.html#Form/Page/test-result-book',
 				doctype:"PCB"
 			},
-			// {
-			// 	label: wn._("Corrossive Sulphur"),
-			// 	description: wn._("Corrossive Sulphur Test Details"),
-			// 	root:'/app.html#Form/Page/test-result-book',
-			// 	doctype:"Corrossive Sulphur"
-			// },
+			
 			{
 				label: wn._("Oxidation Inhibiters"),
 				description: wn._("Oxidation Inhibiters Test Details"),
@@ -98,6 +88,25 @@ wn.module_page["Test"] = [
 				root:'/app.html#Form/Page/test-result-book',
 				doctype:"Metal In Oil"
 			},
+			{
+				label: wn._("Test Of Extract"),
+				description: wn._("Testing Of Extract Test Details."),
+				root:('/app.html#Form/Page/test-result-book'),
+				doctype:"Test Of Extract"
+			},
+			{
+				label: wn._("Furan Content"),
+				description: wn._(" Furan Conten Test Details."),
+				root:('/app.html#Form/Page/test-result-book'),
+				doctype:"Furan Content"
+			},
+			{
+				label: wn._("Corrossive Sulphur"),
+				description: wn._("Corrossive Sulphur Test Details"),
+				root:'/app.html#Form/Page/test-result-book',
+				doctype:"Corrossive Sulphur"
+			},
+
 			{
 				label: wn._("Test Preparation"),
 				description: wn._("First Step as Preparation of sample."),
@@ -220,10 +229,10 @@ wn.module_page["Test"] = [
 				label:wn._("Test Allocation Interface"),
 				route:"Form/Test Allocation Interface"
 			},
-			{
-				label:wn._("Test Case Dashboard"),
-				route:"Form/Test Case Dashboard"
-			},
+			// {
+			// 	label:wn._("Test Case Dashboard"),
+			// 	route:"Form/Test Case Dashboard"
+			// },
 			{
 				label:wn._("Test Certificate"),
 				doctype: "Test Certificate"

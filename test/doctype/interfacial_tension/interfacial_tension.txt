@@ -2,7 +2,7 @@
  {
   "creation": "2014-04-03 14:13:18", 
   "docstatus": 0, 
-  "modified": "2014-07-09 15:59:07", 
+  "modified": "2014-07-16 12:17:27", 
   "modified_by": "Administrator", 
   "owner": "Administrator"
  }, 
@@ -303,19 +303,22 @@
   "doctype": "DocField", 
   "fieldname": "shift_incharge_approval", 
   "fieldtype": "Data", 
+  "hidden": 1, 
   "label": "Shift Incharge Approval"
  }, 
  {
   "doctype": "DocField", 
   "fieldname": "lab_incharge_approval", 
   "fieldtype": "Data", 
+  "hidden": 1, 
   "label": "Lab Incharge Approval"
  }, 
  {
   "doctype": "DocField", 
   "fieldname": "tested_by", 
   "fieldtype": "Data", 
-  "label": "Tested By"
+  "label": "Tested By", 
+  "read_only": 1
  }, 
  {
   "doctype": "DocField", 

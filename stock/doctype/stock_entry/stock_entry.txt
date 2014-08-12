@@ -2,7 +2,7 @@
  {
   "creation": "2013-04-09 11:43:55", 
   "docstatus": 0, 
-  "modified": "2014-07-09 19:05:20", 
+  "modified": "2014-07-15 12:33:41", 
   "modified_by": "Administrator", 
   "owner": "Administrator"
  }, 
@@ -75,7 +75,7 @@
   "oldfieldtype": "Select", 
   "options": "\nTRU/IN\nTRU/OUT", 
   "print_hide": 1, 
-  "read_only": 0, 
+  "read_only": 1, 
   "report_hide": 0, 
   "reqd": 1, 
   "search_index": 0

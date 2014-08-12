@@ -2,7 +2,7 @@
  {
   "creation": "2014-04-29 17:44:42", 
   "docstatus": 0, 
-  "modified": "2014-07-10 12:47:03", 
+  "modified": "2014-07-16 12:17:58", 
   "modified_by": "Administrator", 
   "owner": "Administrator"
  }, 
@@ -64,8 +64,9 @@
  {
   "doctype": "DocField", 
   "fieldname": "equipment_used", 
-  "fieldtype": "Data", 
-  "label": "Equipment Used"
+  "fieldtype": "Link", 
+  "label": "Equipment Used", 
+  "options": "Equipment Used"
  }, 
  {
   "depends_on": "eval:doc.equipment_used", 
@@ -248,7 +249,8 @@
   "doctype": "DocField", 
   "fieldname": "tested_by", 
   "fieldtype": "Data", 
-  "label": "Tested By"
+  "label": "Tested By", 
+  "read_only": 1
  }, 
  {
   "doctype": "DocField", 

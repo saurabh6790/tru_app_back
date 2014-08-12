@@ -2,7 +2,7 @@
  {
   "creation": "2014-06-14 13:49:22", 
   "docstatus": 0, 
-  "modified": "2014-07-11 15:16:20", 
+  "modified": "2014-08-11 11:45:28", 
   "modified_by": "Administrator", 
   "owner": "Administrator"
  }, 
@@ -42,7 +42,8 @@
   "fieldtype": "Link", 
   "in_list_view": 1, 
   "label": "Sample No", 
-  "options": "Sample"
+  "options": "Sample", 
+  "read_only": 1
  }, 
  {
   "doctype": "DocField", 
@@ -61,9 +62,10 @@
  {
   "doctype": "DocField", 
   "fieldname": "specification", 
-  "fieldtype": "Data", 
+  "fieldtype": "Link", 
   "label": "Specification", 
-  "read_only": 1
+  "options": "Specification", 
+  "read_only": 0
  }, 
  {
   "doctype": "DocField", 
@@ -84,7 +86,8 @@
   "fieldname": "tester", 
   "fieldtype": "Link", 
   "label": "Tester", 
-  "options": "Employee"
+  "options": "Employee", 
+  "read_only": 1
  }, 
  {
   "doctype": "DocField", 

@@ -32,11 +32,11 @@ wn.module_page["HR"] = [
 				description: wn._("Attendance record."),
 				doctype:"Attendance"
 			},
-			{
-				label: wn._("Test Name"),
-				description: wn._("Test Details"),
-				doctype:"Test Name"
-			},
+			// {
+			// 	label: wn._("Test Name"),
+			// 	description: wn._("Test Details"),
+			// 	doctype:"Test Name"
+			// },
 			{
 				label: wn._("Training"),
 				description: wn._("Training record."),

@@ -2,7 +2,7 @@
  {
   "creation": "2014-04-03 15:11:46", 
   "docstatus": 0, 
-  "modified": "2014-07-09 15:33:20", 
+  "modified": "2014-07-16 12:15:32", 
   "modified_by": "Administrator", 
   "owner": "Administrator"
  }, 
@@ -213,7 +213,7 @@
   "doctype": "DocField", 
   "fieldname": "section_break_7", 
   "fieldtype": "Section Break", 
-  "label": "Other Details"
+  "label": "Other Information"
  }, 
  {
   "doctype": "DocField", 
@@ -233,7 +233,8 @@
   "doctype": "DocField", 
   "fieldname": "tested_by", 
   "fieldtype": "Data", 
-  "label": "Tested By"
+  "label": "Tested By", 
+  "read_only": 1
  }, 
  {
   "doctype": "DocField", 

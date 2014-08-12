@@ -26,6 +26,9 @@ class DocType:
 		
 		verfy_bottle_number(self.doc.sample_no, self.doc.bottle_no)
 
+	def validate(self):
+		if cint(self.doc.viscometer_tube_constant) < 0 or cint(self.doc.time_taken) < 0:
+			webnotes.msgprint("Viscometer Tube Constant or Time Taken should not be negative")
 
 	def add_equipment(self,equipment):
 		#webnotes.errprint(equipment)
@@ -37,27 +40,27 @@ class DocType:
 		"equipment_used_list": equipment_list
 		}
 
-	def assign_kinematic_viscosity(self):
-		test_details = {'test': "Kinematic viscosity", 'name': self.doc.name}
-		#webnotes.errprint(test_details)
-		# for assigening ticket to the person of role Shift Incharge in worflow Shift Incharge- Lab Incharge
-		if self.doc.workflow_state=='Waiting For Approval':
-			test_details['incharge'] = self.doc.shift_incharge_approval
-			assign_notify(test_details)
+	# def assign_kinematic_viscosity(self):
+	# 	test_details = {'test': "Kinematic viscosity", 'name': self.doc.name}
+	# 	#webnotes.errprint(test_details)
+	# 	# for assigening ticket to the person of role Shift Incharge in worflow Shift Incharge- Lab Incharge
+	# 	if self.doc.workflow_state=='Waiting For Approval':
+	# 		test_details['incharge'] = self.doc.shift_incharge_approval
+	# 		assign_notify(test_details)
 
-		# for assigening ticket to the person of role Lab Incharge in worflow Shift Incharge- Lab Incharge
-		if self.doc.workflow_state=='Waiting For Approval Of  Lab Incharge':
-			test_details['incharge'] = self.doc.lab_incharge_approval
-			assign_notify(test_details)
+	# 	# for assigening ticket to the person of role Lab Incharge in worflow Shift Incharge- Lab Incharge
+	# 	if self.doc.workflow_state=='Waiting For Approval Of  Lab Incharge':
+	# 		test_details['incharge'] = self.doc.lab_incharge_approval
+	# 		assign_notify(test_details)
 
-		if self.doc.workflow_state=='Rejected':
-			test_details={'workflow_state':self.doc.workflow_state,'sample_no':self.doc.sample_no}
-			assign_notify(test_details)
+	# 	if self.doc.workflow_state=='Rejected':
+	# 		test_details={'workflow_state':self.doc.workflow_state,'sample_no':self.doc.sample_no}
+	# 		assign_notify(test_details)
 
 
-	def get_barcode(self,sample_no):
-		self.doc.bottle_no=webnotes.conn.get_value('Sample',sample_no,'barcode')
-		return {'bottle_no':self.doc.bottle_no}
+	# def get_barcode(self,sample_no):
+	# 	self.doc.bottle_no=webnotes.conn.get_value('Sample',sample_no,'barcode')
+	# 	return {'bottle_no':self.doc.bottle_no}
 
 
 

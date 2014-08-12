@@ -116,14 +116,17 @@ class DocType(StockController):
 			self.meta.get_label("posting_date"))
 
 	def validate_quantity(self):
-		webnotes.errprint("in validate quantity")
+		#webnotes.errprint("in validate quantity")
 		if self.doc.internal_purpose=='Inward' and self.doc.outward_challan_no:
 			for d in getlist(self.doclist, 'mtn_details'):
-				webnotes.errprint(d.qty<=d.outward_qty)
+				#webnotes.errprint(d.qty<=d.outward_qty)
 				if cint(d.qty)<=cint(d.outward_qty):
 					pass
 				else:
 					webnotes.msgprint("Quantity should be always less than or equal to the Outward oty",raise_exception=1)
+
+		else:
+			pass
 
 		
 	def validate_purpose(self):

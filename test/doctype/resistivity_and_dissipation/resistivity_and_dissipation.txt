@@ -2,7 +2,7 @@
  {
   "creation": "2014-06-13 18:59:00", 
   "docstatus": 0, 
-  "modified": "2014-07-09 16:00:59", 
+  "modified": "2014-07-16 12:18:27", 
   "modified_by": "Administrator", 
   "owner": "Administrator"
  }, 
@@ -342,7 +342,8 @@
   "doctype": "DocField", 
   "fieldname": "tested_by", 
   "fieldtype": "Data", 
-  "label": "Tested By"
+  "label": "Tested By", 
+  "read_only": 1
  }, 
  {
   "doctype": "DocPerm"
