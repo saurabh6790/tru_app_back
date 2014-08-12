@@ -1,0 +1,111 @@
+[
+ {
+  "creation": "2014-07-24 11:15:47", 
+  "docstatus": 0, 
+  "modified": "2014-08-04 16:12:37", 
+  "modified_by": "Administrator", 
+  "owner": "Administrator"
+ }, 
+ {
+  "autoname": "field:product_name", 
+  "doctype": "DocType", 
+  "document_type": "Master", 
+  "istable": 0, 
+  "module": "Selling", 
+  "name": "__common__"
+ }, 
+ {
+  "doctype": "DocField", 
+  "name": "__common__", 
+  "parent": "Product", 
+  "parentfield": "fields", 
+  "parenttype": "DocType", 
+  "permlevel": 0
+ }, 
+ {
+  "cancel": 1, 
+  "create": 1, 
+  "doctype": "DocPerm", 
+  "name": "__common__", 
+  "parent": "Product", 
+  "parentfield": "permissions", 
+  "parenttype": "DocType", 
+  "permlevel": 0, 
+  "read": 1, 
+  "role": "Administrator", 
+  "write": 1
+ }, 
+ {
+  "doctype": "DocType", 
+  "name": "Product"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "name_and_description_section", 
+  "fieldtype": "Section Break", 
+  "label": "Name and Description"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "naming_series", 
+  "fieldtype": "Select", 
+  "hidden": 1, 
+  "label": "Series", 
+  "options": "\nPROD"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "product_name", 
+  "fieldtype": "Data", 
+  "in_filter": 1, 
+  "in_list_view": 1, 
+  "label": "Product Name", 
+  "reqd": 1, 
+  "search_index": 1
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "column_break_4", 
+  "fieldtype": "Column Break"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "description", 
+  "fieldtype": "Small Text", 
+  "in_list_view": 1, 
+  "label": "Description"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "section_break_6", 
+  "fieldtype": "Section Break"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "test_details", 
+  "fieldtype": "Table", 
+  "label": "Test Details", 
+  "options": "Test Details"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "section_break_8", 
+  "fieldtype": "Section Break"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "total_rate", 
+  "fieldtype": "Float", 
+  "label": "Total Rate"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "product_test_name", 
+  "fieldtype": "Data", 
+  "hidden": 1, 
+  "label": "Product Test Name"
+ }, 
+ {
+  "doctype": "DocPerm"
+ }
+]

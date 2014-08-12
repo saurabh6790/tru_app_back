@@ -1,0 +1,76 @@
+[
+ {
+  "creation": "2014-07-26 15:47:58", 
+  "docstatus": 0, 
+  "modified": "2014-07-26 18:02:41", 
+  "modified_by": "Administrator", 
+  "owner": "Administrator"
+ }, 
+ {
+  "autoname": "T.###", 
+  "doctype": "DocType", 
+  "document_type": "Transaction", 
+  "is_submittable": 1, 
+  "module": "Test", 
+  "name": "__common__"
+ }, 
+ {
+  "doctype": "DocField", 
+  "name": "__common__", 
+  "parent": "Trial workflow", 
+  "parentfield": "fields", 
+  "parenttype": "DocType", 
+  "permlevel": 0
+ }, 
+ {
+  "cancel": 1, 
+  "create": 1, 
+  "doctype": "DocPerm", 
+  "name": "__common__", 
+  "parent": "Trial workflow", 
+  "parentfield": "permissions", 
+  "parenttype": "DocType", 
+  "permlevel": 0, 
+  "read": 1, 
+  "submit": 1, 
+  "write": 1
+ }, 
+ {
+  "doctype": "DocType", 
+  "name": "Trial workflow"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "client_name", 
+  "fieldtype": "Data", 
+  "label": "Client Name"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "status", 
+  "fieldtype": "Select", 
+  "label": "Status", 
+  "options": "\nOpen\nApproved\nRejected"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "amended_from", 
+  "fieldtype": "Link", 
+  "label": "Amended From", 
+  "no_copy": 1, 
+  "options": "Trial workflow", 
+  "print_hide": 1, 
+  "read_only": 1
+ }, 
+ {
+  "amend": 0, 
+  "doctype": "DocPerm", 
+  "role": "All"
+ }, 
+ {
+  "amend": 1, 
+  "doctype": "DocPerm", 
+  "report": 1, 
+  "role": "Administrator"
+ }
+]

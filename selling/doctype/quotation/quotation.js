@@ -37,6 +37,8 @@ erpnext.selling.QuotationController = erpnext.selling.SellingController.extend({
 		if(doc.docstatus == 1 && doc.status!=='Lost') {
 			cur_frm.add_custom_button(wn._('Make Sales Order'), 
 				cur_frm.cscript['Make Sales Order']);
+			cur_frm.add_custom_button(wn._('Make Tender'), 
+				cur_frm.cscript['Make Tender']);
 			if(doc.status!=="Ordered") {
 				cur_frm.add_custom_button(wn._('Set as Lost'), 
 					cur_frm.cscript['Declare Order Lost'], "icon-exclamation");
@@ -132,6 +134,15 @@ cur_frm.cscript['Make Sales Order'] = function() {
 	})
 }
 
+
+// Make Tender
+// =====================================================================================
+cur_frm.cscript['Make Tender'] = function() {
+	wn.model.open_mapped_doc({
+		method: "selling.doctype.quotation.quotation.make_tender",
+		source_name: cur_frm.doc.name
+	})
+}
 // declare order lost
 //-------------------------
 cur_frm.cscript['Declare Order Lost'] = function(){
@@ -170,3 +181,38 @@ cur_frm.cscript.on_submit = function(doc, cdt, cdn) {
 	if(cint(wn.boot.notification_settings.quotation))
 		cur_frm.email_doc(wn.boot.notification_settings.quotation_message);
 }
+
+
+// cur_frm.add_fetch('product_name', 'product_test_name','test_name');
+// cur_frm.add_fetch('product_name', 'total_rate','total_rate');
+// cur_frm.add_fetch('product_name', 'description','description');
+
+
+// cur_frm.cscript.validate = function(doc,cdt,cdn) {
+// 	// console.log("in the validate")
+// 	cur_frm.cscript.update_totals(doc);
+// }
+
+// cur_frm.cscript.update_totals = function(doc, cdt, cdn) {
+// 	// console.log("in the validate");
+// 	var td=0.0;
+// 	var el = getchildren('Quotation Product', doc.name, 'quotation_product');
+// 	console.log(el);
+// 	for(var i in el) {
+// 		console.log(el[i].total_rate)
+// 		td += flt(el[i].total_rate,2);
+// 		// tc += flt(el[i].credit, 2);
+// 	}
+
+// 	var doc = locals[doc.doctype][doc.name];
+// 	doc.net_total_export = td;
+// 	console.log(doc.net_total_export);
+// 	refresh_many(['net_total_export']);
+// }
+
+
+
+
+
+
+

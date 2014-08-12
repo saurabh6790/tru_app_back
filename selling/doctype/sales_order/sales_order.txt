@@ -2,7 +2,7 @@
  {
   "creation": "2013-06-18 12:39:59", 
   "docstatus": 0, 
-  "modified": "2013-11-03 14:20:16", 
+  "modified": "2014-08-04 15:29:45", 
   "modified_by": "Administrator", 
   "owner": "Administrator"
  }, 
@@ -254,6 +254,7 @@
   "doctype": "DocField", 
   "fieldname": "sec_break45", 
   "fieldtype": "Section Break", 
+  "hidden": 0, 
   "label": "Currency and Price List", 
   "options": "icon-tag"
  }, 
@@ -322,6 +323,7 @@
   "doctype": "DocField", 
   "fieldname": "items", 
   "fieldtype": "Section Break", 
+  "hidden": 0, 
   "label": "Items", 
   "oldfieldtype": "Section Break", 
   "options": "icon-shopping-cart"
@@ -336,7 +338,36 @@
   "oldfieldtype": "Table", 
   "options": "Sales Order Item", 
   "print_hide": 0, 
-  "reqd": 1
+  "reqd": 0
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "products_details", 
+  "fieldtype": "Section Break", 
+  "hidden": 1, 
+  "label": "Products Details"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "sales_products", 
+  "fieldtype": "Table", 
+  "label": "Products", 
+  "options": "Sales Order Product"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "net_total_export1", 
+  "fieldtype": "Float", 
+  "label": "Net Total", 
+  "read_only": 1
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "net_total_export", 
+  "fieldtype": "Float", 
+  "hidden": 1, 
+  "label": "Net Total", 
+  "read_only": 1
  }, 
  {
   "description": "Display all the individual items delivered with the main items", 
@@ -364,14 +395,6 @@
   "doctype": "DocField", 
   "fieldname": "section_break_31", 
   "fieldtype": "Section Break"
- }, 
- {
-  "doctype": "DocField", 
-  "fieldname": "net_total_export", 
-  "fieldtype": "Currency", 
-  "label": "Net Total", 
-  "options": "currency", 
-  "read_only": 1
  }, 
  {
   "doctype": "DocField", 

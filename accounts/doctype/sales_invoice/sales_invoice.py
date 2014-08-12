@@ -14,6 +14,7 @@ from webnotes.model.doc import make_autoname
 from webnotes.model.bean import getlist
 from webnotes.model.code import get_obj
 from webnotes import _, msgprint
+from webnotes.model.bean import getlist
 
 month_map = {'Monthly': 1, 'Quarterly': 3, 'Half-yearly': 6, 'Yearly': 12}
 
@@ -40,7 +41,20 @@ class DocType(SellingController):
 			'keyword': 'Billed'
 		}]
 		
-
+	# def on_update(self):
+	# 	webnotes.msgprint("Hiii")
+	# 	webnotes.errprint("in update")
+	# 	self.update_totals();
+	def update_totals(self):
+		webnotes.errprint("in upadte totals")
+		total=0.0
+		for d in getlist(self.doclist, 'sales_invoice_products'):
+			total=total+flt(d.total_rate)
+		self.doc.net_total_export=total
+		#webnotes.errprint(total)
+		# return{
+		# 	'net_total_export': total
+		# }
 	def validate(self):
 		super(DocType, self).validate()
 		self.validate_posting_time()
@@ -455,6 +469,9 @@ class DocType(SellingController):
 		return w
 
 	def on_update(self):
+
+		# self.update_totals();
+		# self.doc.save();
 		if cint(self.doc.update_stock) == 1:
 			# Set default warehouse from pos setting
 			if cint(self.doc.is_pos) == 1:

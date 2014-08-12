@@ -1,5 +1,5 @@
-// Copyright (c) 2013, Web Notes Technologies Pvt. Ltd. and Contributors
-// License: GNU General Public License v3. See license.txt
+// // Copyright (c) 2013, Web Notes Technologies Pvt. Ltd. and Contributors
+// // License: GNU General Public License v3. See license.txt
 
 
 
@@ -64,8 +64,6 @@ cur_frm.get_field("normality").get_query=function(doc,cdt,cdn){
   return "select name from `tabNormality` order by creation desc" 
 
 }
-//cur_frm.fields_dict['neutralisation_test_details'].grid.get_field("physical_condition_density").get_query
-
 
 
 cur_frm.fields_dict.neutralisation_test_details.grid.get_field("physical_condition_density").get_query = function(doc,cdt,cdn)
@@ -86,16 +84,16 @@ cur_frm.fields_dict.neutralisation_test_details.grid.get_field("physical_conditi
     
 //   }
 // }
-cur_frm.fields_dict['physical_condition_density'].get_query=function(doc,cdt,cdn)
-{
-  return{
-    query:"test.doctype.neutralization_value.neutralization_value.get_physical_density_details",
-    filters:{
-      "sample_no":doc.sample_no
-    }
+// cur_frm.fields_dict['physical_condition_density'].get_query=function(doc,cdt,cdn)
+// {
+//   return{
+//     query:"test.doctype.neutralization_value.neutralization_value.get_physical_density_details",
+//     filters:{
+//       "sample_no":doc.sample_no
+//     }
     
-  }
-}
+//   }
+// }
 
 
 cur_frm.cscript.refresh=function(doc,cdt,cdn){
@@ -104,10 +102,10 @@ cur_frm.cscript.refresh=function(doc,cdt,cdn){
       cur_frm.cscript['Prepare Sample For Sediment']);
     }
 
-  // else if(doc.docstatus == 1 && doc.test=='Oxidation Stability') {
-  //     cur_frm.add_custom_button(wn._('Prepare Sample For Sediment'),
-  //     cur_frm.cscript['Prepare Sample For Sediment']);
-  //   }
+  else if(doc.docstatus == 1 && doc.test=='Oxidation Stability') {
+      cur_frm.add_custom_button(wn._('Prepare Sample For Sediment'),
+      cur_frm.cscript['Prepare Sample For Sediment']);
+    }
 }
 
 

@@ -1,0 +1,39 @@
+[
+ {
+  "creation": "2014-07-23 16:06:45", 
+  "docstatus": 0, 
+  "modified": "2014-07-23 16:12:05", 
+  "modified_by": "Administrator", 
+  "owner": "Administrator"
+ }, 
+ {
+  "doctype": "DocType", 
+  "istable": 1, 
+  "module": "Selling", 
+  "name": "__common__"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldtype": "Data", 
+  "in_list_view": 1, 
+  "name": "__common__", 
+  "parent": "Actions", 
+  "parentfield": "fields", 
+  "parenttype": "DocType", 
+  "permlevel": 0
+ }, 
+ {
+  "doctype": "DocType", 
+  "name": "Actions"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "actions_to_be_taken", 
+  "label": "Actions To Be Taken"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "action_taken", 
+  "label": "Action Taken"
+ }
+]

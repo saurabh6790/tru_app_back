@@ -2,7 +2,7 @@
  {
   "creation": "2013-05-03 10:45:46", 
   "docstatus": 0, 
-  "modified": "2014-06-11 15:51:53", 
+  "modified": "2014-08-05 14:59:19", 
   "modified_by": "Administrator", 
   "owner": "Administrator"
  }, 
@@ -399,7 +399,6 @@
   "read_only": 0
  }, 
  {
-  "default": "Yes", 
   "description": "Selecting \"Yes\" will allow this item to appear in Purchase Order , Purchase Receipt.", 
   "doctype": "DocField", 
   "fieldname": "is_purchase_item", 
@@ -407,7 +406,7 @@
   "label": "Is Purchase Item", 
   "oldfieldname": "is_purchase_item", 
   "oldfieldtype": "Select", 
-  "options": "Yes\nNo", 
+  "options": "\nYes\nNo", 
   "read_only": 0, 
   "reqd": 1
  }, 
@@ -531,7 +530,6 @@
   "read_only": 0
  }, 
  {
-  "default": "Yes", 
   "description": "Selecting \"Yes\" will allow this item to figure in Sales Order, Delivery Note", 
   "doctype": "DocField", 
   "fieldname": "is_sales_item", 
@@ -540,8 +538,16 @@
   "label": "Is Sales Item", 
   "oldfieldname": "is_sales_item", 
   "oldfieldtype": "Select", 
-  "options": "Yes\nNo", 
+  "options": "\nYes\nNo", 
   "read_only": 0, 
+  "reqd": 1
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "is_test", 
+  "fieldtype": "Select", 
+  "label": "Is Product", 
+  "options": "\nYes\nNo", 
   "reqd": 1
  }, 
  {
@@ -605,6 +611,43 @@
   "label": "Customer Codes", 
   "options": "Item Customer Detail", 
   "read_only": 0
+ }, 
+ {
+  "depends_on": "eval:doc.is_sales_item=='Yes' && doc.is_test=='Yes'", 
+  "doctype": "DocField", 
+  "fieldname": "product_details", 
+  "fieldtype": "Section Break", 
+  "label": "Product Details"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "test_detail", 
+  "fieldtype": "Table", 
+  "label": "Test Detail", 
+  "options": "Test Details"
+ }, 
+ {
+  "depends_on": "eval:doc.is_sales_item=='Yes' && doc.is_test=='Yes'", 
+  "doctype": "DocField", 
+  "fieldname": "section_break_58", 
+  "fieldtype": "Section Break"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "total_rate", 
+  "fieldtype": "Float", 
+  "label": "Total Rate"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "column_break_60", 
+  "fieldtype": "Column Break"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "product_test_details", 
+  "fieldtype": "Small Text", 
+  "label": "Product Test Details"
  }, 
  {
   "doctype": "DocField", 

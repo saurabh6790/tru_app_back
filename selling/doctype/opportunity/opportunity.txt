@@ -2,7 +2,7 @@
  {
   "creation": "2013-03-07 18:50:30", 
   "docstatus": 0, 
-  "modified": "2013-11-25 11:36:40", 
+  "modified": "2014-08-04 15:24:30", 
   "modified_by": "Administrator", 
   "owner": "Administrator"
  }, 
@@ -144,6 +144,7 @@
   "doctype": "DocField", 
   "fieldname": "items", 
   "fieldtype": "Section Break", 
+  "hidden": 0, 
   "label": "Items", 
   "oldfieldtype": "Section Break", 
   "options": "icon-shopping-cart", 
@@ -154,11 +155,33 @@
   "doctype": "DocField", 
   "fieldname": "enquiry_details", 
   "fieldtype": "Table", 
+  "hidden": 0, 
   "label": "Opportunity Items", 
   "oldfieldname": "enquiry_details", 
   "oldfieldtype": "Table", 
   "options": "Opportunity Item", 
   "read_only": 0
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "product_details", 
+  "fieldtype": "Section Break", 
+  "hidden": 1, 
+  "label": "Product Details"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "oppo_products", 
+  "fieldtype": "Table", 
+  "label": "Opportunity Product", 
+  "options": "Opportunity Product"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "net_total_export", 
+  "fieldtype": "Float", 
+  "label": "Net Total", 
+  "read_only": 1
  }, 
  {
   "description": "Keep a track of communication related to this enquiry which will help for future reference.", 

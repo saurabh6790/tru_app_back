@@ -19,7 +19,7 @@ cur_frm.cscript.onload = function(doc, cdt, cdn) {
 			var doctype = last_route[1],
 				docname = last_route.slice(2).join("/");
 			
-			if(["Customer", "Quotation", "Sales Order", "Sales Invoice", "Delivery Note",
+			if(["Customer","Lead", "Quotation", "Sales Order", "Sales Invoice", "Delivery Note",
 				"Installation Note", "Opportunity", "Customer Issue", "Maintenance Visit",
 				"Maintenance Schedule"]
 				.indexOf(doctype)!==-1) {

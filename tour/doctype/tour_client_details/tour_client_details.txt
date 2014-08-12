@@ -1,0 +1,77 @@
+[
+ {
+  "creation": "2014-07-21 13:23:49", 
+  "docstatus": 0, 
+  "modified": "2014-08-01 15:37:42", 
+  "modified_by": "Administrator", 
+  "owner": "Administrator"
+ }, 
+ {
+  "doctype": "DocType", 
+  "istable": 1, 
+  "module": "Tour", 
+  "name": "__common__"
+ }, 
+ {
+  "doctype": "DocField", 
+  "name": "__common__", 
+  "parent": "Tour Client Details", 
+  "parentfield": "fields", 
+  "parenttype": "DocType", 
+  "permlevel": 0
+ }, 
+ {
+  "doctype": "DocType", 
+  "name": "Tour Client Details"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "client_name", 
+  "fieldtype": "Link", 
+  "in_list_view": 1, 
+  "label": "Client Name", 
+  "options": "Customer"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "contact_person", 
+  "fieldtype": "Link", 
+  "in_list_view": 1, 
+  "label": "Contact Person", 
+  "options": "Contact"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "address", 
+  "fieldtype": "Small Text", 
+  "label": "Address", 
+  "read_only": 1
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "contact_no", 
+  "fieldtype": "Int", 
+  "label": "Contact No", 
+  "read_only": 1
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "client_requirement", 
+  "fieldtype": "Small Text", 
+  "label": "Client Requirement/Purpose of Visit"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "small_description", 
+  "fieldtype": "Small Text", 
+  "in_list_view": 1, 
+  "label": "Small Description"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "approx_advance_expense", 
+  "fieldtype": "Float", 
+  "in_list_view": 1, 
+  "label": "Approx Advance Expense"
+ }
+]

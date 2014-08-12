@@ -2,7 +2,7 @@
  {
   "creation": "2013-04-10 11:45:37", 
   "docstatus": 0, 
-  "modified": "2013-11-25 11:38:00", 
+  "modified": "2014-07-26 12:50:23", 
   "modified_by": "Administrator", 
   "owner": "Administrator"
  }, 
@@ -153,6 +153,12 @@
  }, 
  {
   "doctype": "DocField", 
+  "fieldname": "address", 
+  "fieldtype": "Small Text", 
+  "label": "Address"
+ }, 
+ {
+  "doctype": "DocField", 
   "fieldname": "communication_history", 
   "fieldtype": "Section Break", 
   "label": "Communication", 
@@ -250,13 +256,21 @@
  }, 
  {
   "doctype": "DocField", 
-  "fieldname": "column_break2", 
+  "fieldname": "column_break_2", 
   "fieldtype": "Column Break"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "contact_html", 
+  "fieldtype": "HTML", 
+  "label": "Contact HTML", 
+  "read_only": 1
  }, 
  {
   "doctype": "DocField", 
   "fieldname": "phone", 
   "fieldtype": "Data", 
+  "hidden": 1, 
   "label": "Phone", 
   "oldfieldname": "contact_no", 
   "oldfieldtype": "Data", 
@@ -266,6 +280,7 @@
   "doctype": "DocField", 
   "fieldname": "mobile_no", 
   "fieldtype": "Data", 
+  "hidden": 1, 
   "label": "Mobile No.", 
   "oldfieldname": "mobile_no", 
   "oldfieldtype": "Data"
@@ -274,6 +289,7 @@
   "doctype": "DocField", 
   "fieldname": "fax", 
   "fieldtype": "Data", 
+  "hidden": 1, 
   "label": "Fax", 
   "oldfieldname": "fax", 
   "oldfieldtype": "Data"
@@ -282,6 +298,7 @@
   "doctype": "DocField", 
   "fieldname": "website", 
   "fieldtype": "Data", 
+  "hidden": 1, 
   "label": "Website", 
   "oldfieldname": "website", 
   "oldfieldtype": "Data"
@@ -378,12 +395,14 @@
   "doctype": "DocField", 
   "fieldname": "unsubscribed", 
   "fieldtype": "Check", 
+  "hidden": 1, 
   "label": "Unsubscribed"
  }, 
  {
   "doctype": "DocField", 
   "fieldname": "blog_subscriber", 
   "fieldtype": "Check", 
+  "hidden": 1, 
   "label": "Blog Subscriber"
  }, 
  {
@@ -394,6 +413,19 @@
   "label": "Communications", 
   "options": "Communication", 
   "print_hide": 1
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "actions_details", 
+  "fieldtype": "Section Break", 
+  "label": "Actions Details"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "actions", 
+  "fieldtype": "Table", 
+  "label": "Actions", 
+  "options": "Actions"
  }, 
  {
   "cancel": 1, 
