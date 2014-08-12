@@ -2,7 +2,7 @@
  {
   "creation": "2013-02-22 01:27:51", 
   "docstatus": 0, 
-  "modified": "2013-11-02 19:41:31", 
+  "modified": "2014-08-05 12:14:13", 
   "modified_by": "Administrator", 
   "owner": "Administrator"
  }, 
@@ -86,15 +86,28 @@
  }, 
  {
   "doctype": "DocField", 
+  "fieldname": "details", 
+  "fieldtype": "Section Break", 
+  "label": "Test Details"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "test_details", 
+  "fieldtype": "Small Text", 
+  "label": "Test Details"
+ }, 
+ {
+  "doctype": "DocField", 
   "fieldname": "quantity_and_rate", 
   "fieldtype": "Section Break", 
   "in_list_view": 0, 
-  "label": "Quantity and Rate"
+  "label": "Rate"
  }, 
  {
   "doctype": "DocField", 
   "fieldname": "qty", 
   "fieldtype": "Float", 
+  "hidden": 1, 
   "in_list_view": 1, 
   "label": "Qty", 
   "oldfieldname": "qty", 
@@ -116,6 +129,7 @@
   "doctype": "DocField", 
   "fieldname": "uom", 
   "fieldtype": "Link", 
+  "hidden": 1, 
   "in_list_view": 0, 
   "label": "UOM", 
   "oldfieldname": "uom", 

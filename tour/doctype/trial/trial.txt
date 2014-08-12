@@ -1,0 +1,73 @@
+[
+ {
+  "creation": "2014-07-23 11:04:24", 
+  "docstatus": 0, 
+  "modified": "2014-07-23 11:22:43", 
+  "modified_by": "Administrator", 
+  "owner": "Administrator"
+ }, 
+ {
+  "autoname": "TRE.###", 
+  "doctype": "DocType", 
+  "document_type": "Transaction", 
+  "is_submittable": 1, 
+  "module": "Tour", 
+  "name": "__common__"
+ }, 
+ {
+  "doctype": "DocField", 
+  "name": "__common__", 
+  "parent": "Trial", 
+  "parentfield": "fields", 
+  "parenttype": "DocType", 
+  "permlevel": 0
+ }, 
+ {
+  "create": 1, 
+  "doctype": "DocPerm", 
+  "name": "__common__", 
+  "parent": "Trial", 
+  "parentfield": "permissions", 
+  "parenttype": "DocType", 
+  "permlevel": 0, 
+  "read": 1, 
+  "write": 1
+ }, 
+ {
+  "doctype": "DocType", 
+  "name": "Trial"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "contact_name", 
+  "fieldtype": "Data", 
+  "label": "Contact Name"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "status", 
+  "fieldtype": "Select", 
+  "label": "Status", 
+  "options": "\nOpen\nApproved\nClosed"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "amended_from", 
+  "fieldtype": "Link", 
+  "label": "Amended From", 
+  "no_copy": 1, 
+  "options": "Trial", 
+  "print_hide": 1, 
+  "read_only": 1
+ }, 
+ {
+  "cancel": 1, 
+  "doctype": "DocPerm", 
+  "role": "Administrator", 
+  "submit": 1
+ }, 
+ {
+  "doctype": "DocPerm", 
+  "role": "Employee"
+ }
+]

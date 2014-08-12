@@ -414,3 +414,27 @@ cur_frm.cscript.invoice_period_from_date = function(doc, dt, dn) {
 		}
 	}
 }
+
+
+// cur_frm.cscript.validate = function(doc,cdt,cdn) {
+// 	console.log("in the validate")
+// 	cur_frm.cscript.update_totals(doc);
+// }
+
+// cur_frm.cscript.update_totals = function(doc, cdt, cdn) {
+// 	console.log("in the update totals validate");
+// 	var td=0.0;
+// 	var el = getchildren('Sales Invoice Product', doc.name, 'sales_invoice_products');
+// 	//console.log(el);
+// 	for(var i in el) {
+// 		//console.log(el[i].total_rate)
+// 		td += flt(el[i].total_rate,2);
+// 		// tc += flt(el[i].credit, 2);
+// 	}
+// 	//cur_frm.set_value('net_total_export',td);
+// 	var doc = locals[doc.doctype][doc.name];
+// 	doc.net_total_export = td;
+// 	console.log(doc.net_total_export);
+// 	refresh_field('net_total_export');
+// 	alert(doc.net_total_export);
+// }

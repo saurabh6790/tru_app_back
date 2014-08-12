@@ -8,6 +8,7 @@ from webnotes.model.bean import getlist
 from webnotes.model.code import get_obj
 from webnotes import _, msgprint
 from controllers.selling_controller import SellingController
+from webnotes.utils import cstr, flt, getdate
 
 class DocType(SellingController):
 	def __init__(self, doc, doclist=[]):
@@ -29,6 +30,7 @@ class DocType(SellingController):
 				chk_dupl_itm.append([cstr(d.item_code),cstr(d.description)])
 
 	def validate_order_type(self):
+		#webnotes.errprint("in the validate")
 		super(DocType, self).validate_order_type()
 		
 		if self.doc.order_type in ['Maintenance', 'Service']:
@@ -52,8 +54,26 @@ class DocType(SellingController):
 		super(DocType, self).validate()
 		self.set_status()
 		self.validate_order_type()
-		self.validate_for_items()
+		# self.validate_for_items()
+		self.validate_for_product()
 		self.validate_uom_is_integer("stock_uom", "qty")
+
+	def on_update(self):
+		self.doc.quotation_name=self.doc.name
+		if self.doc.estimated_value and self.doc.percentage:
+			amount=cstr(flt(self.doc.rounded_total_export)/flt(self.doc.percentage))
+			if self.doc.estimated_value=='Percentage Above of the Estimated Cost':
+				quotation_amount=flt(self.doc.rounded_total_export)+flt(amount)
+				webnotes.errprint(quotation_amount)
+			else:
+				quotation_amount=flt(self.doc.rounded_total_export)-flt(amount)
+				webnotes.errprint(quotation_amount)
+
+			if quotation_amount:
+				webnotes.errprint("in update query")
+				webnotes.conn.sql("""update `tabQuotation` set quoted_amount='%s' where name='%s'"""%(quotation_amount,self.doc.name),debug=1)
+				webnotes.conn.sql('commit')	
+#		self.doc.save()
 
 	def update_opportunity(self):
 		for opportunity in self.doclist.get_distinct_values("prevdoc_docname"):
@@ -94,6 +114,16 @@ class DocType(SellingController):
 			lst1.append(d.total)
 			print_lst.append(lst1)
 		return print_lst
+
+
+	def validate_for_product(self):
+		chk_dupl_prd = []
+		for d in getlist(self.doclist,'quotation_product'):
+			if [cstr(d.product_name),cstr(d.description)] in chk_dupl_prd:
+				msgprint("Product %s has been entered twice. Please change description atleast to continue" % d.product_name)
+				raise Exception
+			else:
+				chk_dupl_prd.append([cstr(d.product_name),cstr(d.description)])	
 		
 	
 @webnotes.whitelist()
@@ -126,6 +156,12 @@ def _make_sales_order(source_name, target_doclist=None, ignore_permissions=False
 					"parent": "prevdoc_docname"
 				}
 			}, 
+			# "Quotation Product": {
+			# 	"doctype": "Sales Order Product", 
+			# 	"field_map": {
+			# 		"parent": "prevdoc_docname"
+			# 	}
+			# },
 			"Sales Taxes and Charges": {
 				"doctype": "Sales Taxes and Charges",
 				"add_if_empty": True
@@ -169,3 +205,23 @@ def _make_customer(source_name, ignore_permissions=False):
 				from webnotes.utils import get_url_to_form
 				webnotes.throw(_("Before proceeding, please create Customer from Lead") + \
 					(" - %s" % get_url_to_form("Lead", lead_name)))
+
+@webnotes.whitelist()
+def make_tender(source_name, target_doclist=None):
+	from webnotes.model.mapper import get_mapped_doclist
+		
+	doclist = get_mapped_doclist("Quotation", source_name, 
+		{"Quotation": {
+			"doctype": "Tender",
+			"field_map": {
+				# "campaign_name": "campaign",
+				# "doctype": "enquiry_from",
+				# "name": "lead",
+				# "lead_name": "contact_display",
+				# "company_name": "customer_name",
+				# "email_id": "contact_email",
+				# "mobile_no": "contact_mobile"
+			}
+		}}, target_doclist)
+		
+	return [d if isinstance(d, dict) else d.fields for d in doclist]

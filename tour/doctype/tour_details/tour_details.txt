@@ -1,0 +1,114 @@
+[
+ {
+  "creation": "2014-07-21 12:08:42", 
+  "docstatus": 0, 
+  "modified": "2014-08-01 16:02:17", 
+  "modified_by": "Administrator", 
+  "owner": "Administrator"
+ }, 
+ {
+  "autoname": "field:tour_name", 
+  "custom": 0, 
+  "doctype": "DocType", 
+  "document_type": "Transaction", 
+  "is_submittable": 1, 
+  "module": "Tour", 
+  "name": "__common__"
+ }, 
+ {
+  "doctype": "DocField", 
+  "name": "__common__", 
+  "parent": "Tour Details", 
+  "parentfield": "fields", 
+  "parenttype": "DocType", 
+  "permlevel": 0
+ }, 
+ {
+  "amend": 1, 
+  "cancel": 1, 
+  "create": 1, 
+  "doctype": "DocPerm", 
+  "name": "__common__", 
+  "parent": "Tour Details", 
+  "parentfield": "permissions", 
+  "parenttype": "DocType", 
+  "permlevel": 0, 
+  "read": 1, 
+  "report": 1, 
+  "role": "All", 
+  "submit": 1, 
+  "write": 1
+ }, 
+ {
+  "doctype": "DocType", 
+  "name": "Tour Details"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "status", 
+  "fieldtype": "Select", 
+  "label": "Status", 
+  "options": "\nOpen\nApproved\nRejected", 
+  "read_only": 1
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "tour_name", 
+  "fieldtype": "Link", 
+  "label": "Tour Name", 
+  "options": "Tour Name", 
+  "reqd": 1
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "column_break_3", 
+  "fieldtype": "Column Break"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "from_date", 
+  "fieldtype": "Date", 
+  "label": "From Date", 
+  "reqd": 1
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "to_date", 
+  "fieldtype": "Date", 
+  "label": "To Date", 
+  "reqd": 1
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "client_details", 
+  "fieldtype": "Section Break", 
+  "label": "Client Details"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "tour_client_details", 
+  "fieldtype": "Table", 
+  "label": "Tour Client Details", 
+  "options": "Tour Client Details"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "total_expenses", 
+  "fieldtype": "Float", 
+  "label": "Total Expenses", 
+  "read_only": 1
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "amended_from", 
+  "fieldtype": "Link", 
+  "label": "Amended From", 
+  "no_copy": 1, 
+  "options": "Tour Details", 
+  "print_hide": 1, 
+  "read_only": 1
+ }, 
+ {
+  "doctype": "DocPerm"
+ }
+]

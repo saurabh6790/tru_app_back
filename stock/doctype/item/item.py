@@ -9,6 +9,7 @@ from webnotes.model.doc import addchild
 from webnotes.model.bean import getlist
 from webnotes import msgprint, _
 from webnotes.webutils import WebsiteGenerator
+from webnotes.model.doc import addchild, Document
 
 from webnotes.model.controller import DocListController
 
@@ -26,6 +27,9 @@ class DocType(DocListController, WebsiteGenerator):
 			msgprint(_("Item Code (item_code) is mandatory because Item naming is not sequential."), raise_exception=1)
 			
 		self.doc.name = self.doc.item_code
+
+	def get_test_details(self,length):
+		webnotes.msgprint("Test Details Table can not be blank",raise_exception=1)
 			
 	def validate(self):
 		if not self.doc.stock_uom:
@@ -50,6 +54,54 @@ class DocType(DocListController, WebsiteGenerator):
 		self.validate_name_with_item_group()
 		self.update_website()
 		self.update_item_price()
+		if self.doc.is_sales_item=='Yes' and self.doc.is_test=='Yes':
+			self.update_test_names()
+			if self.doc.total_rate:
+				self.create_item_price()
+			else:
+				pass
+		else:
+			pass
+
+		self.doc.save()
+
+	def update_test_names(self):
+		webnotes.errprint("in the update_test_names")
+		test_name_list=[]
+		test_name_detail=''
+		for d in getlist(self.doclist,'test_detail'):
+			test_name_detail=cstr(d.test_name)+'-'+cstr(d.test_method)
+			test_name_list.append(cstr(test_name_detail))
+		self.doc.product_test_details='\n'.join(test_name_list)	
+
+		webnotes.errprint(self.doc.product_test_details)	
+
+		webnotes.conn.sql("""update `tabItem` set product_test_details='%s' where name='%s'"""%(self.doc.product_test_details,self.doc.name))
+		webnotes.conn.sql('commit')	
+
+	def create_item_price(self):
+		item=webnotes.conn.sql("select item_code from `tabItem Price` where price_list='Standard Selling'",debug=1,as_list=1)
+		webnotes.errprint(item)
+		if item:
+
+			if [self.doc.name] in item:
+				webnotes.errprint("in if loop")
+				webnotes.conn.sql("""update `tabItem Price` set ref_rate='%s' where item_code='%s' and price_list='Standard Selling'"""%(self.doc.total_rate,self.doc.name))
+				webnotes.conn.sql('commit')	
+			else:
+				webnotes.errprint("else")
+				d=Document('Item Price')
+				d.price_list='Standard Selling'
+				d.item_code=self.doc.name
+				d.selling=1
+				d.item_name=self.doc.item_name
+				d.item_description=self.doc.description
+				d.ref_rate=self.doc.total_rate
+				d.save()
+				webnotes.errprint(d)
+		else:
+			pass
+
 
 	def check_warehouse_is_set_for_stock_item(self):
 		if self.doc.is_stock_item=="Yes" and not self.doc.default_warehouse:
@@ -107,6 +159,7 @@ class DocType(DocListController, WebsiteGenerator):
 					msgprint(_("""Conversion Factor of UOM: %s should be equal to 1. 
 						As UOM: %s is Stock UOM of Item: %s.""" % 
 						(d.uom, d.uom, self.doc.name)), raise_exception=1)
+					
 			elif d.uom and cstr(d.uom)!= self.doc.stock_uom and flt(d.conversion_factor) == 1:
 				msgprint(_("""Conversion Factor of UOM: %s should not be equal to 1. 
 					As UOM: %s is not Stock UOM of Item: %s""" % 

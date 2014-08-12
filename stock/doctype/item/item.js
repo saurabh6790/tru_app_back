@@ -1,6 +1,8 @@
 // Copyright (c) 2013, Web Notes Technologies Pvt. Ltd. and Contributors
 // License: GNU General Public License v3. See license.txt
 
+
+
 cur_frm.cscript.refresh = function(doc) {
 	// make sensitive fields(has_serial_no, is_stock_item, valuation_method)
 	// read only if any stock ledger entry exists
@@ -19,6 +21,7 @@ cur_frm.cscript.refresh = function(doc) {
 		cur_frm.toggle_enable(['has_serial_no', 'is_stock_item', 'valuation_method'],
 			doc.__sle_exists=="exists" ? false : true);
 	}
+
 }
 
 cur_frm.cscript.make_dashboard = function() {
@@ -178,3 +181,39 @@ cur_frm.cscript.image = function() {
 			wn.meta.get_docfield(cur_frm.doc.doctype, "description_html").label);
 	}
 }
+
+cur_frm.cscript.validate = function(doc,cdt,cdn) {
+	console.log("hi");
+	if (doc.is_sales_item=='Yes' && doc.is_test=='Yes'){
+		var el = getchildren('Test Details', doc.name, 'test_detail');
+		//length= length(el);
+
+		//console.log(el.length);
+		if ((el.length)<1)
+			get_server_fields('get_test_details',el.length,'test_detail',doc, cdt, cdn, 1);
+			//alert("Test Details table can not be blank");
+		else
+			console.log("k");
+	}
+	cur_frm.cscript.update_totals(doc);
+
+
+} 
+
+cur_frm.cscript.update_totals = function(doc) {
+	console.log("in the update total");
+	var td=0.0;
+	var el = getchildren('Test Details', doc.name, 'test_detail');
+	for(var i in el) {
+		console.log(el[i].test_rate)
+		td += flt(el[i].test_rate,2);
+		
+	}
+
+	var doc = locals[doc.doctype][doc.name];
+	doc.total_rate = td;
+	console.log(doc.total_rate);
+	refresh_many(['total_rate']);
+}
+
+

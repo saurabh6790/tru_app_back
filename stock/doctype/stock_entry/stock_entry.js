@@ -284,8 +284,8 @@ erpnext.stock.StockEntry = erpnext.stock.StockController.extend({
 cur_frm.script_manager.make(erpnext.stock.StockEntry);
 
 cur_frm.cscript.toggle_related_fields = function(doc) {
-	disable_from_warehouse = inList(["Material Receipt", "Sales Return","Material Transfer"], doc.purpose);
-	disable_to_warehouse = inList(["Material Issue", "Purchase Return","Material Transfer"], doc.purpose);
+	disable_from_warehouse = inList(["Material Receipt", "Sales Return", "Material Transfer"], doc.purpose);
+	disable_to_warehouse = inList(["Material Issue", "Purchase Return", "Material Transfer"], doc.purpose);
 	
 	disable_posting_date = inList(["Inward","Outward"],doc.internal_purpose);
 	cur_frm.toggle_enable("posting_date",!disable_posting_date);
@@ -296,8 +296,8 @@ cur_frm.cscript.toggle_related_fields = function(doc) {
 	cur_frm.fields_dict["mtn_details"].grid.set_column_disp("s_warehouse", !disable_from_warehouse);
 	cur_frm.fields_dict["mtn_details"].grid.set_column_disp("t_warehouse", !disable_to_warehouse);
 	//cur_frm.fields_dict["mtn_details"].grid.set_column_disp("batch_no",!disable_batch_no);
-	if(doc.internal_purpose =='Outward' && doc.purpose=='Material Transfer'){
-		alert("Test")
+
+	if(doc.internal_purpose == 'Outward' && doc.purpose == 'Material Transfer'){
 		cur_frm.set_value('from_warehouse','Work In Progress - TF')
 		cur_frm.set_value('to_warehouse','Stores - TF')
 		refresh_field('from_warehouse')
@@ -315,6 +315,7 @@ cur_frm.cscript.toggle_related_fields = function(doc) {
 		refresh_field('from_warehouse')
 		refresh_field('to_warehouse')
 	}
+	
 	if(doc.purpose == 'Purchase Return') {
 		doc.customer = doc.customer_name = doc.customer_address = 
 			doc.delivery_note_no = doc.sales_invoice_no = null;

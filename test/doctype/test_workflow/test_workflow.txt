@@ -1,0 +1,82 @@
+[
+ {
+  "creation": "2014-07-26 18:23:52", 
+  "docstatus": 0, 
+  "modified": "2014-07-28 17:02:04", 
+  "modified_by": "Administrator", 
+  "owner": "Administrator"
+ }, 
+ {
+  "autoname": "TW.###", 
+  "custom": 1, 
+  "doctype": "DocType", 
+  "document_type": "Transaction", 
+  "is_submittable": 1, 
+  "module": "Test", 
+  "name": "__common__"
+ }, 
+ {
+  "doctype": "DocField", 
+  "name": "__common__", 
+  "parent": "Test Workflow", 
+  "parentfield": "fields", 
+  "parenttype": "DocType", 
+  "permlevel": 0
+ }, 
+ {
+  "cancel": 1, 
+  "create": 1, 
+  "doctype": "DocPerm", 
+  "name": "__common__", 
+  "parent": "Test Workflow", 
+  "parentfield": "permissions", 
+  "parenttype": "DocType", 
+  "permlevel": 0, 
+  "read": 1, 
+  "report": 1, 
+  "submit": 1, 
+  "write": 1
+ }, 
+ {
+  "doctype": "DocType", 
+  "name": "Test Workflow"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "client", 
+  "fieldtype": "Data", 
+  "label": "Client"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "status", 
+  "fieldtype": "Select", 
+  "label": "Status", 
+  "options": "\nOpen\nApproved\nRejected"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "amended_from", 
+  "fieldtype": "Link", 
+  "label": "Amended From", 
+  "no_copy": 1, 
+  "options": "Test Workflow", 
+  "print_hide": 1, 
+  "read_only": 1
+ }, 
+ {
+  "amend": 0, 
+  "doctype": "DocPerm", 
+  "role": "Administrator"
+ }, 
+ {
+  "amend": 1, 
+  "doctype": "DocPerm", 
+  "role": "Employee"
+ }, 
+ {
+  "amend": 1, 
+  "doctype": "DocPerm", 
+  "role": "Sales Manager"
+ }
+]

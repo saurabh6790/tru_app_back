@@ -23,6 +23,7 @@ class DocType(SellingController):
 		self.person_tname = 'Target Detail'
 		self.partner_tname = 'Partner Target Detail'
 		self.territory_tname = 'Territory Target Detail'
+
 	
 	def validate_mandatory(self):
 		# validate transaction date v/s delivery date
@@ -108,7 +109,8 @@ class DocType(SellingController):
 		self.validate_proj_cust()
 		self.validate_po()
 		self.validate_uom_is_integer("stock_uom", "qty")
-		self.validate_for_items()
+		# self.validate_for_items()
+		self.validate_for_product()
 		self.validate_warehouse()
 		
 		from stock.doctype.packed_item.packed_item import make_packing_list
@@ -143,6 +145,10 @@ class DocType(SellingController):
 				"compare_fields": [["company", "="], ["currency", "="]]
 			}
 		})
+
+
+
+
 
 		
 	def update_enquiry_status(self, prevdoc, flag):
@@ -249,7 +255,17 @@ class DocType(SellingController):
 		
 	def get_portal_page(self):
 		return "order" if self.doc.docstatus==1 else None
-		
+
+
+	def validate_for_product(self):
+		chk_dupl_prd = []
+		for d in getlist(self.doclist,'sales_products'):
+			if [cstr(d.product_name),cstr(d.description)] in chk_dupl_prd:
+				msgprint("Product %s has been entered twice. Please change description atleast to continue" % d.product_name)
+				raise Exception
+			else:
+				chk_dupl_prd.append([cstr(d.product_name),cstr(d.description)])			
+	
 def set_missing_values(source, target):
 	bean = webnotes.bean(target)
 	bean.run_method("onload_post_render")
@@ -318,7 +334,6 @@ def make_delivery_note(source_name, target_doclist=None):
 	}, target_doclist, set_missing_values)
 	
 	return [d.fields for d in doclist]
-
 @webnotes.whitelist()
 def make_sales_invoice(source_name, target_doclist=None):
 	def set_missing_values(source, target):
@@ -359,7 +374,6 @@ def make_sales_invoice(source_name, target_doclist=None):
 	}, target_doclist, set_missing_values)
 	
 	return [d.fields for d in doclist]
-	
 @webnotes.whitelist()
 def make_maintenance_schedule(source_name, target_doclist=None):
 	maint_schedule = webnotes.conn.sql("""select t1.name 

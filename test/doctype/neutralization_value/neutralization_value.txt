@@ -47,75 +47,6 @@
  }, 
  {
   "doctype": "DocField", 
-  "fieldname": "specification", 
-  "fieldtype": "Link", 
-  "label": "Specification", 
-  "options": "Specification"
- }, 
- {
-  "doctype": "DocField", 
-  "fieldname": "method", 
-  "fieldtype": "Link", 
-  "hidden": 0, 
-  "label": "Test Method", 
-  "options": "Test Method", 
-  "reqd": 1
- }, 
- {
-  "doctype": "DocField", 
-  "fieldname": "equipment_used", 
-  "fieldtype": "Link", 
-  "label": "Equipment Used", 
-  "options": "Equipment Used"
- }, 
- {
-  "depends_on": "eval:doc.equipment_used", 
-  "doctype": "DocField", 
-  "fieldname": "add", 
-  "fieldtype": "Button", 
-  "label": "ADD"
- }, 
- {
-  "doctype": "DocField", 
-  "fieldname": "sample_no", 
-  "fieldtype": "Link", 
-  "hidden": 1, 
-  "label": "Sample No", 
-  "options": "Sample", 
-  "reqd": 0
- }, 
- {
-  "doctype": "DocField", 
-  "fieldname": "test", 
-  "fieldtype": "Data", 
-  "hidden": 1, 
-  "label": "Test ", 
-  "read_only": 1
- }, 
- {
-  "doctype": "DocField", 
-  "fieldname": "test_preparation", 
-  "fieldtype": "Data", 
-  "hidden": 1, 
-  "label": "Test Preparation", 
-  "read_only": 1
- }, 
- {
-  "doctype": "DocField", 
-  "fieldname": "physical_condition_density", 
-  "fieldtype": "Link", 
-  "hidden": 1, 
-  "label": "Physical Condition & Density", 
-  "options": "Physical Condition And Density", 
-  "reqd": 0
- }, 
- {
-  "doctype": "DocField", 
-  "fieldname": "column_break_3", 
-  "fieldtype": "Column Break"
- }, 
- {
-  "doctype": "DocField", 
   "fieldname": "date", 
   "fieldtype": "Date", 
   "label": "Date"
@@ -310,21 +241,17 @@
  {
   "cancel": 1, 
   "doctype": "DocPerm", 
-  "role": "Shift Incharge", 
-  "submit": 1
+  "role": "Shift Incharge"
  }, 
  {
   "cancel": 1, 
   "doctype": "DocPerm", 
-  "role": "Lab Incharge", 
-  "submit": 1
+  "role": "Lab Incharge"
  }, 
  {
-  "amend": 1, 
   "cancel": 1, 
   "doctype": "DocPerm", 
   "report": 1, 
-  "role": "Tester", 
-  "submit": 1
+  "role": "Tester"
  }
 ]

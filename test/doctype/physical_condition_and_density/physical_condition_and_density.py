@@ -19,7 +19,8 @@ class DocType:
 	def on_update(self):
 		#Assign To Function
 		#self.assign_physical_density_test();
-		self.update_status();
+		self.update_status()
+		# webnotes.errprint([self.get_density_temp()])
 		temp,density=self.get_density_temp()
 		if density:
 			self.doc.density_data=density
@@ -110,7 +111,7 @@ class DocType:
 		if result:
 			return result[0][0],result[0][1]
 		else: 
-			return None,None
+			return None, None
 
 	def generate_testresult(self,temp,density,temp_on_job_card):
 		cal=cstr(cint(1)+(0.00065*flt((flt(temp)-flt(temp_on_job_card)))))

@@ -13,6 +13,7 @@ from webnotes.utils import cint, cstr, flt, now, nowdate, get_first_day, get_las
 class DocType:
 	def __init__(self, d, dl):
 		self.doc, self.doclist = d, dl
+
 	def on_update(self):
 		#self.update_status();
 		self.calculate_avg()
@@ -68,11 +69,9 @@ class DocType:
 		}
 
 	def validate(self):
-		# #if self.doc.workflow_state=='Waiting For Aproval':
-		# 	webnotes.errprint(self.doc.workflow_state)
-		# 	webnotes.errprint(self.doc.status)
-			self.check_break_details()
-	
+		webnotes.errprint(self.doc.workflow_state)
+		self.check_break_details()
+
 	def check_break_details(self):
 		count=0
 		for m in getlist(self.doclist, 'break_detail'):
@@ -91,7 +90,6 @@ class DocType:
 		
 	# 	# for assigening ticket to the person of role Shift Incharge in worflow Shift Incharge- Lab Incharge
 	# 	if self.doc.workflow_state=='Waiting For Approval':
-	# 		#webnotes.errprint(self.doc.workflow_state)
 	# 		test_details['incharge'] = self.doc.shift_incharge_approval
 	# 		assign_notify(test_details)
 

@@ -37,6 +37,7 @@ erpnext.LeadController = wn.ui.form.Controller.extend({
 		if(!this.frm.doc.__islocal && !this.frm.doc.__is_customer) {
 			this.frm.add_custom_button(wn._("Create Customer"), this.create_customer);
 			this.frm.add_custom_button(wn._("Create Opportunity"), this.create_opportunity);
+			this.frm.add_custom_button(wn._("Quotation/Budgetary Quotation"), this.create_quotation);
 			this.frm.appframe.add_button(wn._("Send SMS"), this.frm.cscript.send_sms, "icon-mobile-phone");
 		}
 		
@@ -49,6 +50,8 @@ erpnext.LeadController = wn.ui.form.Controller.extend({
 		
 		if(!this.frm.doc.__islocal) {
 			this.make_address_list();
+
+			this.make_contact_list();
 		}
 	},
 	
@@ -74,6 +77,28 @@ erpnext.LeadController = wn.ui.form.Controller.extend({
 		}
 		this.frm.address_list.run();
 	}, 
+
+	make_contact_list:function() {
+		console.log(this.frm.contact_html);
+		var me = this;
+	if(!this.frm.contact_list) {
+		this.frm.contact_list = new wn.ui.Listing({
+			parent: this.frm.fields_dict['contact_html'].wrapper,
+			page_length: 5,
+			new_doctype: "Contact",
+			get_query: function() {
+				return "select name, first_name, last_name, email_id, phone, mobile_no, department, designation, is_primary_contact from tabContact where lead='"+me.frm.doc.name+"' and docstatus != 2 order by is_primary_contact desc"
+			},
+			as_dict: 1,
+			no_results_message: wn._('No contacts created'),
+			render_row: this.render_contact_row,
+		});
+		// note: render_contact_row is defined in contact_control.js
+	}
+	this.frm.contact_list.run();
+
+},
+
 	
 	create_customer: function() {
 		wn.model.open_mapped_doc({
@@ -87,7 +112,16 @@ erpnext.LeadController = wn.ui.form.Controller.extend({
 			method: "selling.doctype.lead.lead.make_opportunity",
 			source_name: cur_frm.doc.name
 		})
+	},
+	create_quotation: function() {
+		wn.model.open_mapped_doc({
+			method: "selling.doctype.lead.lead.make_quotation",
+			source_name: cur_frm.doc.name
+		})
 	}
+
+
+
 });
 
 $.extend(cur_frm.cscript, new erpnext.LeadController({frm: cur_frm}));

@@ -1,0 +1,48 @@
+[
+ {
+  "creation": "2014-07-24 11:22:36", 
+  "docstatus": 0, 
+  "modified": "2014-08-01 18:01:21", 
+  "modified_by": "Administrator", 
+  "owner": "Administrator"
+ }, 
+ {
+  "doctype": "DocType", 
+  "istable": 1, 
+  "module": "Selling", 
+  "name": "__common__"
+ }, 
+ {
+  "doctype": "DocField", 
+  "in_list_view": 1, 
+  "name": "__common__", 
+  "parent": "Test Details", 
+  "parentfield": "fields", 
+  "parenttype": "DocType", 
+  "permlevel": 0
+ }, 
+ {
+  "doctype": "DocType", 
+  "name": "Test Details"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "test_name", 
+  "fieldtype": "Link", 
+  "label": "Test Name", 
+  "options": "Test Name"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "test_method", 
+  "fieldtype": "Link", 
+  "label": "Test Method", 
+  "options": "Test Method"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "test_rate", 
+  "fieldtype": "Float", 
+  "label": "Rate"
+ }
+]
