@@ -2,7 +2,7 @@
  {
   "creation": "2014-06-10 16:02:53", 
   "docstatus": 0, 
-  "modified": "2014-07-16 12:19:37", 
+  "modified": "2014-08-13 12:27:59", 
   "modified_by": "Administrator", 
   "owner": "Administrator"
  }, 
@@ -25,7 +25,6 @@
  }, 
  {
   "cancel": 1, 
-  "create": 1, 
   "doctype": "DocPerm", 
   "name": "__common__", 
   "parent": "Kinematic Viscosity", 
@@ -221,25 +220,30 @@
   "label": "Tested By"
  }, 
  {
+  "create": 1, 
   "doctype": "DocPerm", 
   "role": "Administrator"
  }, 
  {
   "amend": 1, 
+  "create": 0, 
   "doctype": "DocPerm", 
   "role": "Lab Incharge"
  }, 
  {
   "amend": 1, 
+  "create": 0, 
   "doctype": "DocPerm", 
   "role": "Shift Incharge"
  }, 
  {
   "amend": 1, 
+  "create": 0, 
   "doctype": "DocPerm", 
   "role": "Employee"
  }, 
  {
+  "create": 0, 
   "doctype": "DocPerm", 
   "role": "Tester"
  }

@@ -2,7 +2,7 @@
  {
   "creation": "2013-05-03 10:45:46", 
   "docstatus": 0, 
-  "modified": "2014-08-05 14:59:19", 
+  "modified": "2014-08-12 12:14:45", 
   "modified_by": "Administrator", 
   "owner": "Administrator"
  }, 
@@ -636,7 +636,8 @@
   "doctype": "DocField", 
   "fieldname": "total_rate", 
   "fieldtype": "Float", 
-  "label": "Total Rate"
+  "label": "Total Rate", 
+  "read_only": 1
  }, 
  {
   "doctype": "DocField", 
@@ -647,7 +648,8 @@
   "doctype": "DocField", 
   "fieldname": "product_test_details", 
   "fieldtype": "Small Text", 
-  "label": "Product Test Details"
+  "label": "Product Test Details", 
+  "read_only": 1
  }, 
  {
   "doctype": "DocField", 

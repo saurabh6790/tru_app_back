@@ -66,6 +66,69 @@ cur_frm.get_field("normality").get_query=function(doc,cdt,cdn){
 }
 
 
+cur_frm.cscript.onload = function(doc, cdt, cdn){
+  //logic to check open session
+  check_session(doc,cdt,cdn)
+}
+
+check_session = function(doc,cdt,cdn){
+  wn.call({
+    method:"test.doctype.neutralization_value.neutralization_value.check_session",
+    callback:function(r){
+      if(r.message.session_id){
+        cur_frm.set_value('session_id',r.message.session_id)
+        refresh_field('session_id')
+        hide_field('start_session');
+        unhide_field('end_session');
+      }
+      else{
+        cur_frm.set_value('session_id',r.message.session_id)
+        refresh_field('session_id')
+        unhide_field('start_session');
+        hide_field('end_session');
+      }
+    }
+  })
+}
+
+cur_frm.cscript.start_session = function(doc, cdt, cdn){
+  //create new session
+  wn.call({
+    method:"test.doctype.neutralization_value.neutralization_value.create_session",
+    callback:function(r){
+      cur_frm.set_value('session_id',r.message.session_id)
+      refresh_field('session_id')
+      hide_field('start_session');
+      unhide_field('end_session');
+    }
+  })
+}
+
+
+cur_frm.cscript.physical_condition_density=function(doc,cdt,cdn){
+    var d = locals[cdt][cdn];
+    get_server_fields('get_physical_density_details',d.sample_no,'',doc,cdt,cdn,1);
+
+}
+
+cur_frm.cscript.end_session = function(doc, cdt, cdn){
+  //close the current session
+
+  wn.call({
+    method:"test.doctype.interfacial_tension.interfacial_tension.close_session",
+    args:{
+      'session_id':doc.session_id
+    },
+    callback:function(r){
+      cur_frm.set_value('session_id',r.message.session_id)
+      refresh_field('session_id')
+      unhide_field('start_session');
+      hide_field('end_session');
+    }
+  })
+}
+
+
 cur_frm.fields_dict.neutralisation_test_details.grid.get_field("physical_condition_density").get_query = function(doc,cdt,cdn)
 {
   var d = locals[cdt][cdn];

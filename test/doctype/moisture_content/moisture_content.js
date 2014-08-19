@@ -36,6 +36,11 @@ cur_frm.fields_dict['physical_condition_density'].get_query=function(doc,cdt,cdn
   }
 }
 
+cur_frm.cscript.physical_condition_density=function(doc,cdt,cdn){
+    get_server_fields('get_physical_density_details',doc.sample_no,'',doc,cdt,cdn,1);
+
+}
+
 // cur_frm.cscript.refresh=function(doc,cdt,cdn){
 //   if(doc.docstatus == 1) {
 //       cur_frm.add_custom_button(wn._('Calculate Neutralisation Value'),

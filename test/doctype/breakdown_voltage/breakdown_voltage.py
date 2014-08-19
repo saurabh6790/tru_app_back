@@ -106,8 +106,14 @@ class DocType:
 		pgcil_limit = get_pgcil_limit(self.doc.method)
 		test_detail = {'test': "Breakdown Voltage", 'sample_no':self.doc.sample_no,'name': self.doc.name,'method':self.doc.method, 'pgcil_limit':pgcil_limit,'workflow_state':self.doc.workflow_state,'tested_by':self.doc.tested_by}
 		voltage={'Avg Temp of Dielectric strength of oil B.D.V. in KVolume':self.doc.break_down_temperature,'Avg humidity of Dielectric strength of oil B.D.V. in KVolume':self.doc.break_down_humidity,'Avg frequency of Dielectric strength of oil B.D.V. in KVolume':self.doc.break_down_frequency,'Avg IR of Dielectric strength of oil B.D.V. in KVolume':self.doc.break_down_ir}
-		parent=create_test_results(test_detail)
-		for val in voltage:
-			create_child_testresult(parent,voltage[val],test_detail,val)
+		if self.doc.workflow_state=='Rejected':
+
+			update_test_log(test_detail)
+
+		else:
+
+			parent=create_test_results(test_detail)
+			for val in voltage:
+				create_child_testresult(parent,voltage[val],test_detail,val)
 
 

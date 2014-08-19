@@ -57,7 +57,6 @@ cur_frm.cscript.sample_no = function(doc,cdt,cdn){
 }
 
 
-
 // cur_frm.fields_dict.sample_allocation_detail.grid.get_field("shift_incharge").get_query = function(doc,cdt,cdn)
 // {
   

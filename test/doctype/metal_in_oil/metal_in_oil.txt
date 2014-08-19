@@ -2,7 +2,7 @@
  {
   "creation": "2014-06-13 16:11:34", 
   "docstatus": 0, 
-  "modified": "2014-07-16 12:21:08", 
+  "modified": "2014-08-13 12:30:44", 
   "modified_by": "Administrator", 
   "owner": "Administrator"
  }, 
@@ -25,7 +25,6 @@
  }, 
  {
   "cancel": 1, 
-  "create": 1, 
   "doctype": "DocPerm", 
   "name": "__common__", 
   "parent": "Metal In Oil", 
@@ -34,6 +33,7 @@
   "permlevel": 0, 
   "read": 1, 
   "report": 1, 
+  "submit": 1, 
   "write": 1
  }, 
  {
@@ -241,29 +241,30 @@
  }, 
  {
   "amend": 1, 
+  "create": 1, 
   "doctype": "DocPerm", 
-  "role": "Administrator", 
-  "submit": 1
+  "role": "Administrator"
  }, 
  {
   "amend": 1, 
+  "create": 0, 
   "doctype": "DocPerm", 
-  "role": "Lab Incharge", 
-  "submit": 1
+  "role": "Lab Incharge"
  }, 
  {
   "amend": 1, 
+  "create": 0, 
   "doctype": "DocPerm", 
-  "role": "Shift Incharge", 
-  "submit": 1
+  "role": "Shift Incharge"
  }, 
  {
+  "create": 0, 
   "doctype": "DocPerm", 
   "role": "Employee"
  }, 
  {
+  "create": 0, 
   "doctype": "DocPerm", 
-  "role": "Tester", 
-  "submit": 1
+  "role": "Tester"
  }
 ]

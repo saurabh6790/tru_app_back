@@ -54,12 +54,14 @@ class DocType(SellingController):
 		super(DocType, self).validate()
 		self.set_status()
 		self.validate_order_type()
-		# self.validate_for_items()
+		#self.validate_for_items()
 		self.validate_for_product()
 		self.validate_uom_is_integer("stock_uom", "qty")
 
 	def on_update(self):
 		self.doc.quotation_name=self.doc.name
+		self.doc.save()
+
 		if self.doc.estimated_value and self.doc.percentage:
 			amount=cstr(flt(self.doc.rounded_total_export)/flt(self.doc.percentage))
 			if self.doc.estimated_value=='Percentage Above of the Estimated Cost':
@@ -73,8 +75,7 @@ class DocType(SellingController):
 				webnotes.errprint("in update query")
 				webnotes.conn.sql("""update `tabQuotation` set quoted_amount='%s' where name='%s'"""%(quotation_amount,self.doc.name),debug=1)
 				webnotes.conn.sql('commit')	
-#		self.doc.save()
-
+		
 	def update_opportunity(self):
 		for opportunity in self.doclist.get_distinct_values("prevdoc_docname"):
 			webnotes.bean("Opportunity", opportunity).get_controller().set_status(update=True)

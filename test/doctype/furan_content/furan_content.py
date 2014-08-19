@@ -52,23 +52,25 @@ class DocType:
 	def on_submit(self):
 		pgcil_limit = get_pgcil_limit(self.doc.method)
 		test_detail = {'test': "Furan Content", 'sample_no':self.doc.sample_no,'name': self.doc.name, 'method':self.doc.method, 'pgcil_limit':pgcil_limit}
-		parent = create_test_results(test_detail)
-
-		child_result = {}
-
-		child_result['5-Hydroxymythyl 2-Furaldehyde'] = self.doc.hydroxymythyl_furaldehyde
-		child_result['2-Furfuryl Alcohol'] = self.doc.furfuryl_alcohol
-		child_result['2-Furaldehyde'] = self.doc.furaldehyde
-		child_result['2-Acetyl Furan'] = self.doc.acetyl_furan
-		child_result['5Mythyl 2-Furaldehyde'] = self.doc.mythyl_furaldehyde
-
-		for child in child_result:
-			create_child_testresult(parent,child_result[child],test_detail,child)
-
 		if self.doc.workflow_state=='Rejected':
 			#webnotes.errprint(self.doc.workflow_state)
 			update_test_log(test_detail)
+		else:
 
+			parent = create_test_results(test_detail)
+
+			child_result = {}
+
+			child_result['5-Hydroxymythyl 2-Furaldehyde'] = self.doc.hydroxymythyl_furaldehyde
+			child_result['2-Furfuryl Alcohol'] = self.doc.furfuryl_alcohol
+			child_result['2-Furaldehyde'] = self.doc.furaldehyde
+			child_result['2-Acetyl Furan'] = self.doc.acetyl_furan
+			child_result['5Mythyl 2-Furaldehyde'] = self.doc.mythyl_furaldehyde
+
+			for child in child_result:
+				create_child_testresult(parent,child_result[child],test_detail,child)
+
+		
 				
 
 		

@@ -71,18 +71,20 @@ class DocType:
 		self.check_final_result()
 		pgcil_limit = get_pgcil_limit(self.doc.method)
 		test_detail = {'test': "Physical Condition And Density", 'sample_no':self.doc.sample_no,'name': self.doc.name, 'method':self.doc.method, 'pgcil_limit':pgcil_limit}
-		temp,density=self.get_density_temp()
-		parent=create_test_results(test_detail)
-
-		if density:
-			# final_density=self.generate_testresult(temp,density,self.doc.temparature)
-			#webnotes.errprint(self.doc.final_density)
-			create_child_testresult(parent,self.doc.final_density,test_detail,'Density in gm/cm3')
-
 		if self.doc.workflow_state=='Rejected':
 			#webnotes.errprint(self.doc.workflow_state)
 			update_test_log(test_detail)
-	
+		else:
+
+			temp,density=self.get_density_temp()
+			parent=create_test_results(test_detail)
+
+			if density:
+				# final_density=self.generate_testresult(temp,density,self.doc.temparature)
+				#webnotes.errprint(self.doc.final_density)
+				create_child_testresult(parent,self.doc.final_density,test_detail,'Density in gm/cm3')
+
+		
 
 	def get_density_details(self,args):
 		dic=eval(args)

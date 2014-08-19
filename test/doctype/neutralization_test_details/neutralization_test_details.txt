@@ -2,7 +2,7 @@
  {
   "creation": "2014-05-19 16:20:01", 
   "docstatus": 0, 
-  "modified": "2014-08-09 15:33:59", 
+  "modified": "2014-08-13 17:24:08", 
   "modified_by": "Administrator", 
   "owner": "Administrator"
  }, 
@@ -122,7 +122,7 @@
   "doctype": "DocField", 
   "fieldname": "ml_consumes_of_alkoh", 
   "fieldtype": "Data", 
-  "label": "ml Consumes Of Alkoh", 
+  "label": "ml Consumes Of Alkohol", 
   "reqd": 1
  }, 
  {

@@ -2,7 +2,7 @@
  {
   "creation": "2014-06-10 16:10:06", 
   "docstatus": 0, 
-  "modified": "2014-07-16 12:20:30", 
+  "modified": "2014-08-13 12:28:32", 
   "modified_by": "Administrator", 
   "owner": "Administrator"
  }, 
@@ -24,9 +24,6 @@
   "permlevel": 0
  }, 
  {
-  "amend": 1, 
-  "cancel": 1, 
-  "create": 1, 
   "doctype": "DocPerm", 
   "name": "__common__", 
   "parent": "Pour Point", 
@@ -187,22 +184,37 @@
   "read_only": 1
  }, 
  {
+  "amend": 1, 
+  "cancel": 1, 
+  "create": 1, 
   "doctype": "DocPerm", 
   "role": "Administrator"
  }, 
  {
+  "amend": 1, 
+  "cancel": 1, 
+  "create": 0, 
   "doctype": "DocPerm", 
   "role": "Lab Incharge"
  }, 
  {
+  "amend": 1, 
+  "cancel": 1, 
+  "create": 0, 
   "doctype": "DocPerm", 
   "role": "Shift Incharge"
  }, 
  {
+  "amend": 0, 
+  "cancel": 1, 
+  "create": 0, 
   "doctype": "DocPerm", 
   "role": "Tester"
  }, 
  {
+  "amend": 0, 
+  "cancel": 0, 
+  "create": 1, 
   "doctype": "DocPerm", 
   "role": "Employee"
  }

@@ -65,11 +65,14 @@ class DocType:
 	def on_submit(self):
 		pgcil_limit = get_pgcil_limit(self.doc.method)
 		test_detail = {'test': "Interfacial Tension", 'sample_no':self.doc.sample_no,'name': self.doc.name, 'method':self.doc.method, 'pgcil_limit':pgcil_limit}
-		parent=create_test_results(test_detail)
-		create_child_testresult(parent, self.doc.ift, test_detail, 'Interfacial tension of the oil against water @reported temp')
-
 		if self.doc.workflow_state=='Rejected':
 			update_test_log(test_detail)
+		else:
+
+			parent=create_test_results(test_detail)
+			create_child_testresult(parent, self.doc.ift, test_detail, 'Interfacial tension of the oil against water @reported temp')
+
+		
 	
 
 def get_physical_density_details(doctype, txt, searchfield, start, page_len, filters):
@@ -82,6 +85,7 @@ def create_session():
 	from webnotes.model.doc import Document
 	d = Document('Session')
 	d.status = 'Open'
+	d.test_name='Interfacial Tension'
 	d.save()
 	return{
 		'session_id':d.name
@@ -101,7 +105,7 @@ def close_session(session_id):
 @webnotes.whitelist()
 def check_session():
 	session = webnotes.conn.sql("""select name from tabSession 
-		where status = 'Open' order by creation desc limit 1""",as_list=1)
+		where status = 'Open' and test_name='Interfacial Tension' order by creation desc limit 1""",as_list=1)
 
 	if session:
 		return{

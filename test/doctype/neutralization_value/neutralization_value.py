@@ -6,7 +6,7 @@
 from __future__ import unicode_literals
 import webnotes
 from test.doctype import assign_notify
-from test.doctype import create_test_results,create_child_testresult, get_pgcil_limit,update_test_log
+from test.doctype import create_test_results,create_child_testresult, get_pgcil_limit,update_test_log,verfy_bottle_number
 from webnotes.model.doc import addchild
 from webnotes.model.bean import getlist
 from webnotes.utils import cint, cstr, flt, now, nowdate, get_first_day, get_last_day, add_to_date, getdate
@@ -24,9 +24,9 @@ class DocType:
 		#self.calculate_neutralisation_value()
 	def check_bottle_no(self):
 		for d in getlist(self.doclist,'neutralisation_test_details'):
-			webnotes.errprint(d.sample_no)
+			#webnotes.errprint(d.sample_no)
 			if cint(webnotes.conn.sql("""select count(*) from tabSample 
-				where name='%s' and barcode like '%%%s%%'"""%(d.sample_no,d.bottle_no),debug=1)[0][0]) != 1:
+				where name='%s' and barcode in ('%s')"""%(d.sample_no,d.bottle_no),debug=1)[0][0]) != 1:
 				webnotes.msgprint("Entered bottle number not belongs to Sample No '"+d.sample_no+"' Please correct it",raise_exception=1)
 			else:
 				pass
@@ -118,10 +118,13 @@ class DocType:
 			assign_notify(test_details)
 
 	def on_submit(self):
+		
+		# if self.doc.workflow_state=='Rejected':
+		# 	#webnotes.errprint(self.doc.workflow_state)
+		# 	update_test_log(test_detail)
+
+		# else:
 		self.create_testresult()
-		if self.doc.workflow_state=='Rejected':
-			#webnotes.errprint(self.doc.workflow_state)
-			update_test_log(test_detail)
 
 	# def update_status(self):
 	# 	if self.doc.test=='Oxidation Stability':
@@ -160,13 +163,22 @@ class DocType:
 			if g.reported_value:
 				pgcil_limit = get_pgcil_limit(self.doc.method)
 	 			test_detail = {'test': "Neutralization Value", 'sample_no':g.sample_no,'name': self.doc.name, 'method':self.doc.method, 'pgcil_limit':pgcil_limit}
-	 			parent=create_test_results(test_detail)
-	 			create_child_testresult(parent,g.reported_value,test_detail,'Neutralization Value (Total Acidity)')	
+	 			if self.doc.workflow_state=='Rejected':
+	 				update_test_log(test_detail)
+	 			else:
 
-def get_physical_density_details(doctype, txt, searchfield, start, page_len, filters):
+	 				parent=create_test_results(test_detail)
+	 				create_child_testresult(parent,g.reported_value,test_detail,'Neutralization Value (Total Acidity)')	
+
+	def get_physical_density_details(self,sample_no):
 	#webnotes.errprint([filters])
-	return 	webnotes.conn.sql("""select name from `tabPhysical Condition And Density` 
-			 where sample_no='%s' and docstatus=1""" %filters['sample_no'],debug=1)
+		physical_density=webnotes.conn.sql("""select name from `tabPhysical Condition And Density` 
+			 	where sample_no='%s' and docstatus=1""" %(sample_no),debug=1)
+		webnotes.errprint(physical_density)
+		if physical_density:
+			pass
+		else:
+			webnotes.msgprint("There is no any physical condition and density test completed against given sample no='"+sample_no+"' for neutralisation test physical condition and density is needed",raise_exception=1)
 
 # def get_sample_details(doctype, txt, searchfield, start, page_len, filters):
 # 	#webnotes.errprint([filters])
@@ -204,3 +216,37 @@ def _prepare_sample_for_sediment(source_name, target_doclist=None, ignore_permis
 
 
 	
+@webnotes.whitelist()
+def create_session():
+	from webnotes.model.doc import Document
+	d = Document('Session')
+	d.status = 'Open'
+	d.test_name='Neutralization Value'
+	d.save()
+	return{
+		'session_id':d.name
+	}
+
+@webnotes.whitelist()
+def close_session(session_id):
+	from webnotes.model.doc import Document
+	d = Document('Session',session_id)
+	d.status = 'Close'
+	d.save()
+	return{
+		'session_id':''
+	}
+
+@webnotes.whitelist()
+def check_session():
+	session = webnotes.conn.sql("""select name from tabSession 
+		where status = 'Open' and test_name='Neutralization Value' order by creation desc limit 1""",as_list=1)
+
+	if session:
+		return{
+			'session_id':session[0][0]
+		}
+	else:
+		return{
+			'session_id':''
+		}

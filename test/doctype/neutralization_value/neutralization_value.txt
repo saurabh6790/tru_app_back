@@ -2,7 +2,7 @@
  {
   "creation": "2014-04-03 14:24:09", 
   "docstatus": 0, 
-  "modified": "2014-08-09 15:33:01", 
+  "modified": "2014-08-13 17:25:40", 
   "modified_by": "Administrator", 
   "owner": "Administrator"
  }, 
@@ -53,11 +53,57 @@
  }, 
  {
   "doctype": "DocField", 
+  "fieldname": "equipment_used", 
+  "fieldtype": "Link", 
+  "label": "Equipment Used", 
+  "options": "Equipment Used"
+ }, 
+ {
+  "depends_on": "eval:doc.equipment_used", 
+  "doctype": "DocField", 
+  "fieldname": "add", 
+  "fieldtype": "Button", 
+  "label": "ADD"
+ }, 
+ {
+  "doctype": "DocField", 
   "fieldname": "normality", 
   "fieldtype": "Link", 
   "label": "Normality", 
   "options": "Normality", 
   "reqd": 1
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "method", 
+  "fieldtype": "Data", 
+  "label": "Test Method", 
+  "read_only": 1
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "column_break_4", 
+  "fieldtype": "Column Break"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "session_id", 
+  "fieldtype": "Link", 
+  "label": "Session Id", 
+  "options": "Session", 
+  "read_only": 1
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "start_session", 
+  "fieldtype": "Button", 
+  "label": "Start Session"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "end_session", 
+  "fieldtype": "Button", 
+  "label": "End Session"
  }, 
  {
   "doctype": "DocField", 
@@ -165,7 +211,7 @@
   "doctype": "DocField", 
   "fieldname": "neutralisation_test_details", 
   "fieldtype": "Table", 
-  "label": "test", 
+  "label": "Neutralization Test Detail", 
   "options": "Neutralization Test Details"
  }, 
  {
@@ -241,17 +287,21 @@
  {
   "cancel": 1, 
   "doctype": "DocPerm", 
-  "role": "Shift Incharge"
+  "role": "Shift Incharge", 
+  "submit": 1
  }, 
  {
   "cancel": 1, 
   "doctype": "DocPerm", 
-  "role": "Lab Incharge"
+  "role": "Lab Incharge", 
+  "submit": 1
  }, 
  {
+  "amend": 1, 
   "cancel": 1, 
   "doctype": "DocPerm", 
   "report": 1, 
-  "role": "Tester"
+  "role": "Tester", 
+  "submit": 1
  }
 ]

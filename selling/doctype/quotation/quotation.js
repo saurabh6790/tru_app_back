@@ -33,12 +33,13 @@ erpnext.selling.QuotationController = erpnext.selling.SellingController.extend({
 	},
 	refresh: function(doc, dt, dn) {
 		this._super(doc, dt, dn);
-		
-		if(doc.docstatus == 1 && doc.status!=='Lost') {
-			cur_frm.add_custom_button(wn._('Make Sales Order'), 
-				cur_frm.cscript['Make Sales Order']);
+		if(doc.docstatus == 1 && doc.status!=='Lost' && doc.tender_name==null)
 			cur_frm.add_custom_button(wn._('Make Tender'), 
 				cur_frm.cscript['Make Tender']);
+		if(doc.docstatus == 1 && doc.status!=='Lost' && doc.tender_name) {
+			cur_frm.add_custom_button(wn._('Make Sales Order'), 
+				cur_frm.cscript['Make Sales Order']);
+			
 			if(doc.status!=="Ordered") {
 				cur_frm.add_custom_button(wn._('Set as Lost'), 
 					cur_frm.cscript['Declare Order Lost'], "icon-exclamation");

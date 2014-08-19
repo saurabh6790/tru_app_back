@@ -63,14 +63,17 @@ class DocType:
 
 		pgcil_limit = get_pgcil_limit(self.doc.method)
 		test_detail = {'test': "Test Of Extract", 'sample_no':self.doc.sample_no,'name': self.doc.name,'method':self.doc.method, 'pgcil_limit':pgcil_limit}
-		#diffrence={'Sediment & Precipitable Sludge':self.doc.diffrence}
-		parent=create_test_results(test_detail)
-		#for val in voltage:
-		create_child_testresult(parent,self.doc.diffrence,test_detail,'Sediment & Precipitable Sludge')
-
 		if self.doc.workflow_state=='Rejected':
 			#webnotes.errprint(self.doc.workflow_state)
 			update_test_log(test_detail)
+		else:
+
+		#diffrence={'Sediment & Precipitable Sludge':self.doc.diffrence}
+			parent=create_test_results(test_detail)
+		#for val in voltage:
+			create_child_testresult(parent,self.doc.diffrence,test_detail,'Sediment & Precipitable Sludge')
+
+		
 
 
 

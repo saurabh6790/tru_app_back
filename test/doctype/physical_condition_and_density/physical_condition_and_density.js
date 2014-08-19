@@ -34,17 +34,17 @@ cur_frm.cscript.volume_of_oil = function(doc, cdt, cdn){
 }
 
 
-cur_frm.cscript.temparature = function(doc,cdt,cdn){
-  cur_frm.cscript.weight_of_syringe(doc,cdt,cdn)
-}
+// cur_frm.cscript.temparature = function(doc,cdt,cdn){
+//   cur_frm.cscript.weight_of_syringe(doc,cdt,cdn)
+// }
 
-cur_frm.cscript.weight_of_empty_syringe = function(doc,cdt,cdn){
-  cur_frm.cscript.weight_of_syringe(doc,cdt,cdn)
-}
+// cur_frm.cscript.weight_of_empty_syringe = function(doc,cdt,cdn){
+//   cur_frm.cscript.weight_of_syringe(doc,cdt,cdn)
+// }
 
-cur_frm.cscript.volume_of_oil = function(doc,cdt,cdn){
-  cur_frm.cscript.weight_of_syringe(doc,cdt,cdn)
-}
+// cur_frm.cscript.volume_of_oil = function(doc,cdt,cdn){
+//   cur_frm.cscript.weight_of_syringe(doc,cdt,cdn)
+//}
 
 // cur_frm.cscript.refresh=function(doc,cdt,cdn){
 //   if(doc.docstatus == 1) {

@@ -12,6 +12,9 @@ cur_frm.add_fetch('report_to', 'address','address');
 
 cur_frm.add_fetch('report_to', 'short_name','short_name');
 
+cur_frm.add_fetch('customer_group', 'parent_customer_group','master_group');
+
+cur_frm.add_fetch('territory', 'parent_territory','main_territory');
 
 
 cur_frm.cscript.onload = function(doc,dt,dn){
@@ -165,3 +168,9 @@ cur_frm.cscript.report_to = function(doc,cdt,cdn) {
 
 	}
 
+
+
+
+// cur_frm.cscript.report_to = function(doc,cdt,cdn){
+// 	return get_server_fields('')
+// }
