@@ -63,12 +63,15 @@ class DocType:
 		test_detail = {'test': "Flash Point", 'sample_no':self.doc.sample_no,'name': self.doc.name,'method':self.doc.method, 'pgcil_limit':pgcil_limit}
 		#temp,density=self.get_density_temp()}
 		#self.doc.reported={'Reported value of Flash Point':self.doc.reported}
-		parent=create_test_results(test_detail)
-		create_child_testresult(parent,self.doc.reported,test_detail,'Flash Point')
-
 		if self.doc.workflow_state=='Rejected':
 			#webnotes.errprint(self.doc.workflow_state)
 			update_test_log(test_detail)
+		else:
+
+			parent=create_test_results(test_detail)
+			create_child_testresult(parent,self.doc.reported,test_detail,'Flash Point')
+
+		
 
 
 

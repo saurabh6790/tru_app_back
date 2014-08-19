@@ -2,7 +2,7 @@
  {
   "creation": "2014-06-27 11:35:35", 
   "docstatus": 0, 
-  "modified": "2014-06-27 12:41:15", 
+  "modified": "2014-08-13 11:28:41", 
   "modified_by": "Administrator", 
   "owner": "Administrator"
  }, 
@@ -42,6 +42,18 @@
   "fieldname": "details", 
   "fieldtype": "Small Text", 
   "label": "Details"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "column_break_2", 
+  "fieldtype": "Column Break"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "test_name", 
+  "fieldtype": "Select", 
+  "label": "Test Name", 
+  "options": "\nInterfacial Tension\nNeutralization Value"
  }, 
  {
   "doctype": "DocField", 

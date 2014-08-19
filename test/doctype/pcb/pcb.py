@@ -63,18 +63,21 @@ class DocType:
 	def on_submit(self):
 		pgcil_limit = get_pgcil_limit(self.doc.method)
 		test_detail = {'test': "Furan Content", 'sample_no':self.doc.sample_no,'name': self.doc.name, 'method':self.doc.method, 'pgcil_limit':pgcil_limit}
-		parent = create_test_results(test_detail)
-
-		child_result = {}
-
-		child_result['Arcolor - ' + self.doc.arcolor_0] = self.doc.reported_in_ppm_0
-		child_result['Arcolor - ' + self.doc.arcolor_1] = self.doc.reported_in_ppm_1
-		child_result['Arcolor - ' + self.doc.arcolor_2] = self.doc.reported_in_ppm_2
-		child_result['Arcolor - ' + self.doc.others] = self.doc.reported_in_ppm_others
-
-		for child in child_result:
-			create_child_testresult(parent,child_result[child],test_detail,child)
-
 		if self.doc.workflow_state=='Rejected':
 			#webnotes.errprint(self.doc.workflow_state)
 			update_test_log(test_detail)
+		else:
+
+			parent = create_test_results(test_detail)
+
+			child_result = {}
+
+			child_result['Arcolor - ' + self.doc.arcolor_0] = self.doc.reported_in_ppm_0
+			child_result['Arcolor - ' + self.doc.arcolor_1] = self.doc.reported_in_ppm_1
+			child_result['Arcolor - ' + self.doc.arcolor_2] = self.doc.reported_in_ppm_2
+			child_result['Arcolor - ' + self.doc.others] = self.doc.reported_in_ppm_others
+
+			for child in child_result:
+				create_child_testresult(parent,child_result[child],test_detail,child)
+
+		

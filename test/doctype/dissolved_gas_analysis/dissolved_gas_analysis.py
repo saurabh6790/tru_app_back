@@ -80,16 +80,18 @@ class DocType:
 	def on_submit(self):
 		pgcil_limit = get_pgcil_limit(self.doc.method)
 		test_detail = {'test': "Dissolved Gas Analysis", 'sample_no':self.doc.sample_no,'name': self.doc.name, 'method':self.doc.method, 'pgcil_limit':pgcil_limit}
-		parent = create_test_results(test_detail)
-
-		for gas_detail in getlist(self.doclist, 'dissolved_gas_detail'):
-			if gas_detail.gas == 'TGS':
-				create_child_testresult(parent,gas_detail.run1,test_detail,gas_detail.gas)					
-			else:
-				create_child_testresult(parent,gas_detail.reported,test_detail,gas_detail.gas)
-
-
 		if self.doc.workflow_state=='Rejected':
 			#webnotes.errprint(self.doc.workflow_state)
 			update_test_log(test_detail)
-	
+		else:
+
+			parent = create_test_results(test_detail)
+
+			for gas_detail in getlist(self.doclist, 'dissolved_gas_detail'):
+				if gas_detail.gas == 'TGS':
+					create_child_testresult(parent,gas_detail.run1,test_detail,gas_detail.gas)					
+				else:
+					create_child_testresult(parent,gas_detail.reported,test_detail,gas_detail.gas)
+
+
+		

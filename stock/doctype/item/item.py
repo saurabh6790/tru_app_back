@@ -66,7 +66,7 @@ class DocType(DocListController, WebsiteGenerator):
 		self.doc.save()
 
 	def update_test_names(self):
-		webnotes.errprint("in the update_test_names")
+		#webnotes.errprint("in the update_test_names")
 		test_name_list=[]
 		test_name_detail=''
 		for d in getlist(self.doclist,'test_detail'):
@@ -74,22 +74,22 @@ class DocType(DocListController, WebsiteGenerator):
 			test_name_list.append(cstr(test_name_detail))
 		self.doc.product_test_details='\n'.join(test_name_list)	
 
-		webnotes.errprint(self.doc.product_test_details)	
+		#webnotes.errprint(self.doc.product_test_details)	
 
 		webnotes.conn.sql("""update `tabItem` set product_test_details='%s' where name='%s'"""%(self.doc.product_test_details,self.doc.name))
 		webnotes.conn.sql('commit')	
 
 	def create_item_price(self):
 		item=webnotes.conn.sql("select item_code from `tabItem Price` where price_list='Standard Selling'",debug=1,as_list=1)
-		webnotes.errprint(item)
+		#webnotes.errprint(item)
 		if item:
 
 			if [self.doc.name] in item:
-				webnotes.errprint("in if loop")
+				#webnotes.errprint("in if loop")
 				webnotes.conn.sql("""update `tabItem Price` set ref_rate='%s' where item_code='%s' and price_list='Standard Selling'"""%(self.doc.total_rate,self.doc.name))
 				webnotes.conn.sql('commit')	
 			else:
-				webnotes.errprint("else")
+				#webnotes.errprint("else")
 				d=Document('Item Price')
 				d.price_list='Standard Selling'
 				d.item_code=self.doc.name
@@ -98,7 +98,7 @@ class DocType(DocListController, WebsiteGenerator):
 				d.item_description=self.doc.description
 				d.ref_rate=self.doc.total_rate
 				d.save()
-				webnotes.errprint(d)
+				#webnotes.errprint(d)
 		else:
 			pass
 

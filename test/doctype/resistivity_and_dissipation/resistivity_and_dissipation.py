@@ -26,19 +26,21 @@ class DocType:
 		#webnotes.errprint("test sssssss")
 		pgcil_limit = get_pgcil_limit(self.doc.method)
 		test_detail = {'test': "Resistivity and Dissipation", 'sample_no':self.doc.sample_no,'name': self.doc.name,'temperature':self.doc.temperature, 'method': self.doc.method, 'pgcil_limit': pgcil_limit}
-		parent=create_test_results(test_detail)
-
-		# values={'Dielectric Dissipation Factor':self.doc.tan_value,'Dielectric Constant Of Oil':self.doc.sigma_value,'Specific Resistivity':self.doc.resistivity_value}
-		values = self.genereate_resuslt_dict()
-		if parent:
-			for val in values:
-				create_child_testresult(parent,values[val],test_detail,val)	
-
 		if self.doc.workflow_state=='Rejected':
 			#webnotes.errprint(self.doc.workflow_state)
 			update_test_log(test_detail)
 
+		else:
 
+			parent=create_test_results(test_detail)
+
+			# values={'Dielectric Dissipation Factor':self.doc.tan_value,'Dielectric Constant Of Oil':self.doc.sigma_value,'Specific Resistivity':self.doc.resistivity_value}
+			values = self.genereate_resuslt_dict()
+			if parent:
+				for val in values:
+					create_child_testresult(parent,values[val],test_detail,val)	
+
+		
 
 
 	def on_update(self):

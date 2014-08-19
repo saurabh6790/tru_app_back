@@ -14,43 +14,43 @@ class DocType:
 	def __init__(self, d, dl):
 		self.doc, self.doclist = d, dl     
 
-	def get_sample_details(self,sample_no):
-		tests=None
-		sample_details=webnotes.conn.sql("""select priority,bottle_no,test_group 
-				from `tabFinal Sample Allocation To Lab` 
-			where sample_no='%(sample_no)s'"""%{'sample_no':sample_no})
+	# def get_sample_details(self,sample_no):
+	# 	tests=None
+	# 	sample_details=webnotes.conn.sql("""select priority,bottle_no,test_group 
+	# 			from `tabFinal Sample Allocation To Lab` 
+	# 		where sample_no='%(sample_no)s'"""%{'sample_no':sample_no})
 		
-		if sample_details:
-			if sample_no in webnotes.conn.sql("""select distinct sample_no 
-				from `tabTest Log`""", as_list=1)[0]:
+	# 	if sample_details:
+	# 		if sample_no in webnotes.conn.sql("""select distinct sample_no 
+	# 			from `tabTest Log`""", as_list=1)[0]:
 
-				tests=webnotes.conn.sql("""select group_concat(test)
-					from `tabTest Log` where sample_no='%(sample_no)s'
-				"""%{'sample_no':sample_no})
-				webnotes.errprint(tests)
+	# 			tests=webnotes.conn.sql("""select group_concat(test)
+	# 				from `tabTest Log` where sample_no='%(sample_no)s'
+	# 			"""%{'sample_no':sample_no})
+	# 			webnotes.errprint(tests)
 
-			else:
-				tests=webnotes.conn.sql("""select test 
-					from `tabFinal Sample Allocation To Lab` 
-				where sample_no='%(sample_no)s'"""%{'sample_no':sample_no})
-				webnotes.errprint(['else',tests])
+	# 		else:
+	# 			tests=webnotes.conn.sql("""select test 
+	# 				from `tabFinal Sample Allocation To Lab` 
+	# 			where sample_no='%(sample_no)s'"""%{'sample_no':sample_no})
+	# 			webnotes.errprint(['else',tests])
 		
-		if tests:
-			test=tests[0][0].split(',')
-			webnotes.errprint(test)
-			if test:
-				self.doclist=self.doc.clear_table(self.doclist,'sample_allocation_detail')
-				for i in test:
-					ch = addchild(self.doc, 'sample_allocation_detail', 
-							'Sample Allocation Detail', self.doclist)
-					ch.test=i
-					ch.save(new=1)
+	# 	if tests:
+	# 		test=tests[0][0].split(',')
+	# 		webnotes.errprint(test)
+	# 		if test:
+	# 			self.doclist=self.doc.clear_table(self.doclist,'sample_allocation_detail')
+	# 			for i in test:
+	# 				ch = addchild(self.doc, 'sample_allocation_detail', 
+	# 						'Sample Allocation Detail', self.doclist)
+	# 				ch.test=i
+	# 				ch.save(new=1)
 
-		return{
-		"s_priority":sample_details[0][0] if sample_details else '',
-		"bottle_no":sample_details[0][1] if sample_details else '',
-		"test_group":sample_details[0][2] if sample_details else ''
-		}
+	# 	return{
+	# 	"s_priority":sample_details[0][0] if sample_details else '',
+	# 	"bottle_no":sample_details[0][1] if sample_details else '',
+	# 	"test_group":sample_details[0][2] if sample_details else ''
+	# 	}
 	
 	def on_submit(self):
 		self.update_sample_status()
@@ -60,8 +60,18 @@ class DocType:
 	# 	self.update_sample_status()
 
 	def get_sample_no(self):
-		samples=webnotes.conn.sql("""select sample_no from `tabFinal Sample Allocation To Lab` 
-			where parent='%s' and find_in_set('%s',test) """ %(self.doc.sample_allocation_lab,self.doc.test_name),as_list=1)
+		# samples=webnotes.conn.sql("""select sample_no from `tabFinal Sample Allocation To Lab` 
+		# 	where parent='%s' and find_in_set('%s',test) """ %(self.doc.sample_allocation_lab,self.doc.test_name),as_list=1)
+		samples=webnotes.conn.sql("""select f.sample_no from `tabFinal Sample Allocation To Lab` f 
+		where 
+				f.parent='%(parent)s' 
+				and find_in_set('%(test_name)s',f.test) 
+
+		union 
+
+			select sample_no from `tabTest Log` tl 
+		where 
+			test = '%(test_name)s' """ %{'parent':self.doc.sample_allocation_lab, 'test_name':self.doc.test_name },as_list=1)
 		if samples:
 			for sample_no in samples:
 				flag = False

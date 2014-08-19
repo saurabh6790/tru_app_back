@@ -2,7 +2,7 @@
  {
   "creation": "2014-07-23 19:16:12", 
   "docstatus": 0, 
-  "modified": "2014-08-06 12:09:36", 
+  "modified": "2014-08-18 12:12:52", 
   "modified_by": "Administrator", 
   "owner": "Administrator"
  }, 
@@ -52,7 +52,7 @@
   "doctype": "DocField", 
   "fieldname": "quotation_name", 
   "fieldtype": "Data", 
-  "hidden": 1, 
+  "hidden": 0, 
   "label": "Quotation Name", 
   "read_only": 1
  }, 

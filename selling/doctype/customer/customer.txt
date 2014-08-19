@@ -2,7 +2,7 @@
  {
   "creation": "2013-06-11 14:26:44", 
   "docstatus": 0, 
-  "modified": "2014-05-28 13:17:11", 
+  "modified": "2014-08-18 11:37:17", 
   "modified_by": "Administrator", 
   "owner": "Administrator"
  }, 
@@ -110,6 +110,20 @@
  }, 
  {
   "doctype": "DocField", 
+  "fieldname": "board_line", 
+  "fieldtype": "Data", 
+  "label": "Board Line", 
+  "permlevel": 0
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "vendor_code", 
+  "fieldtype": "Data", 
+  "label": "Vendor Code", 
+  "permlevel": 0
+ }, 
+ {
+  "doctype": "DocField", 
   "fieldname": "column_break0", 
   "fieldtype": "Column Break", 
   "permlevel": 0, 
@@ -132,6 +146,14 @@
   "search_index": 1
  }, 
  {
+  "doctype": "DocField", 
+  "fieldname": "master_group", 
+  "fieldtype": "Data", 
+  "label": "Client Master Group", 
+  "permlevel": 0, 
+  "read_only": 1
+ }, 
+ {
   "description": "<a href=\"#Sales Browser/Territory\">Add / Edit</a>", 
   "doctype": "DocField", 
   "fieldname": "territory", 
@@ -147,17 +169,11 @@
  }, 
  {
   "doctype": "DocField", 
-  "fieldname": "board_line", 
+  "fieldname": "main_territory", 
   "fieldtype": "Data", 
-  "label": "Board Line", 
-  "permlevel": 0
- }, 
- {
-  "doctype": "DocField", 
-  "fieldname": "vendor_code", 
-  "fieldtype": "Data", 
-  "label": "Vendor Code", 
-  "permlevel": 0
+  "label": "Main Territory", 
+  "permlevel": 0, 
+  "read_only": 1
  }, 
  {
   "depends_on": "eval:doc.customer_type==\"Utilities\" || doc.customer_type==\"Railways\"", 

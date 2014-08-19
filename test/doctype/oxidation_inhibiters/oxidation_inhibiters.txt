@@ -2,7 +2,7 @@
  {
   "creation": "2014-06-13 15:58:27", 
   "docstatus": 0, 
-  "modified": "2014-07-15 18:04:18", 
+  "modified": "2014-08-13 12:30:13", 
   "modified_by": "Administrator", 
   "owner": "Administrator"
  }, 
@@ -25,7 +25,6 @@
  }, 
  {
   "cancel": 1, 
-  "create": 1, 
   "doctype": "DocPerm", 
   "name": "__common__", 
   "parent": "Oxidation Inhibiters", 
@@ -219,24 +218,29 @@
  }, 
  {
   "amend": 1, 
+  "create": 1, 
   "doctype": "DocPerm", 
   "role": "Administrator"
  }, 
  {
   "amend": 1, 
+  "create": 0, 
   "doctype": "DocPerm", 
   "role": "Lab Incharge"
  }, 
  {
   "amend": 1, 
+  "create": 0, 
   "doctype": "DocPerm", 
   "role": "Shift Incharge"
  }, 
  {
+  "create": 0, 
   "doctype": "DocPerm", 
   "role": "Employee"
  }, 
  {
+  "create": 0, 
   "doctype": "DocPerm", 
   "role": "Tester"
  }

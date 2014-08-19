@@ -38,7 +38,7 @@
   "Notes": {
    "color": "#95a5a6", 
    "doctype": "Note", 
-   "icon": "icon-file-alt", 
+   "icon": "icon-book", 
    "label": "Notes", 
    "link": "List/Note", 
    "type": "list"
@@ -76,14 +76,14 @@
   },
   "Inward-Outward": {
    "color": "#f39c12", 
-   "icon": "icon-truck", 
+   "icon": "icon-exchange", 
    "label":"Inward-Outward",
    "link": "inward-outward",
    "type":"page"
   }, 
   "Request For Service": {
    "color": "#2ecc71", 
-   "icon": "icon-file-alt",
+   "icon": "icon-folder-open",
    "label":"Request For Service",
    "link": "request-for-service",
    "type":"module"
@@ -101,8 +101,8 @@
    "type": "module"
   },
   "Tour": {
-   "color": "#2c3e50", 
-   "icon": "icon-phone", 
+   "color": "#1abc9c", 
+   "icon": "icon-camera", 
    "link": "tour", 
    "type": "module"
   }
