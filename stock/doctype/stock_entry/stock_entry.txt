@@ -2,7 +2,7 @@
  {
   "creation": "2013-04-09 11:43:55", 
   "docstatus": 0, 
-  "modified": "2014-07-15 12:33:41", 
+  "modified": "2014-08-21 11:19:53", 
   "modified_by": "Administrator", 
   "owner": "Administrator"
  }, 
@@ -136,7 +136,7 @@
   "no_copy": 0, 
   "oldfieldname": "purpose", 
   "oldfieldtype": "Select", 
-  "options": "Material Issue\nMaterial Receipt\nMaterial Transfer\nManufacture/Repack\nSubcontract\nSales Return\nPurchase Return", 
+  "options": "\nMaterial Transfer", 
   "print_hide": 0, 
   "read_only": 0, 
   "report_hide": 0, 

@@ -37,9 +37,10 @@ erpnext.selling.QuotationController = erpnext.selling.SellingController.extend({
 			cur_frm.add_custom_button(wn._('Make Tender'), 
 				cur_frm.cscript['Make Tender']);
 		if(doc.docstatus == 1 && doc.status!=='Lost' && doc.tender_name) {
-			cur_frm.add_custom_button(wn._('Make Sales Order'), 
-				cur_frm.cscript['Make Sales Order']);
-			
+			cur_frm.add_custom_button(wn._('Make Sales Invoice'), 
+				cur_frm.cscript['Make Sales Invoice']);
+			// cur_frm.add_custom_button(wn._('Make Sales Order'), 
+			// 	cur_frm.cscript['Make Sales Order']);
 			if(doc.status!=="Ordered") {
 				cur_frm.add_custom_button(wn._('Set as Lost'), 
 					cur_frm.cscript['Declare Order Lost'], "icon-exclamation");
@@ -135,6 +136,14 @@ cur_frm.cscript['Make Sales Order'] = function() {
 	})
 }
 
+// Make Sales Invoice
+// =====================================================================================
+cur_frm.cscript['Make Sales Invoice'] = function() {
+	wn.model.open_mapped_doc({
+		method: "selling.doctype.quotation.quotation.make_sales_invoice",
+		source_name: cur_frm.doc.name
+	})
+}
 
 // Make Tender
 // =====================================================================================

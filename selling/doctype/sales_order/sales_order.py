@@ -357,7 +357,7 @@ def make_sales_invoice(source_name, target_doclist=None):
 			"doctype": "Sales Invoice Item", 
 			"field_map": {
 				"name": "so_detail", 
-				"parent": "sales_order", 
+				"parent": "sales_order" ,
 				"reserved_warehouse": "warehouse"
 			},
 			"postprocess": update_item,

@@ -54,6 +54,7 @@ class DocType:
 	
 	def on_submit(self):
 		self.update_sample_status()
+		self.update_testlog_entry()
 
 	# def on_update(self):
 	# 	webnotes.errprint("in on update")
@@ -71,7 +72,7 @@ class DocType:
 
 			select sample_no from `tabTest Log` tl 
 		where 
-			test = '%(test_name)s' """ %{'parent':self.doc.sample_allocation_lab, 'test_name':self.doc.test_name },as_list=1)
+			test = '%(test_name)s' and docstatus in ('0','1')""" %{'parent':self.doc.sample_allocation_lab, 'test_name':self.doc.test_name },as_list=1)
 		if samples:
 			for sample_no in samples:
 				flag = False
@@ -116,6 +117,10 @@ class DocType:
 		for sample in getlist(self.doclist,'sample_allocation_detail'):
 			webnotes.conn.sql("update tabSample set status = 'Assigned' where name ='"+sample.sample_no+"'")
 			webnotes.conn.sql("commit")
+
+	# def update_testlog_entry(self):
+	# 	webnotes.errprint("in update test log")
+	# 	webnotes.conn.sql("""select sample_no from `tabTest Log` where test='' """)
 		
 	def test_allocation(self, sample, dic):
 		self.create_test(sample, dic)
