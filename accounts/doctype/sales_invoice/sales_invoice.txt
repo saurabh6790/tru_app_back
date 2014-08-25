@@ -2,7 +2,7 @@
  {
   "creation": "2013-05-24 19:29:05", 
   "docstatus": 0, 
-  "modified": "2014-08-04 15:49:36", 
+  "modified": "2014-08-23 12:20:13", 
   "modified_by": "Administrator", 
   "owner": "Administrator"
  }, 
@@ -74,6 +74,15 @@
   "options": "Customer", 
   "print_hide": 1, 
   "read_only": 0
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "sales_order_type", 
+  "fieldtype": "Select", 
+  "in_list_view": 1, 
+  "label": "Sales Invoice From", 
+  "options": "\nProvisional\nNormal", 
+  "read_only": 1
  }, 
  {
   "depends_on": "customer", 

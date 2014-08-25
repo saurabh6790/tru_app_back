@@ -2,7 +2,7 @@
  {
   "creation": "2014-07-23 19:16:12", 
   "docstatus": 0, 
-  "modified": "2014-08-18 12:12:52", 
+  "modified": "2014-08-25 15:52:47", 
   "modified_by": "Administrator", 
   "owner": "Administrator"
  }, 
@@ -10,6 +10,7 @@
   "autoname": "TEND.######", 
   "doctype": "DocType", 
   "document_type": "Transaction", 
+  "icon": "icon-shopping-cart", 
   "is_submittable": 1, 
   "module": "Selling", 
   "name": "__common__"
@@ -50,11 +51,18 @@
  }, 
  {
   "doctype": "DocField", 
-  "fieldname": "quotation_name", 
+  "fieldname": "tender_name", 
   "fieldtype": "Data", 
   "hidden": 0, 
-  "label": "Quotation Name", 
+  "label": "Tender Name", 
   "read_only": 1
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "customer", 
+  "fieldtype": "Link", 
+  "label": "Customer", 
+  "options": "Customer"
  }, 
  {
   "doctype": "DocField", 

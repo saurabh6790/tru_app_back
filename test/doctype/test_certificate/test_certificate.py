@@ -61,4 +61,5 @@ class DocType:
 
 	def calculate_voltage(self):
 		webnotes.errprint("in create voltage")
+
 		

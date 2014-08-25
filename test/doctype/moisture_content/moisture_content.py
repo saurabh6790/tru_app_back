@@ -47,7 +47,7 @@ class DocType:
 	def on_submit(self):
 		# if self.doc.test_type == 'Regular':
 		pgcil_limit = get_pgcil_limit(self.doc.method)
-		test_detail = {'test': "Moisture Content", 'sample_no':self.doc.sample_no,'name': self.doc.name, 'method':self.doc.method, 'pgcil_limit':pgcil_limit}
+		test_detail = {'test': "Moisture Content", 'sample_no':self.doc.sample_no,'name': self.doc.name, 'method':self.doc.method, 'pgcil_limit':pgcil_limit,'workflow_state':self.doc.workflow_state,'tested_by':self.doc.tested_by}
 		if self.doc.workflow_state=='Rejected':
 			update_test_log(test_detail)
 		else:

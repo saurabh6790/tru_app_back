@@ -2,7 +2,7 @@
  {
   "creation": "2013-03-07 11:42:57", 
   "docstatus": 0, 
-  "modified": "2014-08-20 15:33:57", 
+  "modified": "2014-08-22 12:35:46", 
   "modified_by": "Administrator", 
   "owner": "Administrator"
  }, 
@@ -261,6 +261,7 @@
   "doctype": "DocField", 
   "fieldname": "sales_order", 
   "fieldtype": "Link", 
+  "hidden": 1, 
   "label": "Sales Order", 
   "options": "Sales Order", 
   "read_only": 1

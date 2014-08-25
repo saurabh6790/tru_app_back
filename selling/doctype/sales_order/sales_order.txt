@@ -2,7 +2,7 @@
  {
   "creation": "2013-06-18 12:39:59", 
   "docstatus": 0, 
-  "modified": "2014-08-04 15:29:45", 
+  "modified": "2014-08-23 12:19:47", 
   "modified_by": "Administrator", 
   "owner": "Administrator"
  }, 
@@ -82,6 +82,15 @@
   "print_hide": 1, 
   "reqd": 1, 
   "search_index": 1
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "sales_order_type", 
+  "fieldtype": "Select", 
+  "in_list_view": 1, 
+  "label": "Sales Order Type", 
+  "options": "\nProvisional\nNormal", 
+  "read_only": 1
  }, 
  {
   "doctype": "DocField", 

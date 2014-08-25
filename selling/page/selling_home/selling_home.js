@@ -23,6 +23,11 @@ wn.module_page["Selling"] = [
 				doctype:"Opportunity"
 			},
 			{
+				label: wn._("Tender"),
+				description: wn._("Tender Details."),
+				doctype:"Tender"
+			},
+			{
 				label: wn._("Quotation"),
 				description: wn._("Quotes to Leads or Customers."),
 				doctype:"Quotation"
@@ -32,6 +37,7 @@ wn.module_page["Selling"] = [
 				description: wn._("Confirmed orders from Customers."),
 				doctype:"Sales Order"
 			},
+			
 		]
 	},
 	{

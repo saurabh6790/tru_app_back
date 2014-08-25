@@ -162,7 +162,7 @@ class DocType:
 		for g in getlist(self.doclist,'neutralisation_test_details'):
 			if g.reported_value:
 				pgcil_limit = get_pgcil_limit(self.doc.method)
-	 			test_detail = {'test': "Neutralization Value", 'sample_no':g.sample_no,'name': self.doc.name, 'method':self.doc.method, 'pgcil_limit':pgcil_limit}
+	 			test_detail = {'test': "Neutralization Value", 'sample_no':g.sample_no,'name': self.doc.name, 'method':self.doc.method, 'pgcil_limit':pgcil_limit,'workflow_state':self.doc.workflow_state,'tested_by':self.doc.tested_by}
 	 			if self.doc.workflow_state=='Rejected':
 	 				update_test_log(test_detail)
 	 			else:

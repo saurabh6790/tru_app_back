@@ -57,11 +57,11 @@ cur_frm.cscript.sample_no = function(doc,cdt,cdn){
 }
 
 
-cur_frm.get_field("test_name").get_query=function(doc,cdt,cdn){
+// cur_frm.get_field("test_name").get_query=function(doc,cdt,cdn){
 
-  return "select test from `tabFinal Sample Allocation To Lab` where parent='"+doc.sample_allocation_lab+"' " 
+//   return "select test from `tabFinal Sample Allocation To Lab` where parent='"+doc.sample_allocation_lab+"'" 
 
-}
+// }
 
 // cur_frm.fields_dict.sample_allocation_detail.grid.get_field("shift_incharge").get_query = function(doc,cdt,cdn)
 // {
