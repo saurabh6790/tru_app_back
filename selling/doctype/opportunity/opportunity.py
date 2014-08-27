@@ -101,6 +101,7 @@ class DocType(TransactionBase):
 	def validate(self):
 		self.set_status()
 		self.validate_item_details()
+		self.validate_for_product()
 		self.validate_uom_is_integer("uom", "qty")
 		self.validate_lead_cust()
 		
@@ -128,6 +129,19 @@ class DocType(TransactionBase):
 		
 	def has_quotation(self):
 		return webnotes.conn.get_value("Quotation Item", {"prevdoc_docname": self.doc.name, "docstatus": 1})
+
+	def validate_for_product(self):
+		chk_dupl_prd = []
+		for d in getlist(self.doclist,'oppo_products'):
+			if [cstr(d.product_name),cstr(d.description)] in chk_dupl_prd:
+				msgprint("Product %s has been entered twice. Please change description atleast to continue" % d.product_name)
+				raise Exception
+			else:
+				chk_dupl_prd.append([cstr(d.product_name),cstr(d.description)])	
+
+	
+		
+
 		
 @webnotes.whitelist()
 def make_quotation(source_name, target_doclist=None):
@@ -158,7 +172,37 @@ def make_quotation(source_name, target_doclist=None):
 				"uom": "stock_uom"
 			},
 			"add_if_empty": True
+		# "Opportunity Product": {
+		# 	"doctype": "Quotation Product", 
+		# 	"field_map": {
+		# 		"parent": "prevdoc_docname", 
+		# 		"parenttype": "prevdoc_doctype", 
+		# 		#"uom": "stock_uom"
+		# 	},
+		# 	"add_if_empty": True
 		}
 	}, target_doclist, set_missing_values)
 		
 	return [d.fields for d in doclist]
+
+
+
+# @webnotes.whitelist()
+# def make_tender(source_name, target_doclist=None):
+# 	from webnotes.model.mapper import get_mapped_doclist
+		
+# 	doclist = get_mapped_doclist("Opportunity", source_name, 
+# 		{"Opportunity": {
+# 			"doctype": "Tender",
+# 			"field_map": {
+# 				# "campaign_name": "campaign",
+# 				# "doctype": "enquiry_from",
+# 				# "name": "lead",
+# 				# "lead_name": "contact_display",
+# 				# "company_name": "customer_name",
+# 				# "email_id": "contact_email",
+# 				# "mobile_no": "contact_mobile"
+# 			}
+# 		}}, target_doclist)
+		
+# 	return [d if isinstance(d, dict) else d.fields for d in doclist]

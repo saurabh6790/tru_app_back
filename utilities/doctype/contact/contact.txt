@@ -2,7 +2,7 @@
  {
   "creation": "2013-01-10 16:34:32", 
   "docstatus": 0, 
-  "modified": "2014-05-28 15:49:43", 
+  "modified": "2014-08-01 14:26:01", 
   "modified_by": "Administrator", 
   "owner": "Administrator"
  }, 
@@ -136,7 +136,8 @@
   "oldfieldname": "customer", 
   "oldfieldtype": "Link", 
   "options": "Customer", 
-  "print_hide": 0
+  "print_hide": 0, 
+  "read_only": 0
  }, 
  {
   "depends_on": "eval:!doc.supplier && !doc.sales_partner", 
@@ -146,6 +147,13 @@
   "in_list_view": 1, 
   "label": "Customer Name", 
   "read_only": 1
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "lead", 
+  "fieldtype": "Link", 
+  "label": "Lead ", 
+  "options": "Lead"
  }, 
  {
   "doctype": "DocField", 
@@ -215,7 +223,8 @@
   "fieldtype": "Data", 
   "label": "Mobile No", 
   "oldfieldname": "mobile_no", 
-  "oldfieldtype": "Data"
+  "oldfieldtype": "Data", 
+  "reqd": 1
  }, 
  {
   "description": "Enter department to which this Contact belongs", 

@@ -2,7 +2,7 @@
  {
   "creation": "2013-06-04 11:02:19", 
   "docstatus": 0, 
-  "modified": "2013-11-02 19:41:24", 
+  "modified": "2014-08-04 16:23:37", 
   "modified_by": "Administrator", 
   "owner": "Administrator"
  }, 
@@ -85,6 +85,18 @@
   "read_only": 0, 
   "reqd": 1, 
   "width": "200px"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "details", 
+  "fieldtype": "Section Break", 
+  "label": "Test Details"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "test_details", 
+  "fieldtype": "Small Text", 
+  "label": "Test Details"
  }, 
  {
   "doctype": "DocField", 

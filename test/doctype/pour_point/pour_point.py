@@ -28,22 +28,22 @@ class DocType:
 		"equipment_used_list": equipment_list
 		}
 
-	def assign_pour_point(self):
-		test_details = {'test': "Pour Point", 'name': self.doc.name}
-		#webnotes.errprint(test_details)
-		# for assigening ticket to the person of role Shift Incharge in worflow Shift Incharge- Lab Incharge
-		if self.doc.workflow_state=='Waiting For Approval':
-			test_details['incharge'] = self.doc.shift_incharge_approval
-			assign_notify(test_details)
+	# def assign_pour_point(self):
+	# 	test_details = {'test': "Pour Point", 'name': self.doc.name}
+	# 	#webnotes.errprint(test_details)
+	# 	# for assigening ticket to the person of role Shift Incharge in worflow Shift Incharge- Lab Incharge
+	# 	if self.doc.workflow_state=='Waiting For Approval':
+	# 		test_details['incharge'] = self.doc.shift_incharge_approval
+	# 		assign_notify(test_details)
 
-		# for assigening ticket to the person of role Lab Incharge in worflow Shift Incharge- Lab Incharge
-		if self.doc.workflow_state=='Waiting For Approval Of  Lab Incharge':
-			test_details['incharge'] = self.doc.lab_incharge_approval
-			assign_notify(test_details)
+	# 	# for assigening ticket to the person of role Lab Incharge in worflow Shift Incharge- Lab Incharge
+	# 	if self.doc.workflow_state=='Waiting For Approval Of  Lab Incharge':
+	# 		test_details['incharge'] = self.doc.lab_incharge_approval
+	# 		assign_notify(test_details)
 
-		if self.doc.workflow_state=='Rejected':
-			test_details={'workflow_state':self.doc.workflow_state,'sample_no':self.doc.sample_no}
-			assign_notify(test_details)
+	# 	if self.doc.workflow_state=='Rejected':
+	# 		test_details={'workflow_state':self.doc.workflow_state,'sample_no':self.doc.sample_no}
+	# 		assign_notify(test_details)
 
 
 	# def get_barcode(self,sample_no):
@@ -56,10 +56,13 @@ class DocType:
 		pgcil_limit = get_pgcil_limit(self.doc.method)
 		test_detail = {'test': "Pour Point", 'sample_no':self.doc.sample_no,'name': self.doc.name,'method':self.doc.method, 'pgcil_limit':pgcil_limit}
 		#diffrence={'Sediment & Precipitable Sludge':self.doc.diffrence}
-		parent=create_test_results(test_detail)
-		#for val in voltage:
-		create_child_testresult(parent,self.doc.temperature_ir,test_detail,'Pour Point')
-
 		if self.doc.workflow_state=='Rejected':
 			#webnotes.errprint(self.doc.workflow_state)
 			update_test_log(test_detail)
+		else:
+
+			parent=create_test_results(test_detail)
+			#for val in voltage:
+			create_child_testresult(parent,self.doc.temperature_ir,test_detail,'Pour Point')
+
+		

@@ -48,13 +48,27 @@ class DocType:
 		# if self.doc.test_type == 'Regular':
 		pgcil_limit = get_pgcil_limit(self.doc.method)
 		test_detail = {'test': "Moisture Content", 'sample_no':self.doc.sample_no,'name': self.doc.name, 'method':self.doc.method, 'pgcil_limit':pgcil_limit}
-		parent=create_test_results(test_detail)
-		if parent and self.doc.moisture: 
-			create_child_testresult(parent,self.doc.moisture,test_detail,'Water Content By KARL FISCHER METHOD')
-
 		if self.doc.workflow_state=='Rejected':
-			#webnotes.errprint(self.doc.workflow_state)
 			update_test_log(test_detail)
+		else:
+
+			parent=create_test_results(test_detail)
+			if parent and self.doc.moisture: 
+				create_child_testresult(parent,self.doc.moisture,test_detail,'Water Content By KARL FISCHER METHOD')
+
+		
+
+
+
+	def get_physical_density_details(self,sample_no):
+	#webnotes.errprint([filters])
+		physical_density=webnotes.conn.sql("""select name from `tabPhysical Condition And Density` 
+			 	where sample_no='%s' and docstatus=1""" %(sample_no),debug=1)
+		webnotes.errprint(physical_density)
+		if physical_density:
+			pass
+		else:
+			webnotes.msgprint("There is no any physical condition and density test completed against given sample no='"+sample_no+"' for moisture Content test physical condition and density is needed",raise_exception=1)
 
 def get_physical_density_details(doctype, txt, searchfield, start, page_len, filters):
 	#webnotes.errprint([filters])

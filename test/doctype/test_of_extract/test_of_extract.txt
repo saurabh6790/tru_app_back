@@ -2,7 +2,7 @@
  {
   "creation": "2014-06-10 15:20:42", 
   "docstatus": 0, 
-  "modified": "2014-06-27 09:44:40", 
+  "modified": "2014-08-13 12:31:25", 
   "modified_by": "Administrator", 
   "owner": "Administrator"
  }, 
@@ -25,7 +25,6 @@
  }, 
  {
   "cancel": 1, 
-  "create": 1, 
   "doctype": "DocPerm", 
   "name": "__common__", 
   "parent": "Test Of Extract", 
@@ -91,6 +90,7 @@
   "doctype": "DocField", 
   "fieldname": "test_preparation", 
   "fieldtype": "Data", 
+  "hidden": 1, 
   "label": "Test Preparation", 
   "read_only": 1
  }, 
@@ -222,16 +222,30 @@
  }, 
  {
   "amend": 1, 
+  "create": 1, 
   "doctype": "DocPerm", 
   "role": "Administrator"
  }, 
  {
+  "create": 0, 
   "doctype": "DocPerm", 
   "role": "Shift Incharge"
  }, 
  {
   "amend": 0, 
+  "create": 0, 
   "doctype": "DocPerm", 
   "role": "Lab Incharge"
+ }, 
+ {
+  "amend": 0, 
+  "create": 0, 
+  "doctype": "DocPerm", 
+  "role": "Employee"
+ }, 
+ {
+  "create": 0, 
+  "doctype": "DocPerm", 
+  "role": "Tester"
  }
 ]

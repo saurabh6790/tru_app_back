@@ -52,18 +52,21 @@ class DocType:
 	def on_submit(self):
 		pgcil_limit = get_pgcil_limit(self.doc.method)
 		test_detail = {'test': "Oxidation Inhibiters", 'sample_no':self.doc.sample_no,'name': self.doc.name, 'method':self.doc.method, 'pgcil_limit':pgcil_limit}
-		parent = create_test_results(test_detail)
-
-		child_result = {}
-
-		child_result['Phenol Type Inhibiter'] = self.doc.phenol_type_inhibiter
-		child_result['Amine Type Inhibiter ']  = self.doc.amine_type
-		child_result['Di-Tert-Butyl-Paracresol By Infrared Spectrophotometry'] = self.doc.di_infrared_spectrophotometry
-		child_result['DPC'] = self.doc.dpc
-
-		for child in child_result:
-			create_child_testresult(parent,child_result[child],test_detail,child)
-
 		if self.doc.workflow_state=='Rejected':
 			#webnotes.errprint(self.doc.workflow_state)
 			update_test_log(test_detail)
+		else:
+
+			parent = create_test_results(test_detail)
+
+			child_result = {}
+
+			child_result['Phenol Type Inhibiter'] = self.doc.phenol_type_inhibiter
+			child_result['Amine Type Inhibiter ']  = self.doc.amine_type
+			child_result['Di-Tert-Butyl-Paracresol By Infrared Spectrophotometry'] = self.doc.di_infrared_spectrophotometry
+			child_result['DPC'] = self.doc.dpc
+
+			for child in child_result:
+				create_child_testresult(parent,child_result[child],test_detail,child)
+
+		

@@ -2,7 +2,7 @@
  {
   "creation": "2014-06-10 16:37:55", 
   "docstatus": 0, 
-  "modified": "2014-06-26 17:35:13", 
+  "modified": "2014-08-13 12:29:42", 
   "modified_by": "Administrator", 
   "owner": "Administrator"
  }, 
@@ -24,9 +24,7 @@
   "permlevel": 0
  }, 
  {
-  "amend": 1, 
   "cancel": 1, 
-  "create": 1, 
   "doctype": "DocPerm", 
   "name": "__common__", 
   "parent": "PCB", 
@@ -35,7 +33,6 @@
   "permlevel": 0, 
   "read": 1, 
   "report": 1, 
-  "role": "All", 
   "submit": 1, 
   "write": 1
  }, 
@@ -101,7 +98,7 @@
   "doctype": "DocField", 
   "fieldname": "sample_no", 
   "fieldtype": "Link", 
-  "label": "Sample ID", 
+  "label": "Sample No", 
   "options": "Sample"
  }, 
  {
@@ -114,7 +111,7 @@
   "doctype": "DocField", 
   "fieldname": "temperature", 
   "fieldtype": "Data", 
-  "label": "temperature", 
+  "label": "Temperature", 
   "read_only": 1
  }, 
  {
@@ -202,19 +199,22 @@
   "doctype": "DocField", 
   "fieldname": "reported_in_ppm_0", 
   "fieldtype": "Data", 
-  "label": "Reported In ppm"
+  "label": "Reported In ppm", 
+  "reqd": 1
  }, 
  {
   "doctype": "DocField", 
   "fieldname": "reported_in_ppm_1", 
   "fieldtype": "Data", 
-  "label": "Reported In ppm"
+  "label": "Reported In ppm", 
+  "reqd": 1
  }, 
  {
   "doctype": "DocField", 
   "fieldname": "reported_in_ppm_2", 
   "fieldtype": "Data", 
-  "label": "Reported In ppm"
+  "label": "Reported In ppm", 
+  "reqd": 1
  }, 
  {
   "doctype": "DocField", 
@@ -249,7 +249,7 @@
   "fieldname": "tested_by", 
   "fieldtype": "Data", 
   "label": "Tested By", 
-  "read_only": 0
+  "read_only": 1
  }, 
  {
   "doctype": "DocField", 
@@ -262,6 +262,27 @@
   "read_only": 1
  }, 
  {
-  "doctype": "DocPerm"
+  "amend": 1, 
+  "create": 1, 
+  "doctype": "DocPerm", 
+  "role": "Administrator"
+ }, 
+ {
+  "doctype": "DocPerm", 
+  "role": "Lab Incharge"
+ }, 
+ {
+  "create": 0, 
+  "doctype": "DocPerm", 
+  "role": "Shift Incharge"
+ }, 
+ {
+  "create": 0, 
+  "doctype": "DocPerm", 
+  "role": "Employee"
+ }, 
+ {
+  "doctype": "DocPerm", 
+  "role": "Tester"
  }
 ]

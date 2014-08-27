@@ -1,0 +1,91 @@
+[
+ {
+  "creation": "2014-07-21 14:13:07", 
+  "docstatus": 0, 
+  "modified": "2014-08-01 15:56:48", 
+  "modified_by": "Administrator", 
+  "owner": "Administrator"
+ }, 
+ {
+  "doctype": "DocType", 
+  "istable": 1, 
+  "module": "Tour", 
+  "name": "__common__"
+ }, 
+ {
+  "doctype": "DocField", 
+  "name": "__common__", 
+  "parent": "Tour Daily Report", 
+  "parentfield": "fields", 
+  "parenttype": "DocType", 
+  "permlevel": 0
+ }, 
+ {
+  "doctype": "DocType", 
+  "name": "Tour Daily Report"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "date", 
+  "fieldtype": "Date", 
+  "in_list_view": 1, 
+  "label": "Date", 
+  "reqd": 0
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "tour_type", 
+  "fieldtype": "Select", 
+  "in_list_view": 1, 
+  "label": "Tour Type", 
+  "options": "\nPlanned\nUnplanned"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "client_name", 
+  "fieldtype": "Link", 
+  "in_list_view": 1, 
+  "label": "Client Name", 
+  "options": "Customer"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "contact_person", 
+  "fieldtype": "Link", 
+  "in_list_view": 1, 
+  "label": "Contact Person", 
+  "options": "Contact"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "action_taken", 
+  "fieldtype": "Data", 
+  "in_list_view": 1, 
+  "label": "Action Taken"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "remarks", 
+  "fieldtype": "Data", 
+  "label": "Remarks"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "client_type", 
+  "fieldtype": "Data", 
+  "label": "Client Type"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "client_requirement", 
+  "fieldtype": "Small Text", 
+  "label": "Client Requirement/Purpose of Visit"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "expense_incurred", 
+  "fieldtype": "Float", 
+  "in_list_view": 1, 
+  "label": "Expense Incurred"
+ }
+]

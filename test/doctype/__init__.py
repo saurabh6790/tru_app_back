@@ -24,7 +24,7 @@ def update_test_log(test_details):
 def verfy_bottle_number(sample_no, bottle_number):
 	if bottle_number:
 		if cint(webnotes.conn.sql("""select count(*) from tabSample 
-			where name='%s' and barcode like '%%%s%%'"""%(sample_no, bottle_number))[0][0]) != 1:
+			where name='%s' and barcode in ('%s') """%(sample_no, bottle_number))[0][0]) != 1:
 			webnotes.msgprint("Entered bottle number not belongs to Sample No. Please correct it",raise_exception=1)
 	else:
 		webnotes.msgprint("Please enter bottle number",raise_exception=1)

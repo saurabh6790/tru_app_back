@@ -2,7 +2,7 @@
  {
   "creation": "2014-06-10 16:10:06", 
   "docstatus": 0, 
-  "modified": "2014-07-09 12:19:37", 
+  "modified": "2014-08-13 12:28:32", 
   "modified_by": "Administrator", 
   "owner": "Administrator"
  }, 
@@ -24,9 +24,6 @@
   "permlevel": 0
  }, 
  {
-  "amend": 1, 
-  "cancel": 1, 
-  "create": 1, 
   "doctype": "DocPerm", 
   "name": "__common__", 
   "parent": "Pour Point", 
@@ -161,9 +158,9 @@
  }, 
  {
   "doctype": "DocField", 
-  "fieldname": "info", 
+  "fieldname": "information", 
   "fieldtype": "Section Break", 
-  "label": "Info"
+  "label": "Information"
  }, 
  {
   "doctype": "DocField", 
@@ -183,25 +180,41 @@
   "doctype": "DocField", 
   "fieldname": "tested_by", 
   "fieldtype": "Data", 
-  "label": "Tested By"
+  "label": "Tested By", 
+  "read_only": 1
  }, 
  {
+  "amend": 1, 
+  "cancel": 1, 
+  "create": 1, 
   "doctype": "DocPerm", 
   "role": "Administrator"
  }, 
  {
+  "amend": 1, 
+  "cancel": 1, 
+  "create": 0, 
   "doctype": "DocPerm", 
   "role": "Lab Incharge"
  }, 
  {
+  "amend": 1, 
+  "cancel": 1, 
+  "create": 0, 
   "doctype": "DocPerm", 
   "role": "Shift Incharge"
  }, 
  {
+  "amend": 0, 
+  "cancel": 1, 
+  "create": 0, 
   "doctype": "DocPerm", 
   "role": "Tester"
  }, 
  {
+  "amend": 0, 
+  "cancel": 0, 
+  "create": 1, 
   "doctype": "DocPerm", 
   "role": "Employee"
  }

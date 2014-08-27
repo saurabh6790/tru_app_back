@@ -2,7 +2,7 @@
  {
   "creation": "2014-06-13 15:58:27", 
   "docstatus": 0, 
-  "modified": "2014-06-27 16:07:41", 
+  "modified": "2014-08-13 12:30:13", 
   "modified_by": "Administrator", 
   "owner": "Administrator"
  }, 
@@ -25,7 +25,6 @@
  }, 
  {
   "cancel": 1, 
-  "create": 1, 
   "doctype": "DocPerm", 
   "name": "__common__", 
   "parent": "Oxidation Inhibiters", 
@@ -147,7 +146,8 @@
   "fieldname": "phenol_type_inhibiter", 
   "fieldtype": "Select", 
   "label": "Phenol Type Inhibiter", 
-  "options": "\nPresent\nAbsent"
+  "options": "\nPresent\nAbsent", 
+  "reqd": 1
  }, 
  {
   "doctype": "DocField", 
@@ -159,7 +159,8 @@
   "fieldname": "amine_type", 
   "fieldtype": "Select", 
   "label": "Amine Type", 
-  "options": "\nPresent\nAbsent"
+  "options": "\nPresent\nAbsent", 
+  "reqd": 1
  }, 
  {
   "doctype": "DocField", 
@@ -172,7 +173,8 @@
   "doctype": "DocField", 
   "fieldname": "di_infrared_spectrophotometry", 
   "fieldtype": "Data", 
-  "label": "2,6 Di-Tert-Butyl-Paracresol By Infrared Spectrophotometry % by mass"
+  "label": "2,6 Di-Tert-Butyl-Paracresol By Infrared Spectrophotometry % by mass", 
+  "reqd": 1
  }, 
  {
   "doctype": "DocField", 
@@ -184,13 +186,14 @@
   "doctype": "DocField", 
   "fieldname": "dpc", 
   "fieldtype": "Data", 
-  "label": "DPC"
+  "label": "DPC", 
+  "reqd": 1
  }, 
  {
   "doctype": "DocField", 
-  "fieldname": "info", 
+  "fieldname": "information", 
   "fieldtype": "Section Break", 
-  "label": "Info"
+  "label": "Information"
  }, 
  {
   "doctype": "DocField", 
@@ -210,28 +213,34 @@
   "doctype": "DocField", 
   "fieldname": "tested_by", 
   "fieldtype": "Data", 
-  "label": "Tested By"
+  "label": "Tested By", 
+  "read_only": 1
  }, 
  {
   "amend": 1, 
+  "create": 1, 
   "doctype": "DocPerm", 
   "role": "Administrator"
  }, 
  {
   "amend": 1, 
+  "create": 0, 
   "doctype": "DocPerm", 
   "role": "Lab Incharge"
  }, 
  {
   "amend": 1, 
+  "create": 0, 
   "doctype": "DocPerm", 
   "role": "Shift Incharge"
  }, 
  {
+  "create": 0, 
   "doctype": "DocPerm", 
   "role": "Employee"
  }, 
  {
+  "create": 0, 
   "doctype": "DocPerm", 
   "role": "Tester"
  }

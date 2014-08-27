@@ -13,6 +13,7 @@ from webnotes.utils import cint, cstr, flt, now, nowdate, get_first_day, get_las
 class DocType:
 	def __init__(self, d, dl):
 		self.doc, self.doclist = d, dl
+
 	def on_update(self):
 		#self.update_status();
 		self.calculate_avg()
@@ -44,9 +45,9 @@ class DocType:
 		# 			update_test_log(test_details)
 
 			 	
-	def get_barcode(self,sample_no):
-		self.doc.bottle_no=webnotes.conn.get_value('Sample',sample_no,'barcode')
-		return {'bottle_no':self.doc.bottle_no}
+	# def get_barcode(self,sample_no):
+	# 	self.doc.bottle_no=webnotes.conn.get_value('Sample',sample_no,'barcode')
+	# 	return {'bottle_no':self.doc.bottle_no}
 
 	def calculate_avg(self):
 		avg_values=webnotes.conn.sql("""select sum(a.temparature)/count(a.temparature),
@@ -68,10 +69,9 @@ class DocType:
 		}
 
 	def validate(self):
+		webnotes.errprint(self.doc.workflow_state)
 		self.check_break_details()
-	# def update_status(self):
-	# 	webnotes.conn.sql("update `tabSample Allocation Detail` set status='"+self.doc.workflow_state+"' where test_id='"+self.doc.name+"' ")
-	# 	webnotes.conn.commit()
+
 	def check_break_details(self):
 		count=0
 		for m in getlist(self.doclist, 'break_detail'):
@@ -85,30 +85,35 @@ class DocType:
 			#webnotes.errprint(count)
 			webnotes.msgprint("Minimum six records needed for consideration of final result from Break Details Child Table.",raise_exception=1);
 
-	def assign_breakdown_voltage_test(self):
-		test_details = {'test': "Breakdown Voltage", 'name': self.doc.name}
+	# def assign_breakdown_voltage_test(self):
+	# 	test_details = {'test': "Breakdown Voltage", 'name': self.doc.name}
 		
-		# for assigening ticket to the person of role Shift Incharge in worflow Shift Incharge- Lab Incharge
-		if self.doc.workflow_state=='Waiting For Approval':
-			webnotes.errprint(self.doc.workflow_state)
-			test_details['incharge'] = self.doc.shift_incharge_approval
-			assign_notify(test_details)
+	# 	# for assigening ticket to the person of role Shift Incharge in worflow Shift Incharge- Lab Incharge
+	# 	if self.doc.workflow_state=='Waiting For Approval':
+	# 		test_details['incharge'] = self.doc.shift_incharge_approval
+	# 		assign_notify(test_details)
 
-		# for assigening ticket to the person of role Lab Incharge in worflow Shift Incharge- Lab Incharge
-		if self.doc.workflow_state=='Waiting For Approval Of  Lab Incharge':
-			test_details['incharge'] = self.doc.lab_incharge_approval
-			assign_notify(test_details)
+	# 	# for assigening ticket to the person of role Lab Incharge in worflow Shift Incharge- Lab Incharge
+	# 	if self.doc.workflow_state=='Waiting For Approval Of  Lab Incharge':
+	# 		test_details['incharge'] = self.doc.lab_incharge_approval
+	# 		assign_notify(test_details)
 
-		if self.doc.workflow_state=='Rejected':
-			test_details={'workflow_state':self.doc.workflow_state,'sample_no':self.doc.sample_no}
-			assign_notify(test_details)
+	# 	if self.doc.workflow_state=='Rejected':
+	# 		test_details={'workflow_state':self.doc.workflow_state,'sample_no':self.doc.sample_no}
+	# 		assign_notify(test_details)
 
 	def on_submit(self):
 		pgcil_limit = get_pgcil_limit(self.doc.method)
 		test_detail = {'test': "Breakdown Voltage", 'sample_no':self.doc.sample_no,'name': self.doc.name,'method':self.doc.method, 'pgcil_limit':pgcil_limit,'workflow_state':self.doc.workflow_state,'tested_by':self.doc.tested_by}
 		voltage={'Avg Temp of Dielectric strength of oil B.D.V. in KVolume':self.doc.break_down_temperature,'Avg humidity of Dielectric strength of oil B.D.V. in KVolume':self.doc.break_down_humidity,'Avg frequency of Dielectric strength of oil B.D.V. in KVolume':self.doc.break_down_frequency,'Avg IR of Dielectric strength of oil B.D.V. in KVolume':self.doc.break_down_ir}
-		parent=create_test_results(test_detail)
-		for val in voltage:
-			create_child_testresult(parent,voltage[val],test_detail,val)
+		if self.doc.workflow_state=='Rejected':
+
+			update_test_log(test_detail)
+
+		else:
+
+			parent=create_test_results(test_detail)
+			for val in voltage:
+				create_child_testresult(parent,voltage[val],test_detail,val)
 
 

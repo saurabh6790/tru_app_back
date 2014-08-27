@@ -5,6 +5,9 @@ wn.require('app/utilities/doctype/sms_control/sms_control.js');
 
 wn.provide("erpnext.selling");
 // TODO commonify this code
+
+cur_frm.add_fetch('item_code', 'product_test_details','test_details');
+
 erpnext.selling.Opportunity = wn.ui.form.Controller.extend({
 	onload: function() {
 		if(!this.frm.doc.enquiry_from && this.frm.doc.customer)
@@ -94,7 +97,16 @@ erpnext.selling.Opportunity = wn.ui.form.Controller.extend({
 			method: "selling.doctype.opportunity.opportunity.make_quotation",
 			source_name: cur_frm.doc.name
 		})
+	},
+
+	create_tender: function() {
+		wn.model.open_mapped_doc({
+			method: "selling.doctype.opportunity.opportunity.make_tender",
+			source_name: cur_frm.doc.name
+		})
 	}
+
+
 });
 
 $.extend(cur_frm.cscript, new erpnext.selling.Opportunity({frm: cur_frm}));
@@ -105,6 +117,7 @@ cur_frm.cscript.refresh = function(doc, cdt, cdn) {
 	
 	if(doc.docstatus === 1 && doc.status!=="Lost") {
 		cur_frm.add_custom_button(wn._('Create Quotation'), cur_frm.cscript.create_quotation);
+		//cur_frm.add_custom_button(wn._('Tender'), cur_frm.cscript.create_tender);
 		if(doc.status!=="Quotation")
 			cur_frm.add_custom_button(wn._('Opportunity Lost'), cur_frm.cscript['Declare Opportunity Lost']);
 
@@ -197,3 +210,27 @@ cur_frm.cscript['Declare Opportunity Lost'] = function() {
 	});
 	dialog.show();
 }
+
+//cur_frm.add_fetch('item_code', 'total_rate','basic_rate');
+
+// cur_frm.cscript.validate = function(doc,cdt,cdn) {
+// 	// console.log("in the validate")
+// 	cur_frm.cscript.update_totals(doc);
+// }
+
+// cur_frm.cscript.update_totals = function(doc, cdt, cdn) {
+// 	// console.log("in the validate");
+// 	var td=0.0;
+// 	var el = getchildren('Opportunity Product', doc.name, 'oppo_products');
+// 	console.log(el);
+// 	for(var i in el) {
+// 		console.log(el[i].total_rate)
+// 		td += flt(el[i].total_rate,2);
+// 		// tc += flt(el[i].credit, 2);
+// 	}
+
+// 	var doc = locals[doc.doctype][doc.name];
+// 	doc.net_total_export = td;
+// 	console.log(doc.net_total_export);
+// 	refresh_many(['net_total_export']);
+// }

@@ -1,0 +1,224 @@
+[
+ {
+  "creation": "2014-07-23 19:16:12", 
+  "docstatus": 0, 
+  "modified": "2014-08-18 12:12:52", 
+  "modified_by": "Administrator", 
+  "owner": "Administrator"
+ }, 
+ {
+  "autoname": "TEND.######", 
+  "doctype": "DocType", 
+  "document_type": "Transaction", 
+  "is_submittable": 1, 
+  "module": "Selling", 
+  "name": "__common__"
+ }, 
+ {
+  "doctype": "DocField", 
+  "name": "__common__", 
+  "parent": "Tender", 
+  "parentfield": "fields", 
+  "parenttype": "DocType", 
+  "permlevel": 0
+ }, 
+ {
+  "amend": 1, 
+  "cancel": 1, 
+  "create": 1, 
+  "doctype": "DocPerm", 
+  "name": "__common__", 
+  "parent": "Tender", 
+  "parentfield": "permissions", 
+  "parenttype": "DocType", 
+  "permlevel": 0, 
+  "read": 1, 
+  "report": 1, 
+  "role": "Administrator", 
+  "submit": 1, 
+  "write": 1
+ }, 
+ {
+  "doctype": "DocType", 
+  "name": "Tender"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "tender_details", 
+  "fieldtype": "Section Break", 
+  "label": "Tender Details"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "quotation_name", 
+  "fieldtype": "Data", 
+  "hidden": 0, 
+  "label": "Quotation Name", 
+  "read_only": 1
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "tender_notice_no", 
+  "fieldtype": "Data", 
+  "label": "Tender Notice No"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "last_date", 
+  "fieldtype": "Date", 
+  "label": "Last Date Of Delivery/Buying"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "tender_type", 
+  "fieldtype": "Select", 
+  "label": "Tender Type", 
+  "options": "\nLimited\nOpen"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "name_of_the_work", 
+  "fieldtype": "Data", 
+  "label": "Name Of The Work"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "estimated_value", 
+  "fieldtype": "Select", 
+  "label": "Estimated value", 
+  "options": "\nPercentage Of Estimated Value\nPercentage Of Quoted Amount"
+ }, 
+ {
+  "depends_on": "eval:doc.estimated_value=='Percentage Of Estimated Value'", 
+  "doctype": "DocField", 
+  "fieldname": "estimated_cost", 
+  "fieldtype": "Float", 
+  "label": "Estimated Cost"
+ }, 
+ {
+  "depends_on": "eval:doc.estimated_value=='Percentage Of Quoted Amount'", 
+  "doctype": "DocField", 
+  "fieldname": "quoted_amount", 
+  "fieldtype": "Float", 
+  "label": "Quoted Amount"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "client", 
+  "fieldtype": "Link", 
+  "label": "Name Of The Contractor", 
+  "options": "Customer"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "issue_date", 
+  "fieldtype": "Date", 
+  "label": "Date of Issue of Tender Paper"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "column_break_10", 
+  "fieldtype": "Column Break"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "opening_date", 
+  "fieldtype": "Date", 
+  "label": "Date Of Opening Of Tender"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "submission_date", 
+  "fieldtype": "Date", 
+  "label": "Date Of Submission Of Tender Paper"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "tender_process_type", 
+  "fieldtype": "Select", 
+  "label": "Tender Process Type", 
+  "options": "\nOnline\nOffline"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "place_of_work", 
+  "fieldtype": "Data", 
+  "label": "Place Of Work"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "address", 
+  "fieldtype": "Small Text", 
+  "label": "Address"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "section_break_14", 
+  "fieldtype": "Section Break"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "earnest_money_deposited", 
+  "fieldtype": "Float", 
+  "label": "Earnest Money Deposited"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "security_deposit", 
+  "fieldtype": "Float", 
+  "label": "Security Deposit"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "column_break_17", 
+  "fieldtype": "Column Break"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "tender_fee", 
+  "fieldtype": "Float", 
+  "label": "Tender Fee"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "duration_of_tender", 
+  "fieldtype": "Data", 
+  "label": "Duration Of Tender"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "amended_from", 
+  "fieldtype": "Link", 
+  "label": "Amended From", 
+  "no_copy": 1, 
+  "options": "Tender", 
+  "print_hide": 1, 
+  "read_only": 1
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "other_information", 
+  "fieldtype": "Section Break", 
+  "label": "Other Information"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "pan_no", 
+  "fieldtype": "Data", 
+  "label": "PAN A/C No"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "column_break_26", 
+  "fieldtype": "Column Break"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "tin_no", 
+  "fieldtype": "Data", 
+  "label": "Sales Tax Reg. No./VAT/TIN No."
+ }, 
+ {
+  "doctype": "DocPerm"
+ }
+]

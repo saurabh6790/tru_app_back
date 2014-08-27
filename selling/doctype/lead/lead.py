@@ -122,3 +122,23 @@ def make_opportunity(source_name, target_doclist=None):
 		}}, target_doclist)
 		
 	return [d if isinstance(d, dict) else d.fields for d in doclist]
+
+@webnotes.whitelist()
+def make_quotation(source_name, target_doclist=None):
+	from webnotes.model.mapper import get_mapped_doclist
+		
+	doclist = get_mapped_doclist("Lead", source_name, 
+		{"Lead": {
+			"doctype": "Quotation",
+			"field_map": {
+				# "campaign_name": "campaign",
+				# "doctype": "enquiry_from",
+				# "name": "lead",
+				# "lead_name": "contact_display",
+				# "company_name": "customer_name",
+				# "email_id": "contact_email",
+				# "mobile_no": "contact_mobile"
+			}
+		}}, target_doclist)
+		
+	return [d if isinstance(d, dict) else d.fields for d in doclist]

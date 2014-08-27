@@ -2,7 +2,7 @@
  {
   "creation": "2014-05-16 11:21:47", 
   "docstatus": 0, 
-  "modified": "2014-05-17 15:14:41", 
+  "modified": "2014-07-16 10:33:44", 
   "modified_by": "Administrator", 
   "owner": "Administrator"
  }, 
@@ -45,7 +45,7 @@
   "doctype": "DocField", 
   "fieldname": "particulors_of_test", 
   "fieldtype": "Small Text", 
-  "label": "Particulors Of Test"
+  "label": "Particulars Of Test"
  }, 
  {
   "doctype": "DocField", 

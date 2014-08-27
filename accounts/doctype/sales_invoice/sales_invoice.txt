@@ -2,7 +2,7 @@
  {
   "creation": "2013-05-24 19:29:05", 
   "docstatus": 0, 
-  "modified": "2014-01-16 15:36:16", 
+  "modified": "2014-08-04 15:49:36", 
   "modified_by": "Administrator", 
   "owner": "Administrator"
  }, 
@@ -276,8 +276,9 @@
  }, 
  {
   "doctype": "DocField", 
-  "fieldname": "items", 
+  "fieldname": "item_t", 
   "fieldtype": "Section Break", 
+  "hidden": 0, 
   "label": "Items", 
   "oldfieldtype": "Section Break", 
   "options": "icon-shopping-cart", 
@@ -304,6 +305,20 @@
   "options": "Sales Invoice Item", 
   "read_only": 0, 
   "reqd": 1
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "items", 
+  "fieldtype": "Section Break", 
+  "hidden": 1, 
+  "label": "Items"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "sales_invoice_products", 
+  "fieldtype": "Table", 
+  "label": "Sales Invoice Products", 
+  "options": "Sales Invoice Product"
  }, 
  {
   "doctype": "DocField", 

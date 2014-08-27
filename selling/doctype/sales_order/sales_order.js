@@ -190,3 +190,51 @@ cur_frm.cscript.on_submit = function(doc, cdt, cdn) {
 		cur_frm.email_doc(wn.boot.notification_settings.sales_order_message);
 	}
 };
+
+
+// cur_frm.cscript.validate = function(doc,cdt,cdn) {
+// 	console.log("in the validate");
+// 	cur_frm.cscript.update_totals(doc);
+// }
+
+// cur_frm.cscript.update_totals = function(doc) {
+// 	console.log("in the update total");
+// 	var td=0.0;
+// 	var el = getchildren('Products', doc.name, 'sales_products');
+// 	for(var i in el) {
+// 		td += flt(el[i].product_rate,2 );
+// 		// tc += flt(el[i].credit, 2);
+// 	}
+// 	var doc = locals[doc.doctype][doc.name];
+// 	doc.total_rate_amount = td;
+	
+// 	refresh_many(['total_rate_amount']);
+// }
+
+
+
+// cur_frm.add_fetch('product_name', 'product_test_name','test_name');
+// cur_frm.add_fetch('product_name', 'total_rate','total_rate');
+// cur_frm.add_fetch('product_name', 'description','description');
+
+// cur_frm.cscript.validate = function(doc,cdt,cdn) {
+// 	// console.log("in the validate")
+// 	cur_frm.cscript.update_totals(doc);
+// }
+
+// cur_frm.cscript.update_totals = function(doc, cdt, cdn) {
+// 	// console.log("in the validate");
+// 	var td=0.0;
+// 	var el = getchildren('Sales Order Product', doc.name, 'sales_products');
+// 	console.log(el);
+// 	for(var i in el) {
+// 		console.log(el[i].total_rate)
+// 		td += flt(el[i].total_rate,2);
+// 		// tc += flt(el[i].credit, 2);
+// 	}
+
+// 	var doc = locals[doc.doctype][doc.name];
+// 	doc.net_total_export1 = td;
+// 	console.log(doc.net_total_export1);
+// 	refresh_many(['net_total_export1']);
+// }

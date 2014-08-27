@@ -2,7 +2,7 @@
  {
   "creation": "2014-05-15 12:07:10", 
   "docstatus": 0, 
-  "modified": "2014-07-14 12:57:45", 
+  "modified": "2014-08-13 12:27:28", 
   "modified_by": "Administrator", 
   "owner": "Administrator"
  }, 
@@ -25,7 +25,6 @@
  }, 
  {
   "cancel": 1, 
-  "create": 1, 
   "doctype": "DocPerm", 
   "name": "__common__", 
   "parent": "Physical Condition And Density", 
@@ -54,7 +53,8 @@
   "fieldname": "sample_no", 
   "fieldtype": "Link", 
   "label": "Sample No", 
-  "options": "Sample"
+  "options": "Sample", 
+  "reqd": 1
  }, 
  {
   "doctype": "DocField", 
@@ -150,7 +150,7 @@
   "fieldname": "equipment_used_list", 
   "fieldtype": "Small Text", 
   "label": "Equipment Used List", 
-  "read_only": 1
+  "read_only": 0
  }, 
  {
   "depends_on": "eval:doc.color_detail=='Per ASTM Color Code'||doc.color_detail=='Visual Color'", 
@@ -212,10 +212,10 @@
   "fieldtype": "Column Break"
  }, 
  {
-  "depends_on": "eval:doc.color_detail=='Visual Color'", 
   "doctype": "DocField", 
   "fieldname": "temp", 
   "fieldtype": "Data", 
+  "hidden": 1, 
   "label": "JobCard Temparature"
  }, 
  {
@@ -236,7 +236,8 @@
   "fieldname": "density", 
   "fieldtype": "Select", 
   "label": "Density", 
-  "options": "\nBy Weight\nBy Hydrometer"
+  "options": "\nBy Weight\nBy Hydrometer", 
+  "reqd": 1
  }, 
  {
   "doctype": "DocField", 
@@ -318,9 +319,9 @@
  }, 
  {
   "doctype": "DocField", 
-  "fieldname": "info", 
+  "fieldname": "information", 
   "fieldtype": "Section Break", 
-  "label": "Info"
+  "label": "Information"
  }, 
  {
   "doctype": "DocField", 
@@ -340,31 +341,33 @@
   "doctype": "DocField", 
   "fieldname": "tested_by", 
   "fieldtype": "Data", 
-  "label": "Tested By"
- }, 
- {
-  "doctype": "DocPerm", 
-  "role": "All"
+  "label": "Tested By", 
+  "read_only": 1
  }, 
  {
   "amend": 1, 
+  "create": 1, 
   "doctype": "DocPerm", 
   "role": "Administrator"
  }, 
  {
+  "create": 0, 
   "doctype": "DocPerm", 
   "role": "Shift Incharge"
  }, 
  {
   "amend": 1, 
+  "create": 0, 
   "doctype": "DocPerm", 
   "role": "Lab Incharge"
  }, 
  {
+  "create": 0, 
   "doctype": "DocPerm", 
   "role": "Tester"
  }, 
  {
+  "create": 0, 
   "doctype": "DocPerm", 
   "role": "Employee"
  }

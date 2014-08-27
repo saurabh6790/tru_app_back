@@ -1,0 +1,85 @@
+[
+ {
+  "creation": "2014-07-21 14:18:21", 
+  "docstatus": 0, 
+  "modified": "2014-08-01 15:57:49", 
+  "modified_by": "Administrator", 
+  "owner": "Administrator"
+ }, 
+ {
+  "autoname": "TRR.#####", 
+  "doctype": "DocType", 
+  "document_type": "Transaction", 
+  "module": "Tour", 
+  "name": "__common__"
+ }, 
+ {
+  "doctype": "DocField", 
+  "name": "__common__", 
+  "parent": "Tour Report", 
+  "parentfield": "fields", 
+  "parenttype": "DocType", 
+  "permlevel": 0
+ }, 
+ {
+  "create": 1, 
+  "doctype": "DocPerm", 
+  "name": "__common__", 
+  "parent": "Tour Report", 
+  "parentfield": "permissions", 
+  "parenttype": "DocType", 
+  "permlevel": 0, 
+  "read": 1, 
+  "role": "All", 
+  "submit": 0, 
+  "write": 1
+ }, 
+ {
+  "doctype": "DocType", 
+  "name": "Tour Report"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "name1", 
+  "fieldtype": "Data", 
+  "hidden": 1, 
+  "label": "name", 
+  "reqd": 0
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "from_date", 
+  "fieldtype": "Date", 
+  "label": "From Date"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "to_date", 
+  "fieldtype": "Date", 
+  "label": "To Date"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "daywise_reports", 
+  "fieldtype": "Section Break", 
+  "label": "Daywise Reports"
+ }, 
+ {
+  "description": "Daywise Reports about tours", 
+  "doctype": "DocField", 
+  "fieldname": "tour_daily_report", 
+  "fieldtype": "Table", 
+  "label": "Tour Daily Report", 
+  "options": "Tour Daily Report"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "total_expenses", 
+  "fieldtype": "Float", 
+  "label": "Total Expenses", 
+  "read_only": 1
+ }, 
+ {
+  "doctype": "DocPerm"
+ }
+]

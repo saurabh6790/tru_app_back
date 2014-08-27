@@ -2,7 +2,7 @@
  {
   "creation": "2013-03-07 11:42:57", 
   "docstatus": 0, 
-  "modified": "2013-11-02 19:41:32", 
+  "modified": "2014-08-05 11:55:50", 
   "modified_by": "Administrator", 
   "owner": "Administrator"
  }, 
@@ -65,7 +65,7 @@
   "print_hide": 1, 
   "print_width": "150px", 
   "read_only": 0, 
-  "reqd": 1, 
+  "reqd": 0, 
   "search_index": 1, 
   "width": "150px"
  }, 
@@ -82,6 +82,25 @@
   "read_only": 0, 
   "reqd": 1, 
   "width": "300px"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "details", 
+  "fieldtype": "Section Break", 
+  "label": "Test Details"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "test_details", 
+  "fieldtype": "Small Text", 
+  "label": "Test  Details"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "total_rate", 
+  "fieldtype": "Float", 
+  "hidden": 1, 
+  "label": "Rate"
  }, 
  {
   "doctype": "DocField", 

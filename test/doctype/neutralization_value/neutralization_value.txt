@@ -2,7 +2,7 @@
  {
   "creation": "2014-04-03 14:24:09", 
   "docstatus": 0, 
-  "modified": "2014-07-14 15:48:54", 
+  "modified": "2014-08-13 17:25:40", 
   "modified_by": "Administrator", 
   "owner": "Administrator"
  }, 
@@ -47,19 +47,9 @@
  }, 
  {
   "doctype": "DocField", 
-  "fieldname": "specification", 
-  "fieldtype": "Link", 
-  "label": "Specification", 
-  "options": "Specification"
- }, 
- {
-  "doctype": "DocField", 
-  "fieldname": "method", 
-  "fieldtype": "Link", 
-  "hidden": 0, 
-  "label": "Test Method", 
-  "options": "Test Method", 
-  "reqd": 1
+  "fieldname": "date", 
+  "fieldtype": "Date", 
+  "label": "Date"
  }, 
  {
   "doctype": "DocField", 
@@ -77,56 +67,43 @@
  }, 
  {
   "doctype": "DocField", 
-  "fieldname": "sample_no", 
-  "fieldtype": "Link", 
-  "hidden": 1, 
-  "label": "Sample No", 
-  "options": "Sample", 
-  "reqd": 0
- }, 
- {
-  "doctype": "DocField", 
-  "fieldname": "test", 
-  "fieldtype": "Data", 
-  "hidden": 1, 
-  "label": "Test ", 
-  "read_only": 1
- }, 
- {
-  "doctype": "DocField", 
-  "fieldname": "test_preparation", 
-  "fieldtype": "Data", 
-  "hidden": 1, 
-  "label": "Test Preparation", 
-  "read_only": 1
- }, 
- {
-  "doctype": "DocField", 
-  "fieldname": "physical_condition_density", 
-  "fieldtype": "Link", 
-  "hidden": 1, 
-  "label": "Physical Condition & Density", 
-  "options": "Physical Condition And Density", 
-  "reqd": 0
- }, 
- {
-  "doctype": "DocField", 
-  "fieldname": "column_break_3", 
-  "fieldtype": "Column Break"
- }, 
- {
-  "doctype": "DocField", 
-  "fieldname": "date", 
-  "fieldtype": "Date", 
-  "label": "Date"
- }, 
- {
-  "doctype": "DocField", 
   "fieldname": "normality", 
   "fieldtype": "Link", 
   "label": "Normality", 
   "options": "Normality", 
   "reqd": 1
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "method", 
+  "fieldtype": "Data", 
+  "label": "Test Method", 
+  "read_only": 1
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "column_break_4", 
+  "fieldtype": "Column Break"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "session_id", 
+  "fieldtype": "Link", 
+  "label": "Session Id", 
+  "options": "Session", 
+  "read_only": 1
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "start_session", 
+  "fieldtype": "Button", 
+  "label": "Start Session"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "end_session", 
+  "fieldtype": "Button", 
+  "label": "End Session"
  }, 
  {
   "doctype": "DocField", 
@@ -234,7 +211,7 @@
   "doctype": "DocField", 
   "fieldname": "neutralisation_test_details", 
   "fieldtype": "Table", 
-  "label": "test", 
+  "label": "Neutralization Test Detail", 
   "options": "Neutralization Test Details"
  }, 
  {

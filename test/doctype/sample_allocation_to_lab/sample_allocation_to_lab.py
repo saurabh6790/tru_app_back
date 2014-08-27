@@ -1,4 +1,4 @@
-# Copyright (c) 2013, Web Notes Technologies Pvt. Ltd. and Contributors
+#0 Copyright (c) 2013, Web Notes Technologies Pvt. Ltd. and Contributors
 # MIT License. See license.txt
 
 # For license information, please see license.txt
@@ -71,7 +71,6 @@ class DocType:
 				return{
 						'flag3':2
 				}
-			
 
 
 	def get_prioritywise_details(self):
@@ -146,5 +145,22 @@ def _sample_allocation_to_tester(source_name, target_doclist=None, ignore_permis
 	},target_doclist ,postprocess)
 
 	return [d.fields for d in doclist]
+
+@webnotes.whitelist()
+def get_count():
+	#webnotes.errprint("in get count")
+	count_dict = {'Normal': 0,'Urgent': 0,'Critical': 0}
+
+	counts=webnotes.conn.sql("select priority,count(priority) from `tabSample` where status='Ready To Lab Entry' group by priority",as_list=1)
+	webnotes.errprint(counts)
+	webnotes.errprint(len(counts))
+
+	for i in counts:
+			count_dict[i[0]] = i[1]
+
+	webnotes.errprint(count_dict)
+
+	
+	return [[k, v] for k, v in count_dict.iteritems()]
 
 
