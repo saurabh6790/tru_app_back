@@ -296,7 +296,6 @@ cur_frm.cscript.toggle_related_fields = function(doc) {
 	cur_frm.fields_dict["mtn_details"].grid.set_column_disp("s_warehouse", !disable_from_warehouse);
 	cur_frm.fields_dict["mtn_details"].grid.set_column_disp("t_warehouse", !disable_to_warehouse);
 	//cur_frm.fields_dict["mtn_details"].grid.set_column_disp("batch_no",!disable_batch_no);
-
 	if(doc.internal_purpose == 'Outward' && doc.purpose == 'Material Transfer'){
 		cur_frm.set_value('from_warehouse','Work In Progress - TF')
 		cur_frm.set_value('to_warehouse','Stores - TF')

@@ -81,7 +81,8 @@ class DocType:
 				for d in getlist(self.doclist, 'sample_allocation_detail'):
 					if d.sample_no==sample_no[0]:
 						if d.test:
-							d.test = d.test + ',' +self.doc.test_name 
+							if not self.doc.test_name in d.test:
+								d.test = d.test + ',' +self.doc.test_name 
 						else:
 							d.test = self.doc.test_name
 						flag = True
@@ -131,7 +132,6 @@ class DocType:
 		if length==1:
 			single_sample =[]
 			self.ckeck_test(tests[0],sample, dic, single_sample)
-			self.create_todo(sample, test_id)
 		else:
 			for test in tests:
 				test_id = self.ckeck_test(test,sample,dic)
@@ -146,7 +146,7 @@ class DocType:
 				dic[test_name].append(sample.get('sample_no'))
 			else:
 				dic[test_name] = [sample.get('sample_no')]
-			webnotes.errprint(dic[test_name])
+			# webnotes.errprint(dic[test_name])
 	
 	def prepare_escape_test(self, dic):
 			# dic = {'Test Name':['sample numbers']}
@@ -204,7 +204,7 @@ class DocType:
 		webnotes.conn.commit()
 
 	def create_todo(self, sample, test_name, test_id):
-		webnotes.errprint("in create to do")
+		# webnotes.errprint("in create to do")
 		userid = webnotes.conn.sql("select user_id from tabEmployee where name = '%s'"%(self.doc.tester),as_list=1)
 		# webnotes.errprint([userid , sample, sample.get("tester")])
 		if userid:
@@ -216,10 +216,10 @@ class DocType:
 			d.date = nowdate()
 			d.assigned_by = webnotes.user.name
 			d.save(1)
-			webnotes.errprint(d.name)
+			# webnotes.errprint(d.name)
 
 	def create_todo_preparation(self, parent, tester, test_name):
-		webnotes.errprint("in create to do test preparation")
+		# webnotes.errprint("in create to do test preparation")
 		d = Document("ToDo")
 		d.owner = webnotes.conn.get_value("Employee",tester,'user_id')
 		d.reference_type = 'Neutralization Value' if test_name == 'Neutralization Value' else 'Test Preparation'	
