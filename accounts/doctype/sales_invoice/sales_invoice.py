@@ -114,7 +114,7 @@ class DocType(SellingController):
 		self.update_c_form()
 		self.update_time_log_batch(self.doc.name)
 		self.convert_to_recurring()
-
+	
 	def before_cancel(self):
 		self.update_time_log_batch(None)
 

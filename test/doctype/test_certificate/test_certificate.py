@@ -6,11 +6,23 @@
 from __future__ import unicode_literals
 import webnotes
 from webnotes.model.doc import addchild, Document
+from webnotes.model.bean import getlist
 
 
 class DocType:
 	def __init__(self, d, dl):
 		self.doc, self.doclist = d, dl
+
+	# def on_update(self):
+	# 	self.check_entries()
+
+	# def check_entries(self):
+	# 	webnotes.errprint("in check entries details")
+	# 	for g in getlist(self.doclist,'certificate_test_details'):
+	# 		webnotes.errprint(g)
+	# 	for i in getlist(self.doclist,'other_chrges'):
+	# 		webnotes.errprint(i)
+
 
 	def get_details(self):
 		self.fill_parent_details()
@@ -46,3 +58,8 @@ class DocType:
 	def on_submit(self):
 		webnotes.conn.sql("update `tabSample` set docstatus=2 where name='%s'"%self.doc.name,as_list=1)
 		webnotes.conn.sql("commit")
+
+	def calculate_voltage(self):
+		webnotes.errprint("in create voltage")
+
+		

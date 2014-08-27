@@ -2,7 +2,7 @@
  {
   "creation": "2014-06-14 15:22:18", 
   "docstatus": 0, 
-  "modified": "2014-08-09 16:15:57", 
+  "modified": "2014-08-26 13:05:02", 
   "modified_by": "Administrator", 
   "owner": "Administrator"
  }, 
@@ -46,7 +46,8 @@
   "fieldname": "test", 
   "fieldtype": "Select", 
   "label": "Test Name", 
-  "options": "\nSediment\nFuran Content\nOxidation Stability\nCorrossive Sulphur\nAccelerated Aging"
+  "options": "\nSediment\nFuran Content\nOxidation Stability\nCorrossive Sulphur\nAccelerated Aging", 
+  "read_only": 1
  }, 
  {
   "doctype": "DocField", 

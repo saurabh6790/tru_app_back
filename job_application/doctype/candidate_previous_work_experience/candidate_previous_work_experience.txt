@@ -1,0 +1,89 @@
+[
+ {
+  "creation": "2014-08-23 15:59:21", 
+  "docstatus": 0, 
+  "modified": "2014-08-23 16:01:39", 
+  "modified_by": "Administrator", 
+  "owner": "Administrator"
+ }, 
+ {
+  "doctype": "DocType", 
+  "document_type": "Transaction", 
+  "istable": 1, 
+  "module": "Job Application", 
+  "name": "__common__"
+ }, 
+ {
+  "doctype": "DocField", 
+  "name": "__common__", 
+  "parent": "Candidate Previous Work Experience", 
+  "parentfield": "fields", 
+  "parenttype": "DocType", 
+  "permlevel": 0
+ }, 
+ {
+  "doctype": "DocType", 
+  "name": "Candidate Previous Work Experience"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "company_name", 
+  "fieldtype": "Data", 
+  "in_list_view": 1, 
+  "label": "Company", 
+  "oldfieldname": "company_name", 
+  "oldfieldtype": "Data"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "designation", 
+  "fieldtype": "Data", 
+  "in_list_view": 1, 
+  "label": "Designation", 
+  "oldfieldname": "designation", 
+  "oldfieldtype": "Data"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "salary", 
+  "fieldtype": "Currency", 
+  "in_list_view": 1, 
+  "label": "Salary", 
+  "oldfieldname": "salary", 
+  "oldfieldtype": "Currency", 
+  "options": "Company:company:default_currency"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "address", 
+  "fieldtype": "Small Text", 
+  "in_list_view": 1, 
+  "label": "Address", 
+  "oldfieldname": "address", 
+  "oldfieldtype": "Small Text"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "contact", 
+  "fieldtype": "Data", 
+  "in_list_view": 1, 
+  "label": "Contact", 
+  "oldfieldname": "contact", 
+  "oldfieldtype": "Data"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "total_experience", 
+  "fieldtype": "Data", 
+  "in_list_view": 1, 
+  "label": "Total Experience", 
+  "oldfieldname": "total_experience", 
+  "oldfieldtype": "Data"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "present_job_duties", 
+  "fieldtype": "Data", 
+  "label": "Present Job Duties"
+ }
+]

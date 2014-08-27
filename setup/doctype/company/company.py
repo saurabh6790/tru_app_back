@@ -94,6 +94,12 @@ class DocType:
 					"label":"Blog",
 					"url": "blog"
 				})
+				# website_settings.doclist.append({
+				# 	"doctype": "Top Bar Item",
+				# 	"parentfield": "top_bar_items",
+				# 	"label":"Job Offer",
+				# 	"url": "job"
+				# })
 				website_settings.save()
 				style_settings = webnotes.bean("Style Settings", "Style Settings")
 				style_settings.doc.top_bar_background = "F2F2F2"

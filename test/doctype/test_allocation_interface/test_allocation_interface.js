@@ -67,6 +67,14 @@ cur_frm.cscript['Create Sample Allocation To Lab'] = function() {
 
 }
 
+
+// cur_frm.cscript['Create Sample Entry']= function(){
+//   wn.model.open_mapped_doc({
+//     method:"test.doctype.test_allocation_interface.test_allocation_interface.create_sample_entry",
+//     source_name:cur_frm.doc.name
+//   })
+// }
+
 // cur_frm.cscript.custom_validate =function(doc,cdt,cdn){
 
 // }

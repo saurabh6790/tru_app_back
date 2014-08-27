@@ -11,7 +11,7 @@ cur_frm.cscript.add = function(doc,cdt,cdn){
 
 cur_frm.cscript.run1= function(doc, cdt, cdn) {
 	var d = locals[cdt][cdn];
-	if (d.gas=='TGS'){
+	if (d.gas=='TGC'){
 		console.log(d.run1);
 		doc.run=d.run1;
 		refresh_field('run');

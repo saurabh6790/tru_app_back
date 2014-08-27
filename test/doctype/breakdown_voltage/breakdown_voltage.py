@@ -49,6 +49,13 @@ class DocType:
 	# 	self.doc.bottle_no=webnotes.conn.get_value('Sample',sample_no,'barcode')
 	# 	return {'bottle_no':self.doc.bottle_no}
 
+	# def calcualte_voltage(self):
+	# 	webnotes.errprint("in calculate voltage")
+	# 	cal=cstr(self.doc.break_down_temperature*self.doc.break_down_humidity)
+	# 	webnotes.errprint(cal)
+	# 	cal1=cstr(self.doc.break_down_ir* self.doc.break_down_frequency)
+
+
 	def calculate_avg(self):
 		avg_values=webnotes.conn.sql("""select sum(a.temparature)/count(a.temparature),
 			sum(a.humidity)/count(a.humidity),sum(a.frequency)/count(a.frequency),sum(a.ir)/count(a.ir)

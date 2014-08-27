@@ -14,12 +14,16 @@ class DocType:
 		
 	def generate_sample_entry(self):
 		#count=count+1
-		se_details = eval(str(self.doc))
-		se_details['doctype'] = 'Sample Entry'
-		se_details['docstatus'] = '1'
-		webnotes.bean(se_details).insert()
-		webnotes.msgprint("Sample Entry created successfully.. Now Next step is Sample Creation!!!")
-		#webnotes.errprint(count)
+		if self.doc.functional_location :
+
+			se_details = eval(str(self.doc))
+			se_details['doctype'] = 'Sample Entry'
+			se_details['docstatus'] = '1'
+			webnotes.bean(se_details).insert()
+			webnotes.msgprint("Sample Entry created successfully.. Now Next step is Sample Creation!!!")
+			#webnotes.errprint(count)
+		else:
+			webnotes.msgprint("Mandatory fields are required to create sample entry")
 
 	def add_bottle_no(self,bottle):
 		if self.doc.bottle_list:

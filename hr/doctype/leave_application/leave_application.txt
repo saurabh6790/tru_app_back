@@ -2,7 +2,7 @@
  {
   "creation": "2013-02-20 11:18:11", 
   "docstatus": 0, 
-  "modified": "2013-07-05 14:44:37", 
+  "modified": "2014-08-22 16:06:30", 
   "modified_by": "Administrator", 
   "owner": "Administrator"
  }, 
@@ -37,6 +37,15 @@
  {
   "doctype": "DocType", 
   "name": "Leave Application"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "workflow_status", 
+  "fieldtype": "Data", 
+  "label": "Workflow Status", 
+  "options": "\nOpen\nApproved\nRejected", 
+  "permlevel": 0, 
+  "read_only": 1
  }, 
  {
   "default": "Open", 
@@ -288,6 +297,22 @@
   "report": 1, 
   "role": "Leave Approver", 
   "submit": 0, 
+  "write": 1
+ }, 
+ {
+  "cancel": 1, 
+  "doctype": "DocPerm", 
+  "permlevel": 0, 
+  "role": "HR Manager", 
+  "submit": 1, 
+  "write": 1
+ }, 
+ {
+  "cancel": 1, 
+  "doctype": "DocPerm", 
+  "permlevel": 0, 
+  "role": "Report Manager", 
+  "submit": 1, 
   "write": 1
  }
 ]

@@ -1,0 +1,186 @@
+[
+ {
+  "creation": "2014-08-23 15:39:45", 
+  "docstatus": 0, 
+  "modified": "2014-08-25 15:13:13", 
+  "modified_by": "Administrator", 
+  "owner": "Administrator"
+ }, 
+ {
+  "autoname": "LPD.#####", 
+  "doctype": "DocType", 
+  "document_type": "Transaction", 
+  "istable": 1, 
+  "module": "Job Application", 
+  "name": "__common__"
+ }, 
+ {
+  "doctype": "DocField", 
+  "name": "__common__", 
+  "parent": "Language Proficiency Detail", 
+  "parentfield": "fields", 
+  "parenttype": "DocType", 
+  "permlevel": 0
+ }, 
+ {
+  "doctype": "DocType", 
+  "name": "Language Proficiency Detail"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "language_name", 
+  "fieldtype": "Section Break", 
+  "label": "Language Name"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "language", 
+  "fieldtype": "Data", 
+  "in_list_view": 1, 
+  "label": "Language"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "listen", 
+  "fieldtype": "Section Break", 
+  "in_list_view": 0, 
+  "label": "Listen"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "rating", 
+  "fieldtype": "Select", 
+  "in_list_view": 1, 
+  "label": "Listen Rating", 
+  "options": "\nExcellent\nGood\nFair"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "excellent_1", 
+  "fieldtype": "Check", 
+  "hidden": 1, 
+  "label": "Excellent"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "good_1", 
+  "fieldtype": "Check", 
+  "hidden": 1, 
+  "label": "Good"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "fair_1", 
+  "fieldtype": "Check", 
+  "hidden": 1, 
+  "label": "Fair"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "read", 
+  "fieldtype": "Section Break", 
+  "in_list_view": 0, 
+  "label": "Read"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "rating_1", 
+  "fieldtype": "Select", 
+  "in_list_view": 1, 
+  "label": " Reading Rating", 
+  "options": "\nExcellent\nGood\nFair"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "excellent_2", 
+  "fieldtype": "Check", 
+  "hidden": 1, 
+  "label": "Excellent"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "good_2", 
+  "fieldtype": "Check", 
+  "hidden": 1, 
+  "label": "Good"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "fair_2", 
+  "fieldtype": "Check", 
+  "hidden": 1, 
+  "label": "Fair"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "write", 
+  "fieldtype": "Section Break", 
+  "in_list_view": 0, 
+  "label": "Write"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "rating_2", 
+  "fieldtype": "Select", 
+  "in_list_view": 1, 
+  "label": "Writeing Rating", 
+  "options": "\nExcellent\nGood\nFair"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "excellent_3", 
+  "fieldtype": "Check", 
+  "hidden": 1, 
+  "label": "Excellent"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "good_3", 
+  "fieldtype": "Check", 
+  "hidden": 1, 
+  "label": "Good"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "fair_3", 
+  "fieldtype": "Check", 
+  "hidden": 1, 
+  "label": "Fair"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "speak", 
+  "fieldtype": "Section Break", 
+  "in_list_view": 0, 
+  "label": "Speak"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "rating_3", 
+  "fieldtype": "Select", 
+  "in_list_view": 1, 
+  "label": " Speaking Rating", 
+  "options": "\nExcellent\nGood\nFair"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "excellent_4", 
+  "fieldtype": "Check", 
+  "hidden": 1, 
+  "label": "Excellent"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "good_4", 
+  "fieldtype": "Check", 
+  "hidden": 1, 
+  "label": "Good"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "fair_4", 
+  "fieldtype": "Check", 
+  "hidden": 1, 
+  "label": "Fair"
+ }
+]

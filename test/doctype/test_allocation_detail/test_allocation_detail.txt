@@ -2,7 +2,7 @@
  {
   "creation": "2014-06-03 13:32:57", 
   "docstatus": 0, 
-  "modified": "2014-06-25 16:36:19", 
+  "modified": "2014-08-26 12:53:49", 
   "modified_by": "Administrator", 
   "owner": "Administrator"
  }, 
@@ -79,7 +79,7 @@
   "doctype": "DocField", 
   "fieldname": "client_name", 
   "fieldtype": "Data", 
-  "label": "Client name", 
+  "label": "Client Name", 
   "read_only": 1
  }, 
  {

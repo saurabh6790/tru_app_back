@@ -52,7 +52,7 @@ class DocType:
 	def on_submit(self):
 
 		pgcil_limit = get_pgcil_limit(self.doc.method)
-		test_detail = {'test': "Corrossive Sulphur", 'sample_no':self.doc.sample_no,'name': self.doc.name,'method':self.doc.method, 'pgcil_limit':pgcil_limit}
+		test_detail = {'test': "Corrossive Sulphur", 'sample_no':self.doc.sample_no,'name': self.doc.name,'method':self.doc.method, 'pgcil_limit':pgcil_limit,'workflow_state':self.doc.workflow_state,'tested_by':self.doc.tested_by}
 		#diffrence={'Sediment & Precipitable Sludge':self.doc.diffrence}
 		if self.doc.workflow_state=='Rejected':
 			#webnotes.errprint(self.doc.workflow_state)

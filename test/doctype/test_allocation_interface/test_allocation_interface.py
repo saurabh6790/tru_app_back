@@ -136,7 +136,6 @@ def sample_query(doctype, txt, searchfield, start, page_len, filters):
 
 
 
-
 @webnotes.whitelist()
 def create_sample_allocation_to_lab(source_name, target_doclist=None):
 	#webnotes.errprint(source_name)
@@ -159,3 +158,5 @@ def _create_sample_allocation_to_lab(source_name, target_doclist=None, ignore_pe
 	},target_doclist)
 
 	return [d.fields for d in doclist]
+
+

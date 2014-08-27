@@ -1,0 +1,48 @@
+[
+ {
+  "creation": "2014-08-23 14:48:15", 
+  "docstatus": 0, 
+  "modified": "2014-08-25 17:44:38", 
+  "modified_by": "Administrator", 
+  "owner": "Administrator"
+ }, 
+ {
+  "doctype": "Page", 
+  "module": "Job Application", 
+  "name": "__common__", 
+  "page_name": "Job Application", 
+  "standard": "Yes", 
+  "title": "Job Application"
+ }, 
+ {
+  "doctype": "Page Role", 
+  "name": "__common__", 
+  "parent": "job-application", 
+  "parentfield": "roles", 
+  "parenttype": "Page"
+ }, 
+ {
+  "doctype": "Page", 
+  "name": "job-application"
+ }, 
+ {
+  "doctype": "Page Role", 
+  "role": "Job Applicant"
+ }, 
+ {
+  "doctype": "Page Role", 
+  "role": "Administrator"
+ }, 
+ {
+  "doctype": "Page Role", 
+  "role": "HR User"
+ }, 
+ {
+  "doctype": "Page Role", 
+  "role": "HR Manager"
+ }, 
+ {
+  "doctype": "Page Role", 
+  "role": "Projects Manager"
+ }
+]

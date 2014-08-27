@@ -10,7 +10,7 @@ wn.pages['sample-generation'].onload = function(wrapper) {
 	<h4><i class='icon-question-sign'></i> "+wn._("Quick Help for Sample Entry Sorting and Sample Id Creation")+":</h4>\
 	<ol>\
 	<li>"+wn._("Data will be as per the filters you have selected")+"</li>\
-	<li>"+wn._("To sort data click on downarrow icon")+"</li>\
+	<li>"+wn._("To sort data click on down arrow icon")+"</li>\
 	<li>"+wn._("For Getting a view click on eye icon")+"</li>\
 	</ol>\
 	</tr></td>\

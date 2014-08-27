@@ -33,13 +33,18 @@ erpnext.selling.QuotationController = erpnext.selling.SellingController.extend({
 	},
 	refresh: function(doc, dt, dn) {
 		this._super(doc, dt, dn);
-		if(doc.docstatus == 1 && doc.status!=='Lost' && doc.tender_name==null)
-			cur_frm.add_custom_button(wn._('Make Tender'), 
-				cur_frm.cscript['Make Tender']);
-		if(doc.docstatus == 1 && doc.status!=='Lost' && doc.tender_name) {
-			cur_frm.add_custom_button(wn._('Make Sales Order'), 
-				cur_frm.cscript['Make Sales Order']);
-			
+		// if(doc.docstatus == 1 && doc.status!=='Lost' && doc.tender_name==null)
+		// 	cur_frm.add_custom_button(wn._('Make Tender'), 
+		// 		cur_frm.cscript['Make Tender']);
+		if(doc.docstatus == 1 && doc.status!=='Lost') {
+			cur_frm.add_custom_button(wn._('Make Regular Sales Order'), 
+				cur_frm.cscript['Make Regular Sales Order']);
+			cur_frm.add_custom_button(wn._('Make Provisional Sales Order'), 
+				cur_frm.cscript['Make Provisional Sales Order']);
+			if(doc.status!='Negotiation Mode')
+
+				cur_frm.add_custom_button(wn._('Set As Negotiation Mode'), 
+					cur_frm.cscript['Set As Negotiation Mode'], "icon-exclamation");
 			if(doc.status!=="Ordered") {
 				cur_frm.add_custom_button(wn._('Set as Lost'), 
 					cur_frm.cscript['Declare Order Lost'], "icon-exclamation");
@@ -128,22 +133,60 @@ cur_frm.cscript.lead = function(doc, cdt, cdn) {
 
 // Make Sales Order
 // =====================================================================================
-cur_frm.cscript['Make Sales Order'] = function() {
+cur_frm.cscript['Make Regular Sales Order'] = function() {
 	wn.model.open_mapped_doc({
 		method: "selling.doctype.quotation.quotation.make_sales_order",
 		source_name: cur_frm.doc.name
 	})
 }
 
-
-// Make Tender
+// Make Provisional Sales Order
 // =====================================================================================
-cur_frm.cscript['Make Tender'] = function() {
+cur_frm.cscript['Make Provisional Sales Order'] = function() {
 	wn.model.open_mapped_doc({
-		method: "selling.doctype.quotation.quotation.make_tender",
+		method: "selling.doctype.quotation.quotation.make_provisional_sales_order",
 		source_name: cur_frm.doc.name
 	})
 }
+
+// // Make Non Provisional Sales Order
+// // =====================================================================================
+// cur_frm.cscript['Make  Non Provisional Sales Order'] = function() {
+// 	wn.model.open_mapped_doc({
+// 		method: "selling.doctype.quotation.quotation.make_non_provisional_sales_order",
+// 		source_name: cur_frm.doc.name
+// 	})
+// }
+
+// Make Sales Invoice
+// =====================================================================================
+cur_frm.cscript['Make Sales Invoice'] = function() {
+	wn.model.open_mapped_doc({
+		method: "selling.doctype.quotation.quotation.make_sales_invoice",
+		source_name: cur_frm.doc.name
+	})
+}
+
+// Make Tender
+// =====================================================================================
+// cur_frm.cscript['Make Tender'] = function() {
+// 	wn.model.open_mapped_doc({
+// 		method: "selling.doctype.quotation.quotation.make_tender",
+// 		source_name: cur_frm.doc.name
+// 	})
+// }
+
+// // Make Negotiation Mode
+// // =====================================================================================
+// cur_frm.cscript['Set As Negotiation Mode'] = function() {
+// 	console.log("nnnnn");
+// 	wn.model.open_mapped_doc({
+// 		method: "selling.doctype.quotation.quotation.set_as_negotiation_mode",
+// 		source_name: cur_frm.doc.name
+// 	})
+// }
+
+
 // declare order lost
 //-------------------------
 cur_frm.cscript['Declare Order Lost'] = function(){
@@ -178,15 +221,48 @@ cur_frm.cscript['Declare Order Lost'] = function(){
 	
 }
 
+
+//Make Negotiation Mode
+//=====================================================================================
+
+cur_frm.cscript['Set As Negotiation Mode'] = function(){
+	var dialog = new wn.ui.Dialog({
+		title: "Set As Negotiation Mode",
+		fields: [
+			{"fieldtype": "Text", "label": wn._("Reason for Negotiation"), "fieldname": "n_reason",
+				"reqd": 1 },
+			{"fieldtype": "Button", "label": wn._("Done"), "fieldname": "update"},
+		]
+	});
+
+	dialog.fields_dict.update.$input.click(function() {
+		args = dialog.get_values();
+		if(!args) return;
+		return cur_frm.call({
+			method: "declare_order_negotiated",
+			doc: cur_frm.doc,
+			//args: 'Negotiation Mode'
+			callback: function(r) {
+				if(r.exc) {
+					msgprint(wn._("There were errors."));
+					return;
+				}
+				dialog.hide();
+				cur_frm.refresh();
+			},
+			btn: this
+		})
+	});
+	dialog.show();
+	
+}
+
+
 cur_frm.cscript.on_submit = function(doc, cdt, cdn) {
 	if(cint(wn.boot.notification_settings.quotation))
 		cur_frm.email_doc(wn.boot.notification_settings.quotation_message);
 }
 
-
-// cur_frm.add_fetch('product_name', 'product_test_name','test_name');
-// cur_frm.add_fetch('product_name', 'total_rate','total_rate');
-// cur_frm.add_fetch('product_name', 'description','description');
 
 
 // cur_frm.cscript.validate = function(doc,cdt,cdn) {
@@ -210,10 +286,6 @@ cur_frm.cscript.on_submit = function(doc, cdt, cdn) {
 // 	console.log(doc.net_total_export);
 // 	refresh_many(['net_total_export']);
 // }
-
-
-
-
 
 
 

@@ -2,7 +2,7 @@
  {
   "creation": "2013-03-07 09:04:18", 
   "docstatus": 0, 
-  "modified": "2014-04-15 14:55:15", 
+  "modified": "2014-08-25 12:16:22", 
   "modified_by": "Administrator", 
   "owner": "Administrator"
  }, 
@@ -95,6 +95,18 @@
  }, 
  {
   "doctype": "DocField", 
+  "fieldname": "first_name", 
+  "fieldtype": "Data", 
+  "label": "First Name"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "last_name", 
+  "fieldtype": "Data", 
+  "label": "Last Name"
+ }, 
+ {
+  "doctype": "DocField", 
   "fieldname": "employee_name", 
   "fieldtype": "Data", 
   "in_list_view": 1, 
@@ -112,9 +124,8 @@
  }, 
  {
   "doctype": "DocField", 
-  "fieldname": "column_break1", 
-  "fieldtype": "Column Break", 
-  "width": "50%"
+  "fieldname": "column_break_10", 
+  "fieldtype": "Column Break"
  }, 
  {
   "description": "System User (login) ID. If set, it will become default for all HR forms.", 
@@ -198,7 +209,7 @@
   "label": "Status", 
   "oldfieldname": "status", 
   "oldfieldtype": "Select", 
-  "options": "\nActive\nLeft", 
+  "options": "\nActive\nLeft\nNotice Period\nProbation", 
   "reqd": 1, 
   "search_index": 1
  }, 
@@ -280,6 +291,29 @@
  }, 
  {
   "doctype": "DocField", 
+  "fieldname": "grade", 
+  "fieldtype": "Link", 
+  "in_filter": 1, 
+  "label": "Grade", 
+  "oldfieldname": "grade", 
+  "oldfieldtype": "Link", 
+  "options": "Grade", 
+  "reqd": 0
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "designation", 
+  "fieldtype": "Link", 
+  "in_filter": 1, 
+  "label": "Designation", 
+  "oldfieldname": "designation", 
+  "oldfieldtype": "Link", 
+  "options": "Designation", 
+  "reqd": 0, 
+  "search_index": 1
+ }, 
+ {
+  "doctype": "DocField", 
   "fieldname": "branch", 
   "fieldtype": "Link", 
   "in_filter": 1, 
@@ -302,26 +336,18 @@
  }, 
  {
   "doctype": "DocField", 
-  "fieldname": "designation", 
+  "fieldname": "reporting_manager", 
   "fieldtype": "Link", 
-  "in_filter": 1, 
-  "label": "Designation", 
-  "oldfieldname": "designation", 
-  "oldfieldtype": "Link", 
-  "options": "Designation", 
-  "reqd": 0, 
-  "search_index": 1
+  "hidden": 1, 
+  "label": "Reporting Manager", 
+  "options": "Employee"
  }, 
  {
   "doctype": "DocField", 
-  "fieldname": "grade", 
+  "fieldname": "absence_incharge", 
   "fieldtype": "Link", 
-  "in_filter": 1, 
-  "label": "Grade", 
-  "oldfieldname": "grade", 
-  "oldfieldtype": "Link", 
-  "options": "Grade", 
-  "reqd": 0
+  "label": "Absence Incharge", 
+  "options": "Employee"
  }, 
  {
   "description": "Provide email id registered in company", 
@@ -362,11 +388,11 @@
  {
   "depends_on": "eval:doc.salary_mode == 'Bank'", 
   "doctype": "DocField", 
-  "fieldname": "bank_name", 
+  "fieldname": "1_bank_name", 
   "fieldtype": "Data", 
   "hidden": 0, 
   "in_filter": 1, 
-  "label": "Bank Name", 
+  "label": "1 Bank Name", 
   "oldfieldname": "bank_name", 
   "oldfieldtype": "Link", 
   "options": "Suggest"
@@ -374,12 +400,40 @@
  {
   "depends_on": "eval:doc.salary_mode == 'Bank'", 
   "doctype": "DocField", 
-  "fieldname": "bank_ac_no", 
+  "fieldname": "2_bank_name", 
+  "fieldtype": "Data", 
+  "label": "2 Bank Name"
+ }, 
+ {
+  "depends_on": "eval:doc.salary_mode == 'Bank'", 
+  "doctype": "DocField", 
+  "fieldname": "1_bank_ac_no", 
   "fieldtype": "Data", 
   "hidden": 0, 
-  "label": "Bank A/C No.", 
+  "label": "1 Bank A/C No.", 
   "oldfieldname": "bank_ac_no", 
   "oldfieldtype": "Data"
+ }, 
+ {
+  "depends_on": "eval:doc.salary_mode == 'Bank'", 
+  "doctype": "DocField", 
+  "fieldname": "2_bank_ac_no", 
+  "fieldtype": "Data", 
+  "label": "2 Bank A/C No."
+ }, 
+ {
+  "depends_on": "eval:doc.salary_mode == 'Bank'", 
+  "doctype": "DocField", 
+  "fieldname": "1_bank_ifsc_code", 
+  "fieldtype": "Data", 
+  "label": "1 Bank IFSC Code"
+ }, 
+ {
+  "depends_on": "eval:doc.salary_mode == 'Bank'", 
+  "doctype": "DocField", 
+  "fieldname": "2_bank_ifsc_code", 
+  "fieldtype": "Data", 
+  "label": "2 Bank IFSC Code"
  }, 
  {
   "doctype": "DocField", 
@@ -421,18 +475,18 @@
   "options": "Employee"
  }, 
  {
+  "doctype": "DocField", 
+  "fieldname": "training_details", 
+  "fieldtype": "Section Break", 
+  "label": "Training Details"
+ }, 
+ {
   "description": "The first Leave Approver in the list will be set as the default Leave Approver", 
   "doctype": "DocField", 
   "fieldname": "employee_leave_approvers", 
   "fieldtype": "Table", 
   "label": "Leave Approvers", 
   "options": "Employee Leave Approver"
- }, 
- {
-  "doctype": "DocField", 
-  "fieldname": "training_details", 
-  "fieldtype": "Section Break", 
-  "label": "Training Details"
  }, 
  {
   "doctype": "DocField", 

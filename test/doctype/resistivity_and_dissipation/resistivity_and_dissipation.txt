@@ -2,7 +2,7 @@
  {
   "creation": "2014-06-13 18:59:00", 
   "docstatus": 0, 
-  "modified": "2014-08-13 12:26:42", 
+  "modified": "2014-08-21 18:17:46", 
   "modified_by": "Administrator", 
   "owner": "Administrator"
  }, 
@@ -91,6 +91,7 @@
   "doctype": "DocField", 
   "fieldname": "test_preparation", 
   "fieldtype": "Data", 
+  "hidden": 1, 
   "label": "Test Preparation", 
   "read_only": 1
  }, 

@@ -87,6 +87,12 @@
    "label":"Request For Service",
    "link": "request-for-service",
    "type":"module"
+  },
+ "Job Application": {
+   "color": "#1abc9c", 
+   "icon": "icon-camera", 
+   "link": "job-application", 
+   "type": "module"
   }, 
    "Test": {
    "color": "#1abc9c", 
