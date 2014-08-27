@@ -39,8 +39,8 @@ class DocType:
 		#webnotes.errprint("in test all")
 		test_id = self.create_test(sample)
 		userid = webnotes.conn.sql("select user_id  from tabEmployee where name = '%s'"%(sample.tester),as_list=1)
-		webnotes.errprint(test_id)
-		webnotes.errprint(userid)
+		#webnotes.errprint(test_id)
+		#webnotes.errprint(userid)
  		if userid:
  			self.create_todo(userid, test_id)
 		
@@ -142,13 +142,13 @@ class DocType:
 			test.total_weight_of_oil = self.doc.total_weight_of_oil
 		test.tested_by=sample.tester
 		test.save()
-		webnotes.errprint(test)
+		#webnotes.errprint(test)
 		return {test_name: test.name}
 
 	def create_todo(self,userid,test_id):
 		#webnotes.errprint(userid[0][0])
 		for key in test_id:
-			webnotes.errprint([key, test_id[key]])
+			#webnotes.errprint([key, test_id[key]])
 			d = Document("ToDo")
 			d.owner = userid[0][0]
 			d.reference_type = key

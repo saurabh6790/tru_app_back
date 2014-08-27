@@ -37,8 +37,8 @@ erpnext.selling.QuotationController = erpnext.selling.SellingController.extend({
 		// 	cur_frm.add_custom_button(wn._('Make Tender'), 
 		// 		cur_frm.cscript['Make Tender']);
 		if(doc.docstatus == 1 && doc.status!=='Lost') {
-			cur_frm.add_custom_button(wn._('Make Sales Order'), 
-				cur_frm.cscript['Make Sales Order']);
+			cur_frm.add_custom_button(wn._('Make Regular Sales Order'), 
+				cur_frm.cscript['Make Regular Sales Order']);
 			cur_frm.add_custom_button(wn._('Make Provisional Sales Order'), 
 				cur_frm.cscript['Make Provisional Sales Order']);
 			if(doc.status!='Negotiation Mode')
@@ -133,7 +133,7 @@ cur_frm.cscript.lead = function(doc, cdt, cdn) {
 
 // Make Sales Order
 // =====================================================================================
-cur_frm.cscript['Make Sales Order'] = function() {
+cur_frm.cscript['Make Regular Sales Order'] = function() {
 	wn.model.open_mapped_doc({
 		method: "selling.doctype.quotation.quotation.make_sales_order",
 		source_name: cur_frm.doc.name

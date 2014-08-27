@@ -2,14 +2,13 @@
  {
   "creation": "2014-08-23 15:06:48", 
   "docstatus": 0, 
-  "modified": "2014-08-25 18:07:24", 
+  "modified": "2014-08-26 18:52:48", 
   "modified_by": "Administrator", 
   "owner": "Administrator"
  }, 
  {
   "autoname": "JAF.######", 
   "doctype": "DocType", 
-  "document_type": "Transaction", 
   "is_submittable": 1, 
   "module": "Job Application", 
   "name": "__common__"

@@ -241,7 +241,7 @@ def _make_sales_order(source_name, target_doclist=None, ignore_permissions=False
 			target[0].customer = customer.doc.name
 			target[0].customer_name = customer.doc.customer_name
 			
-		target[0].sales_order_type = 'Normal'
+		target[0].sales_order_type = 'Regular'
 			
 		si = webnotes.bean(target)
 		si.run_method("onload_post_render")

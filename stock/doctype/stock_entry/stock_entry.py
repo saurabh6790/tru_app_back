@@ -123,7 +123,7 @@ class DocType(StockController):
 				if cint(d.qty)<=cint(d.outward_qty):
 					pass
 				else:
-					webnotes.msgprint("Quantity should be always less than or equal to the Outward oty",raise_exception=1)
+					webnotes.msgprint("Quantity should be always less than or equal to the Outward Quantity",raise_exception=1)
 
 		else:
 			pass

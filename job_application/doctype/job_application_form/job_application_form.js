@@ -44,3 +44,4 @@ cur_frm.cscript.add_image = function(doc, dt, dn) {
 
 	refresh_field('description_html');
 }
+
