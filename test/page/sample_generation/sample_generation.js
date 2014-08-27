@@ -109,7 +109,7 @@ wn.UserProperties = Class.extend({
 						me.wrapper.appframe.add_button(wn._("Create Sample"), function() {
 							me.sample_creation()
 						}, "icon-cogs").css("width", "50px")
-						me.wrapper.appframe.add_button(wn._('Chart of Cost Centers'), function() { 
+						me.wrapper.appframe.add_button(wn._('Test Allocation Interface'), function() { 
 							wn.set_route("Form","Test Allocation Interface", "Test Allocation Interface"); 
 						}, 'icon-sitemap').css("width", "50px")
 				}

@@ -297,14 +297,14 @@ cur_frm.cscript.toggle_related_fields = function(doc) {
 	cur_frm.fields_dict["mtn_details"].grid.set_column_disp("t_warehouse", !disable_to_warehouse);
 	//cur_frm.fields_dict["mtn_details"].grid.set_column_disp("batch_no",!disable_batch_no);
 	if(doc.internal_purpose == 'Outward'){
-		cur_frm.set_value('from_warehouse','Work In Progress - TF')
-		cur_frm.set_value('to_warehouse','Stores - TF')
+		cur_frm.set_value('from_warehouse','Work In Progress - Tru')
+		cur_frm.set_value('to_warehouse','Stores - Tru')
 		refresh_field('from_warehouse')
 		refresh_field('to_warehouse')
 	}
 	if(doc.internal_purpose == 'Inward'){
-		cur_frm.set_value('from_warehouse','Stores - TF')
-		cur_frm.set_value('to_warehouse','Work In Progress - TF')
+		cur_frm.set_value('from_warehouse','Stores - Tru')
+		cur_frm.set_value('to_warehouse','Work In Progress - Tru')
 		refresh_field('from_warehouse')
 		refresh_field('to_warehouse')
 	}
