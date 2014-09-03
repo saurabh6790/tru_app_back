@@ -2,7 +2,7 @@
  {
   "creation": "2014-06-03 15:33:10", 
   "docstatus": 0, 
-  "modified": "2014-07-10 16:46:19", 
+  "modified": "2014-08-27 16:15:47", 
   "modified_by": "Administrator", 
   "owner": "Administrator"
  }, 
@@ -586,9 +586,9 @@
   "fieldtype": "Column Break"
  }, 
  {
-  "description": "Sampling Vitness Name", 
+  "description": "Sampling Witness Name", 
   "doctype": "DocField", 
-  "fieldname": "vitness", 
+  "fieldname": "witness", 
   "fieldtype": "Data", 
   "label": "Name"
  }, 

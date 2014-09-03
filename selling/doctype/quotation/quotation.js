@@ -13,6 +13,10 @@ wn.require('app/utilities/doctype/sms_control/sms_control.js');
 wn.require('app/selling/sales_common.js');
 wn.require('app/accounts/doctype/sales_invoice/pos.js');
 
+
+cur_frm.add_fetch('item_code', 'product_test_details','test_details');
+
+
 erpnext.selling.QuotationController = erpnext.selling.SellingController.extend({
 	onload: function(doc, dt, dn) {
 		var me = this;
@@ -41,7 +45,7 @@ erpnext.selling.QuotationController = erpnext.selling.SellingController.extend({
 				cur_frm.cscript['Make Regular Sales Order']);
 			cur_frm.add_custom_button(wn._('Make Provisional Sales Order'), 
 				cur_frm.cscript['Make Provisional Sales Order']);
-			if(doc.status!='Negotiation Mode')
+			if(doc.status!='Negotiation Mode' && doc.status!='Ordered')
 
 				cur_frm.add_custom_button(wn._('Set As Negotiation Mode'), 
 					cur_frm.cscript['Set As Negotiation Mode'], "icon-exclamation");
@@ -191,9 +195,9 @@ cur_frm.cscript['Make Sales Invoice'] = function() {
 //-------------------------
 cur_frm.cscript['Declare Order Lost'] = function(){
 	var dialog = new wn.ui.Dialog({
-		title: "Set as Lost",
+		title: "Set As Lost",
 		fields: [
-			{"fieldtype": "Text", "label": wn._("Reason for losing"), "fieldname": "reason",
+			{"fieldtype": "Text", "label": wn._("Reason For Losing"), "fieldname": "reason",
 				"reqd": 1 },
 			{"fieldtype": "Button", "label": wn._("Update"), "fieldname": "update"},
 		]
@@ -229,7 +233,7 @@ cur_frm.cscript['Set As Negotiation Mode'] = function(){
 	var dialog = new wn.ui.Dialog({
 		title: "Set As Negotiation Mode",
 		fields: [
-			{"fieldtype": "Text", "label": wn._("Reason for Negotiation"), "fieldname": "n_reason",
+			{"fieldtype": "Text", "label": wn._("Reason For Negotiation"), "fieldname": "n_reason",
 				"reqd": 1 },
 			{"fieldtype": "Button", "label": wn._("Done"), "fieldname": "update"},
 		]

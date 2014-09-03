@@ -2,7 +2,7 @@
  {
   "creation": "2013-03-07 18:50:29", 
   "docstatus": 0, 
-  "modified": "2013-08-06 17:15:53", 
+  "modified": "2014-08-28 12:27:46", 
   "modified_by": "Administrator", 
   "owner": "Administrator"
  }, 
@@ -67,6 +67,12 @@
   "oldfieldname": "employee_name", 
   "oldfieldtype": "Data", 
   "read_only": 1
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "ctc", 
+  "fieldtype": "Currency", 
+  "label": "CTC"
  }, 
  {
   "doctype": "DocField", 

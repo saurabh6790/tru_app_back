@@ -33,7 +33,7 @@ erpnext.selling.Opportunity = wn.ui.form.Controller.extend({
 			else if (this.frm.doc.enquiry_from == 'Lead') {
 				hide_field(['customer', 'customer_address', 'contact_person', 'customer_group']);
 			}
-		} 
+		}
 
 		if(!this.frm.doc.__islocal) {
 			cur_frm.communication_view = new wn.views.CommunicationList({

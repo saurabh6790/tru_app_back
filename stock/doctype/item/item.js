@@ -23,7 +23,12 @@ cur_frm.cscript.refresh = function(doc) {
 	}
 
 }
+// cur_frm.cscript.refresh = function(doc,cdt,cdn){
+// 	console.log("hello...");
+// 	var d = locals[cdt][cdn];
+// 	get_server_fields('get_flow_details',d.item_code,'',cdt,cdn,1);
 
+// }
 cur_frm.cscript.make_dashboard = function() {
 	cur_frm.dashboard.reset();
 	if(cur_frm.doc.__islocal) 
@@ -217,3 +222,9 @@ cur_frm.cscript.update_totals = function(doc) {
 }
 
 
+cur_frm.cscript.test_rate = function(doc,cdt,cdn){
+	//console.log("rate");
+	var d = locals[cdt][cdn];
+	if(d.test_rate<=0)
+		msgprint("Rate must be gretaer then zero");
+}

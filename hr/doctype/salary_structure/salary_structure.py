@@ -71,6 +71,26 @@ class DocType:
 	def validate(self):	 
 		self.check_existing()
 		self.validate_amount()
+
+	def get_earning_rate(self):
+		webnotes.errprint("in earning_details")
+		#webnotes.errprint(cl)
+		rate_dic={}
+		rate=webnotes.conn.sql("select earning_name,rate from `tabEarning Type`",as_dict=1)
+		webnotes.errprint(rate)
+		if rate:
+			return{
+				"rate":rate
+			}
+		# for i in rate:
+		# 	rate_dic[i[0]] = i[1]
+
+		# #webnotes.errprint(count_dict)
+		# if rate:
+		# 	return [[k, v] for k, v in rate_dic.iteritems()]
+		else:
+			return ''
+		#return "hi"
 		
 @webnotes.whitelist()
 def make_salary_slip(source_name, target_doclist=None):

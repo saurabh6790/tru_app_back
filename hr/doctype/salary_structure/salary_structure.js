@@ -62,3 +62,56 @@ cur_frm.cscript.validate = function(doc, cdt, cdn) {
 cur_frm.fields_dict.employee.get_query = function(doc,cdt,cdn) {
   return{ query:"controllers.queries.employee_query" } 
 }
+
+
+cur_frm.cscript.ctc = function(doc, cdt, cdn){
+      // var mydata=[]
+      // var mydata = [[]];
+      // var mydata[0][0]={}; 
+       return cur_frm.call({
+       method: "get_earning_rate",
+        doc: cur_frm.doc,
+        //args: cl[i].e_type,
+        callback: function(r) {
+          console.log(r.message.rate);
+          show_details(doc,cdt,cdn,r.message.rate)
+        },
+        //mydata[0][0]=r.message;
+
+     })
+
+  // var cll = getchildren('Salary Structure Deduction', doc.name, 'deduction_details', doc.doctype);
+  // for(var i = 0; i < cll.length; i++){
+  //     if(cll[i].d_type=='PF') cll[i].d_modified_amt = 780;
+  //     else if(cll[i].d_type=='P.TAX') cll[i].d_modified_amt = 200;
+  //   }
+  
+  // refresh_field('deduction_details');
+}
+
+var show_details = function(doc,cdt,cdn,message){
+  //console.log(message[0].rate);
+  var cl = getchildren('Salary Structure Earning', doc.name, 'earning_details', doc.doctype);
+  for(var i = 0; i < cl.length; i++){
+    for(var j = 0; j < message.length; j++){
+      //console.log("2 for loop");
+      if(message[j].earning_name==cl[i].e_type){ 
+        //console.log(message[j].earning_name);
+        //console.log(cl[i].e_type);
+        //console.log(message[j].rate);
+        if(message[j].rate !=null){
+
+          cl[i].modified_value = doc.ctc*message[j].rate/100;
+          //console.log(cl[i].modified_value)
+        }
+        else{
+          cl[i].modified_value =cl[i].modified_value;
+        }
+          
+      }
+  }
+}
+refresh_field('earning_details');
+}
+
+

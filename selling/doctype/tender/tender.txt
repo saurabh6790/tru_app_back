@@ -2,7 +2,7 @@
  {
   "creation": "2014-07-23 19:16:12", 
   "docstatus": 0, 
-  "modified": "2014-08-25 15:52:47", 
+  "modified": "2014-09-01 11:06:21", 
   "modified_by": "Administrator", 
   "owner": "Administrator"
  }, 
@@ -93,7 +93,7 @@
   "doctype": "DocField", 
   "fieldname": "estimated_value", 
   "fieldtype": "Select", 
-  "label": "Estimated value", 
+  "label": "Estimated Value", 
   "options": "\nPercentage Of Estimated Value\nPercentage Of Quoted Amount"
  }, 
  {
@@ -121,7 +121,7 @@
   "doctype": "DocField", 
   "fieldname": "issue_date", 
   "fieldtype": "Date", 
-  "label": "Date of Issue of Tender Paper"
+  "label": "Date Of Issue Of Tender Paper"
  }, 
  {
   "doctype": "DocField", 
