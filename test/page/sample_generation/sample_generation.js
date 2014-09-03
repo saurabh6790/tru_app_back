@@ -54,6 +54,10 @@ wn.UserProperties = Class.extend({
 					me.wrapper.appframe.add_button(wn._("Display Results"), function() {
 							me.get_result()
 						}, "icon-eye-open").css("width", "50px")
+				// me.button2=
+				// 	me.wrapper.appframe.add_button(wn._("Create Sample"), function() {
+				// 			me.get_result()
+				// 		}, "icon-cogs").css("width", "50px")
 			}
 		});
 	},
@@ -99,6 +103,9 @@ wn.UserProperties = Class.extend({
 			args:{'date': this.from_date.val(), 'transfromer': this.transfromer.val()},
 			callback: function(r) {
 				console.log(r.message.sample_entry.length)
+				// var x = document.createElement("INPUT");
+				// x=1;
+				// console.log(x);
 				if(r.message.sample_entry.length <= 0){
 					msgprint(wn._("Sample Id is created for all Sample Entries"))
 				}
@@ -109,9 +116,9 @@ wn.UserProperties = Class.extend({
 						me.wrapper.appframe.add_button(wn._("Create Sample"), function() {
 							me.sample_creation()
 						}, "icon-cogs").css("width", "50px")
-						me.wrapper.appframe.add_button(wn._('Test Allocation Interface'), function() { 
-							wn.set_route("Form","Test Allocation Interface", "Test Allocation Interface"); 
-						}, 'icon-sitemap').css("width", "50px")
+						// me.wrapper.appframe.add_button(wn._('Test Allocation Interface'), function() { 
+						// 	wn.set_route("Form","Test Allocation Interface", "Test Allocation Interface"); 
+						// }, 'icon-sitemap').css("width", "50px")
 				}
 									
 			}
@@ -120,7 +127,7 @@ wn.UserProperties = Class.extend({
 	show_sample_entry: function(sample_entry){
 		this.body.empty();
 		var me = this;
-		columns = [[wn._("Sample Entry"), 50], [wn._("Plant"), 50], [wn._("Functional Location"),50], [wn._("Sub Station"), 50], [wn._("Rating"),50]];
+		columns = [[wn._("Sample Entry"), 50], [wn._("Functional Location"), 50], [wn._("Plant"),50], [wn._("Sub Station"), 50], [wn._("Rating"),50]];
 
 		if(sample_entry[0].sample_id){
 			columns.push([wn._('Sample Id'),50])
@@ -187,7 +194,10 @@ wn.UserProperties = Class.extend({
 			method: "sample_generation",
 			args:{'sample_entries':this.options.sample_entry},
 			callback: function(r) {
-				me.show_sample_entry(r.message.sample_entries)					
+				me.show_sample_entry(r.message.sample_entries)	
+				// me.wrapper.appframe.add_button(wn._('Test Allocation Interface'), function() { 
+				// wn.set_route("Form","Test Allocation Interface", "Test Allocation Interface"); 
+				// }, 'icon-sitemap').css("width", "50px")				
 			}
 		});
 	},

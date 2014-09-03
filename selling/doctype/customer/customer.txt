@@ -2,7 +2,7 @@
  {
   "creation": "2013-06-11 14:26:44", 
   "docstatus": 0, 
-  "modified": "2014-08-18 11:37:17", 
+  "modified": "2014-09-01 10:58:20", 
   "modified_by": "Administrator", 
   "owner": "Administrator"
  }, 
@@ -104,7 +104,7 @@
   "doctype": "DocField", 
   "fieldname": "account_holder", 
   "fieldtype": "Link", 
-  "label": "Account holder/RM", 
+  "label": "Account Holder/RM", 
   "options": "Employee", 
   "permlevel": 0
  }, 

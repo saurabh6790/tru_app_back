@@ -2,7 +2,7 @@
  {
   "creation": "2013-05-03 10:45:46", 
   "docstatus": 0, 
-  "modified": "2014-08-12 12:14:45", 
+  "modified": "2014-09-02 15:00:19", 
   "modified_by": "Administrator", 
   "owner": "Administrator"
  }, 
@@ -224,6 +224,7 @@
   "doctype": "DocField", 
   "fieldname": "tolerance", 
   "fieldtype": "Float", 
+  "hidden": 1, 
   "label": "Allowance Percent", 
   "oldfieldname": "tolerance", 
   "oldfieldtype": "Currency", 
@@ -234,6 +235,7 @@
   "doctype": "DocField", 
   "fieldname": "valuation_method", 
   "fieldtype": "Select", 
+  "hidden": 1, 
   "label": "Valuation Method", 
   "options": "\nFIFO\nMoving Average", 
   "read_only": 0
@@ -245,7 +247,7 @@
   "doctype": "DocField", 
   "fieldname": "min_order_qty", 
   "fieldtype": "Float", 
-  "hidden": 0, 
+  "hidden": 1, 
   "label": "Minimum Order Qty", 
   "oldfieldname": "min_order_qty", 
   "oldfieldtype": "Currency", 
@@ -315,6 +317,7 @@
   "doctype": "DocField", 
   "fieldname": "warranty_period", 
   "fieldtype": "Data", 
+  "hidden": 1, 
   "label": "Warranty Period (in days)", 
   "oldfieldname": "warranty_period", 
   "oldfieldtype": "Data", 
@@ -325,6 +328,7 @@
   "doctype": "DocField", 
   "fieldname": "end_of_life", 
   "fieldtype": "Date", 
+  "hidden": 1, 
   "label": "End of Life", 
   "oldfieldname": "end_of_life", 
   "oldfieldtype": "Date", 
@@ -336,6 +340,7 @@
   "doctype": "DocField", 
   "fieldname": "net_weight", 
   "fieldtype": "Float", 
+  "hidden": 1, 
   "label": "Net Weight", 
   "read_only": 0
  }, 
@@ -353,6 +358,7 @@
   "doctype": "DocField", 
   "fieldname": "reorder_section", 
   "fieldtype": "Section Break", 
+  "hidden": 1, 
   "label": "Re-order", 
   "options": "icon-rss", 
   "read_only": 0
@@ -655,6 +661,7 @@
   "doctype": "DocField", 
   "fieldname": "item_tax_section_break", 
   "fieldtype": "Section Break", 
+  "hidden": 1, 
   "label": "Item Tax", 
   "oldfieldtype": "Section Break", 
   "options": "icon-money", 
@@ -708,6 +715,7 @@
   "doctype": "DocField", 
   "fieldname": "manufacturing", 
   "fieldtype": "Section Break", 
+  "hidden": 1, 
   "label": "Manufacturing", 
   "oldfieldtype": "Section Break", 
   "options": "icon-cogs", 
@@ -780,6 +788,7 @@
   "doctype": "DocField", 
   "fieldname": "website_section", 
   "fieldtype": "Section Break", 
+  "hidden": 1, 
   "label": "Website", 
   "options": "icon-globe", 
   "read_only": 0
@@ -861,6 +870,7 @@
   "doctype": "DocField", 
   "fieldname": "sb72", 
   "fieldtype": "Section Break", 
+  "hidden": 1, 
   "read_only": 0
  }, 
  {

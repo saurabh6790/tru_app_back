@@ -2,7 +2,7 @@
  {
   "creation": "2014-06-06 11:29:35", 
   "docstatus": 0, 
-  "modified": "2014-08-08 11:27:05", 
+  "modified": "2014-08-27 15:38:46", 
   "modified_by": "Administrator", 
   "owner": "Administrator"
  }, 
@@ -57,6 +57,13 @@
   "label": "Priority", 
   "options": "\nCritical\nNormal\nUrgent", 
   "reqd": 1
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "sample_allocation_name", 
+  "fieldtype": "Data", 
+  "label": "Sample Allocation Name", 
+  "read_only": 1
  }, 
  {
   "doctype": "DocField", 

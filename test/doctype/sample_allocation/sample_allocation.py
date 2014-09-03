@@ -54,11 +54,7 @@ class DocType:
 	
 	def on_submit(self):
 		self.update_sample_status()
-		self.update_testlog_entry()
-
-	# def on_update(self):
-	# 	webnotes.errprint("in on update")
-	# 	self.update_sample_status()
+		self.update_sample_allocation_to_lab()
 
 	def get_sample_no(self):
 		# samples=webnotes.conn.sql("""select sample_no from `tabFinal Sample Allocation To Lab` 
@@ -89,7 +85,7 @@ class DocType:
 				if not flag:
 					self.create_child_record(sample_no[0], sample_detail)	
 		else:
-			webnotes.msgprint("There is no any Samle Number allocated aginst the test='"+self.doc.test_name+"'",raise_exception=1)
+			webnotes.msgprint("There is no any Samle Number allocated against the test='"+self.doc.test_name+"'",raise_exception=1)
 			return{
 				"test_name":''
 			}
@@ -119,9 +115,11 @@ class DocType:
 			webnotes.conn.sql("update tabSample set status = 'Assigned' where name ='"+sample.sample_no+"'")
 			webnotes.conn.sql("commit")
 
-	# def update_testlog_entry(self):
-	# 	webnotes.errprint("in update test log")
-	# 	webnotes.conn.sql("""select sample_no from `tabTest Log` where test='' """)
+	def update_sample_allocation_to_lab(self):
+		#webnotes.errprint("in update test log")
+		webnotes.conn.sql("update `tabSample Allocation To Lab` set sample_allocation_name='"+self.doc.name+"' where name ='"+self.doc.sample_allocation_lab+"'")
+		webnotes.conn.sql("commit")
+
 		
 	def test_allocation(self, sample, dic):
 		self.create_test(sample, dic)
@@ -137,7 +135,7 @@ class DocType:
 				test_id = self.ckeck_test(test,sample,dic)
 
 	def ckeck_test(self, test_name, sample, dic, sample_nos=None):
-		escape_tests=['Neutralization Value', 'Sediment','Furan Content','Corrossive Sulphur','Oxidation Stability','Accelerated Ageing']
+		escape_tests=['Neutralization Value', 'Sediment','Furan Content','Corrossive Sulphur','Oxidation Stability','Accelerated Aging']
 		if test_name not in escape_tests:
 			test_id=self.create_doc(test_name, sample)
 			self.create_todo(sample, test_name,  test_id)

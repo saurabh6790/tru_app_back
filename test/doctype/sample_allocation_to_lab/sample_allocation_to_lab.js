@@ -16,7 +16,7 @@ cur_frm.cscript.priority = function(doc,cdt,cdn){
 }
 
 cur_frm.cscript.refresh=function(doc,cdt,cdn){
-  if(doc.docstatus == 1) {
+  if(doc.docstatus == 1 && doc.sample_allocation_name==null) {
       cur_frm.add_custom_button(wn._('Sample Allocation To Tester'),
       cur_frm.cscript['Sample Allocation To Tester']);
 

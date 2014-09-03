@@ -14,6 +14,9 @@ wn.require('app/accounts/doctype/sales_taxes_and_charges_master/sales_taxes_and_
 wn.require('app/utilities/doctype/sms_control/sms_control.js');
 wn.require('app/accounts/doctype/sales_invoice/pos.js');
 
+cur_frm.add_fetch('item_code', 'product_test_details','test_details');
+
+
 erpnext.selling.SalesOrderController = erpnext.selling.SellingController.extend({
 	refresh: function(doc, dt, dn) {
 		this._super();
@@ -29,8 +32,8 @@ erpnext.selling.SalesOrderController = erpnext.selling.SellingController.extend(
 
 				cur_frm.add_custom_button(wn._('Send SMS'), cur_frm.cscript.send_sms, "icon-mobile-phone");
 				// delivery note
-				if(flt(doc.per_delivered, 2) < 100 && doc.order_type=='Sales')
-					cur_frm.add_custom_button(wn._('Make Delivery'), this.make_delivery_note);
+				// if(flt(doc.per_delivered, 2) < 100 && doc.order_type=='Sales')
+				// 	cur_frm.add_custom_button(wn._('Make Delivery'), this.make_delivery_note);
 			
 				// maintenance
 				if(flt(doc.per_delivered, 2) < 100 && (doc.order_type !='Sales')) {
@@ -40,9 +43,9 @@ erpnext.selling.SalesOrderController = erpnext.selling.SellingController.extend(
 				}
 
 				// indent
-				if(!doc.order_type || (doc.order_type == 'Sales'))
-					cur_frm.add_custom_button(wn._('Make ') + wn._('Material Request'), 
-						this.make_material_request);
+				// if(!doc.order_type || (doc.order_type == 'Sales'))
+				// 	cur_frm.add_custom_button(wn._('Make ') + wn._('Material Request'), 
+				// 		this.make_material_request);
 			
 				// sales invoice
 				if(flt(doc.per_billed, 2) < 100)

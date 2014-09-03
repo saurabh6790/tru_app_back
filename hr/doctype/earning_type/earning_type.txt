@@ -2,7 +2,7 @@
  {
   "creation": "2013-01-24 11:03:32", 
   "docstatus": 0, 
-  "modified": "2013-12-09 16:24:07", 
+  "modified": "2014-08-28 13:27:57", 
   "modified_by": "Administrator", 
   "owner": "Administrator"
  }, 
@@ -62,16 +62,6 @@
  }, 
  {
   "doctype": "DocField", 
-  "fieldname": "description", 
-  "fieldtype": "Small Text", 
-  "label": "Description", 
-  "oldfieldname": "description", 
-  "oldfieldtype": "Small Text", 
-  "reqd": 0, 
-  "width": "300px"
- }, 
- {
-  "doctype": "DocField", 
   "fieldname": "taxable", 
   "fieldtype": "Select", 
   "label": "Taxable", 
@@ -89,6 +79,27 @@
   "label": "Exemption Limit", 
   "oldfieldname": "exemption_limit", 
   "oldfieldtype": "Currency"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "column_break_5", 
+  "fieldtype": "Column Break"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "rate", 
+  "fieldtype": "Float", 
+  "label": "Rate(%)"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "description", 
+  "fieldtype": "Small Text", 
+  "label": "Description", 
+  "oldfieldname": "description", 
+  "oldfieldtype": "Small Text", 
+  "reqd": 0, 
+  "width": "300px"
  }, 
  {
   "doctype": "DocPerm"

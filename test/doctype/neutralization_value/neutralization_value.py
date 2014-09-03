@@ -178,7 +178,7 @@ class DocType:
 		if physical_density:
 			pass
 		else:
-			webnotes.msgprint("There is no any physical condition and density test completed against given sample no='"+sample_no+"' for neutralisation test physical condition and density is needed",raise_exception=1)
+			webnotes.msgprint("There is no any physical condition and density test completed against given sample no='"+sample_no+"' and without completing physical condition and density test we can't do neutralisation test",raise_exception=1)
 
 # def get_sample_details(doctype, txt, searchfield, start, page_len, filters):
 # 	#webnotes.errprint([filters])

@@ -14,6 +14,10 @@ wn.require('app/utilities/doctype/sms_control/sms_control.js');
 wn.require('app/selling/sales_common.js');
 wn.require('app/accounts/doctype/sales_invoice/pos.js');
 
+
+cur_frm.add_fetch('item_code', 'product_test_details','test_details');
+
+
 wn.provide("erpnext.accounts");
 erpnext.accounts.SalesInvoiceController = erpnext.selling.SellingController.extend({
 	onload: function() {
@@ -66,17 +70,17 @@ erpnext.accounts.SalesInvoiceController = erpnext.selling.SellingController.exte
 
 			cur_frm.appframe.add_button(wn._('Send SMS'), cur_frm.cscript.send_sms, 'icon-mobile-phone');
 
-			if(cint(doc.update_stock)!=1) {
-				// show Make Delivery Note button only if Sales Invoice is not created from Delivery Note
-				var from_delivery_note = false;
-				from_delivery_note = cur_frm.get_doclist({parentfield: "entries"})
-					.some(function(item) { 
-						return item.delivery_note ? true : false; 
-					});
+			// if(cint(doc.update_stock)!=1) {
+			// 	// show Make Delivery Note button only if Sales Invoice is not created from Delivery Note
+			// 	var from_delivery_note = false;
+			// 	from_delivery_note = cur_frm.get_doclist({parentfield: "entries"})
+			// 		.some(function(item) { 
+			// 			return item.delivery_note ? true : false; 
+			// 		});
 				
-				if(!from_delivery_note)
-					cur_frm.appframe.add_primary_action(wn._('Make Delivery'), cur_frm.cscript['Make Delivery Note'])
-			}
+			// 	if(!from_delivery_note)
+			// 		cur_frm.appframe.add_primary_action(wn._('Make Delivery'), cur_frm.cscript['Make Delivery Note'])
+			// }
 
 			if(doc.outstanding_amount!=0)
 				cur_frm.appframe.add_primary_action(wn._('Make Payment Entry'), cur_frm.cscript.make_bank_voucher);
