@@ -84,7 +84,7 @@ class DocType:
 				#webnotes.errprint(self.doc.final_density)
 				create_child_testresult(parent,self.doc.final_density,test_detail,'Density in gm/cm3')
 
-		
+	
 
 	def get_density_details(self,args):
 		dic=eval(args)

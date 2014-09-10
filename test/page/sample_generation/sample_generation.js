@@ -1,3 +1,5 @@
+//Sample generation Dashboard structure
+
 wn.pages['sample-generation'].onload = function(wrapper) { 
 	wn.ui.make_app_page({
 		parent: wrapper,

@@ -3,6 +3,7 @@
 // License: GNU General Public License v3. See license.txt
 
 
+//To select details regarding samples with repect to the specified priority.
 cur_frm.cscript.priority = function(doc,cdt,cdn){
   if (doc.priority){
   	//var cnt;
@@ -15,6 +16,7 @@ cur_frm.cscript.priority = function(doc,cdt,cdn){
   
 }
 
+//Add button to go Sample Allocation To Tester Page
 cur_frm.cscript.refresh=function(doc,cdt,cdn){
   if(doc.docstatus == 1 && doc.sample_allocation_name==null) {
       cur_frm.add_custom_button(wn._('Sample Allocation To Tester'),
@@ -33,7 +35,7 @@ cur_frm.cscript['Sample Allocation To Tester'] = function() {
 
 }
 
-
+//To call py method on which we written code to add samples with specified quantity with respect to the priority.
 cur_frm.cscript.make_final_lab_entry = function(doc,cdt,cdn) {
 	//console.log("yes");
 	var cl = getchildren('Priority Wise Sample Allocation', doc.name, 'prioritywise_sample_allocation');
@@ -47,6 +49,9 @@ cur_frm.cscript.make_final_lab_entry = function(doc,cdt,cdn) {
 
 }
 
+
+
+
 cur_frm.cscript.onload = function(doc,dt,dn){
 	//console.log("samples allocation to lab");
 	wn.call({
@@ -59,6 +64,7 @@ cur_frm.cscript.onload = function(doc,dt,dn){
 	
 }
 
+//To load popup to show available quatity of sample numbers having priority Urgent,Normal,Critical & according to it specify the required quatity of samples with respective of priority.
 var show_popup = function(doc,dt,dn,count){
 	//console.log(count[0][1]);
 	if(doc.docstatus!=1){
@@ -69,12 +75,7 @@ var show_popup = function(doc,dt,dn,count){
 			{fieldtype:'HTML', fieldname:'critical_count',options:'<div id="count"></div>', label:wn._('Total Critical Samples'), reqd:false, 
 				description: wn._("Total No. Of Critical Samples Available")},
 
-			// {fieldtype:'Data', fieldname:'normal_count', label:wn._('Total Normal Samples'), reqd:true, 
-			// 	description: wn._("Total No. Of  Normal Samples Available")},
-
-			// {fieldtype:'Data', fieldname:'urgent_count', label:wn._('Total Urgent Samples'), reqd:true, 
-			// 	description: wn._("Total No. Of  Urgent Samples Available")},
-
+			
 			{fieldtype:'Data', fieldname:'critical', label:wn._('Critical'), reqd:true, 
 				description: wn._("No. Of Critical Samples Required")},
 
@@ -91,8 +92,6 @@ var show_popup = function(doc,dt,dn,count){
 		$('#count').html("<b>Priority Wise Sample Count<br>"+ count[0][0] +" : " +count[0][1]+ "\
 			<br>"+ count[1][0] + " : " + count[1][1]+"<br>"+count[2][0]+" : " + count[2][1])
 		var fd = d.fields_dict;
-		//console.log(fd);
-		//console.log(fd[df['critical_count']]);
 		$(fd.done.input).click(function() {
 				var btn = this;
 				$(btn).set_working();

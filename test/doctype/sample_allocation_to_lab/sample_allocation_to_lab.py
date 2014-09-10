@@ -20,12 +20,15 @@ class DocType:
 		self.update_sample_status()
 
 
+	#Update sample status to the Lab Entry after completing the sample allocation to lab stage.
 	def update_sample_status(self):
 		for sample in getlist(self.doclist, 'final_sample_allocation'):
-			#webnotes.errprint(sample.sample_no)
 			webnotes.conn.sql("update tabSample set status = 'Lab Entry' where name ='"+sample.sample_no+"'")
 			webnotes.conn.sql("commit")
+			
 
+
+	#Select sample details from sample table with respect to the priority & quantity specified.
 	def get_sample_details(self,priority):
 		#n=0
 		if priority=='Critical':
@@ -73,6 +76,7 @@ class DocType:
 				}
 
 
+	#Add sample number details according to the specified quantity and priority
 	def get_prioritywise_details(self):
 
 		list1=[]
@@ -120,6 +124,7 @@ class DocType:
 			
 
 
+#To map sample allocation to lab page to the Sample allocation to Tester page 
 @webnotes.whitelist()
 def sample_allocation_to_tester(source_name, target_doclist=None):
 	
@@ -146,14 +151,17 @@ def _sample_allocation_to_tester(source_name, target_doclist=None, ignore_permis
 
 	return [d.fields for d in doclist]
 
+
+
+#Get count of samples according to the priority
 @webnotes.whitelist()
 def get_count():
 	#webnotes.errprint("in get count")
 	count_dict = {'Normal': 0,'Urgent': 0,'Critical': 0}
 
 	counts=webnotes.conn.sql("select priority,count(priority) from `tabSample` where status='Ready To Lab Entry' group by priority",as_list=1)
-	webnotes.errprint(counts)
-	webnotes.errprint(len(counts))
+	# webnotes.errprint(counts)
+	# webnotes.errprint(len(counts))
 
 	for i in counts:
 			count_dict[i[0]] = i[1]

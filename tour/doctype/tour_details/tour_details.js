@@ -1,32 +1,10 @@
-// // Copyright (c) 2013, Web Notes Technologies Pvt. Ltd. and Contributors
-// // License: GNU General Public License v3. See license.txt
+ // Copyright (c) 2013, Web Notes Technologies Pvt. Ltd. and Contributors
+ // License: GNU General Public License v3. See license.txt
 
-//wn.provide("erpnext.tour");
 
-//cur_frm.add_fetch('client_name', 'address_html', 'address');
-
-// $.extend(cur_frm.cscript, {
-//     refresh:function(doc, cdt, cdn) {
-//     	// console.log("in the refresh");
-	
-// 	if(doc.docstatus === 1) {
-// 		cur_frm.add_custom_button(wn._('Tour Report'), cur_frm.cscript.create_report);
-	
-// 	}
-// },
-
-//     create_report:function() {
-//   	console.log("in the js");
-// 		wn.model.open_mapped_doc({
-// 			method: "tour.doctype.tour_details.tour_details.create_report",
-// 			source_name: cur_frm.doc.name
-// 		})
-// 	}
-
-// });
 
 cur_frm.cscript.refresh=function(doc,cdt,cdn){
-  if(doc.docstatus == 1 ){
+  if(doc.docstatus == 1 && doc.workflow_state!='Rejected'){
       cur_frm.add_custom_button(wn._('Create Tour Report'),
       cur_frm.cscript['Create Tour Report']);
    }
@@ -74,4 +52,30 @@ cur_frm.cscript.update_totals = function(doc) {
 	doc.total_expenses = td;
 	
 	refresh_many(['total_expenses']);
+}
+
+cur_frm.cscript.approx_advance_expense = function(doc,cdt,cdn){
+	var d = locals[cdt][cdn];
+	if(d.approx_advance_expense<=0)
+		msgprint("Approx Advance Value Shoud be greater then zero");
+}
+
+
+cur_frm.cscript.from_date = function(doc,cdt,cdn){
+	if(doc.to_date){
+		if(doc.from_date>doc.to_date){
+			msgprint("From Date must be less than the To Date");
+		}
+
+	}
+}
+
+
+cur_frm.cscript.to_date = function(doc,cdt,cdn){
+	if(doc.from_date){
+		if(doc.to_date<doc.from_date){
+			msgprint("To Date must be gereater than the Fro Date");
+		}
+
+	}
 }

@@ -14,51 +14,14 @@ class DocType:
 	def __init__(self, d, dl):
 		self.doc, self.doclist = d, dl     
 
-	# def get_sample_details(self,sample_no):
-	# 	tests=None
-	# 	sample_details=webnotes.conn.sql("""select priority,bottle_no,test_group 
-	# 			from `tabFinal Sample Allocation To Lab` 
-	# 		where sample_no='%(sample_no)s'"""%{'sample_no':sample_no})
-		
-	# 	if sample_details:
-	# 		if sample_no in webnotes.conn.sql("""select distinct sample_no 
-	# 			from `tabTest Log`""", as_list=1)[0]:
-
-	# 			tests=webnotes.conn.sql("""select group_concat(test)
-	# 				from `tabTest Log` where sample_no='%(sample_no)s'
-	# 			"""%{'sample_no':sample_no})
-	# 			webnotes.errprint(tests)
-
-	# 		else:
-	# 			tests=webnotes.conn.sql("""select test 
-	# 				from `tabFinal Sample Allocation To Lab` 
-	# 			where sample_no='%(sample_no)s'"""%{'sample_no':sample_no})
-	# 			webnotes.errprint(['else',tests])
-		
-	# 	if tests:
-	# 		test=tests[0][0].split(',')
-	# 		webnotes.errprint(test)
-	# 		if test:
-	# 			self.doclist=self.doc.clear_table(self.doclist,'sample_allocation_detail')
-	# 			for i in test:
-	# 				ch = addchild(self.doc, 'sample_allocation_detail', 
-	# 						'Sample Allocation Detail', self.doclist)
-	# 				ch.test=i
-	# 				ch.save(new=1)
-
-	# 	return{
-	# 	"s_priority":sample_details[0][0] if sample_details else '',
-	# 	"bottle_no":sample_details[0][1] if sample_details else '',
-	# 	"test_group":sample_details[0][2] if sample_details else ''
-	# 	}
 	
 	def on_submit(self):
 		self.update_sample_status()
 		self.update_sample_allocation_to_lab()
 
+	#Select test from sample allocation to lab & also from the test log where we kept rejected test
 	def get_sample_no(self):
-		# samples=webnotes.conn.sql("""select sample_no from `tabFinal Sample Allocation To Lab` 
-		# 	where parent='%s' and find_in_set('%s',test) """ %(self.doc.sample_allocation_lab,self.doc.test_name),as_list=1)
+		
 		samples=webnotes.conn.sql("""select f.sample_no from `tabFinal Sample Allocation To Lab` f 
 		where 
 				f.parent='%(parent)s' 
@@ -93,6 +56,8 @@ class DocType:
 			"test_name": ''
 		}
 
+
+	#To add entries in child table according to the selected test.
 	def create_child_record(self, sample_no, sample_detail):
 		ch = addchild(self.doc, 'sample_allocation_detail', 
 					'Sample Allocation Detail', self.doclist)
@@ -102,6 +67,7 @@ class DocType:
 		ch.priority=sample_detail[0][1]
 		ch.save(new=1)
 
+	#To change status of sample to 'Assigned' after completing the sample allocation
 	def update_sample_status(self):
 		samples, dic = {}, {}
 		for sample in getlist(self.doclist, 'sample_allocation_detail'):
@@ -115,14 +81,17 @@ class DocType:
 			webnotes.conn.sql("update tabSample set status = 'Assigned' where name ='"+sample.sample_no+"'")
 			webnotes.conn.sql("commit")
 
+
+	#To disable link from sample allocation to lab to sample allocation to tester after completing sample allocation to tester process corresponding to the perticular sample allocation to lab form.
 	def update_sample_allocation_to_lab(self):
-		#webnotes.errprint("in update test log")
 		webnotes.conn.sql("update `tabSample Allocation To Lab` set sample_allocation_name='"+self.doc.name+"' where name ='"+self.doc.sample_allocation_lab+"'")
 		webnotes.conn.sql("commit")
 
-		
+	
+	#To create document for each test present in sample allocation detail table.	
 	def test_allocation(self, sample, dic):
 		self.create_test(sample, dic)
+
  		
 	def create_test(self,sample, dic):
 		tests=sample.get("test").split(',')
@@ -134,6 +103,7 @@ class DocType:
 			for test in tests:
 				test_id = self.ckeck_test(test,sample,dic)
 
+	#Test which involve basic step as Test Preparation 
 	def ckeck_test(self, test_name, sample, dic, sample_nos=None):
 		escape_tests=['Neutralization Value', 'Sediment','Furan Content','Corrossive Sulphur','Oxidation Stability','Accelerated Aging']
 		if test_name not in escape_tests:
@@ -145,7 +115,8 @@ class DocType:
 			else:
 				dic[test_name] = [sample.get('sample_no')]
 			# webnotes.errprint(dic[test_name])
-	
+
+	#create document for escape test.
 	def prepare_escape_test(self, dic):
 			# dic = {'Test Name':['sample numbers']}
 			for test_name in dic:
@@ -153,6 +124,8 @@ class DocType:
 				self.create_child_test_preparation(dic[test_name], test_name, parent)
 				self.create_todo_preparation(parent,self.doc.tester, test_name)
 
+
+	#Create Document for escape test i.e document for Test Preparation Form
 	def create_test_preparation(self,test_name):
 		if test_name == 'Neutralization Value':
 			test_preparation = Document("Neutralization Value")
@@ -166,6 +139,8 @@ class DocType:
 
 		return test_preparation.name
 
+
+	#add child records in the test preparation form child table.
 	def create_child_test_preparation(self, samples, test_name, parent):
 		childtab = {'Neutralization Value':['neutralisation_test_details', 'Neutralization Test Details']}
 		from webnotes.model.doc import get
@@ -180,6 +155,7 @@ class DocType:
 					ch.tester=self.doc.tester 
 				ch.save()
 
+	#Create Document for Test which are not involve in the escape test.
 	def create_doc(self, test_name, sample):
 		test_method, specification = self.get_test_method(sample)
 		test = Document(test_name)
@@ -201,6 +177,7 @@ class DocType:
 		webnotes.conn.sql("update `tabSample Allocation Detail` set test_id='"+test_name+"' where test='"+sample.get("test")+"' and parent='"+self.doc.name+"'")
 		webnotes.conn.commit()
 
+	# Create TODO Notification for tester.
 	def create_todo(self, sample, test_name, test_id):
 		# webnotes.errprint("in create to do")
 		userid = webnotes.conn.sql("select user_id from tabEmployee where name = '%s'"%(self.doc.tester),as_list=1)
@@ -216,6 +193,7 @@ class DocType:
 			d.save(1)
 			# webnotes.errprint(d.name)
 
+	#Create TODO Notification Of Test Preparation for tester.
 	def create_todo_preparation(self, parent, tester, test_name):
 		# webnotes.errprint("in create to do test preparation")
 		d = Document("ToDo")
@@ -226,72 +204,16 @@ class DocType:
 		d.date = nowdate()
 		d.assigned_by = webnotes.user.name
 		d.save(1)	
+		
 
 def get_sample_no(doctype, txt, searchfield, start, page_len, filters):
 	return 	webnotes.conn.sql(""" select  name from tabSample where status = 'Lab Entry' 
 		union select distinct sample_no from`tabTest Log` tl""")
 
-	# def add_samples(self):
-	# 	if self.doc.sample_type == 'Single Sample':
-	# 		test_details = self.get_sample_wise_test(self.doc.sample_id)
-	# 		# self.check_register(self.doc.sample_id)
-	# 		self.fill_sample_alloacation_detail(test_details, self.doc.sample_id)
-
-	# 	if self.doc.sample_type == "Batch":
-	# 		samples = webnotes.conn.sql("select sample from `tabBatch Detail` bd where bd.parent =  '%s' "%self.doc.batch, as_list=1)
-	# 		for sample in samples:
-	# 			# self.check_register(sample[0])
-	# 			self.fill_sample_alloacation_detail(self.get_sample_wise_test(sample[0]), sample[0])
-
-# def add_sample_numbers(self):
-
-# # 	def check_register(self, sample_id):
-# # 		register_no = webnotes.conn.sql("""select name from tabRegister where sample_no = '%s'"""%(sample_id))
-# 		if not register_no:
-# 			webnotes.msgprint("Registration not yet done for selected sample.",raise_exception=1)
-
-# 	def get_sample_wise_test(self, sample_id):
-# 		tests = self.check_group_or_other(sample_id)
-# 		if tests:
-# 			return tests
-# 		else:
-# 			return webnotes.conn.sql("""select test from `tabGroup Test` 
-# 				where parent in (select test_required from `tabSample Entry` 
-# 					where name=(select sample_entry from tabSample where name = '%s'))"""%(sample_id),as_list=1)
-
-# 	def check_group_or_other(self, sample_id):
-# 		test_required = webnotes.conn.sql(""" select test_required, name from `tabSample Entry`
-# 		 where name = (select sample_entry from tabSample where name = '%s')"""%(sample_id))[0][0]
-# 		if test_required == 'Others':
-# 			return webnotes.conn.sql(""" select test from `tabRegister Test Details` where parent = '%s' """%(test_required[0][1]), as_list=1)
-
-# 	def fill_sample_alloacation_detail(self, sample_details, sample_id):
-# 		if self.doc.sample_id:
-# 			self.doclist=self.doc.clear_table(self.doclist,'sample_allocation_detail')
-# 		for sample in sample_details:
-# 			nl = addchild(self.doc, 'sample_allocation_detail', 'Sample Allocation Detail', self.doclist)
-# 			nl.sample_no = sample_id
-# 			nl.test = sample[0]
-
-# def get_samples(doctype, txt, searchfield, start, page_len, filters):
-# 	return webnotes.conn.sql(""" select s.name, se.priority from `tabSample` s,`tabSample Entry` se 
-# 		where ifnull(s.status,'') not in ('Assigned') and s.sample_entry = se.name """)
-
-
-# def get_samples(doctype, txt, searchfield, start, page_len, filters):
-# 	webnotes.errprint(filters)
-	# return webnotes.conn.sql(""" select s.name, se.priority from `tabSample` s,`tabSample Entry` se 
-	# 	where ifnull(s.status,'') not in ('Assigned') and s.sample_entry = se.name """)
-
+	
 
 
 def get_employee(doctype, txt, searchfield, start, page_len, filters):
 	#webnotes.errprint("hi")
 	return webnotes.conn.sql(""" select name, employee_name, date_of_birth from tabEmployee 
 		where (%(key)s like "%(txt)s" or employee_name like "%(txt)s")"""%{'key':searchfield, 'txt': "%%%s%%" % txt})
-# 	conditions = make_condition(filters)
-# 	webnotes.errprint(conditions)
-# 	return webnotes.conn.sql(""" select parent from `tabEmployee Training Details` where 
-# 		%(key)s like "%(txt)s" and %(cond)s  
-# 		limit %(start)s, %(page_len)s """%{'key': searchfield, 'txt': "%%%s%%" % txt, 
-# 		'cond': conditions, 'start': start, 'page_len': page_len})

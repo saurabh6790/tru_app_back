@@ -1,6 +1,8 @@
 // Copyright (c) 2013, Web Notes Technologies Pvt. Ltd. and Contributors
 // License: GNU General Public License v3. See license.txt
 
+
+//to fetch all the details against the functional location from the transformer master
 cur_frm.add_fetch('functional_location', 'client_name','client_name');
 
 cur_frm.add_fetch('functional_location', 'plant','plant');
@@ -14,6 +16,8 @@ cur_frm.add_fetch('functional_location', 'make','make');
 cur_frm.add_fetch('functional_location', 'phase','phase');
 
 cur_frm.add_fetch('functional_location', 'rating','rating');
+
+
 
 cur_frm.cscript.refresh = function(doc) {
 	cur_frm.disable_save();
@@ -29,6 +33,7 @@ cur_frm.cscript.clear = function(doc){
 	return wn.ui.toolbar.clear_cache();
 }
 
+// for getting functional location against the customer involved in the inward stock entry
 cur_frm.fields_dict['functional_location'].get_query=function(doc,cdt,cdn)
 {
 	return{

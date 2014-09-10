@@ -2,7 +2,7 @@
  {
   "creation": "2014-08-23 14:33:49", 
   "docstatus": 0, 
-  "modified": "2014-08-25 17:44:08", 
+  "modified": "2014-09-06 17:23:36", 
   "modified_by": "Administrator", 
   "owner": "Administrator"
  }, 
@@ -10,6 +10,7 @@
   "autoname": "VAC.#######", 
   "doctype": "DocType", 
   "document_type": "Transaction", 
+  "icon": "icon-file-text", 
   "is_submittable": 1, 
   "module": "Job Application", 
   "name": "__common__"
@@ -57,14 +58,16 @@
   "fieldtype": "Data", 
   "in_list_view": 1, 
   "label": "Post", 
-  "permlevel": 0
+  "permlevel": 0, 
+  "reqd": 1
  }, 
  {
   "doctype": "DocField", 
   "fieldname": "last_date_of_application", 
   "fieldtype": "Date", 
   "label": "Last Date Of Application", 
-  "permlevel": 0
+  "permlevel": 0, 
+  "reqd": 1
  }, 
  {
   "doctype": "DocField", 
@@ -78,14 +81,15 @@
   "fieldtype": "Small Text", 
   "in_list_view": 1, 
   "label": "Job Description", 
-  "permlevel": 0
+  "permlevel": 0, 
+  "reqd": 1
  }, 
  {
   "doctype": "DocField", 
   "fieldname": "apply_now", 
   "fieldtype": "Button", 
   "label": "Apply Now", 
-  "permlevel": 1
+  "permlevel": 2
  }, 
  {
   "cancel": 0, 
@@ -157,6 +161,28 @@
   "doctype": "DocPerm", 
   "permlevel": 1, 
   "role": "Projects Manager", 
+  "write": 1
+ }, 
+ {
+  "doctype": "DocPerm", 
+  "permlevel": 2, 
+  "role": "Administrator", 
+  "write": 0
+ }, 
+ {
+  "doctype": "DocPerm", 
+  "permlevel": 2, 
+  "role": "HR User"
+ }, 
+ {
+  "doctype": "DocPerm", 
+  "permlevel": 2, 
+  "role": "HR Manager"
+ }, 
+ {
+  "doctype": "DocPerm", 
+  "permlevel": 2, 
+  "role": "Job Applicant", 
   "write": 1
  }
 ]

@@ -2,7 +2,7 @@
  {
   "creation": "2014-08-23 15:39:45", 
   "docstatus": 0, 
-  "modified": "2014-08-25 15:13:13", 
+  "modified": "2014-09-06 10:42:03", 
   "modified_by": "Administrator", 
   "owner": "Administrator"
  }, 
@@ -123,7 +123,7 @@
   "fieldname": "rating_2", 
   "fieldtype": "Select", 
   "in_list_view": 1, 
-  "label": "Writeing Rating", 
+  "label": "Writing Rating", 
   "options": "\nExcellent\nGood\nFair"
  }, 
  {

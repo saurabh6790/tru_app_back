@@ -2,7 +2,7 @@
  {
   "creation": "2014-08-23 16:03:43", 
   "docstatus": 0, 
-  "modified": "2014-08-25 15:27:11", 
+  "modified": "2014-09-06 10:43:28", 
   "modified_by": "Administrator", 
   "owner": "Administrator"
  }, 
@@ -59,7 +59,7 @@
   "fieldname": "year_of_passing", 
   "fieldtype": "Int", 
   "in_list_view": 1, 
-  "label": "Year of Passing", 
+  "label": "Year Of Passing", 
   "oldfieldname": "year_of_passing", 
   "oldfieldtype": "Int"
  }, 

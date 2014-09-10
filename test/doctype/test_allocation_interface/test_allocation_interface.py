@@ -15,21 +15,16 @@ class DocType:
 	def __init__(self, d, dl):
 		self.doc, self.doclist = d, dl
 
-
+	#Select sample details from the sample table to fill all the details in the child table 'Test Allocation Details'
 	def get_sample_allocation_details(self,sample_no):
 
 		sample_details=webnotes.conn.sql("select barcode,client_name from `tabSample` where name='"+sample_no+"'",as_list=1)
-		#webnotes.errprint(sample_details)
-
 		for p in getlist(self.doclist, 'test_allocation_detail'):
 			if p.sample_no==self.doc.sample_no:
 				webnotes.msgprint("You have already selected sample ID='"+self.doc.sample_no+"' Now,please choose any other sample ID",raise_exception=1)
-
-
-
 		for i in sample_details:
-			webnotes.errprint(i[0])	
-			webnotes.errprint(i[1])
+			#webnotes.errprint(i[0])	
+			#webnotes.errprint(i[1])
 			ch = addchild(self.doc, 'test_allocation_detail', 
 					'Test Allocation Detail', self.doclist)
 			ch.sample_no=sample_no
@@ -37,6 +32,8 @@ class DocType:
 			ch.client_name=i[1]
 			ch.save(new=1)
 
+
+	#Select all the test from the specified test group and add it to the child table 'Test Names'.
 	def get_test_details(self,test_group):
 
 		test=webnotes.conn.sql("select test from `tabGroup Test` where parent='"+test_group+"'",as_list=1)
@@ -49,6 +46,8 @@ class DocType:
 			cd.test_name=j
 			cd.save(new=1)
 
+
+	#On clicking button Generate Final Result Table,add combination of selected sample numbers with the specified test 
 	def get_finaltest_details(self):
 		self.doclist=self.doc.clear_table(self.doclist,'final_test')
 
@@ -65,6 +64,7 @@ class DocType:
 				cr.test=t.test_name
 				cr.save(new=1)
 
+	#On clicking on button  Submit Test allocation record created
 	def set_test_allocation(self):
 		test_list = []
 		sample_dict = {}
@@ -81,6 +81,7 @@ class DocType:
 		self.create_test_allocation(sample_dict)
 		webnotes.msgprint("Test Allocation Completed Successfully...!!")
 
+	#To Create sample details dictionary
 	def create_sample_dict(self, sample, sample_dict, test_list):
 		sample_dict.setdefault(sample.sample_no, {})
 
@@ -96,6 +97,7 @@ class DocType:
 	def create_test_list(self, sample, sample_dict):
 		sample_dict[sample.sample_no]['test'].append(sample.test)
 
+	#Create Record for Test Allocation
 	def create_test_allocation(self, sample_dict):
 		if sample_dict:
 			for sample in sample_dict:
@@ -122,6 +124,8 @@ class DocType:
 			d.parent = parent
 			d.save()
 
+
+	#After completing test allocation set status of sample number to the 'Ready To Lab Entry'
 	def update_sample_master(self, sample):
 		d = Document('Sample', sample['sample_no'])
 		d.priority = sample['priority']
@@ -135,7 +139,7 @@ def sample_query(doctype, txt, searchfield, start, page_len, filters):
 		and %(key)s like '%(txt)s'"""%{'key':searchfield, 'txt':'%%%s%%'%txt}, debug=1)
 
 
-
+#To go from test allocation to the sample allocation to lab
 @webnotes.whitelist()
 def create_sample_allocation_to_lab(source_name, target_doclist=None):
 	#webnotes.errprint(source_name)

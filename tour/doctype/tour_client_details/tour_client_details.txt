@@ -2,7 +2,7 @@
  {
   "creation": "2014-07-21 13:23:49", 
   "docstatus": 0, 
-  "modified": "2014-08-01 15:37:42", 
+  "modified": "2014-09-06 15:14:53", 
   "modified_by": "Administrator", 
   "owner": "Administrator"
  }, 
@@ -58,7 +58,7 @@
   "doctype": "DocField", 
   "fieldname": "client_requirement", 
   "fieldtype": "Small Text", 
-  "label": "Client Requirement/Purpose of Visit"
+  "label": "Client Requirement/Purpose Of Visit"
  }, 
  {
   "doctype": "DocField", 
@@ -72,6 +72,6 @@
   "fieldname": "approx_advance_expense", 
   "fieldtype": "Float", 
   "in_list_view": 1, 
-  "label": "Approx Advance Expense"
+  "label": "Approximate Advance Expense"
  }
 ]

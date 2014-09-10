@@ -884,15 +884,14 @@ return_map = {
 }
 
 
-#Mapping Stock Entry To Sample Entry 
+#Mapping Stock Entry To Sample Entry interface 
 @webnotes.whitelist()
 def make_sample_entry(source_name, target_doclist=None):
 	return _make_sample_entry(source_name, target_doclist)
 
 def _make_sample_entry(source_name, target_doclist=None, ignore_permissions=False):
 	from webnotes.model.mapper import get_mapped_doclist
-	#mi=webnotes.conn.sql("select qty,serial_no from `tabStock Entry Detail` where parent='"+source_name+"'")
-	# For Field Mapping From Previous doctype to next doctype
+	
 	def postprocess(source, doclist):
 		doclist[0].inward_stock_entry = source_name
 		# doclist[0].bottle_no= mi[0][0]
@@ -909,33 +908,6 @@ def _make_sample_entry(source_name, target_doclist=None, ignore_permissions=Fals
 	},target_doclist, postprocess)
 
 	return [d.fields for d in doclist]
-
-# @webnotes.whitelist()
-# def make_sample_id(source_name, target_doclist=None):
-# 	#ebnotes.errprint(args)
-# 	return _make_sample_id(source_name, target_doclist)
-
-# def _make_sample_id(source_name, target_doclist=None, ignore_permissions=False):
-# 	from webnotes.model.mapper import get_mapped_doclist
-# 	mi=webnotes.conn.sql("select material_inward from `tabStock Entry` where name='"+source_name+"'")
-# 	#webnotes.errprint(mi)
-# 	# For Field Mapping From Previous doctype to next doctype
-# 	def postprocess(source, doclist):
-# 		doclist[0].stock_e = source_name
-# 		doclist[0].material_in = mi[0][0]
-		
-# 	doclist = get_mapped_doclist("Stock Entry", source_name, {
-# 			"Stock Entry": {
-# 				"doctype": "Sample Creation", 
-								
-# 				"validation": {
-# 					"docstatus": ["=", 1]
-# 				}
-# 			}
-# 	},target_doclist, postprocess)
-
-# 	return [d.fields for d in doclist]
-
 
 
 @webnotes.whitelist()

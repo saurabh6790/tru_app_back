@@ -2,7 +2,7 @@
  {
   "creation": "2014-07-21 12:08:42", 
   "docstatus": 0, 
-  "modified": "2014-08-01 16:02:17", 
+  "modified": "2014-09-06 17:24:08", 
   "modified_by": "Administrator", 
   "owner": "Administrator"
  }, 
@@ -11,6 +11,7 @@
   "custom": 0, 
   "doctype": "DocType", 
   "document_type": "Transaction", 
+  "icon": "icon-file-text", 
   "is_submittable": 1, 
   "module": "Tour", 
   "name": "__common__"
@@ -24,7 +25,6 @@
   "permlevel": 0
  }, 
  {
-  "amend": 1, 
   "cancel": 1, 
   "create": 1, 
   "doctype": "DocPerm", 
@@ -34,8 +34,6 @@
   "parenttype": "DocType", 
   "permlevel": 0, 
   "read": 1, 
-  "report": 1, 
-  "role": "All", 
   "submit": 1, 
   "write": 1
  }, 
@@ -109,6 +107,33 @@
   "read_only": 1
  }, 
  {
-  "doctype": "DocPerm"
+  "amend": 1, 
+  "doctype": "DocPerm", 
+  "report": 1, 
+  "role": "Administrator"
+ }, 
+ {
+  "amend": 1, 
+  "doctype": "DocPerm", 
+  "report": 1, 
+  "role": "Employee"
+ }, 
+ {
+  "amend": 0, 
+  "doctype": "DocPerm", 
+  "report": 0, 
+  "role": "Sales Manager"
+ }, 
+ {
+  "doctype": "DocPerm", 
+  "role": "Lab Incharge"
+ }, 
+ {
+  "doctype": "DocPerm", 
+  "role": "Shift Incharge"
+ }, 
+ {
+  "doctype": "DocPerm", 
+  "role": "All"
  }
 ]

@@ -104,9 +104,10 @@ class DocType(DocListController, WebsiteGenerator):
 
 
 	def check_warehouse_is_set_for_stock_item(self):
-		if self.doc.is_stock_item=="Yes" and not self.doc.default_warehouse:
+		if self.doc.is_stock_item=="Yes" and not self.doc.default_warehouse and self.doc.is_test=='No':
 			webnotes.msgprint(_("Default Warehouse is mandatory for Stock Item."),
 				raise_exception=WarehouseNotSet)
+		
 			
 	def add_default_uom_in_conversion_factor_table(self):
 		uom_conv_list = [d.uom for d in self.doclist.get({"parentfield": "uom_conversion_details"})]
