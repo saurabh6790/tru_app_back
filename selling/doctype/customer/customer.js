@@ -72,7 +72,7 @@ cur_frm.cscript.setup_dashboard = function(doc) {
 	cur_frm.dashboard.add_doctype_badge("Opportunity", "customer");
 	cur_frm.dashboard.add_doctype_badge("Quotation", "customer");
 	cur_frm.dashboard.add_doctype_badge("Sales Order", "customer");
-	cur_frm.dashboard.add_doctype_badge("Delivery Note", "customer");
+	//cur_frm.dashboard.add_doctype_badge("Delivery Note", "customer");
 	cur_frm.dashboard.add_doctype_badge("Sales Invoice", "customer");
 	
 	return wn.call({

@@ -15,3 +15,14 @@ cur_frm.cscript.update_totals = function(doc) {
 	
 	refresh_many(['total_expenses']);
 }
+
+cur_frm.cscript.date = function(doc,cdt,cdn){
+	var d= locals[cdt][cdn];
+	console.log("in date trigger");
+	if((d.date <= doc.to_date && d.date >= doc.from_date)){
+		//console.log("ok");
+	} 
+	else{
+		msgprint("Mentioned Date must be between From Date & To Date");
+	}
+}

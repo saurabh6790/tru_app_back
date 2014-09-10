@@ -2,7 +2,7 @@
  {
   "creation": "2013-05-03 10:45:46", 
   "docstatus": 0, 
-  "modified": "2014-09-02 15:00:19", 
+  "modified": "2014-09-09 16:29:46", 
   "modified_by": "Administrator", 
   "owner": "Administrator"
  }, 
@@ -130,6 +130,7 @@
   "doctype": "DocField", 
   "fieldname": "barcode", 
   "fieldtype": "Data", 
+  "hidden": 1, 
   "label": "Barcode", 
   "read_only": 0
  }, 

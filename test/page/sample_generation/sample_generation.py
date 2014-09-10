@@ -9,6 +9,7 @@ def get_tasnformer():
 	'transfromer_id' : [d[0] for d in webnotes.conn.sql("""select name from tabTransformer""")]
 	}
 
+#sorting asc,desc,Depending on functional location
 @webnotes.whitelist()
 def save_sorting_order(parent=None, parent1=None, parent2=None, parent3=None):
 	global sorting_dict 
@@ -16,8 +17,9 @@ def save_sorting_order(parent=None, parent1=None, parent2=None, parent3=None):
 		sorting_dict[parent] = parent1
 	if parent2:
 		sorting_dict[parent2] = parent3
-	webnotes.errprint(sorting_dict)
+	#webnotes.errprint(sorting_dict)
 
+#select sample entries for which we not create sampe number 
 @webnotes.whitelist()
 def get_sample_entries(date, transfromer):
 	conditions = get_conditions(date, transfromer)
@@ -61,6 +63,8 @@ def get_sorting_order():
 	if sort_list:
 		return ' order by ' + ', '.join(sort_list)
 
+
+#Select sample entry data functional location,plant,substation
 def get_sample_entries_data(conditions, sort_order):
 	if not conditions:
 		conditions = ''
@@ -73,6 +77,8 @@ def get_sample_entries_data(conditions, sort_order):
 				where ifnull(docstatus,'') != 2 and ifnull(is_sample_generated,'No') != 'Yes'
 				%(conditions)s %(sort_order)s """%{"conditions": conditions, 'sort_order': sort_order}, as_dict=1, debug=1)
 
+
+#Generate unique sample number aginst sample entry
 @webnotes.whitelist()
 def sample_generation(sample_entries):
 	sample_entries = eval(sample_entries)	
@@ -82,6 +88,7 @@ def sample_generation(sample_entries):
 		'sample_entries':sample_entries
 	}
 
+#Create document for sample table i.e record for new generated sample number
 def generate_sample(sample):
 	from webnotes.model.doc import Document
 	d = Document('Sample')
@@ -93,11 +100,15 @@ def generate_sample(sample):
 	update_sample_entry(sample['name'])
 	update_sample(sample, d.name)
 
+
+	
+#To check whether sample number is generated against the sample entry or not
 def update_sample_entry(sample_entry_name):
 	webnotes.conn.sql("""update `tabSample Entry` 
 							set is_sample_generated = 'Yes' 
 						where name = '%s'"""%(sample_entry_name),debug=1)
 	webnotes.conn.sql("commit")
+
 
 def update_sample(sample, sample_id):
 	sample['sample_id'] = sample_id

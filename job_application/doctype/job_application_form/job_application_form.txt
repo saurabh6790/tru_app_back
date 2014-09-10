@@ -2,7 +2,7 @@
  {
   "creation": "2014-08-23 15:06:48", 
   "docstatus": 0, 
-  "modified": "2014-08-26 18:52:48", 
+  "modified": "2014-09-06 15:27:11", 
   "modified_by": "Administrator", 
   "owner": "Administrator"
  }, 
@@ -157,6 +157,7 @@
   "permlevel": 0
  }, 
  {
+  "description": "'+' Option to attach image will be enable after saving form", 
   "doctype": "DocField", 
   "fieldname": "image", 
   "fieldtype": "Select", 

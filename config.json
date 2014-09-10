@@ -90,7 +90,7 @@
   },
  "Job Application": {
    "color": "#1abc9c", 
-   "icon": "icon-camera", 
+   "icon": "icon-folder-close", 
    "link": "job-application", 
    "type": "module"
   }, 
@@ -108,7 +108,7 @@
   },
   "Tour": {
    "color": "#1abc9c", 
-   "icon": "icon-camera", 
+   "icon": "icon-suitcase", 
    "link": "tour", 
    "type": "module"
   }

@@ -247,7 +247,7 @@ erpnext.stock.StockEntry = erpnext.stock.StockController.extend({
 		}
 	},
 
-	//for calling method form py file
+	//for calling method form py file on clicking on button make sample
 	make_sample_entry: function() {
 		wn.model.open_mapped_doc({
 			method: "stock.doctype.stock_entry.stock_entry.make_sample_entry",
@@ -256,17 +256,7 @@ erpnext.stock.StockEntry = erpnext.stock.StockController.extend({
 		})
 	},
 
-	// make_sample_id: function() {
-	// 	wn.model.open_mapped_doc({
-	// 		method: "stock.doctype.stock_entry.stock_entry.make_sample_id",
-	// 		source_name: cur_frm.doc.name
-	// 		// args: {
-	// 		// 		"source_name": cur_frm.doc.name, 
-	// 		// 		"material": cur_frm.doc.material_inward
-	// 		// 	},
-	// 	})
-	// },
-
+	
 	mtn_details_add: function(doc, cdt, cdn) {
 		var row = wn.model.get_doc(cdt, cdn);
 		this.frm.script_manager.copy_from_first_row("mtn_details", row, 

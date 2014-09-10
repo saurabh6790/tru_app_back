@@ -10,8 +10,11 @@ from webnotes.model.doc import get, Document
 
 class DocType:
 	def __init__(self, d, dl):
-		self.doc, self.doclist = d, dl
-		
+		self.doc, self.doclist = d, 
+
+
+
+	#to create sample entry document from sample entry interface on clicking generate sample entry button
 	def generate_sample_entry(self):
 		#count=count+1
 		if self.doc.functional_location :
@@ -25,6 +28,8 @@ class DocType:
 		else:
 			webnotes.msgprint("Mandatory fields are required to create sample entry")
 
+
+	# add multiple bottle number
 	def add_bottle_no(self,bottle):
 		if self.doc.bottle_list:
 			bottle_list = self.doc.bottle_list + ', ' + bottle
@@ -35,6 +40,7 @@ class DocType:
 		}
 
 
+# To select if functional location is avilable or not against the customer which is involve din the inward entry which number is currently present on sample entry
 def get_functional_location(doctype, txt, searchfield, start, page_len, filters):
 	#webnotes.errprint([filters])
 	return 	webnotes.conn.sql("""select functional_location from `tabTransformer` 

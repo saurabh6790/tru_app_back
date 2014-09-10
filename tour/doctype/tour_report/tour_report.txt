@@ -2,7 +2,7 @@
  {
   "creation": "2014-07-21 14:18:21", 
   "docstatus": 0, 
-  "modified": "2014-08-01 15:57:49", 
+  "modified": "2014-09-06 17:23:59", 
   "modified_by": "Administrator", 
   "owner": "Administrator"
  }, 
@@ -10,6 +10,7 @@
   "autoname": "TRR.#####", 
   "doctype": "DocType", 
   "document_type": "Transaction", 
+  "icon": "icon-file-text", 
   "module": "Tour", 
   "name": "__common__"
  }, 
@@ -50,22 +51,24 @@
   "doctype": "DocField", 
   "fieldname": "from_date", 
   "fieldtype": "Date", 
-  "label": "From Date"
+  "label": "From Date", 
+  "read_only": 1
  }, 
  {
   "doctype": "DocField", 
   "fieldname": "to_date", 
   "fieldtype": "Date", 
-  "label": "To Date"
+  "label": "To Date", 
+  "read_only": 1
  }, 
  {
   "doctype": "DocField", 
   "fieldname": "daywise_reports", 
   "fieldtype": "Section Break", 
-  "label": "Daywise Reports"
+  "label": "Daywise Tour Report"
  }, 
  {
-  "description": "Daywise Reports about tours", 
+  "description": "Daywise Reports Of Tours", 
   "doctype": "DocField", 
   "fieldname": "tour_daily_report", 
   "fieldtype": "Table", 

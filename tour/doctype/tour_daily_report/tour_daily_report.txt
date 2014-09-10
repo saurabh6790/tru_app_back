@@ -2,7 +2,7 @@
  {
   "creation": "2014-07-21 14:13:07", 
   "docstatus": 0, 
-  "modified": "2014-08-01 15:56:48", 
+  "modified": "2014-09-06 11:18:34", 
   "modified_by": "Administrator", 
   "owner": "Administrator"
  }, 
@@ -46,7 +46,8 @@
   "fieldtype": "Link", 
   "in_list_view": 1, 
   "label": "Client Name", 
-  "options": "Customer"
+  "options": "Customer", 
+  "read_only": 1
  }, 
  {
   "doctype": "DocField", 
@@ -54,7 +55,8 @@
   "fieldtype": "Link", 
   "in_list_view": 1, 
   "label": "Contact Person", 
-  "options": "Contact"
+  "options": "Contact", 
+  "read_only": 1
  }, 
  {
   "doctype": "DocField", 
@@ -79,7 +81,8 @@
   "doctype": "DocField", 
   "fieldname": "client_requirement", 
   "fieldtype": "Small Text", 
-  "label": "Client Requirement/Purpose of Visit"
+  "label": "Client Requirement/Purpose Of Visit", 
+  "read_only": 1
  }, 
  {
   "doctype": "DocField", 
