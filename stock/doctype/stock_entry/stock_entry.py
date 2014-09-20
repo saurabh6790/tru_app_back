@@ -32,11 +32,11 @@ class DocType(StockController):
 		self.fname = 'mtn_details' 
 
 	def on_update(self):
-		#webnotes.errprint(self.doc.flag)	
+		webnotes.errprint(self.doc.flag)	
 		if self.doc.flag=='0' and self.doc.electronically_approved_by_1 and self.doc.electronically_approved_by_2:
 		   
 			msg="Hello,Stock Entry Form '"+self.doc.name+"'is assigned to you please check ToDo List"
-			#webnotes.errprint(msg)
+			webnotes.errprint(msg)
 			self.send_email(self.doc.electronically_approved_by_1,msg)
 			self.send_email(self.doc.electronically_approved_by_2,msg)
 			self.doc.flag='1'
@@ -45,6 +45,7 @@ class DocType(StockController):
 
 	# Send Email Function	
 	def send_email(self,email,msg):
+		webnotes.errprint("in email")
 		from webnotes.utils.email_lib import sendmail
 		sendmail(email, subject="Inward/Outward Entry Details", msg = msg)
 

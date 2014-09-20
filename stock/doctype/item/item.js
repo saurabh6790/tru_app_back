@@ -206,25 +206,25 @@ cur_frm.cscript.validate = function(doc,cdt,cdn) {
 } 
 
 cur_frm.cscript.update_totals = function(doc) {
-	console.log("in the update total");
+	//console.log("in the update total");
 	var td=0.0;
 	var el = getchildren('Test Details', doc.name, 'test_detail');
 	for(var i in el) {
-		console.log(el[i].test_rate)
+		//console.log(el[i].test_rate)
 		td += flt(el[i].test_rate,2);
 		
 	}
 
 	var doc = locals[doc.doctype][doc.name];
 	doc.total_rate = td;
-	console.log(doc.total_rate);
+	//console.log(doc.total_rate);
 	refresh_many(['total_rate']);
 }
 
 
-cur_frm.cscript.test_rate = function(doc,cdt,cdn){
-	//console.log("rate");
-	var d = locals[cdt][cdn];
-	if(d.test_rate<=0)
-		msgprint("Rate must be gretaer then zero");
-}
+// cur_frm.cscript.test_rate = function(doc,cdt,cdn){
+// 	//console.log("rate");
+// 	var d = locals[cdt][cdn];
+// 	if(d.test_rate<=0)
+// 		msgprint("Rate must be gretaer then zero");
+// }

@@ -2,7 +2,7 @@
  {
   "creation": "2013-03-07 09:04:18", 
   "docstatus": 0, 
-  "modified": "2014-08-25 12:16:22", 
+  "modified": "2014-09-11 17:22:34", 
   "modified_by": "Administrator", 
   "owner": "Administrator"
  }, 
@@ -226,16 +226,6 @@
   "search_index": 0
  }, 
  {
-  "description": "Applicable Holiday List", 
-  "doctype": "DocField", 
-  "fieldname": "holiday_list", 
-  "fieldtype": "Link", 
-  "label": "Holiday List", 
-  "oldfieldname": "holiday_list", 
-  "oldfieldtype": "Link", 
-  "options": "Holiday List"
- }, 
- {
   "doctype": "DocField", 
   "fieldname": "col_break_22", 
   "fieldtype": "Column Break"
@@ -325,6 +315,12 @@
  }, 
  {
   "doctype": "DocField", 
+  "fieldname": "branch_address", 
+  "fieldtype": "Small Text", 
+  "label": "Branch Address"
+ }, 
+ {
+  "doctype": "DocField", 
   "fieldname": "department", 
   "fieldtype": "Link", 
   "in_filter": 1, 
@@ -336,37 +332,17 @@
  }, 
  {
   "doctype": "DocField", 
+  "fieldname": "sub_department", 
+  "fieldtype": "Data", 
+  "label": "Sub-Department"
+ }, 
+ {
+  "doctype": "DocField", 
   "fieldname": "reporting_manager", 
   "fieldtype": "Link", 
   "hidden": 1, 
   "label": "Reporting Manager", 
   "options": "Employee"
- }, 
- {
-  "doctype": "DocField", 
-  "fieldname": "absence_incharge", 
-  "fieldtype": "Link", 
-  "label": "Absence Incharge", 
-  "options": "Employee"
- }, 
- {
-  "description": "Provide email id registered in company", 
-  "doctype": "DocField", 
-  "fieldname": "company_email", 
-  "fieldtype": "Data", 
-  "in_filter": 1, 
-  "label": "Company Email", 
-  "oldfieldname": "company_email", 
-  "oldfieldtype": "Data", 
-  "reqd": 0
- }, 
- {
-  "doctype": "DocField", 
-  "fieldname": "notice_number_of_days", 
-  "fieldtype": "Int", 
-  "label": "Notice (days)", 
-  "oldfieldname": "notice_number_of_days", 
-  "oldfieldtype": "Int"
  }, 
  {
   "doctype": "DocField", 
@@ -444,6 +420,17 @@
   "oldfieldtype": "Data"
  }, 
  {
+  "description": "Applicable Holiday List corresponding to the 'Branch'", 
+  "doctype": "DocField", 
+  "fieldname": "holiday_list", 
+  "fieldtype": "Link", 
+  "label": "Holiday List", 
+  "oldfieldname": "holiday_list", 
+  "oldfieldtype": "Link", 
+  "options": "Holiday List", 
+  "read_only": 1
+ }, 
+ {
   "doctype": "DocField", 
   "fieldname": "pf_number", 
   "fieldtype": "Data", 
@@ -458,6 +445,32 @@
   "label": "Gratuity LIC ID", 
   "oldfieldname": "gratuity_lic_id", 
   "oldfieldtype": "Data"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "absence_incharge", 
+  "fieldtype": "Link", 
+  "label": "Absence Incharge", 
+  "options": "Employee"
+ }, 
+ {
+  "description": "Provide email id registered in company", 
+  "doctype": "DocField", 
+  "fieldname": "company_email", 
+  "fieldtype": "Data", 
+  "in_filter": 1, 
+  "label": "Company Email", 
+  "oldfieldname": "company_email", 
+  "oldfieldtype": "Data", 
+  "reqd": 0
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "notice_number_of_days", 
+  "fieldtype": "Int", 
+  "label": "Notice (days)", 
+  "oldfieldname": "notice_number_of_days", 
+  "oldfieldtype": "Int"
  }, 
  {
   "doctype": "DocField", 

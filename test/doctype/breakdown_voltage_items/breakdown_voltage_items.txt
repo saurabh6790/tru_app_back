@@ -2,7 +2,7 @@
  {
   "creation": "2014-04-03 15:18:04", 
   "docstatus": 0, 
-  "modified": "2014-04-28 16:50:01", 
+  "modified": "2014-09-15 11:03:51", 
   "modified_by": "Administrator", 
   "owner": "Administrator"
  }, 
@@ -35,24 +35,28 @@
   "doctype": "DocField", 
   "fieldname": "break_1", 
   "fieldtype": "Data", 
+  "hidden": 1, 
   "label": "Break 1"
  }, 
  {
   "doctype": "DocField", 
   "fieldname": "break_2", 
   "fieldtype": "Data", 
+  "hidden": 1, 
   "label": "Break 2"
  }, 
  {
   "doctype": "DocField", 
   "fieldname": "break_3", 
   "fieldtype": "Data", 
+  "hidden": 1, 
   "label": "Break 3"
  }, 
  {
   "doctype": "DocField", 
   "fieldname": "break_4", 
   "fieldtype": "Data", 
+  "hidden": 1, 
   "label": "Break 4"
  }, 
  {

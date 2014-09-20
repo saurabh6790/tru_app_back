@@ -2,7 +2,7 @@
  {
   "creation": "2014-04-03 15:11:46", 
   "docstatus": 0, 
-  "modified": "2014-07-16 12:15:32", 
+  "modified": "2014-09-16 14:32:27", 
   "modified_by": "Administrator", 
   "owner": "Administrator"
  }, 
@@ -25,7 +25,6 @@
  }, 
  {
   "cancel": 1, 
-  "create": 1, 
   "doctype": "DocPerm", 
   "name": "__common__", 
   "parent": "Breakdown Voltage", 
@@ -99,7 +98,8 @@
   "fieldname": "sample_no", 
   "fieldtype": "Link", 
   "label": "Sample No", 
-  "options": "Sample"
+  "options": "Sample", 
+  "read_only": 1
  }, 
  {
   "doctype": "DocField", 
@@ -283,24 +283,29 @@
  }, 
  {
   "amend": 1, 
+  "create": 1, 
   "doctype": "DocPerm", 
   "report": 1, 
   "role": "Administrator"
  }, 
  {
+  "create": 0, 
   "doctype": "DocPerm", 
   "role": "Employee"
  }, 
  {
+  "create": 1, 
   "doctype": "DocPerm", 
   "role": "Shift Incharge"
  }, 
  {
+  "create": 1, 
   "doctype": "DocPerm", 
   "role": "Lab Incharge"
  }, 
  {
   "amend": 1, 
+  "create": 0, 
   "doctype": "DocPerm", 
   "report": 1, 
   "role": "Tester"

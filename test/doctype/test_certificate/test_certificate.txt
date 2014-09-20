@@ -2,7 +2,7 @@
  {
   "creation": "2014-05-16 09:02:13", 
   "docstatus": 0, 
-  "modified": "2014-07-02 16:33:18", 
+  "modified": "2014-09-18 15:16:24", 
   "modified_by": "Administrator", 
   "owner": "Administrator"
  }, 
@@ -56,9 +56,9 @@
  }, 
  {
   "doctype": "DocField", 
-  "fieldname": "dated", 
+  "fieldname": "date", 
   "fieldtype": "Date", 
-  "label": "Dated"
+  "label": "Date"
  }, 
  {
   "doctype": "DocField", 
@@ -120,7 +120,7 @@
   "doctype": "DocField", 
   "fieldname": "point_of_sample", 
   "fieldtype": "Link", 
-  "label": "Point of Sample", 
+  "label": "Point Of Sample", 
   "options": "Point Of Sample"
  }, 
  {
@@ -140,7 +140,7 @@
   "doctype": "DocField", 
   "fieldname": "rating", 
   "fieldtype": "Data", 
-  "label": "Rating (in KVA)"
+  "label": "Rating (In KVA)"
  }, 
  {
   "doctype": "DocField", 
@@ -151,7 +151,7 @@
   "doctype": "DocField", 
   "fieldname": "ratio", 
   "fieldtype": "Data", 
-  "label": "Ratio (in volts)"
+  "label": "Ratio (In Volts)"
  }, 
  {
   "doctype": "DocField", 

@@ -2,7 +2,7 @@
  {
   "creation": "2014-06-13 15:58:27", 
   "docstatus": 0, 
-  "modified": "2014-08-13 12:30:13", 
+  "modified": "2014-09-20 16:08:08", 
   "modified_by": "Administrator", 
   "owner": "Administrator"
  }, 
@@ -115,7 +115,8 @@
   "fieldname": "sample_no", 
   "fieldtype": "Link", 
   "label": "Sample No", 
-  "options": "Sample"
+  "options": "Sample", 
+  "read_only": 1
  }, 
  {
   "doctype": "DocField", 
@@ -132,7 +133,8 @@
   "doctype": "DocField", 
   "fieldname": "temperature", 
   "fieldtype": "Data", 
-  "label": "temperature", 
+  "hidden": 1, 
+  "label": "Temperature", 
   "read_only": 1
  }, 
  {
@@ -173,7 +175,7 @@
   "doctype": "DocField", 
   "fieldname": "di_infrared_spectrophotometry", 
   "fieldtype": "Data", 
-  "label": "2,6 Di-Tert-Butyl-Paracresol By Infrared Spectrophotometry % by mass", 
+  "label": "2,6 Di-Tert-Butyl-Paracresol By Infrared Spectrophotometry % By Mass", 
   "reqd": 1
  }, 
  {

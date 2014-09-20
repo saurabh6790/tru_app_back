@@ -2,7 +2,7 @@
  {
   "creation": "2014-05-02 14:38:32", 
   "docstatus": 0, 
-  "modified": "2014-06-23 09:59:26", 
+  "modified": "2014-09-18 15:13:34", 
   "modified_by": "Administrator", 
   "owner": "Administrator"
  }, 
@@ -216,7 +216,7 @@
   "doctype": "DocField", 
   "fieldname": "year_of_mfg", 
   "fieldtype": "Data", 
-  "label": "Year of Mfg", 
+  "label": "Year Of Mfg", 
   "read_only": 1
  }, 
  {

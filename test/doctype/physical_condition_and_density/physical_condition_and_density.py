@@ -20,12 +20,13 @@ class DocType:
 		#Assign To Function
 		#self.assign_physical_density_test();
 		self.update_status()
-		# webnotes.errprint([self.get_density_temp()])
+		#webnotes.errprint(self.doc.temperature)
 		temp,density=self.get_density_temp()
 		if density:
 			self.doc.density_data=density
 			self.doc.temperature_data=temp
-			self.doc.final_density=self.generate_testresult(temp,density,self.doc.temperature)
+			#self.doc.final_density=self.generate_testresult(temp,density,self.doc.temperature)
+			#webnotes.errprint(self.doc.final_density)
 			self.doc.save()
 
 		verfy_bottle_number(self.doc.sample_no, self.doc.bottle_no)
@@ -80,9 +81,9 @@ class DocType:
 			parent=create_test_results(test_detail)
 
 			if density:
-				# final_density=self.generate_testresult(temp,density,self.doc.temparature)
-				#webnotes.errprint(self.doc.final_density)
-				create_child_testresult(parent,self.doc.final_density,test_detail,'Density in gm/cm3')
+				final_density=self.generate_testresult(temp,density,self.doc.temperature)
+				#webnotes.errprint(final_density)
+				create_child_testresult(parent,final_density,test_detail,'Density in gm/cm3')
 
 	
 
@@ -116,9 +117,15 @@ class DocType:
 			return None, None
 
 	def generate_testresult(self,temp,density,temp_on_job_card):
-		cal=cstr(cint(1)+(0.00065*flt((flt(temp)-flt(temp_on_job_card)))))
-		# webnotes.errprint(cal)
-		# webnotes.errprint(flt(density)*flt(cal))
+		#webnotes.errprint("in generate_testresult")
+		#webnotes.errprint(temp)
+		#webnotes.errprint(density)
+		#webnotes.errprint(temp_on_job_card)
+		cal1=(0.00065*flt((flt(temp)-flt(temp_on_job_card))))
+		#webnotes.errprint(cal1)
+		cal=cstr(cint(1)+flt(cal1))
+		#webnotes.errprint(cal)
+		#webnotes.errprint(flt(density)*flt(cal))
 		return cstr(flt(density)*flt(cal))
 
 	def check_final_result(self):

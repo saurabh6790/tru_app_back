@@ -2,7 +2,7 @@
  {
   "creation": "2014-06-03 15:33:10", 
   "docstatus": 0, 
-  "modified": "2014-08-27 16:15:47", 
+  "modified": "2014-09-15 12:07:41", 
   "modified_by": "Administrator", 
   "owner": "Administrator"
  }, 
@@ -252,7 +252,7 @@
   "doctype": "DocField", 
   "fieldname": "date", 
   "fieldtype": "Date", 
-  "label": "Date of Sample Collected", 
+  "label": "Date Of Sample Collected", 
   "read_only": 1
  }, 
  {
@@ -491,7 +491,7 @@
   "doctype": "DocField", 
   "fieldname": "relative_humidity", 
   "fieldtype": "Data", 
-  "label": "Relative humidity"
+  "label": "Relative Humidity"
  }, 
  {
   "doctype": "DocField", 
@@ -613,7 +613,7 @@
   "doctype": "DocField", 
   "fieldname": "transformer_impreesion", 
   "fieldtype": "Data", 
-  "label": "Vision impression Of The Transformer"
+  "label": "Vision Impression Of The Transformer"
  }, 
  {
   "doctype": "DocField", 

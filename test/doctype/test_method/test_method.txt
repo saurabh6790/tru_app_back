@@ -2,7 +2,7 @@
  {
   "creation": "2014-05-16 10:18:42", 
   "docstatus": 0, 
-  "modified": "2014-07-04 13:20:41", 
+  "modified": "2014-09-15 15:39:39", 
   "modified_by": "Administrator", 
   "owner": "Administrator"
  }, 
@@ -88,5 +88,11 @@
   "doctype": "DocPerm", 
   "role": "Tester", 
   "write": 0
+ }, 
+ {
+  "create": 1, 
+  "doctype": "DocPerm", 
+  "role": "Employee", 
+  "write": 1
  }
 ]

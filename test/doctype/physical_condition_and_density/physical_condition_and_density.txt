@@ -2,7 +2,7 @@
  {
   "creation": "2014-05-15 12:07:10", 
   "docstatus": 0, 
-  "modified": "2014-08-13 12:27:28", 
+  "modified": "2014-09-20 16:03:29", 
   "modified_by": "Administrator", 
   "owner": "Administrator"
  }, 
@@ -54,6 +54,7 @@
   "fieldtype": "Link", 
   "label": "Sample No", 
   "options": "Sample", 
+  "read_only": 1, 
   "reqd": 1
  }, 
  {
@@ -61,7 +62,7 @@
   "fieldname": "temperature", 
   "fieldtype": "Data", 
   "label": "Temperature", 
-  "read_only": 0
+  "read_only": 1
  }, 
  {
   "doctype": "DocField", 
@@ -314,7 +315,7 @@
   "doctype": "DocField", 
   "fieldname": "final_density", 
   "fieldtype": "Data", 
-  "hidden": 1, 
+  "hidden": 0, 
   "label": "Final Density"
  }, 
  {

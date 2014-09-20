@@ -15,6 +15,27 @@ class DocType:
 	 		where name='%s'"""%(self.doc.name, self.doc.name))
 		webnotes.conn.sql('commit')	
 
+	def get_opening_date(self):
+		from datetime import datetime
+		webnotes.errprint(self.doc.opening_date)
+		a = datetime.strptime(self.doc.opening_date, "%y-%m-%d")
+		webnotes.errprint(a)
+		# b = datetime.strptime(self.doc.submission_date, "%yy-%mm-%dd")
+		# if a<b:
+		# 	webnotes.errprint(a)
+		# else:
+		# 	webnotes.errprint(b)
+
+	def validate(self):
+		self.validate_estimatedcost()
+
+
+
+	def validate_estimatedcost(self):
+		if self.doc.estimated_cost:
+			if self.doc.estimated_cost<=0:
+				webnotes.msgprint("Estimated cost of tender must be greater than zero",raise_exception=1)
+
 
 
 

@@ -25,38 +25,28 @@ cur_frm.cscript.normality=function(doc, cdt, cdn){
 
 
 cur_frm.cscript.temperature_of_oil= function(doc, cdt, cdn) {
-   var d = locals[cdt][cdn];
-   if(d.temperature_of_oil && d.physical_condition_density){
-    args={
-      
-        "temp":d.temperature_of_oil,
-        "temperature_data":d.temperature_data,
-        "density":d.density_data
-      }
+  calculate_result(doc,cdt,cdn)
 
-   	return get_server_fields('get_density_details',JSON.stringify(args), 'neutralisation_test_details', doc, cdt, cdn, 1)
-  }
 }
 
+cur_frm.cscript.volume_of_oil= function(doc, cdt, cdn) {
+  calculate_result(doc,cdt,cdn)
+
+}
+  
 
 cur_frm.cscript.ml_consumes_of_alkoh= function(doc, cdt, cdn) {
-   var d = locals[cdt][cdn];
+  var d = locals[cdt][cdn];
    if(d.ml_consumes_of_alkoh && d.volume_of_oil && d.temperature_of_oil && doc.normality_of_koh){
-   	if(d.ml_consumes_of_alkoh){
-   	args={
-    		//"temp":d.temparature,
-    		"alkoh":d.ml_consumes_of_alkoh,
-    		"temp":d.temperature_of_oil,
-    		"volume":d.volume_of_oil,
-    		"density":d.density_of_oil
-    	}
+          calculate_result(doc,cdt,cdn)
 
-   	return get_server_fields('get_neutralisation_details',JSON.stringify(args), 'neutralisation_test_details', doc, cdt, cdn, 1)
-   }
+
 	}
    else
-   	msgprint("To calculate Neutralisation Value all the mandatory fields from main form & from child table must be filled");
+   	  msgprint("To calculate Neutralisation Value all the mandatory fields from main form & from child table must be filled");
 }
+
+
 
 
 cur_frm.get_field("normality").get_query=function(doc,cdt,cdn){
@@ -137,6 +127,43 @@ cur_frm.fields_dict.neutralisation_test_details.grid.get_field("physical_conditi
   else
     msgprint("Sample Number field for selecting physical condition & density");
 }
+
+calculate_result =function(doc,cdt,cdn){
+  //console.log("in calculate result")
+  var d = locals[cdt][cdn];
+  if(d.physical_condition_density){
+    cal=((1)+(0.00065*(d.temperature_data-d.temperature_of_oil)))
+    density= (d.density_data*cal)
+    //console.log(density);
+    d.density_of_oil=density
+    refresh_field('density_of_oil',d.name,'neutralisation_test_details')
+    cal1=(56.1*(d.ml_consumes_of_alkoh* doc.normality_of_koh))
+    //console.log(cal1);
+    neutralisation=(cal1/(d.density_of_oil*d.volume_of_oil))
+    //console.log(neutralisation);
+    d.reported_value= neutralisation
+    refresh_field('reported_value',d.name,'neutralisation_test_details')
+
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 // cur_frm.fields_dict['sample_no'].get_query=function(doc,cdt,cdn)
 // { 
 //   return{

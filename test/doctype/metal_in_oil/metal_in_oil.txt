@@ -2,7 +2,7 @@
  {
   "creation": "2014-06-13 16:11:34", 
   "docstatus": 0, 
-  "modified": "2014-08-27 11:14:49", 
+  "modified": "2014-09-20 16:08:43", 
   "modified_by": "Administrator", 
   "owner": "Administrator"
  }, 
@@ -125,6 +125,7 @@
   "fieldtype": "Link", 
   "label": "Sample No", 
   "options": "Sample", 
+  "read_only": 1, 
   "reqd": 1
  }, 
  {
@@ -142,6 +143,7 @@
   "doctype": "DocField", 
   "fieldname": "temperature", 
   "fieldtype": "Data", 
+  "hidden": 1, 
   "label": "Temperature", 
   "read_only": 1
  }, 

@@ -2,7 +2,7 @@
  {
   "creation": "2014-04-03 13:20:26", 
   "docstatus": 0, 
-  "modified": "2014-07-16 12:15:49", 
+  "modified": "2014-09-16 14:32:52", 
   "modified_by": "Administrator", 
   "owner": "Administrator"
  }, 
@@ -101,6 +101,7 @@
   "fieldtype": "Link", 
   "label": "Sample No", 
   "options": "Sample", 
+  "read_only": 1, 
   "reqd": 1
  }, 
  {
@@ -228,9 +229,11 @@
   "submit": 1
  }, 
  {
-  "create": 1, 
+  "cancel": 1, 
+  "create": 0, 
   "doctype": "DocPerm", 
   "permlevel": 0, 
+  "report": 1, 
   "role": "Employee", 
   "submit": 1
  }, 
@@ -258,7 +261,7 @@
  {
   "amend": 1, 
   "cancel": 1, 
-  "create": 1, 
+  "create": 0, 
   "doctype": "DocPerm", 
   "permlevel": 0, 
   "report": 1, 

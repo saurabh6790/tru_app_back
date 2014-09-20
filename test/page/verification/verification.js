@@ -253,9 +253,9 @@ wn.TestDetails = Class.extend({
 
 var get_test_list = function(){
 	
-	return ['OST', 'OST R & DIFT','OST  PP  KV  Sediments',
+	return ['OST', 'OST R&D IFT','OST PP KV Sediments',
 		'Dissolve Gas','Furan Content','Aging Test',
-		'P.C.B','inhibitor content','Metal In Oil']
+		'P.C.B','Inhibitor Content','Metal In Oil']
 
 	// return ['Physical Condition And Density', 'Density And Visual Examination',
 	// 	'Resistivity and Dissipation', 'Dissolved Gas Analysis', 'Neutralization Value',
