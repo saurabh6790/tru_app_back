@@ -74,7 +74,7 @@ class DocType:
 					   where sample_no ='%s'""" %(i.sample_no),as_list=1)
 			webnotes.conn.sql("commit")
 			
-
+		
 
 
 	#To change status of sample to 'Assigned' after completing the sample allocation

@@ -41,23 +41,3 @@ cur_frm.cscript.physical_condition_density=function(doc,cdt,cdn){
 
 }
 
-// cur_frm.cscript.refresh=function(doc,cdt,cdn){
-//   if(doc.docstatus == 1) {
-//       cur_frm.add_custom_button(wn._('Calculate Neutralisation Value'),
-//       cur_frm.cscript['Calculation Neutralisation Value']);
-
-//     }
-
-// }
-
-
-
-
-// cur_frm.cscript['Calculation Neutralisation Value'] = function() {
-//   //alert("hi");
-//   wn.model.open_mapped_doc({
-//     method: "test.doctype.moisture_content.moisture_content.calculate_neutralisation_value",
-//     source_name: cur_frm.doc.name
-//   })
-
-// }

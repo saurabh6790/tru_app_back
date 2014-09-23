@@ -31,35 +31,7 @@ class DocType:
 		}
 
 
-	# def assign_pcb_test(self):
-	# 	test_details = {'test': "PCB", 'name': self.doc.name}
-	# 	#webnotes.errprint(test_details)
-	# 	# for assigening ticket to the person of role Shift Incharge in worflow Shift Incharge- Lab Incharge
-	# 	if self.doc.workflow_state=='Waiting For Approval':
-	# 		test_details['incharge'] = self.doc.shift_incharge_approval
-	# 		assign_notify(test_details)
-
-	# 	# for assigening ticket to the person of role Lab Incharge in worflow Shift Incharge- Lab Incharge
-	# 	if self.doc.workflow_state=='Waiting For Approval Of  Lab Incharge':
-	# 		test_details['incharge'] = self.doc.lab_incharge_approval
-	# 		assign_notify(test_details)
-
-	# 	if self.doc.workflow_state=='Rejected':
-	# 		test_details={'workflow_state':self.doc.workflow_state,'sample_no':self.doc.sample_no}
-	# 		assign_notify(test_details)
-
-
-	# def get_barcode(self,sample_no):
-	# 	self.doc.bottle_no=webnotes.conn.get_value('Sample',sample_no,'barcode')
-	# 	return {'bottle_no':self.doc.bottle_no
-
-
-	# def get_test_details(self):
-	# 	webnotes.errprint(self.doc.bottle_no)
-	# 	if self.doc.bottle_no:
-	# 		return{
-	# 			"sample_no":'S0010'
-	# 		}
+	
 	def on_submit(self):
 		pgcil_limit = get_pgcil_limit(self.doc.method)
 		test_detail = {'test': "Furan Content", 'sample_no':self.doc.sample_no,'name': self.doc.name, 'method':self.doc.method, 'pgcil_limit':pgcil_limit}

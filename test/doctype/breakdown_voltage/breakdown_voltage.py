@@ -20,17 +20,7 @@ class DocType:
 		verfy_bottle_number(self.doc.sample_no, self.doc.bottle_no)
 		
 
-			 	
-	# def get_barcode(self,sample_no):
-	# 	self.doc.bottle_no=webnotes.conn.get_value('Sample',sample_no,'barcode')
-	# 	return {'bottle_no':self.doc.bottle_no}
-
-	# def calcualte_voltage(self):
-	# 	webnotes.errprint("in calculate voltage")
-	# 	cal=cstr(self.doc.break_down_temperature*self.doc.break_down_humidity)
-	# 	webnotes.errprint(cal)
-	# 	cal1=cstr(self.doc.break_down_ir* self.doc.break_down_frequency)
-
+	
 
 	def calculate_avg(self):
 		avg_values=webnotes.conn.sql("""select sum(a.temparature)/count(a.temparature),

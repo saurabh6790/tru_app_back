@@ -119,19 +119,9 @@ class DocType:
 
 	def on_submit(self):
 		
-		# if self.doc.workflow_state=='Rejected':
-		# 	#webnotes.errprint(self.doc.workflow_state)
-		# 	update_test_log(test_detail)
-
-		# else:
 		self.create_testresult()
 
-	# def update_status(self):
-	# 	if self.doc.test=='Oxidation Stability':
-	# 		webnotes.conn.sql("update `tabSample Preparation Details` set status='Completed' where sample_no='"+self.doc.sample_no+"' and parent='"+self.doc.test_preparation+"'",debug=1)
-	# 		webnotes.conn.sql("commit")
-
-
+	
 	def add_sample_nos(self):
 		if self.doc.sample_no and self.doc.physical_condition_density:
 			bottle_no= webnotes.conn.sql("select barcode from `tabSample` where name='"+self.doc.sample_no+"'",debug=1)
@@ -141,20 +131,7 @@ class DocType:
 			nl.sample_no =self.doc.sample_no
 			nl.bottle_no=bottle_no[0][0]
 
-		# elif self.doc.test=='Accelerated Aging':
-		# 	sample_details = webnotes.conn.sql("select sample_no,bottle_no from `tabSample Preparation Details` s,`tabTest Preparation` p where s.parent='"+self.doc.test_preparation+"' and p.test='Accelerated Aging' and s.parent=p.name",as_dict=1,debug=1)
-		# 	self.doclist=self.doc.clear_table(self.doclist,'neutralisation_test_details')
-		# 	if sample_details:
-		# 		webnotes.errprint(sample_details)
-		# 		for sample in sample_details:
-		# 			webnotes.errprint(sample['sample_no'])
-		# 			nl = addchild(self.doc, 'neutralisation_test_details', 'Neutralization Test Details', self.doclist)
-		# 			nl.sample_no = sample['sample_no']
-		# 			nl.bottle_no=sample['bottle_no']
-
-		# else:
-		# 	pass
-
+		
 
 
 		

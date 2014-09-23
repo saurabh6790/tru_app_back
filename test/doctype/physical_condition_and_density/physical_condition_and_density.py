@@ -25,11 +25,11 @@ class DocType:
 		if density:
 			self.doc.density_data=density
 			self.doc.temperature_data=temp
-			#self.doc.final_density=self.generate_testresult(temp,density,self.doc.temperature)
-			#webnotes.errprint(self.doc.final_density)
 			self.doc.save()
 
 		verfy_bottle_number(self.doc.sample_no, self.doc.bottle_no)
+
+	def validate(self):
 		self.check_final_result()
 	
 	def add_equipment(self,equipment):
@@ -46,27 +46,7 @@ class DocType:
 		webnotes.conn.sql("update `tabSample Allocation Detail` set status='"+self.doc.workflow_state+"' where test_id='"+self.doc.name+"' ")
 		webnotes.conn.commit()
 
-	# def get_barcode(self,sample_no):
-	# 	self.doc.bottle_no=webnotes.conn.get_value('Sample',sample_no,'barcode')
-	# 	return {'bottle_no':self.doc.bottle_no}
-
-	# def assign_physical_density_test(self):
-	# 	test_details = {'test': "Physical Condition And Density", 'name': self.doc.name}
-	# 	#webnotes.errprint(test_details)
-	# 	# for assigening ticket to the person of role Shift Incharge in worflow Shift Incharge- Lab Incharge
-	# 	if self.doc.workflow_state=='Waiting For Approval':
-	# 		test_details['incharge'] = self.doc.shift_incharge_approval
-	# 		assign_notify(test_details)
-
-	# 	# for assigening ticket to the person of role Lab Incharge in worflow Shift Incharge- Lab Incharge
-	# 	if self.doc.workflow_state=='Waiting For Approval Of  Lab Incharge':
-	# 		test_details['incharge'] = self.doc.lab_incharge_approval
-	# 		assign_notify(test_details)
-
-	# 	if self.doc.workflow_state=='Rejected':
-	# 		test_details={'workflow_state':self.doc.workflow_state,'sample_no':self.doc.sample_no}
-	# 		assign_notify(test_details)
-
+	
 	def on_submit(self):
 		# if self.doc.test_type == 'Regular':
 		self.check_final_result()
@@ -117,15 +97,9 @@ class DocType:
 			return None, None
 
 	def generate_testresult(self,temp,density,temp_on_job_card):
-		#webnotes.errprint("in generate_testresult")
-		#webnotes.errprint(temp)
-		#webnotes.errprint(density)
-		#webnotes.errprint(temp_on_job_card)
+		
 		cal1=(0.00065*flt((flt(temp)-flt(temp_on_job_card))))
-		#webnotes.errprint(cal1)
 		cal=cstr(cint(1)+flt(cal1))
-		#webnotes.errprint(cal)
-		#webnotes.errprint(flt(density)*flt(cal))
 		return cstr(flt(density)*flt(cal))
 
 	def check_final_result(self):
@@ -161,73 +135,3 @@ class DocType:
 				webnotes.msgprint("At most one record needed for consideration of final result from Density Reading Child Table.",raise_exception=1);
 			elif count<1:
 				webnotes.msgprint("At least one record needed for consideration of final result from Density Reading Child Table.",raise_exception=1);
-# @webnotes.whitelist()
-# def calculate_moisture_content(source_name, target_doclist=None):
-# 	#webnotes.errprint(source_name)
-# 	return _calculate_moisture_content(source_name, target_doclist)
-
-# def _calculate_moisture_content(source_name, target_doclist=None, ignore_permissions=False):
-# 	from webnotes.model.mapper import get_mapped_doclist
-# 	doclist = get_mapped_doclist("Physical Condition And Density", source_name, {
-# 			"Physical Condition And Density": {
-# 				"doctype": "Moisture Content", 
-								
-# 				"validation": {
-# 					"docstatus": ["=", 1]
-# 				}
-# 			}
-# 	},target_doclist)#, postprocess)
-
-# 	return [d.fields for d in doclist]
-
-	
-
-# @webnotes.whitelist()
-# def calculate_interfacial_tension(source_name, target_doclist=None):
-# 	#webnotes.errprint(source_name)
-# 	return _calculate_interfacial_tension(source_name, target_doclist)
-
-# def _calculate_interfacial_tension(source_name, target_doclist=None, ignore_permissions=False):
-# 	from webnotes.model.mapper import get_mapped_doclist
-# 	#source_detail=webnotes.conn.sql("select sample_no from `tabPhysical Condition And Density` where name='"+source_name+"'")
-# 	#result=webnotes.conn.sql("select density_data from `tabPhysical Condition And Density` where name='"+source_name+"'",as_list=1)
-# 	#webnotes.errprint(mi[0][1])
-# 	#For Field Mapping From Previous doctype to next doctype
-# 	# def postprocess(source, doclist):
-# 	# 	doclist[0].source_name = source_name
-# 	# 	doclist[0].sample_no = source_detail[0][0]
-# 	# 	doclist[0].density=result[0][0]
-		
-# 	doclist = get_mapped_doclist("Physical Condition And Density", source_name, {
-# 			"Physical Condition And Density": {
-# 				"doctype": "Interfacial Tension", 
-								
-# 				"validation": {
-# 					"docstatus": ["=", 1]
-# 				}
-# 			}
-# 	},target_doclist)#, postprocess)
-
-# 	return [d.fields for d in doclist]
-
-	
-
-# @webnotes.whitelist()
-# def calculate_neutralisation_value(source_name, target_doclist=None):
-# 	return _calculate_neutralisation_value(source_name, target_doclist)
-
-# def _calculate_neutralisation_value(source_name, target_doclist=None, ignore_permissions=False):
-# 	from webnotes.model.mapper import get_mapped_doclist
-	
-		
-# 	doclist = get_mapped_doclist("Physical Condition And Density", source_name, {
-# 			"Physical Condition And Density": {
-# 				"doctype": "Neutralization Value", 
-								
-# 				"validation": {
-# 					"docstatus": ["=", 1]
-# 				}
-# 			}
-# 	},target_doclist)#, postprocess)
-
-# 	return [d.fields for d in doclist]

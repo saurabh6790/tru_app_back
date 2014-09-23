@@ -24,3 +24,7 @@ cur_frm.cscript.run1= function(doc, cdt, cdn) {
 		
 
 }
+
+cur_frm.cscript.run2 = function(doc,cdt,cdn){
+	console.log("in run2")
+}
