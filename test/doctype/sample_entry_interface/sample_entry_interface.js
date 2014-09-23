@@ -45,3 +45,13 @@ cur_frm.fields_dict['functional_location'].get_query=function(doc,cdt,cdn)
 }
 
 
+// for getting bootle no. i-e barcode involved in the inward stock entry
+cur_frm.fields_dict['bottle'].get_query=function(doc,cdt,cdn)
+{
+	return{
+		query:"test.doctype.sample_entry_interface.sample_entry_interface.get_bottle_no",
+		filters:{
+			"inward_stock_entry":doc.inward_stock_entry
+		}
+	}
+}

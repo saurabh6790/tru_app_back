@@ -2,7 +2,7 @@
  {
   "creation": "2013-04-09 11:43:55", 
   "docstatus": 0, 
-  "modified": "2014-08-21 11:19:53", 
+  "modified": "2014-09-20 15:45:27", 
   "modified_by": "Administrator", 
   "owner": "Administrator"
  }, 
@@ -216,6 +216,14 @@
   "fieldtype": "Column Break"
  }, 
  {
+  "default": "0", 
+  "doctype": "DocField", 
+  "fieldname": "flag1", 
+  "fieldtype": "Data", 
+  "hidden": 1, 
+  "label": "Flag1"
+ }, 
+ {
   "depends_on": "eval:doc.internal_purpose=='Inward'", 
   "doctype": "DocField", 
   "fieldname": "outward_challan_no", 
@@ -281,7 +289,8 @@
   "fieldname": "delivery_to", 
   "fieldtype": "Link", 
   "label": "Delivery To", 
-  "options": "Customer"
+  "options": "Customer", 
+  "reqd": 0
  }, 
  {
   "depends_on": "eval:(doc.internal_purpose==\"Outward\" && doc.outward_purpose==\"Client Specific\")", 

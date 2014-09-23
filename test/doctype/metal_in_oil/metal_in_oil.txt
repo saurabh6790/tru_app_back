@@ -2,7 +2,7 @@
  {
   "creation": "2014-06-13 16:11:34", 
   "docstatus": 0, 
-  "modified": "2014-09-16 14:38:12", 
+  "modified": "2014-09-20 16:08:43", 
   "modified_by": "Administrator", 
   "owner": "Administrator"
  }, 
@@ -143,6 +143,7 @@
   "doctype": "DocField", 
   "fieldname": "temperature", 
   "fieldtype": "Data", 
+  "hidden": 1, 
   "label": "Temperature", 
   "read_only": 1
  }, 

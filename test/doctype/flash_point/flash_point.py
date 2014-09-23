@@ -16,9 +16,7 @@ class DocType:
 		self.doc, self.doclist = d, dl
 
 	def on_update(self):
-		#Assign To Function
-		#self.assign_flash_point_test();
-		#self.update_status();
+		
 		verfy_bottle_number(self.doc.sample_no, self.doc.bottle_no)
 
 
@@ -32,30 +30,7 @@ class DocType:
 		"equipment_used_list": equipment_list
 		}
 
-	# def update_status(self):
-	# 	webnotes.conn.sql("update `tabSample Allocation Detail` set status='"+self.doc.workflow_state+"' where test_id='"+self.doc.name+"' ")
-	# 	webnotes.conn.commit()
 	
-	# def get_barcode(self,sample_no):
-	# 	self.doc.bottle_no=webnotes.conn.get_value('Sample',sample_no,'barcode')
-	# 	return {'bottle_no':self.doc.bottle_no}
-
-	# def assign_flash_point_test(self):
-	# 	test_details = {'test': "Flash Point", 'name': self.doc.name}
-	# 	#webnotes.errprint(test_details)
-	# 	# for assigening ticket to the person of role Shift Incharge in worflow Shift Incharge- Lab Incharge
-	# 	if self.doc.workflow_state=='Waiting For Approval':
-	# 		test_details['incharge'] = self.doc.shift_incharge_approval
-	# 		assign_notify(test_details)
-
-	# 	# for assigening ticket to the person of role Lab Incharge in worflow Shift Incharge- Lab Incharge
-	# 	if self.doc.workflow_state=='Waiting For Approval Of  Lab Incharge':
-	# 		test_details['incharge'] = self.doc.lab_incharge_approval
-	# 		assign_notify(test_details)
-
-	# 	if self.doc.workflow_state=='Rejected':
-	# 		test_details={'workflow_state':self.doc.workflow_state,'sample_no':self.doc.sample_no}
-	# 		assign_notify(test_details)
 
 	def on_submit(self):
 

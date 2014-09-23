@@ -2,7 +2,7 @@
  {
   "creation": "2014-06-06 11:38:15", 
   "docstatus": 0, 
-  "modified": "2014-06-19 11:38:12", 
+  "modified": "2014-09-20 12:31:07", 
   "modified_by": "Administrator", 
   "owner": "Administrator"
  }, 
@@ -43,7 +43,8 @@
   "fieldtype": "Link", 
   "in_list_view": 1, 
   "label": "Sample ID", 
-  "options": "Sample"
+  "options": "Sample", 
+  "reqd": 1
  }, 
  {
   "doctype": "DocField", 
@@ -70,7 +71,8 @@
   "fieldname": "test", 
   "fieldtype": "Small Text", 
   "in_list_view": 1, 
-  "label": "Test Name"
+  "label": "Test Name", 
+  "reqd": 1
  }, 
  {
   "doctype": "DocPerm"

@@ -17,6 +17,7 @@ class DocType:
 	def on_submit(self):
 		self.update_sample_status()
 		self.update_sample_allocation_to_lab()
+		self.update_test_log()
 
 	#Select test from sample allocation to lab & also from the test log where we kept rejected test
 	def get_sample_no(self):
@@ -45,7 +46,7 @@ class DocType:
 				if not flag:
 					self.create_child_record(sample_no[0], sample_detail)	
 		else:
-			webnotes.msgprint("There is no any Samle Number allocated against the test='"+self.doc.test_name+"'",raise_exception=1)
+			webnotes.msgprint("There is no any Sample Number allocated against the test='"+self.doc.test_name+"'",raise_exception=1)
 			return{
 				"test_name":''
 			}
@@ -62,6 +63,15 @@ class DocType:
 		ch.bottle_no=sample_detail[0][0]
 		ch.priority=sample_detail[0][1]
 		ch.save(new=1)
+
+	def update_test_log(self):
+		for i in getlist(self.doclist,'sample_allocation_detail'):
+			webnotes.conn.sql("""update tabTest Log set docstatus = 2 
+					   where sample_no ='%s'""" %(i.sample_no),as_list=1)
+			webnotes.conn.sql("commit")
+			
+		
+
 
 	#To change status of sample to 'Assigned' after completing the sample allocation
 	def update_sample_status(self):
