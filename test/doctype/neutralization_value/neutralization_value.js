@@ -147,45 +147,6 @@ calculate_result =function(doc,cdt,cdn){
   }
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// cur_frm.fields_dict['sample_no'].get_query=function(doc,cdt,cdn)
-// { 
-//   return{
-//     query:"test.doctype.neutralization_value.neutralization_value.get_sample_details",
-//     filters:{
-//       "test_preparation":doc.test_preparation
-//     }
-    
-//   }
-// }
-// cur_frm.fields_dict['physical_condition_density'].get_query=function(doc,cdt,cdn)
-// {
-//   return{
-//     query:"test.doctype.neutralization_value.neutralization_value.get_physical_density_details",
-//     filters:{
-//       "sample_no":doc.sample_no
-//     }
-    
-//   }
-// }
-
-
 cur_frm.cscript.refresh=function(doc,cdt,cdn){
   if(doc.docstatus == 1 && (doc.test=='Accelerated Aging'|| doc.test=='Oxidation Stability')){
       cur_frm.add_custom_button(wn._('Prepare Sample For Sediment'),
@@ -208,31 +169,3 @@ cur_frm.cscript['Prepare Sample For Sediment'] = function() {
 
 }
 
-// cur_frm.cscript.onload = function(doc,dt,dn){
-//   //console.log("samples allocation to lab");
-//   var d = new wn.ui.Dialog({
-//   title:wn._('Create New Normality/Select Normality'),
-//   fields: [
-    
-//     {fieldtype:'Link', fieldname:'normality', label:wn._('Normality'), options:'Normality',reqd:true, 
-//       description: wn._("Normality Test")},
-
-//     {fieldtype:'Button', fieldname:'add', label:wn._('ADD') }
-//   ]
-// })
-//   var fd = d.fields_dict;
-//   $(fd.add.input).click(function() {
-//       var btn = this;
-//       $(btn).set_working();
-//       var values  = d.get_values();
-//       if(!values) return;
-//       //console.log(eval(values)['critical']);  
-//       doc.normality=eval(values)['normality'];
-//       refresh_field('normality');
-//       $(btn).done_working();
-//       d.hide();
-//     });
-
-//   d.show();
-
-// }

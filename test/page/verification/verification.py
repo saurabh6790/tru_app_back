@@ -4,8 +4,8 @@ from webnotes.model.code import get_obj
 
 mapper = {'OST': ['`tabPhysical Condition And Density`', '`tabMoisture Content`', '`tabBreakdown Voltage`', 
 						'`tabNeutralization Value`'],
-		'OST R & DIFT':['`tabPhysical Condition And Density`', '`tabResistivity and Dissipation`', 
-						'`tabInterfacial Tension`', '`tabNeutralization Value Details`'],
+		'OST R&D IFT':['`tabPhysical Condition And Density`', '`tabResistivity and Dissipation`', 
+						'`tabInterfacial Tension`', '`tabNeutralization Value`'],
 		'OST PP KV Sediments' : ['`tabPhysical Condition And Density`','`tabFlash Point`','`tabPour Point`',
 						'`tabKinematic Viscosity`','`tabTest Of Extract`'],
 		'Dissolve Gas':['`tabPhysical Condition And Density`','`tabFlash Point`','`tabDissolved Gas Analysis`'],

@@ -82,7 +82,7 @@ erpnext.stock.StockEntry = erpnext.stock.StockController.extend({
 		}
 
 		//add button make outward register
-		if(this.frm.doc.docstatus==1 && this.frm.doc.internal_purpose=='Inward')
+		if(this.frm.doc.docstatus==1 && this.frm.doc.internal_purpose=='Inward' && this.frm.doc.flag1==0)
 			this.frm.add_custom_button(wn._("Make Sample Entry"), function() { me.make_sample_entry(); });
 		
 		// if(this.frm.doc.docstatus==1 && this.frm.doc.purpose=='Material Transfer' && this.frm.doc.material_inward!=null && this.frm.doc.sample_generated!='Yes')

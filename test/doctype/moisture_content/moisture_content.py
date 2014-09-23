@@ -76,22 +76,3 @@ def get_physical_density_details(doctype, txt, searchfield, start, page_len, fil
 			 where sample_no='%s' """ %filters['sample_no'],debug=1)
 	
 
-# @webnotes.whitelist()
-# def calculate_neutralisation_value(source_name, target_doclist=None):
-# 	return _calculate_neutralisation_value(source_name, target_doclist)
-
-# def _calculate_neutralisation_value(source_name, target_doclist=None, ignore_permissions=False):
-# 	from webnotes.model.mapper import get_mapped_doclist
-	
-		
-# 	doclist = get_mapped_doclist("Moisture Content", source_name, {
-# 			"Moisture Content": {
-# 				"doctype": "Neutralization Value", 
-								
-# 				"validation": {
-# 					"docstatus": ["=", 1]
-# 				}
-# 			}
-# 	},target_doclist)#, postprocess)
-
-# 	return [d.fields for d in doclist]

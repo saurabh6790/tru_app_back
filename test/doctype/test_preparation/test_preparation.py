@@ -50,8 +50,7 @@ class DocType:
 		#webnotes.errprint("in test all")
 		test_id = self.create_test(sample)
 		userid = webnotes.conn.sql("select user_id  from tabEmployee where name = '%s'"%(sample.tester),as_list=1)
-		#webnotes.errprint(test_id)
-		#webnotes.errprint(userid)
+		
  		if userid:
  			self.create_todo(userid, test_id)
 		

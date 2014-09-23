@@ -101,16 +101,7 @@ def close_session(session_id):
 	return{
 		'session_id':''
 	}
-# @webnotes,whitelist()
-# def open_session(session_id):
-# 	from webnotes.model.doc import Document
-# 	s= Document?('session',session_id)
-# 	s.status='Open'
-# 	d.save()
 
-# 	return{
-# 		'session_id':d.name
-# 	}
 @webnotes.whitelist()
 def check_session():
 	session = webnotes.conn.sql("""select name from tabSession 
