@@ -2,7 +2,7 @@
  {
   "creation": "2014-04-29 17:44:42", 
   "docstatus": 0, 
-  "modified": "2014-07-16 12:17:58", 
+  "modified": "2014-09-18 15:08:47", 
   "modified_by": "Administrator", 
   "owner": "Administrator"
  }, 
@@ -25,7 +25,6 @@
  }, 
  {
   "cancel": 1, 
-  "create": 1, 
   "doctype": "DocPerm", 
   "name": "__common__", 
   "parent": "Dissolved Gas Analysis", 
@@ -159,7 +158,7 @@
   "doctype": "DocField", 
   "fieldname": "standardize_run", 
   "fieldtype": "Data", 
-  "label": "standardize Run"
+  "label": "Standardize Run"
  }, 
  {
   "doctype": "DocField", 
@@ -179,7 +178,7 @@
   "fieldtype": "Link", 
   "label": "Sample No", 
   "options": "Sample", 
-  "read_only": 0
+  "read_only": 1
  }, 
  {
   "doctype": "DocField", 
@@ -264,24 +263,29 @@
  }, 
  {
   "amend": 1, 
+  "create": 1, 
   "doctype": "DocPerm", 
   "report": 1, 
   "role": "Administrator"
  }, 
  {
+  "create": 0, 
   "doctype": "DocPerm", 
   "report": 1, 
   "role": "Employee"
  }, 
  {
+  "create": 1, 
   "doctype": "DocPerm", 
   "role": "Shift Incharge"
  }, 
  {
+  "create": 1, 
   "doctype": "DocPerm", 
   "role": "Lab Incharge"
  }, 
  {
+  "create": 0, 
   "doctype": "DocPerm", 
   "report": 1, 
   "role": "Tester"

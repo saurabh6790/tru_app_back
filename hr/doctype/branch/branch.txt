@@ -2,7 +2,7 @@
  {
   "creation": "2013-01-10 16:34:13", 
   "docstatus": 0, 
-  "modified": "2013-07-22 15:30:08", 
+  "modified": "2014-09-11 17:27:34", 
   "modified_by": "Administrator", 
   "owner": "Administrator"
  }, 
@@ -54,9 +54,20 @@
   "doctype": "DocField", 
   "fieldname": "branch", 
   "fieldtype": "Data", 
+  "in_list_view": 1, 
   "label": "Branch", 
   "oldfieldname": "branch", 
   "oldfieldtype": "Data", 
+  "reqd": 1
+ }, 
+ {
+  "description": "Applicable Holiday List", 
+  "doctype": "DocField", 
+  "fieldname": "holiday_list", 
+  "fieldtype": "Link", 
+  "in_list_view": 1, 
+  "label": "Holiday List", 
+  "options": "Holiday List", 
   "reqd": 1
  }, 
  {

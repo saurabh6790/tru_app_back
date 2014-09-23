@@ -18,31 +18,7 @@ class DocType:
 		#self.update_status();
 		self.calculate_avg()
 		verfy_bottle_number(self.doc.sample_no, self.doc.bottle_no)
-		# user=webnotes.session.user
-		# if user:
-		# 	emp=webnotes.conn.sql("select name from `tabEmployee` where user_id='"+user+"'",debug=1)
-		# 	#webnotes.errprint(emp[0][0])
-		# 	role=webnotes.conn.sql("Select r.role from `tabProfile` p, `tabUserRole` r where p.name='"+user+"' and r.parent=p.name",as_list=1,debug=1)
-		# 	#webnotes.errprint(role)
-		# 	test_details={'test':"Breakdown Voltage",'sample_no':self.doc.sample_no,'workflow_state':self.doc.workflow_state,'tested_by':self.doc.tested_by}
-		# 	if ['Shift Incharge'] in role and emp[0][0]: #and self.doc.workflow_state=='Waiting For Approval Of Lab Incharge':
-		# 		#webnotes.errprint("in shift incharge")
-		# 		test_details['shift_incharge'] =emp[0][0]
-		# 		update_test_log(test_details)
-		# 	elif ['Lab Incharge'] in role and emp[0][0]: #and (self.doc.workflow_state=='Approved' or self.doc.workflow_state=='Rejected'):
-		# 		#webnotes.errprint("in lab incharge")
-		# 		test_details['lab_incharge'] =emp[0][0]
-		# 		update_test_log(test_details)
-		# 	elif self.doc.workflow_state=='Rejected' and emp[0][0]:
-		# 		webnotes.errprint("in rejected")
-		# 		if ['Shift Incharge'] in role:
-		# 			webnotes.errprint("in shift incharge")
-		# 			test_details['shift_incharge'] =emp[0][0]
-		# 			update_test_log(test_details)
-		# 		elif['Lab Incharge'] in role and emp[0][0]:
-		# 			webnotes.errprint("in lab incharge")
-		# 			test_details['lab_incharge'] =emp[0][0]
-		# 			update_test_log(test_details)
+		
 
 			 	
 	# def get_barcode(self,sample_no):
@@ -76,7 +52,7 @@ class DocType:
 		}
 
 	def validate(self):
-		webnotes.errprint(self.doc.workflow_state)
+		#webnotes.errprint(self.doc.workflow_state)
 		self.check_break_details()
 
 	def check_break_details(self):
@@ -92,23 +68,7 @@ class DocType:
 			#webnotes.errprint(count)
 			webnotes.msgprint("Minimum six records needed for consideration of final result from Break Details Child Table.",raise_exception=1);
 
-	# def assign_breakdown_voltage_test(self):
-	# 	test_details = {'test': "Breakdown Voltage", 'name': self.doc.name}
-		
-	# 	# for assigening ticket to the person of role Shift Incharge in worflow Shift Incharge- Lab Incharge
-	# 	if self.doc.workflow_state=='Waiting For Approval':
-	# 		test_details['incharge'] = self.doc.shift_incharge_approval
-	# 		assign_notify(test_details)
-
-	# 	# for assigening ticket to the person of role Lab Incharge in worflow Shift Incharge- Lab Incharge
-	# 	if self.doc.workflow_state=='Waiting For Approval Of  Lab Incharge':
-	# 		test_details['incharge'] = self.doc.lab_incharge_approval
-	# 		assign_notify(test_details)
-
-	# 	if self.doc.workflow_state=='Rejected':
-	# 		test_details={'workflow_state':self.doc.workflow_state,'sample_no':self.doc.sample_no}
-	# 		assign_notify(test_details)
-
+	
 	def on_submit(self):
 		pgcil_limit = get_pgcil_limit(self.doc.method)
 		test_detail = {'test': "Breakdown Voltage", 'sample_no':self.doc.sample_no,'name': self.doc.name,'method':self.doc.method, 'pgcil_limit':pgcil_limit,'workflow_state':self.doc.workflow_state,'tested_by':self.doc.tested_by}

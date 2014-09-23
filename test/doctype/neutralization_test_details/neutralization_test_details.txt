@@ -2,7 +2,7 @@
  {
   "creation": "2014-05-19 16:20:01", 
   "docstatus": 0, 
-  "modified": "2014-08-13 17:24:08", 
+  "modified": "2014-09-19 15:47:01", 
   "modified_by": "Administrator", 
   "owner": "Administrator"
  }, 
@@ -47,6 +47,7 @@
   "in_list_view": 1, 
   "label": "Sample No", 
   "options": "Sample", 
+  "read_only": 1, 
   "reqd": 1
  }, 
  {

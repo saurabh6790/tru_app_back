@@ -2,7 +2,7 @@
  {
   "creation": "2014-06-10 16:37:55", 
   "docstatus": 0, 
-  "modified": "2014-08-13 12:29:42", 
+  "modified": "2014-09-18 15:10:57", 
   "modified_by": "Administrator", 
   "owner": "Administrator"
  }, 
@@ -99,7 +99,8 @@
   "fieldname": "sample_no", 
   "fieldtype": "Link", 
   "label": "Sample No", 
-  "options": "Sample"
+  "options": "Sample", 
+  "read_only": 1
  }, 
  {
   "doctype": "DocField", 
@@ -226,7 +227,7 @@
   "doctype": "DocField", 
   "fieldname": "info", 
   "fieldtype": "Section Break", 
-  "label": "Info"
+  "label": "Information"
  }, 
  {
   "doctype": "DocField", 

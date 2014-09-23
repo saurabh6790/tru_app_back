@@ -2,7 +2,7 @@
  {
   "creation": "2013-03-29 18:22:12", 
   "docstatus": 0, 
-  "modified": "2014-08-11 16:29:30", 
+  "modified": "2014-09-16 12:52:25", 
   "modified_by": "Administrator", 
   "owner": "Administrator"
  }, 
@@ -221,7 +221,7 @@
   "fieldname": "actual_qty", 
   "fieldtype": "Float", 
   "in_filter": 1, 
-  "label": "Actual Qty (at source/target)", 
+  "label": "Actual Qty (At Source/Target)", 
   "no_copy": 1, 
   "oldfieldname": "actual_qty", 
   "oldfieldtype": "Read Only", 
@@ -246,7 +246,7 @@
   "doctype": "DocField", 
   "fieldname": "transfer_qty", 
   "fieldtype": "Float", 
-  "label": "Qty as per Stock UOM", 
+  "label": "Qty As Per Stock UOM", 
   "oldfieldname": "transfer_qty", 
   "oldfieldtype": "Currency", 
   "print_hide": 1, 

@@ -10,14 +10,14 @@ from webnotes.model.doc import get, Document
 
 class DocType:
 	def __init__(self, d, dl):
-		self.doc, self.doclist = d, 
+		self.doc, self.doclist = d, dl
 
 
 
 	#to create sample entry document from sample entry interface on clicking generate sample entry button
 	def generate_sample_entry(self):
 		#count=count+1
-		if self.doc.functional_location :
+		if self.doc.functional_location and self.doc.bottle_owner:
 
 			se_details = eval(str(self.doc))
 			se_details['doctype'] = 'Sample Entry'

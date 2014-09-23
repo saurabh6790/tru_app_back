@@ -50,7 +50,7 @@ erpnext.selling.QuotationController = erpnext.selling.SellingController.extend({
 				cur_frm.add_custom_button(wn._('Set As Negotiation Mode'), 
 					cur_frm.cscript['Set As Negotiation Mode'], "icon-exclamation");
 			if(doc.status!=="Ordered") {
-				cur_frm.add_custom_button(wn._('Set as Lost'), 
+				cur_frm.add_custom_button(wn._('Set As Lost'), 
 					cur_frm.cscript['Declare Order Lost'], "icon-exclamation");
 			}
 			cur_frm.appframe.add_button(wn._('Send SMS'), cur_frm.cscript.send_sms, "icon-mobile-phone");

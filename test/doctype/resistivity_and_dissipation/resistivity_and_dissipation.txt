@@ -2,7 +2,7 @@
  {
   "creation": "2014-06-13 18:59:00", 
   "docstatus": 0, 
-  "modified": "2014-08-21 18:17:46", 
+  "modified": "2014-09-15 16:02:49", 
   "modified_by": "Administrator", 
   "owner": "Administrator"
  }, 
@@ -139,7 +139,8 @@
   "fieldname": "sample_no", 
   "fieldtype": "Link", 
   "label": "Sample No", 
-  "options": "Sample"
+  "options": "Sample", 
+  "read_only": 1
  }, 
  {
   "doctype": "DocField", 
@@ -164,7 +165,7 @@
   "doctype": "DocField", 
   "fieldname": "section_break_7", 
   "fieldtype": "Section Break", 
-  "label": "CELL CONSTANT"
+  "label": "Cell Constant"
  }, 
  {
   "doctype": "DocField", 
@@ -211,7 +212,7 @@
   "doctype": "DocField", 
   "fieldname": "rh", 
   "fieldtype": "Data", 
-  "label": "rh"
+  "label": "RH"
  }, 
  {
   "doctype": "DocField", 
@@ -286,7 +287,7 @@
   "doctype": "DocField", 
   "fieldname": "section_break_27", 
   "fieldtype": "Section Break", 
-  "label": "RESISTIVITY"
+  "label": "Resistivity"
  }, 
  {
   "doctype": "DocField", 
@@ -320,7 +321,7 @@
   "doctype": "DocField", 
   "fieldname": "info", 
   "fieldtype": "Section Break", 
-  "label": "Info"
+  "label": "Information"
  }, 
  {
   "doctype": "DocField", 

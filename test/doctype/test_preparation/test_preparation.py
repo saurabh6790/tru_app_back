@@ -15,8 +15,19 @@ class DocType:
 		self.doc, self.doclist = d, dl
 
 	def on_update(self):
+		self.check_bottle_no()
 		self.doc.test_preparation=self.doc.name
 		self.doc.save()
+
+
+	def check_bottle_no(self):
+		for d in getlist(self.doclist,'sample_details'):
+			#webnotes.errprint(d.sample_no)
+			if cint(webnotes.conn.sql("""select count(*) from tabSample 
+				where name='%s' and barcode in ('%s')"""%(d.sample_no,d.bottle_no),debug=1)[0][0]) != 1:
+				webnotes.msgprint("Entered bottle number not belongs to Sample No '"+d.sample_no+"' Please correct it",raise_exception=1)
+			else:
+				pass
 	def on_submit(self):
 		samples = {}
 

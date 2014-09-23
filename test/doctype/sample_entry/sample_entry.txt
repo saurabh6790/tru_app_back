@@ -2,7 +2,7 @@
  {
   "creation": "2014-04-03 16:49:02", 
   "docstatus": 0, 
-  "modified": "2014-09-03 12:57:40", 
+  "modified": "2014-09-15 12:00:03", 
   "modified_by": "Administrator", 
   "owner": "Administrator"
  }, 
@@ -227,7 +227,7 @@
   "doctype": "DocField", 
   "fieldname": "date", 
   "fieldtype": "Date", 
-  "label": "Date of Sample Collected"
+  "label": "Date Of Sample Collected"
  }, 
  {
   "doctype": "DocField", 
@@ -577,7 +577,7 @@
   "doctype": "DocField", 
   "fieldname": "transformer_impreesion", 
   "fieldtype": "Data", 
-  "label": "Vision impression Of The Transformer"
+  "label": "Vision Impression Of The Transformer"
  }, 
  {
   "doctype": "DocField", 

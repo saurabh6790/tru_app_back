@@ -2,7 +2,7 @@
  {
   "creation": "2013-01-10 16:34:32", 
   "docstatus": 0, 
-  "modified": "2014-08-01 14:26:01", 
+  "modified": "2014-09-19 15:47:35", 
   "modified_by": "Administrator", 
   "owner": "Administrator"
  }, 
@@ -165,8 +165,9 @@
  {
   "doctype": "DocField", 
   "fieldname": "division_head", 
-  "fieldtype": "Data", 
-  "label": "Division Head "
+  "fieldtype": "Link", 
+  "label": "Division Head ", 
+  "options": "Division Head"
  }, 
  {
   "doctype": "DocField", 

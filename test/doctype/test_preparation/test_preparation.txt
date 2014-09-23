@@ -2,7 +2,7 @@
  {
   "creation": "2014-06-14 15:22:18", 
   "docstatus": 0, 
-  "modified": "2014-08-27 15:29:26", 
+  "modified": "2014-09-16 14:47:08", 
   "modified_by": "Administrator", 
   "owner": "Administrator"
  }, 
@@ -25,7 +25,6 @@
  }, 
  {
   "cancel": 1, 
-  "create": 1, 
   "doctype": "DocPerm", 
   "name": "__common__", 
   "parent": "Test Preparation", 
@@ -151,21 +150,29 @@
  }, 
  {
   "amend": 1, 
+  "create": 1, 
   "doctype": "DocPerm", 
   "role": "Administrator"
  }, 
  {
+  "create": 0, 
   "doctype": "DocPerm", 
   "role": "Tester"
  }, 
  {
   "amend": 1, 
+  "create": 1, 
   "doctype": "DocPerm", 
   "role": "Shift Incharge"
  }, 
  {
   "amend": 1, 
+  "create": 1, 
   "doctype": "DocPerm", 
   "role": "Lab Incharge"
+ }, 
+ {
+  "doctype": "DocPerm", 
+  "role": "Employee"
  }
 ]

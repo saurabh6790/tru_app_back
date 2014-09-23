@@ -2,7 +2,7 @@
  {
   "creation": "2014-04-03 14:13:18", 
   "docstatus": 0, 
-  "modified": "2014-08-13 12:24:59", 
+  "modified": "2014-09-18 15:05:32", 
   "modified_by": "Administrator", 
   "owner": "Administrator"
  }, 
@@ -118,7 +118,8 @@
   "fieldtype": "Link", 
   "hidden": 0, 
   "label": "Sample No", 
-  "options": "Sample"
+  "options": "Sample", 
+  "read_only": 1
  }, 
  {
   "doctype": "DocField", 
@@ -224,7 +225,7 @@
   "doctype": "DocField", 
   "fieldname": "interfacial_tension_against_water_recording", 
   "fieldtype": "Section Break", 
-  "label": "Interfacial Tension Against Water Recording"
+  "label": "Interfacial Tension Against Water @Reported Temperature"
  }, 
  {
   "doctype": "DocField", 
@@ -260,7 +261,7 @@
   "doctype": "DocField", 
   "fieldname": "ift", 
   "fieldtype": "Data", 
-  "label": "Interfacial tension of the oil against water @reported temp ", 
+  "label": "Interfacial Tension Of The Oil Against Water @Reported Temp ", 
   "read_only": 1
  }, 
  {
@@ -278,7 +279,7 @@
   "doctype": "DocField", 
   "fieldname": "ift_of_water", 
   "fieldtype": "Data", 
-  "label": "IFT of water"
+  "label": "IFT Of Water"
  }, 
  {
   "doctype": "DocField", 
@@ -291,7 +292,7 @@
   "doctype": "DocField", 
   "fieldname": "ir", 
   "fieldtype": "Data", 
-  "label": "IR (dync/cm)"
+  "label": "IR (Dync/Cm)"
  }, 
  {
   "doctype": "DocField", 

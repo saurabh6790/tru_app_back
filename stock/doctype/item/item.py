@@ -46,6 +46,7 @@ class DocType(DocListController, WebsiteGenerator):
 		self.validate_barcode()
 		self.cant_change()
 		self.validate_item_type_for_reorder()
+		self.validate_productrate()
 
 		if self.doc.name:
 			self.old_page_name = webnotes.conn.get_value('Item', self.doc.name, 'page_name')
@@ -347,3 +348,9 @@ class DocType(DocListController, WebsiteGenerator):
 		webnotes.conn.set_default("allow_negative_stock", 
 			webnotes.conn.get_value("Stock Settings", None, "allow_negative_stock"))
 		webnotes.conn.auto_commit_on_many_writes = 0
+
+	def validate_productrate(self):
+		for d in getlist(self.doclist, 'test_detail'):
+			webnotes.errprint(d.test_rate)
+			if d.test_rate<=0:
+				webnotes.msgprint("Rate must be greater than zero.",raise_exception=1)

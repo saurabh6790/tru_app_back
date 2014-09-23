@@ -2,7 +2,7 @@
  {
   "creation": "2014-05-16 15:05:30", 
   "docstatus": 0, 
-  "modified": "2014-07-16 12:16:39", 
+  "modified": "2014-09-16 14:34:26", 
   "modified_by": "Administrator", 
   "owner": "Administrator"
  }, 
@@ -24,9 +24,7 @@
   "permlevel": 0
  }, 
  {
-  "amend": 1, 
   "cancel": 1, 
-  "create": 1, 
   "doctype": "DocPerm", 
   "name": "__common__", 
   "parent": "Moisture Content", 
@@ -34,8 +32,6 @@
   "parenttype": "DocType", 
   "permlevel": 0, 
   "read": 1, 
-  "report": 1, 
-  "role": "All", 
   "submit": 1, 
   "write": 1
  }, 
@@ -65,7 +61,7 @@
   "fieldtype": "Link", 
   "label": "Sample No", 
   "options": "Sample", 
-  "read_only": 0
+  "read_only": 1
  }, 
  {
   "doctype": "DocField", 
@@ -231,6 +227,35 @@
   "read_only": 1
  }, 
  {
-  "doctype": "DocPerm"
+  "amend": 1, 
+  "create": 1, 
+  "doctype": "DocPerm", 
+  "report": 1, 
+  "role": "All"
+ }, 
+ {
+  "amend": 1, 
+  "create": 1, 
+  "doctype": "DocPerm", 
+  "role": "Lab Incharge"
+ }, 
+ {
+  "amend": 1, 
+  "create": 1, 
+  "doctype": "DocPerm", 
+  "report": 1, 
+  "role": "Shift Incharge"
+ }, 
+ {
+  "doctype": "DocPerm", 
+  "report": 1, 
+  "role": "Employee"
+ }, 
+ {
+  "amend": 1, 
+  "create": 0, 
+  "doctype": "DocPerm", 
+  "report": 1, 
+  "role": "Tester"
  }
 ]
