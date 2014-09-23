@@ -119,14 +119,7 @@ cur_frm.cscript.end_session = function(doc, cdt, cdn){
 }
 
 
-cur_frm.fields_dict.neutralisation_test_details.grid.get_field("physical_condition_density").get_query = function(doc,cdt,cdn)
-{
-  var d = locals[cdt][cdn];
-  if (d.sample_no)
-    return "select name from `tabPhysical Condition And Density` where sample_no='"+d.sample_no+"' and docstatus=1"  
-  else
-    msgprint("Sample Number field for selecting physical condition & density");
-}
+
 
 calculate_result =function(doc,cdt,cdn){
   //console.log("in calculate result")

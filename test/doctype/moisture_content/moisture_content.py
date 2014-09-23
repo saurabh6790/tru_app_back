@@ -73,6 +73,6 @@ class DocType:
 def get_physical_density_details(doctype, txt, searchfield, start, page_len, filters):
 	#webnotes.errprint([filters])
 	return 	webnotes.conn.sql("""select name from `tabPhysical Condition And Density` 
-			 where sample_no='%s' and docstatus=1 """ %filters['sample_no'],debug=1)
+			 where sample_no='%s' """ %filters['sample_no'],debug=1)
 	
 

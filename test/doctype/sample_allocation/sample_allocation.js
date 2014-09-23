@@ -8,8 +8,13 @@ cur_frm.fields_dict['sample_no'].get_query=function(doc,cdt,cdn)
 {	
 	return{
 		query:"test.doctype.sample_allocation.sample_allocation.get_sample_no",
-		
-		
+	}
+}
+
+cur_frm.fields_dict.test_name.get_query = function(doc, cdt, cdn){
+	return{
+		query:"test.doctype.sample_allocation.sample_allocation.get_test_name",
+		filters:{'sample_allocation_id': doc.sample_allocation_lab}
 	}
 }
 

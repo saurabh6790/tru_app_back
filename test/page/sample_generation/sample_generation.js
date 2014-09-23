@@ -114,13 +114,20 @@ wn.UserProperties = Class.extend({
 				else{
 					me.options = r.message;
 					me.show_sample_entry(r.message.sample_entry)
-					me.button1=
-						me.wrapper.appframe.add_button(wn._("Create Sample"), function() {
-							me.sample_creation()
-						}, "icon-cogs").css("width", "50px")
-						me.wrapper.appframe.add_button(wn._('Test Allocation Interface'), function() { 
-							wn.set_route("Form","Test Allocation Interface", "Test Allocation Interface"); 
-						}, 'icon-sitemap').css("width", "50px")
+
+					if(!me.button2){
+						me.button2=
+							me.wrapper.appframe.add_button(wn._("Create Sample"), function() {
+								me.sample_creation()
+							}, "icon-cogs").css("width", "50px")
+					}
+					if(!me.button3){
+						me.button3=
+							me.wrapper.appframe.add_button(wn._('Test Allocation Interface'), function() { 
+								wn.set_route("Form","Test Allocation Interface", "Test Allocation Interface"); 
+							}, 'icon-sitemap').css("width", "50px")
+					}
+
 				}
 									
 			}
@@ -189,19 +196,21 @@ wn.UserProperties = Class.extend({
 	},
 	sample_creation: function(){
 		me = this;
-		console.log(this.options)
-		return wn.call({
-			module:"test",
-			page:"sample_generation",
-			method: "sample_generation",
-			args:{'sample_entries':this.options.sample_entry},
-			callback: function(r) {
-				me.show_sample_entry(r.message.sample_entries)	
-				// me.wrapper.appframe.add_button(wn._('Test Allocation Interface'), function() { 
-				// wn.set_route("Form","Test Allocation Interface", "Test Allocation Interface"); 
-				// }, 'icon-sitemap').css("width", "50px")				
-			}
-		});
+		if(!this.options.sample_entry[0].sample_id){
+			return wn.call({
+				module:"test",
+				page:"sample_generation",
+				method: "sample_generation",
+				args:{'sample_entries':this.options.sample_entry},
+				callback: function(r) {
+					me.show_sample_entry(r.message.sample_entries)	
+					me.options.sample_entry = r.message.sample_entries
+					// me.wrapper.appframe.add_button(wn._('Test Allocation Interface'), function() { 
+					// wn.set_route("Form","Test Allocation Interface", "Test Allocation Interface"); 
+					// }, 'icon-sitemap').css("width", "50px")				
+				}
+			});
+		}
 	},
 	set_route: function() {
 		console.log(this.from_date.val())

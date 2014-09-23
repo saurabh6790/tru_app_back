@@ -2,7 +2,11 @@
  {
   "creation": "2014-05-16 15:05:30", 
   "docstatus": 0, 
+<<<<<<< HEAD
   "modified": "2014-09-20 16:02:32", 
+=======
+  "modified": "2014-09-16 14:34:26", 
+>>>>>>> 940aed7d4b5094a9ae91302180e5a4c6d1448f04
   "modified_by": "Administrator", 
   "owner": "Administrator"
  }, 

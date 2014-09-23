@@ -20,8 +20,6 @@ class DocType:
 		verfy_bottle_number(self.doc.sample_no, self.doc.bottle_no)
 		
 
-	
-
 	def calculate_avg(self):
 		avg_values=webnotes.conn.sql("""select sum(a.temparature)/count(a.temparature),
 			sum(a.humidity)/count(a.humidity),sum(a.frequency)/count(a.frequency),sum(a.ir)/count(a.ir)

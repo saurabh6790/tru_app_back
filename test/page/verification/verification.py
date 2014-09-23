@@ -6,6 +6,7 @@ mapper = {'OST': ['`tabPhysical Condition And Density`', '`tabMoisture Content`'
 						'`tabNeutralization Value`'],
 		'OST R&D IFT':['`tabPhysical Condition And Density`', '`tabResistivity and Dissipation`', 
 						'`tabInterfacial Tension`', '`tabNeutralization Value`'],
+
 		'OST PP KV Sediments' : ['`tabPhysical Condition And Density`','`tabFlash Point`','`tabPour Point`',
 						'`tabKinematic Viscosity`','`tabTest Of Extract`'],
 		'Dissolve Gas':['`tabPhysical Condition And Density`','`tabFlash Point`','`tabDissolved Gas Analysis`'],
@@ -13,6 +14,7 @@ mapper = {'OST': ['`tabPhysical Condition And Density`', '`tabMoisture Content`'
 		'Aging Test' :['`tabPhysical Condition And Density`','`tabCorrossive Sulphur`']
 		}
 
+child_mapper = {'`tabNeutralization Value`': ['`tabNeutralization Test Details`']}
 # or ['Administrator'] in roles
 @webnotes.whitelist()
 def get_test_result(test_name):
@@ -21,11 +23,11 @@ def get_test_result(test_name):
 		test_name = test_name[:re.search("\d",test_name).start()]
 
 	state = get_state()
-	conditions = get_conditions(mapper[test_name], state)
+	conditions, chld_tab = get_conditions(mapper[test_name], state)
 
 	test_details = webnotes.conn.sql("""select distinct %(tab)s.sample_no,%(tab)s.workflow_state 
-		from %(tabs)s where %(cond)s"""%{'tabs':' ,'.join(mapper[test_name]), 
-		'cond':conditions, 'tab': mapper[test_name][0]}, as_dict=1,debug=1)
+		from %(tabs)s %(chld_tab)s where %(cond)s"""%{'tabs':' ,'.join(mapper[test_name]), 
+		'cond':conditions, 'tab': mapper[test_name][0], 'chld_tab': chld_tab}, as_dict=1,debug=1)
 
 	return {
 		'test_details': test_details
@@ -33,15 +35,41 @@ def get_test_result(test_name):
 	}
 
 def get_conditions(test_name, state):
-	condition, sample_cond = [], []
+	condition, sample_cond, chld_tab = [], [], []
 	length = len(test_name)
 	for index in range(0, length):
 		if index < length-1:
-			sample_cond.append('%s.sample_no = %s.sample_no'%(test_name[index], test_name[index+1]))
-		if webnotes.session.user!='Administrator':
+			if not check_for_escape_test(test_name, index, sample_cond, chld_tab):
+				sample_cond.append('%s.sample_no = %s.sample_no'%(test_name[index], test_name[index+1]))
+			
+		if webnotes.session.user!='Administrator': 
 			condition.append("%s.workflow_state = '%s'"%(test_name[index], state))
 	condition.extend(sample_cond)
-	return ' and '.join(condition)
+	return ' and '.join(condition), ', ' + ','.join(chld_tab)
+
+def check_for_escape_test(test_name, index, sample_cond, chld_tab):
+	webnotes.errprint([test_name[index], test_name[index+1]])
+	if test_name[index] in child_mapper: 
+		replace_test(test_name, index, sample_cond, chld_tab)
+		index = index + 1
+		return True
+
+	if test_name[index+1] in child_mapper:
+		replace_test(test_name, index+1, sample_cond, chld_tab)
+		index = index + 1
+		return True
+
+	return False
+
+def replace_test(test_name, index, sample_cond, chld_tab):
+	replaced_test = test_name[index]
+	child_test = child_mapper[test_name[index]][0]
+	chld_tab.append(child_mapper[test_name[index]][0])
+	sample_cond.append('%s.sample_no = %s.sample_no'%(test_name[index-1], child_mapper[test_name[index]][0]))
+	sample_cond.append('%s.parent = %s.name'%(child_test, replaced_test))
+
+	webnotes.errprint(['%s.parent = %s.name'%(child_test, replaced_test)])
+	
 
 @webnotes.whitelist()
 def get_notification_count(test_name_list):
@@ -65,7 +93,7 @@ def get_state():
 
 	state = ''
 	if ['Shift Incharge'] in roles:
-		state='Waiting For Approval'
+		state='Waiting For Approval Of Shift Incharge'
 
 	elif ['Lab Incharge'] in roles :
 		state='Waiting For Approval Of  Lab Incharge'

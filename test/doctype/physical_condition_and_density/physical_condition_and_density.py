@@ -97,8 +97,8 @@ class DocType:
 			return None, None
 
 	def generate_testresult(self,temp,density,temp_on_job_card):
-		
 		cal1=(0.00065*flt((flt(temp)-flt(temp_on_job_card))))
+		#webnotes.errprint(cal1)
 		cal=cstr(cint(1)+flt(cal1))
 		return cstr(flt(density)*flt(cal))
 
