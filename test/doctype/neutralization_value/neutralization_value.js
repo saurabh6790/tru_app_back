@@ -119,8 +119,6 @@ cur_frm.cscript.end_session = function(doc, cdt, cdn){
 }
 
 
-
-
 calculate_result =function(doc,cdt,cdn){
   //console.log("in calculate result")
   var d = locals[cdt][cdn];

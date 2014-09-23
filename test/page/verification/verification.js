@@ -252,15 +252,10 @@ wn.TestDetails = Class.extend({
 })
 
 var get_test_list = function(){
-	
+
 	return ['OST', 'OST R&D IFT','OST PP KV Sediments',
 		'Dissolve Gas','Furan Content','Aging Test',
 		'P.C.B','Inhibitor Content','Metal In Oil']
-
-	// return ['Physical Condition And Density', 'Density And Visual Examination',
-	// 	'Resistivity and Dissipation', 'Dissolved Gas Analysis', 'Neutralization Value',
-	// 	'Oxidation Inhibiters', 'Kinematic Viscosity', 'Corrossive Sulphur', 'Breakdown Voltage',
-	// 	'Furan Content', 'Metal In Oil', 'Flash Point', 'Pour Point', 'Sediment', 'PCB']
 }
 
 wn.Notification = Class.extend({
