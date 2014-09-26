@@ -45,7 +45,3 @@ cur_frm.cscript.add_image = function(doc, dt, dn) {
 	refresh_field('description_html');
 }
 
-// cur_frm.cscript.age = function(doc,cdt,cdn){
-// 	if(doc.age<16)
-// 		msgprint("Apllicant age must be greater than 16");
-// }

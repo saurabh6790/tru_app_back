@@ -19,6 +19,7 @@ class DocType:
 		#Assign To Function
 		#self.assign_corrossive_sulphur_test();
 		verfy_bottle_number(self.doc.sample_no, self.doc.bottle_no)
+		self.create_result_record('Running')
 
 
 
@@ -50,9 +51,13 @@ class DocType:
 			assign_notify(test_details)
 
 	def on_submit(self):
+		self.create_result_record('Confirm')
+
+
+	def create_result_record(self,status):
 
 		pgcil_limit = get_pgcil_limit(self.doc.method)
-		test_detail = {'test': "Corrossive Sulphur", 'sample_no':self.doc.sample_no,'name': self.doc.name,'method':self.doc.method, 'pgcil_limit':pgcil_limit,'workflow_state':self.doc.workflow_state,'tested_by':self.doc.tested_by}
+		test_detail = {'test': "Corrossive Sulphur", 'sample_no':self.doc.sample_no,'name': self.doc.name,'method':self.doc.method, 'pgcil_limit':pgcil_limit,'workflow_state':self.doc.workflow_state,'tested_by':self.doc.tested_by,'status':status}
 		#diffrence={'Sediment & Precipitable Sludge':self.doc.diffrence}
 		if self.doc.workflow_state=='Rejected':
 			#webnotes.errprint(self.doc.workflow_state)

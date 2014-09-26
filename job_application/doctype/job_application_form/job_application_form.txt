@@ -2,7 +2,7 @@
  {
   "creation": "2014-08-23 15:06:48", 
   "docstatus": 0, 
-  "modified": "2014-09-06 15:27:11", 
+  "modified": "2014-09-24 11:23:51", 
   "modified_by": "Administrator", 
   "owner": "Administrator"
  }, 
@@ -177,8 +177,10 @@
   "doctype": "DocField", 
   "fieldname": "description_html", 
   "fieldtype": "Small Text", 
+  "hidden": 0, 
   "label": "Description HTML", 
-  "permlevel": 0
+  "permlevel": 0, 
+  "read_only": 1
  }, 
  {
   "doctype": "DocField", 

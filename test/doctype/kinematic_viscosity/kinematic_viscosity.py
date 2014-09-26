@@ -25,6 +25,7 @@ class DocType:
 			webnotes.msgprint("All Fields must be filled")
 		
 		verfy_bottle_number(self.doc.sample_no, self.doc.bottle_no)
+		self.create_result_record('Running')
 
 	def validate(self):
 		if cint(self.doc.viscometer_tube_constant) < 0 or cint(self.doc.time_taken) < 0:
@@ -44,9 +45,12 @@ class DocType:
 
 
 	def on_submit(self):
+		self.create_result_record('Confirm')
+
+	def create_result_record(self,status):
 
 		pgcil_limit = get_pgcil_limit(self.doc.method)
-		test_detail = {'test': "Kinematic viscosity", 'sample_no':self.doc.sample_no,'name': self.doc.name,'method':self.doc.method, 'pgcil_limit':pgcil_limit,'workflow_state':self.doc.workflow_state,'tested_by':self.doc.tested_by}
+		test_detail = {'test': "Kinematic viscosity", 'sample_no':self.doc.sample_no,'name': self.doc.name,'method':self.doc.method, 'pgcil_limit':pgcil_limit,'workflow_state':self.doc.workflow_state,'tested_by':self.doc.tested_by,'status':status}
 		#diffrence={'Sediment & Precipitable Sludge':self.doc.diffrence}
 		if self.doc.workflow_state=='Rejected':
 			#webnotes.errprint(self.doc.workflow_state)

@@ -79,7 +79,7 @@ class DocType:
 				self.create_sample_dict(t, sample_dict, test_list)
 
 		self.create_test_allocation(sample_dict)
-		webnotes.msgprint("Test Allocation Completed Successfully...!!")
+		webnotes.msgprint("Test Allocation Completed Successfully...!! Now go to the next step i.e Sample Allocation To Lab with the help of Action link")
 
 	#To Create sample details dictionary
 	def create_sample_dict(self, sample, sample_dict, test_list):
@@ -132,6 +132,7 @@ class DocType:
 		d.specification = sample['specification']
 		d.status='Ready To Lab Entry'
 		d.save()
+		
 
 def sample_query(doctype, txt, searchfield, start, page_len, filters):
 	return webnotes.conn.sql(""" select name from tabSample 
@@ -164,3 +165,4 @@ def _create_sample_allocation_to_lab(source_name, target_doclist=None, ignore_pe
 	return [d.fields for d in doclist]
 
 
+	

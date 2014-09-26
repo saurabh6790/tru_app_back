@@ -276,4 +276,3 @@ function dialog(){
 
 	d.show();
 }
-

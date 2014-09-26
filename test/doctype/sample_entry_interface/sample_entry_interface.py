@@ -23,7 +23,7 @@ class DocType:
 			se_details['doctype'] = 'Sample Entry'
 			se_details['docstatus'] = '1'
 			webnotes.bean(se_details).insert()
-			webnotes.msgprint("Sample Entry created successfully.. Now Next step is Sample Creation!!!")
+			webnotes.msgprint("Sample Entry created successfully.. Now Next step is Sample Creation...!!! For sample creation click on the Tools- Sample Generation ")
 			#webnotes.errprint(count)
 		else:
 			webnotes.msgprint("Mandatory fields are required to create sample entry")
@@ -53,7 +53,7 @@ def get_functional_location(doctype, txt, searchfield, start, page_len, filters)
 	return 	webnotes.conn.sql("""select functional_location from `tabTransformer` 
 			where client_name=(select delivery_to from `tabStock Entry` 
 				where name=(select outward_challan_no from `tabStock Entry` 
-					where name='%s'))""" %filters['inward_stock_entry'],debug=1)
+					where name='%s'))""" %filters['inward_stock_entry'])
 
 
 
@@ -61,7 +61,7 @@ def get_functional_location(doctype, txt, searchfield, start, page_len, filters)
 def get_bottle_no(doctype, txt, searchfield, start, page_len, filters):
 	#webnotes.errprint([filters])
 	sample_no= webnotes.conn.sql("""select serial_no from `tabStock Entry Detail` 
-			where parent='%s'""" %filters['inward_stock_entry'],as_list=1,debug=1)
+			where parent='%s'""" %filters['inward_stock_entry'],as_list=1)
 
 	webnotes.errprint(sample_no[0][0].split('\n'))
 	return [[sample] for sample in sample_no[0][0].split('\n')]

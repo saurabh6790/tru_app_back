@@ -486,7 +486,7 @@ cur_frm.get_field("electronically_approved_by_2").get_query=function(doc,cdt,cdn
 }
 
 cur_frm.get_field("outward_challan_no").get_query=function(doc,cdt,cdn){
-	return "select name from `tabStock Entry` where internal_purpose='Outward' and (docstatus = 1 or docstatus=0)"
+	return "select name from `tabStock Entry` where internal_purpose='Outward' and (docstatus = 1 or docstatus=0) order by name desc"
 }
 
 cur_frm.cscript.outward_challan_no=function(doc,cdt,cdn){

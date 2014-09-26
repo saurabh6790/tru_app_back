@@ -39,4 +39,3 @@ cur_frm.cscript.sample_no = function(doc,cdt,cdn){
 	}
 
 }
-

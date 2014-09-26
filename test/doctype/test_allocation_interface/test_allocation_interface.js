@@ -22,7 +22,9 @@ cur_frm.cscript.test_group = function(doc,cdt,cdn){
 	}
 }
 
-
+// cur_frm.cscript.clear = function(doc){
+//   return wn.ui.toolbar.clear_cache();
+// }
 
 //To generate test allocation record 
 cur_frm.cscript.final_result = function(doc,cdt,cdn){
@@ -74,5 +76,3 @@ cur_frm.cscript['Create Sample Allocation To Lab'] = function() {
   })
 
 }
-
-

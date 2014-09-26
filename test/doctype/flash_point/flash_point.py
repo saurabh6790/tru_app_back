@@ -16,8 +16,8 @@ class DocType:
 		self.doc, self.doclist = d, dl
 
 	def on_update(self):
-		
 		verfy_bottle_number(self.doc.sample_no, self.doc.bottle_no)
+		self.create_result_record('Running')
 
 
 	def add_equipment(self,equipment):
@@ -30,16 +30,14 @@ class DocType:
 		"equipment_used_list": equipment_list
 		}
 
-	
-
 	def on_submit(self):
+		self.create_result_record('Confirm')
 
+
+	def create_result_record(self,status):
 		pgcil_limit = get_pgcil_limit(self.doc.method)
-		test_detail = {'test': "Flash Point", 'sample_no':self.doc.sample_no,'name': self.doc.name,'method':self.doc.method, 'pgcil_limit':pgcil_limit,'workflow_state':self.doc.workflow_state,'tested_by':self.doc.tested_by}
-		#temp,density=self.get_density_temp()}
-		#self.doc.reported={'Reported value of Flash Point':self.doc.reported}
+		test_detail = {'test': "Flash Point", 'sample_no':self.doc.sample_no,'name': self.doc.name,'method':self.doc.method, 'pgcil_limit':pgcil_limit,'workflow_state':self.doc.workflow_state,'tested_by':self.doc.tested_by,'status':status}
 		if self.doc.workflow_state=='Rejected':
-			#webnotes.errprint(self.doc.workflow_state)
 			update_test_log(test_detail)
 		else:
 

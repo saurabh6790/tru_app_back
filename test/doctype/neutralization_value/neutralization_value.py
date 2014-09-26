@@ -17,11 +17,9 @@ class DocType:
 		self.doc, self.doclist = d, dl
 
 	def on_update(self):
-		#Assign To Function
-		webnotes.errprint("in on_update")
-		#self.update_status()
-		self.check_bottle_no()
-		#self.calculate_neutralisation_value()
+		#webnotes.errprint("in on_update")
+		self.create_testresult('Running')
+		
 	def check_bottle_no(self):
 		for d in getlist(self.doclist,'neutralisation_test_details'):
 			#webnotes.errprint(d.sample_no)
@@ -119,7 +117,7 @@ class DocType:
 
 	def on_submit(self):
 		
-		self.create_testresult()
+		self.create_testresult('Confirm')
 
 	
 	def add_sample_nos(self):
@@ -139,7 +137,7 @@ class DocType:
 		for g in getlist(self.doclist,'neutralisation_test_details'):
 			if g.reported_value:
 				pgcil_limit = get_pgcil_limit(self.doc.method)
-	 			test_detail = {'test': "Neutralization Value", 'sample_no':g.sample_no,'name': self.doc.name, 'method':self.doc.method, 'pgcil_limit':pgcil_limit,'workflow_state':self.doc.workflow_state,'tested_by':self.doc.tested_by}
+	 			test_detail = {'test': "Neutralization Value", 'sample_no':g.sample_no,'name': self.doc.name, 'method':self.doc.method, 'pgcil_limit':pgcil_limit,'workflow_state':self.doc.workflow_state,'tested_by':self.doc.tested_by,'status':status}
 	 			if self.doc.workflow_state=='Rejected':
 	 				update_test_log(test_detail)
 	 			else:

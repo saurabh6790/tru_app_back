@@ -18,6 +18,8 @@ class DocType:
 		#self.update_status();
 		self.calculate_avg()
 		verfy_bottle_number(self.doc.sample_no, self.doc.bottle_no)
+		self.create_result_record('Running')
+
 
 	def calculate_avg(self):
 		avg_values=webnotes.conn.sql("""select sum(a.temparature)/count(a.temparature),
@@ -57,17 +59,16 @@ class DocType:
 
 	
 	def on_submit(self):
+		self.create_result_record('Confirm')
+
+	def create_result_record(self,status):
+
 		pgcil_limit = get_pgcil_limit(self.doc.method)
-		test_detail = {'test': "Breakdown Voltage", 'sample_no':self.doc.sample_no,'name': self.doc.name,'method':self.doc.method, 'pgcil_limit':pgcil_limit,'workflow_state':self.doc.workflow_state,'tested_by':self.doc.tested_by}
+		test_detail = {'test': "Breakdown Voltage", 'sample_no':self.doc.sample_no,'name': self.doc.name,'method':self.doc.method, 'pgcil_limit':pgcil_limit,'workflow_state':self.doc.workflow_state,'tested_by':self.doc.tested_by,'status':status}
 		voltage={'Avg Temp of Dielectric strength of oil B.D.V. in KVolume':self.doc.break_down_temperature,'Avg humidity of Dielectric strength of oil B.D.V. in KVolume':self.doc.break_down_humidity,'Avg frequency of Dielectric strength of oil B.D.V. in KVolume':self.doc.break_down_frequency,'Avg IR of Dielectric strength of oil B.D.V. in KVolume':self.doc.break_down_ir}
 		if self.doc.workflow_state=='Rejected':
-
 			update_test_log(test_detail)
-
 		else:
-
 			parent=create_test_results(test_detail)
 			for val in voltage:
 				create_child_testresult(parent,voltage[val],test_detail,val)
-
-

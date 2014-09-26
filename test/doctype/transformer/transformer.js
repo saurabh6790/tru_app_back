@@ -37,12 +37,12 @@ cur_frm.cscript.attach_dettach = function(doc,cdt,cdn) {
 }
 
 
-cur_frm.cscript.equipment_id = function(doc,cdt,cdn){
-  if (doc.equipment_id)
+// cur_frm.cscript.equipment_id = function(doc,cdt,cdn){
+//   if (doc.equipment_id)
 
-    return get_server_fields('get_equipmentid_record',doc.equipment_id,'',doc,cdt.cdn,1);
+//     return get_server_fields('get_equipmentid_record',doc.equipment_id,'',doc,cdt.cdn,1);
   
-}
+// }
 
 cur_frm.cscript.refresh = function(doc, dt, dn) {
 	if(doc.__islocal){
