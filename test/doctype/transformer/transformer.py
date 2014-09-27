@@ -12,12 +12,14 @@ class DocType:
 	def __init__(self, d, dl):
 		self.doc, self.doclist = d, dl
 
+	def validate(self):
+		self.get_equipmentid_record()
 
-	def get_equipmentid_record(self,equipment_id):
-		#webnotes.errprint(equipment_id)
-		eid=webnotes.conn.sql("select name from `tabTransformer` where equipment_id='"+equipment_id+"'",as_list=1)
+	def get_equipmentid_record(self):
+		#webnotes.errprint(self.doc.equipment_id)
+		eid=webnotes.conn.sql("select name from `tabTransformer` where equipment_id='"+self.doc.equipment_id+"'",as_list=1)
 		if eid:
-			webnotes.msgprint("Equipment ID which you select is aleready assign in Transformer Entry='"+eid[0][0]+"'")
+			webnotes.msgprint("Equipment ID which you select is aleready assign in Transformer Entry='"+eid[0][0]+"'",raise_exception=1)
 		else:
 			pass
 

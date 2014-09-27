@@ -29,7 +29,7 @@ cur_frm.cscript.apply_now = function(doc,cdt,cdn) {
 		}
 	}
 	else{
-		msgprint("Mandatory Fields must be fill before clicking on Apply Now Button");
+		msgprint("Mandatory Fields should be filled before clicking on Apply Now button");
 	}
 	
 }

@@ -17,6 +17,7 @@ class DocType:
 	def on_update(self):
 		#self.assign_pcb_test()
 		verfy_bottle_number(self.doc.sample_no, self.doc.bottle_no)
+		self.create_result_record('Running')
 
 
 
@@ -33,8 +34,12 @@ class DocType:
 
 	
 	def on_submit(self):
+		self.create_result_record('Confirm')
+
+	def create_result_record(self,status):
+
 		pgcil_limit = get_pgcil_limit(self.doc.method)
-		test_detail = {'test': "Furan Content", 'sample_no':self.doc.sample_no,'name': self.doc.name, 'method':self.doc.method, 'pgcil_limit':pgcil_limit}
+		test_detail = {'test': "Furan Content", 'sample_no':self.doc.sample_no,'name': self.doc.name, 'method':self.doc.method, 'pgcil_limit':pgcil_limit,'status':status}
 		if self.doc.workflow_state=='Rejected':
 			#webnotes.errprint(self.doc.workflow_state)
 			update_test_log(test_detail)

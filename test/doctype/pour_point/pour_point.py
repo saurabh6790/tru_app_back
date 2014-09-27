@@ -17,6 +17,7 @@ class DocType:
 	def on_update(self):
 		#self.assign_pour_point()
 		verfy_bottle_number(self.doc.sample_no, self.doc.bottle_no)
+		self.create_result_record('Running')
 
 	def add_equipment(self,equipment):
 		#webnotes.errprint(equipment)
@@ -32,9 +33,12 @@ class DocType:
 
 
 	def on_submit(self):
+		self.create_result_record('Confirm')
+
+	def create_result_record(self,status):
 
 		pgcil_limit = get_pgcil_limit(self.doc.method)
-		test_detail = {'test': "Pour Point", 'sample_no':self.doc.sample_no,'name': self.doc.name,'method':self.doc.method, 'pgcil_limit':pgcil_limit,'workflow_state':self.doc.workflow_state,'tested_by':self.doc.tested_by}
+		test_detail = {'test': "Pour Point", 'sample_no':self.doc.sample_no,'name': self.doc.name,'method':self.doc.method, 'pgcil_limit':pgcil_limit,'workflow_state':self.doc.workflow_state,'tested_by':self.doc.tested_by,'status':status}
 		#diffrence={'Sediment & Precipitable Sludge':self.doc.diffrence}
 		if self.doc.workflow_state=='Rejected':
 			#webnotes.errprint(self.doc.workflow_state)

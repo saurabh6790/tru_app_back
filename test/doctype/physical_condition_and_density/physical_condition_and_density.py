@@ -17,8 +17,6 @@ class DocType:
 		self.doc, self.doclist = d, dl
 
 	def on_update(self):
-		#Assign To Function
-		#self.assign_physical_density_test();
 		self.update_status()
 		#webnotes.errprint(self.doc.temperature)
 		temp,density=self.get_density_temp()
@@ -28,6 +26,7 @@ class DocType:
 			self.doc.save()
 
 		verfy_bottle_number(self.doc.sample_no, self.doc.bottle_no)
+		self.create_result_record('Running')
 
 	def validate(self):
 		self.check_final_result()
@@ -50,8 +49,12 @@ class DocType:
 	def on_submit(self):
 		# if self.doc.test_type == 'Regular':
 		self.check_final_result()
+		self.create_result_record('Confirm')
+
+	def create_result_record(self,status):
+
 		pgcil_limit = get_pgcil_limit(self.doc.method)
-		test_detail = {'test': "Physical Condition And Density", 'sample_no':self.doc.sample_no,'name': self.doc.name, 'method':self.doc.method, 'pgcil_limit':pgcil_limit,'workflow_state':self.doc.workflow_state,'tested_by':self.doc.tested_by}
+		test_detail = {'test': "Physical Condition And Density", 'sample_no':self.doc.sample_no,'name': self.doc.name, 'method':self.doc.method, 'pgcil_limit':pgcil_limit,'workflow_state':self.doc.workflow_state,'tested_by':self.doc.tested_by,'status':status}
 		if self.doc.workflow_state=='Rejected':
 			#webnotes.errprint(self.doc.workflow_state)
 			update_test_log(test_detail)
@@ -98,6 +101,7 @@ class DocType:
 
 	def generate_testresult(self,temp,density,temp_on_job_card):
 		cal1=(0.00065*flt((flt(temp)-flt(temp_on_job_card))))
+
 		cal=cstr(cint(1)+flt(cal1))
 		return cstr(flt(density)*flt(cal))
 

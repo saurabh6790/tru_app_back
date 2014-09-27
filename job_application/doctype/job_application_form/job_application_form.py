@@ -14,7 +14,7 @@ class DocType:
 
 	def validate(self):
 		self.validate_email()
-		sef.validate_age()
+		self.validate_age()
 		#self.validate_panno()
 
 
@@ -31,8 +31,10 @@ class DocType:
 			raise Exception
 
 	def validate_age(self):
-		if self.doc.age<16:
-			webnotes.msgprint("Applicant ang must be greater than 16 years")
+		if self.doc.age:
+			
+			if self.doc.age<16:
+				webnotes.msgprint("Applicant age must be greater than 16 years")
 
 
 	def validate_panno(self):

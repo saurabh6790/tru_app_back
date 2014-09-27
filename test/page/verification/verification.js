@@ -252,6 +252,7 @@ wn.TestDetails = Class.extend({
 })
 
 var get_test_list = function(){
+
 	return ['OST', 'OST R&D IFT','OST PP KV Sediments',
 		'Dissolve Gas','Furan Content','Aging Test',
 		'P.C.B','Inhibitor Content','Metal In Oil']

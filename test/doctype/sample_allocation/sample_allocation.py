@@ -12,12 +12,16 @@ from webnotes.utils import cint, cstr, flt, now, nowdate, get_first_day, get_las
 
 class DocType:
 	def __init__(self, d, dl):
-		self.doc, self.doclist = d, dl     
+		self.doc, self.doclist = d, dl 
+
+	#def on_update(self):
+		    
 
 	def on_submit(self):
 		self.update_sample_status()
 		self.update_sample_allocation_to_lab()
 		self.update_test_log()
+		
 
 	#Select test from sample allocation to lab & also from the test log where we kept rejected test
 	def get_sample_no(self):
@@ -66,8 +70,9 @@ class DocType:
 
 	def update_test_log(self):
 		for i in getlist(self.doclist,'sample_allocation_detail'):
-			webnotes.conn.sql("""update tabTest Log set docstatus = 2 
-					   where sample_no ='%s'""" %(i.sample_no),as_list=1)
+			webnotes.errprint(i.sample_no)
+			webnotes.conn.sql("""update `tabTest Log` set docstatus = 2 
+					   where sample_no ='%s'""" %(i.sample_no),as_list=1,debug=1)
 			webnotes.conn.sql("commit")
 			
 		

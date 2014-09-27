@@ -20,6 +20,8 @@ class DocType:
 	def on_update(self):
 		#Assign To Function
 		verfy_bottle_number(self.doc.sample_no, self.doc.bottle_no)
+		self.create_result_record('Running')
+
 
 	def add_equipment(self,equipment):
 		if self.doc.equipment_used_list:
@@ -63,8 +65,11 @@ class DocType:
 		}
 
 	def on_submit(self):
+		self.create_result_record('Confirm')
+
+	def create_result_record(self,status):
 		pgcil_limit = get_pgcil_limit(self.doc.method)
-		test_detail = {'test': "Interfacial Tension", 'sample_no':self.doc.sample_no,'name': self.doc.name, 'method':self.doc.method,'workflow_state':self.doc.workflow_state,'tested_by':self.doc.tested_by, 'pgcil_limit':pgcil_limit}
+		test_detail = {'test': "Interfacial Tension", 'sample_no':self.doc.sample_no,'name': self.doc.name, 'method':self.doc.method,'workflow_state':self.doc.workflow_state,'tested_by':self.doc.tested_by, 'pgcil_limit':pgcil_limit,'status':status}
 		if self.doc.workflow_state=='Rejected':
 			update_test_log(test_detail)
 		else:

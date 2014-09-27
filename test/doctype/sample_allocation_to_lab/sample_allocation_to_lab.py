@@ -166,9 +166,8 @@ def get_count():
 	for i in counts:
 			count_dict[i[0]] = i[1]
 
-	webnotes.errprint(count_dict)
+	#webnotes.errprint(count_dict)
 
 	
 	return [[k, v] for k, v in count_dict.iteritems()]
-
 

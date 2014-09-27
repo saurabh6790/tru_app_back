@@ -2,7 +2,7 @@
  {
   "creation": "2013-04-09 11:43:55", 
   "docstatus": 0, 
-  "modified": "2014-09-20 15:45:27", 
+  "modified": "2014-09-24 12:38:09", 
   "modified_by": "Administrator", 
   "owner": "Administrator"
  }, 
@@ -280,6 +280,7 @@
   "doctype": "DocField", 
   "fieldname": "inward_stock_entry", 
   "fieldtype": "Data", 
+  "hidden": 1, 
   "label": "Inward Stock Entry No", 
   "read_only": 1
  }, 

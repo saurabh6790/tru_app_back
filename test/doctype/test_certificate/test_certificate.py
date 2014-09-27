@@ -59,7 +59,5 @@ class DocType:
 		webnotes.conn.sql("update `tabSample` set docstatus=2 where name='%s'"%self.doc.name,as_list=1)
 		webnotes.conn.sql("commit")
 
-	def calculate_voltage(self):
-		webnotes.errprint("in create voltage")
-
-		
+	# def calculate_voltage(self):
+	# 	webnotes.errprint("in create voltage")

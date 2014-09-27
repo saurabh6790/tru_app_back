@@ -114,6 +114,7 @@ wn.UserProperties = Class.extend({
 				else{
 					me.options = r.message;
 					me.show_sample_entry(r.message.sample_entry)
+
 					if(!me.button2){
 						me.button2=
 							me.wrapper.appframe.add_button(wn._("Create Sample"), function() {
@@ -126,6 +127,7 @@ wn.UserProperties = Class.extend({
 								wn.set_route("Form","Test Allocation Interface", "Test Allocation Interface"); 
 							}, 'icon-sitemap').css("width", "50px")
 					}
+
 				}
 									
 			}

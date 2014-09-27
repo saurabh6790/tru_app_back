@@ -49,6 +49,7 @@ def create_test_results(test_detail):
 	d.sample_no = test_detail.get("sample_no")
 	d.test_name = test_detail.get("test")
 	d.test_id= test_detail.get("name")
+	d.status=test_detail.get("status")
 	if test_detail.get("temperature"):
 		d.temperature=test_detail.get("temperature")
 	d.save()
