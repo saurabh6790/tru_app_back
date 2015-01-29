@@ -40,7 +40,7 @@ erpnext.selling.QuotationController = erpnext.selling.SellingController.extend({
 		// if(doc.docstatus == 1 && doc.status!=='Lost' && doc.tender_name==null)
 		// 	cur_frm.add_custom_button(wn._('Make Tender'), 
 		// 		cur_frm.cscript['Make Tender']);
-		if(doc.docstatus == 1 && doc.status!=='Lost') {
+		if(doc.docstatus == 1 && doc.status!=='Lost' && doc.status!='Ordered') {
 			cur_frm.add_custom_button(wn._('Make Regular Sales Order'), 
 				cur_frm.cscript['Make Regular Sales Order']);
 			cur_frm.add_custom_button(wn._('Make Provisional Sales Order'), 

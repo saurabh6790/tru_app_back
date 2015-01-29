@@ -2,7 +2,7 @@
  {
   "creation": "2014-05-26 17:08:59", 
   "docstatus": 0, 
-  "modified": "2014-05-30 15:53:40", 
+  "modified": "2014-10-28 11:54:31", 
   "modified_by": "Administrator", 
   "owner": "Administrator"
  }, 
@@ -33,9 +33,6 @@
   "parenttype": "DocType", 
   "permlevel": 0, 
   "read": 1, 
-  "report": 1, 
-  "role": "Administrator", 
-  "submit": 0, 
   "write": 1
  }, 
  {
@@ -139,6 +136,25 @@
   "label": "Time Required(Hours)"
  }, 
  {
-  "doctype": "DocPerm"
+  "doctype": "DocPerm", 
+  "report": 1, 
+  "role": "Administrator", 
+  "submit": 0
+ }, 
+ {
+  "doctype": "DocPerm", 
+  "role": "Employee"
+ }, 
+ {
+  "doctype": "DocPerm", 
+  "role": "Tester"
+ }, 
+ {
+  "doctype": "DocPerm", 
+  "role": "Shift Incharge"
+ }, 
+ {
+  "doctype": "DocPerm", 
+  "role": "Lab Incharge"
  }
 ]

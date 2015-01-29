@@ -2,7 +2,7 @@
  {
   "creation": "2013-06-18 12:39:59", 
   "docstatus": 0, 
-  "modified": "2014-09-04 18:56:31", 
+  "modified": "2014-11-26 11:24:43", 
   "modified_by": "Administrator", 
   "owner": "Administrator"
  }, 
@@ -89,7 +89,7 @@
   "fieldtype": "Select", 
   "in_list_view": 1, 
   "label": "Sales Order Type", 
-  "options": "\nProvisional\nNormal", 
+  "options": "\nProvisional\nRegular", 
   "read_only": 0
  }, 
  {

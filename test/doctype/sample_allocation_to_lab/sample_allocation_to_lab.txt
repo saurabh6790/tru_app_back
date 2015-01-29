@@ -2,7 +2,7 @@
  {
   "creation": "2014-06-06 11:29:35", 
   "docstatus": 0, 
-  "modified": "2014-08-27 15:38:46", 
+  "modified": "2014-10-28 11:59:57", 
   "modified_by": "Administrator", 
   "owner": "Administrator"
  }, 
@@ -25,8 +25,6 @@
   "permlevel": 0
  }, 
  {
-  "amend": 0, 
-  "cancel": 0, 
   "create": 1, 
   "doctype": "DocPerm", 
   "name": "__common__", 
@@ -36,7 +34,6 @@
   "permlevel": 0, 
   "read": 1, 
   "report": 1, 
-  "role": "Administrator", 
   "submit": 1, 
   "write": 1
  }, 
@@ -155,6 +152,27 @@
   "options": "Final Sample Allocation To Lab"
  }, 
  {
-  "doctype": "DocPerm"
+  "amend": 0, 
+  "cancel": 1, 
+  "doctype": "DocPerm", 
+  "role": "Administrator"
+ }, 
+ {
+  "cancel": 0, 
+  "doctype": "DocPerm", 
+  "role": "Shift Incharge"
+ }, 
+ {
+  "cancel": 0, 
+  "doctype": "DocPerm", 
+  "role": "Lab Incharge"
+ }, 
+ {
+  "doctype": "DocPerm", 
+  "role": "Employee"
+ }, 
+ {
+  "doctype": "DocPerm", 
+  "role": "Tester"
  }
 ]

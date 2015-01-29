@@ -2,7 +2,7 @@
  {
   "creation": "2014-05-02 14:38:32", 
   "docstatus": 0, 
-  "modified": "2014-09-18 15:13:34", 
+  "modified": "2015-01-16 16:33:06", 
   "modified_by": "Administrator", 
   "owner": "Administrator"
  }, 
@@ -11,6 +11,7 @@
   "doctype": "DocType", 
   "document_type": "Master", 
   "icon": "icon-truck", 
+  "is_submittable": 1, 
   "module": "Test", 
   "name": "__common__"
  }, 
@@ -241,9 +242,21 @@
   "options": "Contact Person Detail"
  }, 
  {
+  "doctype": "DocField", 
+  "fieldname": "amended_from", 
+  "fieldtype": "Link", 
+  "label": "Amended From", 
+  "no_copy": 1, 
+  "options": "Transformer", 
+  "print_hide": 1, 
+  "read_only": 1
+ }, 
+ {
+  "amend": 1, 
   "doctype": "DocPerm", 
   "report": 1, 
-  "role": "Administrator"
+  "role": "Administrator", 
+  "submit": 1
  }, 
  {
   "doctype": "DocPerm", 

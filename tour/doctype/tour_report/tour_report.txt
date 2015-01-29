@@ -2,7 +2,7 @@
  {
   "creation": "2014-07-21 14:18:21", 
   "docstatus": 0, 
-  "modified": "2014-09-06 17:23:59", 
+  "modified": "2014-11-26 12:00:13", 
   "modified_by": "Administrator", 
   "owner": "Administrator"
  }, 
@@ -23,7 +23,7 @@
   "permlevel": 0
  }, 
  {
-  "create": 1, 
+  "create": 0, 
   "doctype": "DocPerm", 
   "name": "__common__", 
   "parent": "Tour Report", 
