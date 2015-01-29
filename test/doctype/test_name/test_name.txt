@@ -2,7 +2,7 @@
  {
   "creation": "2014-04-15 13:03:45", 
   "docstatus": 0, 
-  "modified": "2014-08-11 17:31:29", 
+  "modified": "2014-10-28 11:53:22", 
   "modified_by": "Administrator", 
   "owner": "Administrator"
  }, 
@@ -24,7 +24,6 @@
   "permlevel": 0
  }, 
  {
-  "cancel": 1, 
   "create": 1, 
   "doctype": "DocPerm", 
   "name": "__common__", 
@@ -33,9 +32,6 @@
   "parenttype": "DocType", 
   "permlevel": 0, 
   "read": 1, 
-  "report": 1, 
-  "role": "Administrator", 
-  "submit": 0, 
   "write": 1
  }, 
  {
@@ -130,6 +126,29 @@
   "label": "Max Qualification"
  }, 
  {
-  "doctype": "DocPerm"
+  "cancel": 1, 
+  "doctype": "DocPerm", 
+  "report": 1, 
+  "role": "Administrator", 
+  "submit": 0
+ }, 
+ {
+  "cancel": 1, 
+  "doctype": "DocPerm", 
+  "role": "Employee"
+ }, 
+ {
+  "cancel": 1, 
+  "doctype": "DocPerm", 
+  "role": "Tester"
+ }, 
+ {
+  "doctype": "DocPerm", 
+  "role": "Shift Incharge"
+ }, 
+ {
+  "cancel": 1, 
+  "doctype": "DocPerm", 
+  "role": "Lab Incharge"
  }
 ]

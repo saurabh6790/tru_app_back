@@ -2,7 +2,7 @@
  {
   "creation": "2014-06-03 15:33:10", 
   "docstatus": 0, 
-  "modified": "2014-09-15 12:07:41", 
+  "modified": "2015-01-16 11:26:39", 
   "modified_by": "Administrator", 
   "owner": "Administrator"
  }, 
@@ -650,7 +650,8 @@
   "doctype": "DocField", 
   "fieldname": "testing_temperature", 
   "fieldtype": "Data", 
-  "label": "Testing Temperature"
+  "label": "Testing Temperature", 
+  "reqd": 1
  }, 
  {
   "depends_on": "eval:doc.sealed=='Yes'", 

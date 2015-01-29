@@ -2,7 +2,7 @@
  {
   "creation": "2014-04-03 14:57:26", 
   "docstatus": 0, 
-  "modified": "2014-05-14 10:40:47", 
+  "modified": "2014-10-28 11:57:53", 
   "modified_by": "Administrator", 
   "owner": "Administrator"
  }, 
@@ -11,6 +11,7 @@
   "doctype": "DocType", 
   "document_type": "Transaction", 
   "icon": "icon-file-text", 
+  "is_submittable": 1, 
   "module": "Test", 
   "name": "__common__"
  }, 
@@ -33,7 +34,7 @@
   "permlevel": 0, 
   "read": 1, 
   "report": 1, 
-  "role": "Administrator", 
+  "submit": 1, 
   "write": 1
  }, 
  {
@@ -178,6 +179,33 @@
   "label": "Tested By"
  }, 
  {
-  "doctype": "DocPerm"
+  "doctype": "DocField", 
+  "fieldname": "amended_from", 
+  "fieldtype": "Link", 
+  "label": "Amended From", 
+  "no_copy": 1, 
+  "options": "Material Indent Form", 
+  "print_hide": 1, 
+  "read_only": 1
+ }, 
+ {
+  "doctype": "DocPerm", 
+  "role": "Administrator"
+ }, 
+ {
+  "doctype": "DocPerm", 
+  "role": "Shift Incharge"
+ }, 
+ {
+  "doctype": "DocPerm", 
+  "role": "Lab Incharge"
+ }, 
+ {
+  "doctype": "DocPerm", 
+  "role": "Employee"
+ }, 
+ {
+  "doctype": "DocPerm", 
+  "role": "Tester"
  }
 ]

@@ -2,7 +2,7 @@
  {
   "creation": "2014-04-19 11:13:34", 
   "docstatus": 0, 
-  "modified": "2014-05-14 10:42:22", 
+  "modified": "2014-10-28 11:55:28", 
   "modified_by": "Administrator", 
   "owner": "Administrator"
  }, 
@@ -33,8 +33,6 @@
   "parenttype": "DocType", 
   "permlevel": 0, 
   "read": 1, 
-  "report": 1, 
-  "role": "Administrator", 
   "write": 1
  }, 
  {
@@ -77,6 +75,24 @@
   "read_only": 1
  }, 
  {
-  "doctype": "DocPerm"
+  "doctype": "DocPerm", 
+  "report": 1, 
+  "role": "Administrator"
+ }, 
+ {
+  "doctype": "DocPerm", 
+  "role": "Employee"
+ }, 
+ {
+  "doctype": "DocPerm", 
+  "role": "Tester"
+ }, 
+ {
+  "doctype": "DocPerm", 
+  "role": "Shift Incharge"
+ }, 
+ {
+  "doctype": "DocPerm", 
+  "role": "Lab Incharge"
  }
 ]

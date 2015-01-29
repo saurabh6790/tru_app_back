@@ -61,3 +61,8 @@ cur_frm.cscript['Calculate Ressistivity And Dissipiation'] = function() {
 }
 
 
+cur_frm.cscript.add = function(doc,cdt,cdn){
+
+  get_server_fields('add_equipment',doc.equipment_used,'',doc,cdt,cdn,1);
+  refresh_field('equipment_used_list')
+}

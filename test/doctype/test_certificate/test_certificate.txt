@@ -2,7 +2,7 @@
  {
   "creation": "2014-05-16 09:02:13", 
   "docstatus": 0, 
-  "modified": "2014-09-18 15:16:24", 
+  "modified": "2014-10-28 12:01:01", 
   "modified_by": "Administrator", 
   "owner": "Administrator"
  }, 
@@ -24,8 +24,6 @@
   "permlevel": 0
  }, 
  {
-  "amend": 0, 
-  "cancel": 1, 
   "create": 1, 
   "doctype": "DocPerm", 
   "name": "__common__", 
@@ -35,7 +33,6 @@
   "permlevel": 0, 
   "read": 1, 
   "report": 1, 
-  "role": "Administrator", 
   "submit": 1, 
   "write": 1
  }, 
@@ -183,6 +180,29 @@
   "read_only": 1
  }, 
  {
-  "doctype": "DocPerm"
+  "amend": 0, 
+  "cancel": 1, 
+  "doctype": "DocPerm", 
+  "role": "Administrator"
+ }, 
+ {
+  "cancel": 1, 
+  "doctype": "DocPerm", 
+  "role": "Shift Incharge"
+ }, 
+ {
+  "cancel": 1, 
+  "doctype": "DocPerm", 
+  "role": "Lab Incharge"
+ }, 
+ {
+  "cancel": 0, 
+  "doctype": "DocPerm", 
+  "role": "Employee"
+ }, 
+ {
+  "cancel": 0, 
+  "doctype": "DocPerm", 
+  "role": "Tester"
  }
 ]

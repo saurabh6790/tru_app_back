@@ -7,7 +7,7 @@ cur_frm.cscript.fname = "mtn_details";
 wn.require("public/app/js/controllers/stock_controller.js");
 wn.provide("erpnext.stock");
 
-cur_frm.add_fetch('client_company', 'address', 'company_address');
+//cur_frm.add_fetch('client_company', 'address', 'company_address');
 
 cur_frm.add_fetch('electronically_approved_by_1', 'first_name', 'approver_1_name');
 

@@ -96,6 +96,7 @@ cur_frm.cscript.start_session = function(doc, cdt, cdn){
 
 
 cur_frm.cscript.physical_condition_density=function(doc,cdt,cdn){
+    console.log("in physical");
     var d = locals[cdt][cdn];
     get_server_fields('get_physical_density_details',d.sample_no,'',doc,cdt,cdn,1);
 

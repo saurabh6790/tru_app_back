@@ -133,7 +133,7 @@ class DocType:
 
 
 		
-	def create_testresult(self):
+	def create_testresult(self,status):
 		for g in getlist(self.doclist,'neutralisation_test_details'):
 			if g.reported_value:
 				pgcil_limit = get_pgcil_limit(self.doc.method)

@@ -2,7 +2,7 @@
  {
   "creation": "2013-04-09 11:43:55", 
   "docstatus": 0, 
-  "modified": "2014-09-24 12:38:09", 
+  "modified": "2014-11-27 16:14:31", 
   "modified_by": "Administrator", 
   "owner": "Administrator"
  }, 
@@ -147,9 +147,8 @@
   "depends_on": "eval:(doc.internal_purpose==\"Outward\" && doc.outward_purpose==\"Client Specific\")", 
   "doctype": "DocField", 
   "fieldname": "client_company", 
-  "fieldtype": "Link", 
-  "label": "Client Company ", 
-  "options": "Company"
+  "fieldtype": "Data", 
+  "label": "Client Company "
  }, 
  {
   "depends_on": "eval:doc.purpose=='Material Transfer' && !doc.outward_register", 

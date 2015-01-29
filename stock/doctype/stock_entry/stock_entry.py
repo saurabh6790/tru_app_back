@@ -62,7 +62,7 @@ class DocType(StockController):
 		self.validate_warehouse(pro_obj)
 		self.validate_production_order(pro_obj)
 		self.get_stock_and_rate()
-		self.validate_incoming_rate()
+		#self.validate_incoming_rate()
 		self.validate_bom()
 		self.validate_finished_goods()
 		self.validate_return_reference_doc()
@@ -89,6 +89,13 @@ class DocType(StockController):
 		update_serial_nos_after_submit(self, "mtn_details")
 		self.update_production_order()
 		self.make_gl_entries()
+		#self.update_flag()
+
+
+	# def update_flag(self):
+	# 	webnotes.conn.sql("""update `tabStock Entry` set flag1=1 where name='%s' """%self.doc.name,as_list=1)
+	# 	webnotes.conn.commit()
+
 		
 
 

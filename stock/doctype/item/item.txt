@@ -2,7 +2,7 @@
  {
   "creation": "2013-05-03 10:45:46", 
   "docstatus": 0, 
-  "modified": "2014-09-09 16:29:46", 
+  "modified": "2015-01-15 15:37:36", 
   "modified_by": "Administrator", 
   "owner": "Administrator"
  }, 
@@ -208,6 +208,7 @@
   "reqd": 1
  }, 
  {
+  "default": "Work In Progress - TF", 
   "depends_on": "eval:doc.is_stock_item==\"Yes\"", 
   "description": "Mandatory if Stock Item is \"Yes\". Also the default warehouse where reserved quantity is set from Sales Order.", 
   "doctype": "DocField", 
@@ -283,12 +284,13 @@
   "doctype": "DocField", 
   "fieldname": "has_batch_no", 
   "fieldtype": "Select", 
+  "hidden": 1, 
   "label": "Has Batch No", 
   "oldfieldname": "has_batch_no", 
   "oldfieldtype": "Select", 
   "options": "Yes\nNo", 
   "read_only": 0, 
-  "reqd": 1
+  "reqd": 0
  }, 
  {
   "default": "No", 
@@ -386,6 +388,7 @@
   "doctype": "DocField", 
   "fieldname": "section_break_31", 
   "fieldtype": "Section Break", 
+  "hidden": 1, 
   "read_only": 0
  }, 
  {
@@ -682,6 +685,7 @@
   "doctype": "DocField", 
   "fieldname": "inspection_criteria", 
   "fieldtype": "Section Break", 
+  "hidden": 1, 
   "label": "Inspection Criteria", 
   "oldfieldtype": "Section Break", 
   "options": "icon-search", 

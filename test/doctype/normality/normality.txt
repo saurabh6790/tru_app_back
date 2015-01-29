@@ -2,7 +2,7 @@
  {
   "creation": "2014-05-19 15:19:08", 
   "docstatus": 0, 
-  "modified": "2014-06-13 17:02:13", 
+  "modified": "2014-10-28 11:56:16", 
   "modified_by": "Administrator", 
   "owner": "Administrator"
  }, 
@@ -173,6 +173,18 @@
   "doctype": "DocPerm", 
   "report": 1, 
   "role": "Lab Incharge", 
+  "write": 1
+ }, 
+ {
+  "cancel": 1, 
+  "doctype": "DocPerm", 
+  "role": "Employee", 
+  "write": 1
+ }, 
+ {
+  "cancel": 1, 
+  "doctype": "DocPerm", 
+  "role": "Tester", 
   "write": 1
  }
 ]

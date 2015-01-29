@@ -2,7 +2,7 @@
  {
   "creation": "2012-02-20 15:46:39", 
   "docstatus": 0, 
-  "modified": "2013-07-11 14:44:01", 
+  "modified": "2014-10-28 11:52:04", 
   "modified_by": "Administrator", 
   "owner": "Administrator"
  }, 
@@ -16,18 +16,7 @@
   "title": "Selling Home"
  }, 
  {
-  "doctype": "Page Role", 
-  "name": "__common__", 
-  "parent": "selling-home", 
-  "parentfield": "roles", 
-  "parenttype": "Page", 
-  "role": "All"
- }, 
- {
   "doctype": "Page", 
   "name": "selling-home"
- }, 
- {
-  "doctype": "Page Role"
  }
 ]
